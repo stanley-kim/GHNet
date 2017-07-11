@@ -23,7 +23,7 @@ $_tmp = db_query( "select count(*) from ".$table[$module.'s_mbr'], $DB_CONNECT )
 if ( !$_tmp ) {
 $_tmp = ("
 CREATE TABLE ".$table[$module.'s_mbr']." (
-	s_uid	INT	KEY  DEFAULT 0 	NOT NULL,
+	s_uid	INT	DEFAULT 0 	NOT NULL,
 	
 	st_id	VARCHAR(20)	DEFAULT '' NOT NULL,
 
