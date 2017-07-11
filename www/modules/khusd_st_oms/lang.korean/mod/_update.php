@@ -16,5 +16,7 @@
 		$SCORE['st_assist'] = 0;
 		$SCORE['imp_1st'] = 0;
 		$SCORE['imp_2nd'] = 0;
+		$SCORE['st_dressing'] = 0;
+		$SCORE['st_stitchout'] = 0;
 	}
 ?>

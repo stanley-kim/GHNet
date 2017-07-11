@@ -35,6 +35,8 @@
 	<th scope="col" class="split">E/R Call</th>
 	<th scope="col" class="split">ST</th>
 	<th scope="col" class="split">Assist</th>
+	<th scope="col" class="split">Dressing</th>
+	<th scope="col" class="split">Stitch out</th>
 	<th scope="col" class="split">Imp 1st</th>
 	<th scope="col" class="split">Imp 2nd</th>
 	<th scope="col">수정일</th>
@@ -60,6 +62,8 @@
 	<td><?php echo $SCORE['er_call']?></td>
 	<td class="category2"><?php echo $SCORE['st_case']?></td>
 	<td class="category2"><?php echo $SCORE['st_assist']?></td>
+	<td class="category2"><?php echo $SCORE['st_dressing']?></td>
+	<td class="category2"><?php echo $SCORE['st_stitchout']?></td>
 	<td><?php echo $SCORE['imp_1st']?></td>
 	<td><?php echo $SCORE['imp_2nd']?></td>
 

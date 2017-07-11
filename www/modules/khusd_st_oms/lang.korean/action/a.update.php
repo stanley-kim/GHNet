@@ -39,6 +39,8 @@ $st_case = intval($st_case);
 $st_assist = intval($st_assist);
 $imp_1st = intval($imp_1st);
 $imp_2nd = intval($imp_2nd);
+$st_dressing = intval($st_dressing);
+$st_stitchout = intval($st_stitchout);
 
 $date_update = $date['totime'];
 
@@ -46,7 +48,11 @@ $date_update = $date['totime'];
 $QKEY = "s_uid, st_id, charting, dressing, cp, simple_ext, surgical_ext, minor, major, fix, er_call, st_case, st_assist, imp_1st, imp_2nd, date_update";
 $QVAL = "'$s_uid', '$st_id', '$charting', '$dressing', '$cp', '$simple_ext', '$surgical_ext', '$minor', '$major', '$fix', '$er_call', '$st_case', '$st_assist', '$imp_1st', '$imp_2nd', '$date_update'";
 	
+$QKEY = "s_uid, st_id, charting, dressing, cp, simple_ext, surgical_ext, minor, major, fix, er_call, st_case, st_assist,st_dressing, st_stitchout ,  imp_1st, imp_2nd, date_update";
+$QVAL = "'$s_uid', '$st_id', '$charting', '$dressing', '$cp', '$simple_ext', '$surgical_ext', '$minor', '$major', '$fix', '$er_call', '$st_case', '$st_assist', $st_dressing, $st_stitchout  , '$imp_1st', '$imp_2nd', '$date_update'";
 getDbInsert($table[$m.'score'],$QKEY,$QVAL);
+
+ __debug_print("push func: Could not connect to server... - " . mysql_error());
 
 if(isset($n_page) && $n_page == 'home')
 {

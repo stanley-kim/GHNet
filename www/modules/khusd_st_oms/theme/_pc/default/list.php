@@ -41,6 +41,8 @@
 <!--	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'er_call', $om)?>">E/R Call</a></th>-->
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_case', $om)?>">ST</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_assist', $om)?>">Assist</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_dressing', $om)?>">Dressing</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_stitchout', $om)?>">Stitch out</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'imp_1st', $om)?>">Imp</a></th>
 <!--	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'imp_2nd', $om)?>">Imp 2nd</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_imp', $om)?>">총 Imp</a></th>-->
@@ -61,6 +63,8 @@
 <!--	<th scope="col" class="split">E/R Call</th>-->
 	<th scope="col" class="split">ST</th>
 	<th scope="col" class="split">Assist</th>
+	<th scope="col" class="split">Dressing</th>
+	<th scope="col" class="split">Stitch out</th>
 	<th scope="col" class="split">Imp</th>
 <!--	<th scope="col" class="split">Imp 2nd</th>
 	<th scope="col" class="split">총 Imp</th>-->
@@ -86,6 +90,8 @@
 <!--	<td class="avg"><?php echo sprintf("%1.1f",$AVG['er_call'])?></td>-->
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_case'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_assist'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_dressing'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_stitchout'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['imp_1st'])?></td>
 <!--	<td class="avg"><?php echo sprintf("%1.1f",$AVG['imp_2nd'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_imp'])?></td>-->
@@ -112,6 +118,8 @@
 <!--	<td><?php echo $SCORE['er_call']?></td>-->
 	<td class="category2"><?php echo $SCORE['st_case']?></td>
 	<td class="category2"><?php echo $SCORE['st_assist']?></td>
+	<td class="category2"><?php echo $SCORE['st_dressing']?></td>
+	<td class="category2"><?php echo $SCORE['st_stitchout']?></td>
 	<td><?php echo $SCORE['imp_1st']?></td>
 <!--	<td><?php echo $SCORE['imp_2nd']?></td>
 	<td><?php echo $SCORE['total_imp']?></td>-->
@@ -139,6 +147,8 @@
 <!--	<td><?php echo $SCORE['er_call']?></td>-->
 	<td class="category2"><?php echo $SCORE['st_case']?></td>
 	<td class="category2"><?php echo $SCORE['st_assist']?></td>
+	<td class="category2"><?php echo $SCORE['st_dressing']?></td>
+	<td class="category2"><?php echo $SCORE['st_stitchout']?></td>
 	<td><?php echo $SCORE['imp_1st']?></td>
 <!--	<td><?php echo $SCORE['imp_2nd']?></td>
 	<td><?php echo $SCORE['total_imp']?></td>-->

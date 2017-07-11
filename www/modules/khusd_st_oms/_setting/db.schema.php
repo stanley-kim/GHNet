@@ -25,7 +25,10 @@ CREATE TABLE `".$table[$module.'score']."` (
   `st_assist` int(4) NOT NULL default 0,
   `imp_1st` int(4) NOT NULL default 0,
   `imp_2nd` int(4) NOT NULL default 0,
-  
+
+  `st_dressing` int(4) NOT NULL default 0,
+  `st_stitchout` int(4) NOT NULL default 0,
+ 
   `date_update` varchar(14) NOT NULL default '',
   PRIMARY KEY  (`uid`),
   KEY `st_id` (`st_id`),
