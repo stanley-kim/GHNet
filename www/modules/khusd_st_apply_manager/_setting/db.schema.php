@@ -76,6 +76,7 @@ CREATE TABLE `".$table[$module.'apply_item']."` (
   `assist`	varchar(20) NOT NULL default '',
   `pt_name`	varchar(20) NOT NULL default '',
   `is_imp_cent` tinyint(1)  NOT NULL default 0,
+  `pt_id` int  NOT NULL,
   
   PRIMARY KEY  (`uid`),
   KEY `apply_info_uid` (`apply_info_uid`),
