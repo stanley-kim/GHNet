@@ -1,0 +1,200 @@
+@import url("jquery-ui-smoothness.css");
+
+.btngray {
+cursor: pointer;
+border: #666666 solid 1px;
+background: url('../image/_public/grad_gray.jpg') #B3B3B3 left bottom repeat-x;
+color: #ffffff;
+height: 21px;
+}
+.btnblue {
+cursor: pointer;
+border: #3399DD solid 1px;
+background: url('../image/_public/grad_blue.jpg') #33C9FD left bottom repeat-x;
+color: #ffffff;
+height: 21px;
+}
+
+.khusd_st {
+}
+
+.pagebreak
+{
+	page-break-before: always;
+}
+
+/* consv 출석부 */
+#cnslt_consv_table .headbox {
+	font-size: 22px;
+	font-weight: bold;
+}
+#cnslt_consv_table .table_title {
+	float: center;
+	border-bottom-style: double;
+	margin-bottom: 25px;
+}
+
+#cnslt_consv_table thead {
+	border-bottom-style: double;
+}
+
+#cnslt_consv_table thead th {
+	background: none;
+	font-size: 10px;
+	color: black;
+	border: black solid 1px;
+}
+
+#cnslt_consv_table tbody {
+}
+
+#cnslt_consv_table tbody td {
+	border: black solid 1px;
+	height: 20px;
+	font-size: 9px;
+	color: black;
+}
+
+/* pros 출석부 */
+#cnslt_pros_table .headbox {
+}
+#cnslt_pros_table .table_title {
+	float: center;
+	font-size: 18px;
+	font-weight: bold;
+
+	margin-bottom: 15px;
+}
+#cnslt_pros_table .table_subtitle {
+	float: center;
+	font-size: 15px;
+
+	margin-bottom: 10px;
+}
+
+#cnslt_pros_table thead {
+}
+
+#cnslt_pros_table thead th {
+	background: none;
+	font-size: 13px;
+	font-weight: bold;
+	
+	color: black;
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+}
+
+#cnslt_pros_table tbody td {
+	border: none;
+	height: 20px;
+	font-size: 13px;
+	color: black;
+}
+
+#cnslt_pros_table tbody {
+	border-bottom: black solid 2px;
+}
+
+#cnslt_pros_table .mid_col {
+	border-right-style: dotted;
+	border-right-width: 1px;
+}
+
+
+#cnslt_table .headbox {
+}
+
+#cnslt_table .table_title {
+	float: left;
+}
+
+#cnslt_table .table_date {
+	float: right;
+	text-align: right;
+}
+
+#cnslt_table table {
+	margin: 30px 30px 0 30px;
+	border-spacing:0px;
+	border-collapse:collapse;
+	letter-spacing:-1px;
+}
+#cnslt_table table caption {
+	font-size: 17px;
+}
+#cnslt_table thead th {padding:8px 0 8px 0;background: #8f8f8f; font-family:dotum; font-size:11px; color:#515151;}
+#cnslt_table thead .split {border-right:#dfdfdf solid 1px;}
+#cnslt_table tbody td {padding:6px 0 4px 0; text-align: center; color:#000000; font-family: arial; font-size:12px; border-bottom: #E6E6E6 solid 1px; line-height: 140%;}
+#cnslt_table tbody .timeline {
+	border-left: #E6E6E6 solid 1px;
+	border-right: #E6E6E6 solid 1px;
+	height: 55px;
+}
+
+.khusd_st table {margin:10px 0 30px 0;border-spacing:0px;border-collapse:collapse;letter-spacing:0px;}
+.khusd_st thead th {padding:8px 0 8px 0;background: #F4F4F4; font-family:dotum; font-size:11px; color:#515151;}
+.khusd_st thead .split {border-right:#dfdfdf solid 1px;}
+.khusd_st tbody td {padding:6px 0 4px 0; text-align: center; color:#888888; font-family: arial; font-size:12px; border-bottom: #E6E6E6 solid 1px; line-height: 140%;}
+.khusd_st a.highlight {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+
+/* st_schedule */
+.st_schedule td {vertical-align: top;}
+.calendar .title {text-align: center;}
+.calendar .month {font-size: 50px;}
+table.calendar {border:0 0 0 0; width:100%;}
+.calendar .navi {height: 10px; background: #6699cc;}
+.calendar .navi td {text-align: left;}
+.calendar .sun {color:red;}
+.calendar .head {height: 30px;}
+.calendar .day {background: #eeeeee;}
+.calendar .body {vertical-align: top;}
+
+.my_chair table {width: 500px;}
+.my_chair .head {background: #ebd9d9; font-weight: bold;}
+
+/* update */
+.khusd_st .update {
+width: 100%;
+text-align: center;
+}
+.khusd_st .bottombox {
+text-align: center;
+padding: 20px 0 20px 0;
+margin: 15px 0 0 0;
+border-top: #efefef solid 1px;
+}
+
+.khusd_st .bottombox .btngray {
+font-weight: bold;
+width: 60px;
+height: 25px;
+}
+.khusd_st .bottombox .btnblue {
+font-weight: bold;
+width: 80px;
+height: 25px;
+}
+
+/* list */
+.#cnslt_table .mine {
+background: #EBE1E1;
+}
+
+#cnslt_table td.category1 {
+background: #c7c7c7;
+}
+.khusd_st td.category2 {
+background: #F0F8FF;
+}
+.khusd_st td.category3 {
+background: #F5FFFA;
+}
+.khusd_st td.category4 {
+background: #FFFFE0;
+}

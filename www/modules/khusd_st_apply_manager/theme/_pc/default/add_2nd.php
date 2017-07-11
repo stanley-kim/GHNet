@@ -1,0 +1,1 @@
+<?php include_once $g['dir_module_skin'].'add.php'?>

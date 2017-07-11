@@ -1,0 +1,109 @@
+.btngray {
+cursor: pointer;
+border: #666666 solid 1px;
+background: url('../image/_public/grad_gray.jpg') #B3B3B3 left bottom repeat-x;
+color: #ffffff;
+height: 21px;
+}
+.btnblue {
+cursor: pointer;
+border: #3399DD solid 1px;
+background: url('../image/_public/grad_blue.jpg') #33C9FD left bottom repeat-x;
+color: #ffffff;
+height: 21px;
+}
+
+.khusd_st {
+}
+
+.khusd_st table {margin:10px 0 30px 0;border-spacing:0px;border-collapse:collapse;letter-spacing:0px;}
+.khusd_st thead th {margin:1px 1px 1px 1px;border-bottom:#EBD9D9 solid 1px;padding:3px 0 3px 0;background: #F4F4F4; font-family:dotum; font-size:11px; color:#515151;}
+.khusd_st thead .split {border-right:#dfdfdf solid 1px;}
+.khusd_st tbody td {padding:6px 0 4px 0; text-align: center; color:#888888; font-family: arial; font-size:12px; border-bottom: #E6E6E6 solid 1px; line-height: 140%;}
+.khusd_st tbody td.head {text-align: center;}
+.khusd_st tbody td.input {text-align: left; }
+
+/* history */
+#consv_history .pagebox01 {
+text-align: center;
+padding: 3px 0 0 0;
+margin: -20px 0 0 0;
+}
+
+/* update */
+.khusd_st .update {
+width: 100%;
+text-align: center;
+}
+.update .num {
+	width: 30px;
+}
+.update span.sub {
+	width: 200px;
+}
+.khusd_st .bottombox {
+text-align: center;
+padding: 20px 0 20px 0;
+margin: 15px 0 0 0;
+border-top: #efefef solid 1px;
+}
+
+.khusd_st .bottombox .btngray {
+font-weight: bold;
+width: 60px;
+height: 25px;
+}
+.khusd_st .bottombox .btnblue {
+font-weight: bold;
+width: 80px;
+height: 25px;
+}
+
+/* list */
+.khusd_st .avg {
+	font-weight: bold;
+}
+
+.khusd_st .mine {
+background: #EBE1E1;
+}
+
+.khusd_st th.category1 {
+background: #DBD9D9;
+}
+.khusd_st th.category2 {
+background: #DDDDDD;
+}
+.khusd_st th.category3 {
+background: #EDEDED;
+}
+.khusd_st th.category4 {
+background: #EDFFFF;
+}
+.khusd_st th.category4 {
+background: #DEFFFF;
+}
+
+.khusd_st td.category1 {
+background: #FDF5E6;
+}
+.khusd_st td.category2 {
+background: #F0F8FF;
+}
+.khusd_st td.category3 {
+background: #F5FFFA;
+}
+.khusd_st td.category4 {
+background: #FFFFE0;
+}
+
+.khusd_st progress {
+	width: 100%;
+}
+
+/* op_list */
+.khusd_st td.date {
+	text-align: left;
+	padding-left: 30px;
+	background: #FFFFE0;
+}

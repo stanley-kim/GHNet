@@ -1,0 +1,1 @@
+<div style="text-align:center">모바일 모드에서는 지원하지 않습니다. PC모드를 이용하세요~</div>

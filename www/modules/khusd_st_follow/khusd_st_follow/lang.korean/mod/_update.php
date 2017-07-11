@@ -1,0 +1,13 @@
+<?php
+	// 기존 정보 불러오기
+	$SCORE_ROWS = getDbArray($table[$m.'score'],"s_uid = '".$s_uid."' AND st_id='".$my['id']."'", '*', 'date_update', 'desc', 1, 1);
+	$SCORE = db_fetch_array($SCORE_ROWS);
+	
+	if(!$SCORE['uid']) {
+		$SCORE['obser'] = 0;
+		$SCORE['obser_pt'] = 0;
+		$SCORE['follow'] = 0;
+		$SCORE['follow_pt'] = 0;
+		$SCORE['follow_report'] = 0;
+	}
+?>

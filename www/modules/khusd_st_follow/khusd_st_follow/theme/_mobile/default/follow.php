@@ -1,0 +1,271 @@
+<div id="ortho_follow" class="khusd_st follow ortho">
+
+<h2>교정과 F/U 환자 관리</h2>
+
+	<?php if($MY_FOLLOW_ARRAY && is_array($MY_FOLLOW_ARRAY) && count($MY_FOLLOW_ARRAY) > 0):?>
+	<div id="follow_list">
+		<table>
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th>환자명</th>
+					<th>병록번호</th>
+					<th>팔로우 상태</th>
+					<th>진료실 번호</th>
+					<th>담당교수님</th>
+					<th>담당의(수련의)</th>
+					<th>업데이트 날짜</th>
+					<th>포기</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php $idx = 1?>
+				<?php foreach($MY_FOLLOW_ARRAY as $MY_FOLLOW):?>
+				<tr>
+					<td><?php echo $idx++?></td>
+					<td><a href="<?php echo $g['khusd_st_ortho_search_follow'].$MY_FOLLOW['pt_id']?>"><?php echo $MY_FOLLOW['pt_name']?></a></td>
+					<td><a href="<?php echo $g['khusd_st_ortho_search_follow'].$MY_FOLLOW['pt_id']?>"><?php echo $MY_FOLLOW['pt_id']?></a></td>
+					<td>
+						<?php if($MY_FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW']['NEW_FOLLOWING']):?>
+						신환 팔로 중
+						<?php elseif($MY_FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW']['FOLLOWING']):?>
+						구환 팔로 중
+						<?php else:?>
+						팔로 중단
+						<?php endif?>
+					</td>
+					<td><?php echo $MY_FOLLOW['dr_room']?></td>
+					<td><?php echo $MY_FOLLOW['pf_name']?></td>
+					<td><?php echo $MY_FOLLOW['dr_name']?></td>
+					<td><?php echo getDateFormat($MY_FOLLOW['date_update'], 'Y-m-d H:i')?></td>
+					<td>
+						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW']['DROP']):?>
+						<span class="btn00"><a href="<?php echo $g['khusd_st_ortho_drop_follow'].$MY_FOLLOW['uid']?>">포기하기</a></span>
+						<?php endif?>
+					</td>
+				</tr>
+				<?php endforeach?>
+			</tbody>
+		</table>
+	</div>
+	<?php endif?>
+
+	<form name="searchFollow" method="get" action="<?php echo $g['s']?>/" onsubmit="return updateCheck(this);">
+	<input type="hidden" name="r" value="<?php echo $r?>" />
+	<input type="hidden" name="c" value="<?php echo $c?>" />
+	<input type="hidden" name="m" value="<?php echo $m?>" />
+	<input type="hidden" name="mode" value="follow" />
+	
+	<div id="searchFollow">
+		환자명 혹은 병록번호 : <input type="text" name="nameOrId" maxlength="20" class="input" value="<?php echo $nameOrId?>">
+		<input type="submit" value="검색" class="btnblue" />
+	</div>
+	</form>
+	
+	<div id="followList">
+		<?php if(isset($nameOrId) && $nameOrId):?>
+		<p><?php echo $nameOrId?> 님에 대한 검색 결과 : </p>
+		<?php endif?>
+		
+		<?php if(isset($nameOrId) && $nameOrId && $nameOrId != '' && !$FOLLOW_PT):?>
+			해당 환자는 F/U 목록에 없습니다. 등록하시겠습니까?
+			<form name="addFollow" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>" onsubmit="return updateCheck(this);">
+			<input type="hidden" name="r" value="<?php echo $r?>" />
+			<input type="hidden" name="a" value="add_follow" />
+			<input type="hidden" name="c" value="<?php echo $c?>" />
+			<input type="hidden" name="m" value="<?php echo $m?>" />
+			
+			<input type="hidden" name="st_id" value="<?php echo $my['id']?>" />
+			<div id="ptInfoInput">
+				<p>
+					이름 : <input type="text" name="pt_name"  class="input" value="<?php echo $nameOrId?>" />
+				</p>
+				<p>
+					병록번호 : <input type="text" name="pt_id" class="input" value="<?php echo $nameOrId?>" />
+				</p>
+				<p>
+					진료실 번호 : 
+					<select name="dr_room" class="input">
+						<option value="1">1번방</option>
+						<option value="2">2번방</option>
+						<option value="3">3번방</option>
+						<option value="5">5번방</option>
+						<option value="7">7번방</option>
+					</select>
+				</p>
+				<p>
+					담당교수님(이름 세자만) : 
+					<input type="text" name="pf_name" class="input" />
+				</p>
+				<p>
+					담당의(수련의) : 
+					<input type="text" name="dr_name" class="input" />
+				</p>
+				<p>
+				신환이면 체크 : <input type="checkbox" name="new_pt" />
+				</p>
+			
+				<input type="submit" value="등록" class="btnblue" />
+			</div>
+			</form>
+			
+		<?php elseif($FOLLOW_PT):?>
+		
+			<div id="add_follow">
+			
+			<p><b>동명 이인이 검색된 경우, 병록번호로 검색하여 팔로 환자를 추가하세요.</b></p>
+
+			</div>
+		
+			<?php if(!$ABLE_FOLLOW):?>
+			<form name="editFollowPt" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>" onsubmit="return updateCheck(this);">
+			<input type="hidden" name="r" value="<?php echo $r?>" />
+			<input type="hidden" name="a" value="edit_follow" />
+			<input type="hidden" name="c" value="<?php echo $c?>" />
+			<input type="hidden" name="m" value="<?php echo $m?>" />
+			
+			<input type="hidden" name="st_id" value="<?php echo $my['id']?>" />
+			<input type="hidden" name="pt_id" value="<?php echo $FOLLOW_PT['pt_id']?>" />
+			<?php endif?>
+			<table>
+				<tr>
+					<td>환자명</td>
+					<td>
+						<?php if(!$ABLE_FOLLOW):?>
+						<input type="text" name="pt_name" value="<?php echo $FOLLOW_PT['pt_name']?>" />
+						<?php else:?>
+						<?php echo $FOLLOW_PT['pt_name']?>
+						<?php endif?>
+					</td>
+				</tr>
+				<tr>
+					<td>병록번호</td>
+					<td>
+						<?php echo $FOLLOW_PT['pt_id']?>
+					</td>
+				</tr>
+				<tr>
+					<td>진료실 번호</td>
+					<td>
+						<?php if(!$ABLE_FOLLOW):?>
+						<select name="dr_room" class="input">
+							<option value="1"<?php if($FOLLOW_PT['dr_room'] == 1):?> selected<?php endif?>>1번방</option>
+							<option value="2"<?php if($FOLLOW_PT['dr_room'] == 2):?> selected<?php endif?>>2번방</option>
+							<option value="3"<?php if($FOLLOW_PT['dr_room'] == 3):?> selected<?php endif?>>3번방</option>
+							<option value="5"<?php if($FOLLOW_PT['dr_room'] == 5):?> selected<?php endif?>>5번방</option>
+							<option value="7"<?php if($FOLLOW_PT['dr_room'] == 7):?> selected<?php endif?>>7번방</option>
+						</select>
+						<?php else:?>
+						<?php echo $FOLLOW_PT['dr_room']?>번방
+						<?php endif?>
+					</td>
+				</tr>
+				<tr>
+					<td>담당교수님(이름 세자만)</td>
+					<td>
+						<?php if(!$ABLE_FOLLOW):?>
+						<input type="text" name="pf_name" value="<?php echo $FOLLOW_PT['pf_name']?>" />
+						<?php else:?>
+						<?php echo $FOLLOW_PT['pf_name']?>
+						<?php endif?>
+					</td>
+				</tr>
+				<tr>
+					<td>담당의(수련의)</td>
+					<td>
+						<?php if(!$ABLE_FOLLOW):?>
+						<input type="text" name="dr_name" value="<?php echo $FOLLOW_PT['dr_name']?>" />
+						<?php else:?>
+						<?php echo $FOLLOW_PT['dr_name']?>
+						<?php endif?>
+					</td>
+				</tr>
+				<?php if(!$ABLE_FOLLOW):?>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="수정" class="btnblue" />
+					</td>
+				</tr>
+				<?php else:?>
+				<form name="addFollow" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>" onsubmit="return updateCheck(this);">
+				<tr>
+					<input type="hidden" name="r" value="<?php echo $r?>" />
+					<input type="hidden" name="a" value="add_follow" />
+					<input type="hidden" name="c" value="<?php echo $c?>" />
+					<input type="hidden" name="m" value="<?php echo $m?>" />
+					
+					<input type="hidden" name="st_id" value="<?php echo $my['id']?>" />
+					<input type="hidden" name="pt_name"  class="input" value="<?php echo $FOLLOW_PT['pt_name']?>" />
+					<input type="hidden" name="pt_id" class="input" value="<?php echo $FOLLOW_PT['pt_id']?>" />
+		
+					<input type="hidden" name="dr_room" class="input" value="<?php echo $FOLLOW_PT['dr_room']?>" />
+					<input type="hidden" name="pf_name" class="input" value="<?php echo $FOLLOW_PT['pf_name']?>" />
+					<input type="hidden" name="dr_name" class="input" value="<?php echo $FOLLOW_PT['dr_name']?>" />
+
+					<td>신환이면 체크</td>
+					<td>
+						<input type="checkbox" name="new_pt" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="팔로우 추가" class="btnblue" />
+					</td>
+				</tr>
+				</form>
+				<?php endif?>
+			</table>
+			<?php if(!$ABLE_FOLLOW):?>
+			</form>
+			<?php endif?>
+			
+			<span id="pt_name"><?php echo $FOLLOW_PT['pt_name']?></span>
+			<span id="pt_id"><?php echo $FOLLOW_PT['pt_id']?></span>
+			<span id="status">
+				<?php if($FOLLOW_PT['status'] == $d['khusd_st_ortho']['FOLLOW_PT']['FOLLOWING']):?>
+				팔로 있음
+				<?php else:?>
+				팔로 없음!!!
+				<?php endif?>
+			</span>
+			
+			<?php if($FOLLOW_ARRAY):?>
+				<table>
+				<thead>
+					<tr>
+						<th>번호</th>
+						<th>학번</th>
+						<th>이름</th>
+						<th>상태</th>
+						<th>업데이트 날짜</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<?php $idx = 1?>
+					<?php foreach($FOLLOW_ARRAY as $FOLLOW):?>
+					<tr>
+						<td><?php echo $idx++?></td>
+						<td><?php echo $FOLLOW['st_id']?></td>
+						<td><?php echo $FOLLOW['st_name']?></td>
+						<td>
+							<?php if($FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW']['NEW_FOLLOWING']):?>
+							신환 팔로 중
+							<?php elseif($FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW']['FOLLOWING']):?>
+							구환 팔로 중
+							<?php else:?>
+							팔로 중단
+							<?php endif?>
+						</td>
+						<td><?php echo getDateFormat($FOLLOW['date_update'], 'Y-m-d H:i')?></td>
+					</tr>
+					<?php endforeach?>
+				</tbody>
+				</table>
+			<?php else:?>
+			<?php endif?>
+		
+		<?php endif?>
+	</div>
+
+</div>
