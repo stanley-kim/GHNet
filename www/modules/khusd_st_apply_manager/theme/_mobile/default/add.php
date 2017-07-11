@@ -32,7 +32,7 @@
 				<input type="text" id="start_date" name="start_date" class="input date" />
 				<input type="number" name="start_hour" class="input time" value="<?php if(strlen($APPLY_INFO['date_start'])>0) echo substr($APPLY_INFO['date_start'], 8, 2)?>" />시
 				<input type="number" name="start_min" class="input time" value="<?php if(strlen($APPLY_INFO['date_start'])>0) echo substr($APPLY_INFO['date_start'], 10, 2)?>" />분
-				<span class="help">24시간 표시방식으로 입력 (ex. 22시 30분)</span>
+				<span class="help">24시간 표시방식으로 입력 (ex. 20170705 22시 30분)</span>
 			</td>
 		</tr>
 		<tr>
@@ -41,7 +41,7 @@
 				<input type="text" id="end_date" name="end_date" class="input date" />
 				<input type="number" name="end_hour" class="input time" value="<?php if(strlen($APPLY_INFO['date_end'])>0) echo substr($APPLY_INFO['date_end'], 8, 2)?>" />시
 				<input type="number" name="end_min" class="input time" value="<?php if(strlen($APPLY_INFO['date_end'])>0) echo substr($APPLY_INFO['date_end'], 10, 2)?>" />분
-				<span class="help">24시간 표시방식으로 입력 (ex. 22시 30분)</span>
+				<span class="help">24시간 표시방식으로 입력 (ex. 20170705 22시 30분)</span>
 			</td>
 		</tr>
 		<tr>

@@ -8,12 +8,12 @@
 		<div class="clear"></div>
 	</div>
 	<div class="apply_links">
-			<a href="/?c=3/6">구강검진</a> |
-			<a href="/?c=13/68">치주과</a> |
-			<a href="/?c=16/36">보존OP</a> |
-			<a href="/?c=16/37">보존ENDO</a> |
-			<a href="/?c=17/43">보철</a> |
-			<a href="/?c=15/32">소아치과</a>
+			<a href="/?c=2/14">구강검진</a> |
+			<a href="/?c=21/83">치주과</a> |
+			<a href="/?c=24/43">보존OP</a> |
+			<a href="/?c=24/44">보존ENDO</a> |
+			<a href="/?c=25/50">보철</a> |
+			<a href="/?c=23/39">소아치과</a>
 	</div>
 	<style>
 		.apply_links{text-align:center;}

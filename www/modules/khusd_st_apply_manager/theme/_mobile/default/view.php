@@ -54,9 +54,9 @@
 		<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN'] && ($MANAGER || $APPLY_INFO['st_id'] == $my['id'])):?>
 		<span class="btn00">
 			<?php if($APPLY_INFO['apply_type'] == 'rand'):?>
-			<a href="<?php echo $g['apply_info_select_random'].$APPLY_INFO['uid']?>" onclick="return confirm('마갑하시겠습니까?');">마감하기</a>
+			<a href="<?php echo $g['apply_info_select_random'].$APPLY_INFO['uid']?>" onclick="return confirm('마감하시겠습니까?');">마감하기</a>
 			<?php elseif($APPLY_INFO['apply_type'] == 'fcfs'):?>
-			<a href="<?php echo $g['apply_info_select_fcfs'].$APPLY_INFO['uid']?>" onclick="return confirm('마갑하시겠습니까?');">마감하기</a>
+			<a href="<?php echo $g['apply_info_select_fcfs'].$APPLY_INFO['uid']?>" onclick="return confirm('마감하시겠습니까?');">마감하기</a>
 			<?php endif?>
 		</span>
 		<?php endif?>

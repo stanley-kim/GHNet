@@ -22,7 +22,7 @@
 				<input type="text" id="start_date" name="start_date" />
 				<input type="text" name="start_hour" />시
 				<input type="text" name="start_min" />분
-				<span class="help">24시간 표시방식으로 입력 (ex. 22시 30분)</span>
+				<span class="help">24시간 표시방식으로 입력 (ex. 20170705 22시 30분)</span>
 			</td>
 		</tr>
 		<tr>
