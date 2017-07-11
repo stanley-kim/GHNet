@@ -38,6 +38,7 @@ CREATE TABLE `".$table[$module.'score']."` (
   `perio_report` int(4) NOT NULL default '0',
   `imp1_report` int(4) NOT NULL default '0',
   `imp2_report` int(4) NOT NULL default '0',
+  `animal_exp` int(4) NOT NULL default '0',
   PRIMARY KEY  (`uid`),
   KEY `st_id` (`st_id`),
   KEY `is_goal` (`is_goal`),

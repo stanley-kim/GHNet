@@ -134,7 +134,7 @@
 		<td><input type="number" name="abandon" maxlength="5" class="input" value="<?php echo $SCORE['abandon']?>">점</td>
 		</tr>-->
 		<tr>
-		<td class="head">Scaling</td>
+		<td class="head">SC,CU,RP,PR</td>
 		<td><input type="number" name="scaling" maxlength="5" class="input" value="<?php echo $SCORE['sc']?>">회</td>
 		</tr>
 <!--		<tr>
