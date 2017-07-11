@@ -21,7 +21,7 @@ function go_current(){
 					<th>담당교수님</th>
 					<th>담당의(수련의)</th>
 					<th>단계</th>
-					<th>분석/파브리/레포트</th>
+					<th>분석/레포트/파브리</th>
 					<th>업데이트 날짜</th>
 				</tr>
 			</thead>
@@ -49,7 +49,7 @@ function go_current(){
 					<td><?php echo $MY_FOLLOW['pf_name']?></td>
 					<td><?php echo $MY_FOLLOW['dr_name']?></td>
 					<td><?php echo $MY_FOLLOW['step']?>회</td>
-					<td><?php if($MY_FOLLOW['report']) echo '완료'; ?></td>
+					<td><?php if($MY_FOLLOW['bool_analysis']) echo '완료'; ?>/ <?php if($MY_FOLLOW['report']) echo '완료'; ?>/ <?php if($MY_FOLLOW['bool_fabri']) echo '완료'; ?> </td>
 					<td><?php echo getDateFormat($MY_FOLLOW['date_update'], 'Y-m-d H:i')?></td>
 				</tr>
 				<?php endforeach?>
@@ -82,7 +82,7 @@ function check_previous(){
 					<th>담당교수님</th>
 					<th>담당의(수련의)</th>
 					<th>단계</th>
-					<th>분석/파브리/레포트</th>
+					<th>분석/레포트/파브리</th>
 					<th>업데이트 날짜</th>
 					<th>관리</th>
 				</tr>
@@ -111,7 +111,8 @@ function check_previous(){
 					<td><?php echo $MY_FOLLOW['pf_name']?></td>
 					<td><?php echo $MY_FOLLOW['dr_name']?></td>
 					<td><?php echo $MY_FOLLOW['step']?>회</td>
-					<td><?php if($MY_FOLLOW['report']) echo '완료'; ?></td>
+
+					<td><?php if($MY_FOLLOW['bool_analysis']) echo '완료'; ?>/ <?php if($MY_FOLLOW['report']) echo '완료'; ?>/ <?php if($MY_FOLLOW['bool_fabri']) echo '완료'; ?> </td>
 					<td><?php echo getDateFormat($MY_FOLLOW['date_update'], 'Y-m-d H:i')?></td>
 					<td>
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['DROP']):?>

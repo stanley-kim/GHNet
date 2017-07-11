@@ -63,11 +63,13 @@
 		<td colspan="8">*주의: <b style="text-decoration: underline;color:blue;">신환 F/U 분석 상담</b>은 횟수에 포함되지 않습니다.</td>
 		</tr>
 		<tr class="sub_head">
-			<td>신/구</td>
-			<td>병록번호</td>
-			<td>이름</td>
-			<td>분석/Report/Fabri</td>
-			<td>옵져</td>
+			<td width="15%">신/구</td>
+			<td width="15%">병록번호</td>
+			<td width="15%">이름</td>
+			<td width="15%">분석</td>
+			<td width="15%">Report</td>
+			<td width="15%">Fabri</td>
+			<td width="15%">옵져</td>
 		</tr>
 		<?php
 			$follow_cnt = 0;
@@ -85,7 +87,9 @@
 				<?php endif?>
 				<td><?php echo $_ROW['pt_id']?></td>
 				<td><?php echo $_ROW['pt_name']?></td>
+				<td><input type="checkbox" name="bool_analysis[]" value="<?php echo $follow_cnt?>" <?php echo $_ROW['bool_analysis']==0?'':checked?>></td>
 				<td><input type="checkbox" name="report[]" value="<?php echo $follow_cnt?>" <?php echo $_ROW['report']==0?'':checked?>></td>
+				<td><input type="checkbox" name="bool_fabri[]" value="<?php echo $follow_cnt?>" <?php echo $_ROW['bool_fabri']==0?'':checked?>></td>
 				<td><input type="number" name="fobser[]" maxlength="2" class="input" value="<?php echo $_ROW['step']?>"> 회</td>
 			</tr>
 			<?php $follow_cnt++;?>

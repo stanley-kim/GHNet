@@ -68,6 +68,14 @@ for($i=0; $i<count($_POST['report']); $i++) {
 	$temp = intval($_POST['report'][$i]);
 	$freport[$temp] = 1;
 }
+for($i=0; $i<count($_POST['bool_analysis']); $i++) {
+	$temp = intval($_POST['bool_analysis'][$i]);
+	$fbool_analysis[$temp] = 1;
+}
+for($i=0; $i<count($_POST['bool_fabri']); $i++) {
+	$temp = intval($_POST['bool_fabri'][$i]);
+	$fbool_fabri[$temp] = 1;
+}
 
 // Obser score calculation // As of ss 2015, no more observation
 //단순 옵저
@@ -84,8 +92,11 @@ __debug_print("SCORES: REPORT=".$d['khusd_st_ortho']['score']['follow_report']);
 for($i=0; $i<count($_POST['fobser']); $i++) {
 	$follow_list[$i] = intval($follow_list[$i]);
 	if(!$freport[$i]) $freport[$i] = 0;
+	if(!$fbool_analysis[$i]) $fbool_analysis[$i] = 0;
+	if(!$fbool_fabri[$i]) $fbool_fabri[$i] = 0;
 	$fobser[$i] = intval($_POST['fobser'][$i]);
 	
+	__debug_print("UID: ".$follow_list[$i].",ANALYSIS: ".$fbool_analysis[$i].", REPORT: ".$freport[$i].", FABRI(BOOL):".$fbool_fabri[$i].",FOBSER: ".$fobser[$i]);
 	//__debug_print("UID: ".$follow_list[$i].", REPORT: ".$freport[$i].", FOBSER: ".$fobser[$i]);
 	
 	if($i < $follow_new_cnt) {
@@ -128,6 +139,7 @@ for($i=0; $i<count($_POST['fobser']); $i++) {
 	
 	// UPDATE FOLLOW TABLE INFORMATION
 	$_set = "step='".$fobser[$i]."', report='".$freport[$i]."', date_update='".$date_update."'";
+	$_set = "step='".$fobser[$i]."', bool_analysis='".$fbool_analysis[$i]."', bool_fabri='".$fbool_fabri[$i]."', report='".$freport[$i]."', date_update='".$date_update."'";
 	$_where = "uid='".$follow_list[$i]."'";
 	
 	//__debug_print("UPDATE $table[$m.'follow'] SET $_set WHERE $_where");

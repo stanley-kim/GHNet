@@ -78,6 +78,8 @@ CREATE TABLE `".$table[$module.'follow']."` (
 
   `type` tinyint(1) default '0',
   `step` int(1) default '0',
+  `bool_analysis` tinyint(1) default '0',
+  `bool_fabri` tinyint(1) default '0',
   `report` tinyint(1) default '0',
 
   PRIMARY KEY  (`uid`),
