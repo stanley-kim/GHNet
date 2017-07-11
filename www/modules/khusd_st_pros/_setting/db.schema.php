@@ -63,7 +63,18 @@ CREATE TABLE `".$table[$module.'score']."` (
 
   `st_post`		int(4) NOT NULL default 0,
   `st_assist`	int(4) NOT NULL default 0,
+
  
+  `second_cr_prev`	int(4) NOT NULL default 0,
+  `post_core_prev`	int(4) NOT NULL default 0,
+  `imp_cr_br_prev`	int(4) NOT NULL default 0,
+  `single_cr_prev`	int(4) NOT NULL default 0,
+  `br_prev`	int(4) NOT NULL default 0,
+  `partial_denture_prev`	int(4) NOT NULL default 0,
+  `complete_denture_prev`	int(4) NOT NULL default 0,
+  `others_prev`	int(4) NOT NULL default 0,
+  `st_score`	int(4) NOT NULL default 0,
+
   `date_update` varchar(14) NOT NULL default '',
   PRIMARY KEY  (`uid`),
   KEY `st_id` (`st_id`),
