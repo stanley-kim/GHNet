@@ -19,6 +19,8 @@ CREATE TABLE `".$table[$module.'score']."` (
 
   `penalty_taking` int(4) NOT NULL default 0,
 
+  `obser_decoding` int(4) NOT NULL default 0,
+  `obser_filming` int(4) NOT NULL default 0,
   
   `date_update` varchar(14) NOT NULL default '',
   PRIMARY KEY  (`uid`),

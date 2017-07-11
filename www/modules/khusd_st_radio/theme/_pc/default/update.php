@@ -35,8 +35,13 @@
 		<td class="input"><input type="number" name="taking" maxlength="5" class="input num" value="<?php echo $SCORE['taking']?>">장 (환자수: <input type="number" name="taking_pt" maxlength="5" class="input num" value="<?php echo $SCORE['taking_pt']?>">명, 이번학기 require 환자수만 입력)</td>
 		</tr>
 		<tr>
-		<td class="head">Follow</td>
-		<td class="input"><input type="number" name="follow" maxlength="5" class="input num" value="<?php echo $SCORE['follow']?>">회</td>
+		<td class="head">판독옵져</td>
+		<td class="input"><input type="number" name="obser_decoding" maxlength="5" class="input num" value="<?php echo $SCORE['obser_decoding']?>">회</td>
+		</tr>
+		<tr>
+		<td class="head">촬영옵져</td>
+		<td class="input"><input type="number" name="obser_filming" maxlength="5" class="input num" value="<?php echo $SCORE['obser_filming']?>">회</td>
+
 		</tr>
 		<tr>
 		<td class="head">파노라마</td>

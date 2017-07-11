@@ -29,6 +29,8 @@ $s_uid 		= $SEMESTER_INFO['uid'];
 $taking		= intval($taking);
 $taking_pt	= intval($taking_pt);
 $follow 	= intval($follow);
+$obser_decofing	= intval($obser_decoding);
+$obser_filming 	= intval($obser_filming);
 $panorama	= intval($panorama);
 
 $penalty_taking		= intval($penalty_taking);
@@ -36,8 +38,8 @@ $penalty_taking		= intval($penalty_taking);
 $date_update = $date['totime'];
 
 // 입력한 데이터로 query 생성
-$QKEY = "s_uid, st_id, taking, taking_pt, follow, panorama, penalty_taking, date_update";
-$QVAL = "'$s_uid', '$st_id', '$taking', '$taking_pt', '$follow', '$panorama', '$penalty_taking', '$date_update'";
+$QKEY = "s_uid, st_id, taking, taking_pt, follow,obser_decoding ,obser_filming  , panorama, penalty_taking, date_update";
+$QVAL = "'$s_uid', '$st_id', '$taking', '$taking_pt', '$follow', '$obser_decoding'   ,  '$obser_filming'  , '$panorama', '$penalty_taking', '$date_update'";
 	
 getDbInsert($table[$m.'score'],$QKEY,$QVAL);
 

@@ -8,6 +8,8 @@
 		$SCORE['taking'] = 0;
 		$SCORE['taking_pt'] = 0;
 		$SCORE['follow'] = 0;
+		$SCORE['obser_decoding'] = 0;
+		$SCORE['obser_filming'] = 0;
 		$SCORE['panorama'] = 0;
 	}
 ?>

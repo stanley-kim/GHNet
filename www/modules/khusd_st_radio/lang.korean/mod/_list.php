@@ -107,6 +107,6 @@
 		.' AND sc.st_id = sc_j.st_id'
 		.' AND mbrid.uid = mbrdata.memberuid'
 		.' AND mbrid.id = sc.st_id';
-	$_data1 = '0 AS penalty_require, AVG(penalty_taking) AS penalty_taking, AVG(taking) AS taking, AVG(taking_pt) AS taking_pt, AVG(follow) AS follow, AVG(panorama) AS panorama, 1 AS is_penalty_complete';
+	$_data1 = '0 AS penalty_require, AVG(penalty_taking) AS penalty_taking, AVG(taking) AS taking, AVG(taking_pt) AS taking_pt, AVG(follow) AS follow, AVG(obser_decoding) AS obser_decoding , AVG(obser_filming) AS obser_filming ,AVG(panorama) AS panorama, 1 AS is_penalty_complete';
 	$AVG = getDbData($_table1, $_where1, $_data1);
 ?>
