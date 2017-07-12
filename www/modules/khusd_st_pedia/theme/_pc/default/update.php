@@ -97,10 +97,6 @@
 		<td class="head">Clinical Report</td>
 		<td class="input"><input type="number" name="clinical_rp" maxlength="5" class="input num" value="<?php echo $SCORE['clinical_rp']?>">회</td>
 		</tr>
-		<tr>
-		<td class="head">기공 (BLSM)</td>
-		<td class="input"><input type="number" name="blsm" maxlength="5" class="input num" value="<?php echo $SCORE['blsm']?>">회</td>
-		</tr>
 
 		<tr>
 			<td class="title" colspan=2>ST Case</td>

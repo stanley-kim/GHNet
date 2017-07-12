@@ -20,7 +20,6 @@
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
-	<col width="50"> 
 <!--	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
@@ -42,7 +41,6 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'ga', $om)?>">G/A</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'sedation_rp', $om)?>">Sedation 레폿</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'clinical_rp', $om)?>">Clinical 레폿</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'blsm', $om)?>">기공</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_obser', $om)?>">Charting Obser</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'obser_score', $om)?>">Obser 점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_pt', $om)?>">ST 환자수</a></th>
@@ -64,13 +62,12 @@
 	<th scope="col" class="split">Follow 점수</th>
 	<th scope="col" class="split">Obser</th>
 	<th scope="col" class="split">G/A</th>
-	<th scope="col" class="split">Sedatain 레폿</th>
-	<th scope="col" class="split">기공</th>
+	<th scope="col" class="split">Sedation 레폿</th>
 	<th scope="col" class="split">Charting Obser</th>
 	<th scope="col" class="split">Obser 점수</th>
 	<th scope="col" class="split">ST 환자수</th>
-	<th scope="col" class="split">ST 수ㄹ시ㄱ 점수</th>
-	<th scope="col" class="split">ST assist(호ㅣ)</th>
+	<th scope="col" class="split">ST 술식점수</th>
+	<th scope="col" class="split">ST assist(회)</th>
 	<th scope="col" class="split">ST 점수</th>
 <!--	<th scope="col" class="split">Obser 점수</th>
 	<th scope="col" class="split">ST 점수</th>
@@ -94,7 +91,6 @@
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['ga'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['sedation_rp'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['clinical_rp'])?></td>
-	<td class="avg"><?php echo sprintf("%1.1f",$AVG['blsm'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_obser'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['obser_score'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_pt'])?></td>
@@ -124,7 +120,6 @@
 	<td><?php echo $SCORE['ga']?></td>
 	<td><?php echo $SCORE['sedation_rp']?></td>
 	<td><?php echo $SCORE['clinical_rp']?></td>
-	<td><?php echo $SCORE['blsm']?></td>
 	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	<td><?php echo $SCORE['st_pt']?></td>
@@ -154,7 +149,6 @@
 	<td><?php echo $SCORE['ga']?></td>
 	<td><?php echo $SCORE['sedation_rp']?></td>
 	<td><?php echo $SCORE['clinical_rp']?></td>
-	<td><?php echo $SCORE['blsm']?></td>
 	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	<td><?php echo $SCORE['st_pt']?></td>
@@ -185,7 +179,6 @@
 	<td><?php echo $SCORE['ga']?></td>
 	<td><?php echo $SCORE['sedation_rp']?></td>
 	<td><?php echo $SCORE['clinical_rp']?></td>
-	<td><?php echo $SCORE['blsm']?></td>
 	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	<td><?php echo $SCORE['st_pt']?></td>

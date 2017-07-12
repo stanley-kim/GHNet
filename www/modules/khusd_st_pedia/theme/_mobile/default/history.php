@@ -15,7 +15,6 @@
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
-	<col width="50"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -28,9 +27,8 @@
 	<th scope="col" class="split">Follow 점수</th>
 	<th scope="col" class="split">Obser</th>
 	<th scope="col" class="split">G/A</th>
-	<th scope="col" class="split">Sedatain 레폿</th>
+	<th scope="col" class="split">Sedation 레폿</th>
 	<th scope="col" class="split">Clinical 레폿</th>
-	<th scope="col" class="split">기공</th>
 	<th scope="col" class="split">Charting Obser</th>
 	<th scope="col" class="split">Obser 점수</th>
 	<th scope="col">수정일</th>
@@ -53,7 +51,6 @@
 	<td><?php echo $SCORE['ga']?></td>
 	<td><?php echo $SCORE['sedation_rp']?></td>
 	<td><?php echo $SCORE['clinical_rp']?></td>
-	<td><?php echo $SCORE['blsm']?></td>
 	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 
