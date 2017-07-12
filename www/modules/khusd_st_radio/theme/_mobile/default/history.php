@@ -10,6 +10,7 @@
 	<col width="60"> 
 	<col width="60"> 
 	<col width="60"> 
+	<col width="60"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -19,7 +20,8 @@
 	<th scope="col" class="split">이름</th>
 	<th scope="col" class="split">Taking</th>
 	<th scope="col" class="split">환자수</th>
-	<th scope="col" class="split">Follow</th>
+	<th scope="col" class="split">판독옵져</th>
+	<th scope="col" class="split">촬영옵져</th>
 	<th scope="col" class="split">파노라마</th>
 	<th scope="col">수정일</th>
 	</tr>
@@ -36,7 +38,8 @@
 
 	<td><?php echo $SCORE['taking']?></td>
 	<td><?php echo $SCORE['taking_pt']?></td>
-	<td><?php echo $SCORE['follow']?></td>
+	<td><?php echo $SCORE['obser_decoding']?></td>
+	<td><?php echo $SCORE['obser_filming']?></td>
 	<td><?php echo $SCORE['panorama']?></td>
 
 	<td><?php echo getDateFormat($SCORE['date_update'],"Y-m-d H:i")?></td>
