@@ -66,7 +66,6 @@
 			<td width="10%">이름</td>
 			<td width="8%">분석</td>
 			<td width="8%">Report</td>
-			<td width="8%">Fabri</td>
 			<td width="10%">옵져</td>
 		</tr>
 		<?php
@@ -88,7 +87,6 @@
 
 				<td><input type="checkbox" name="bool_analysis[]" value="<?php echo $follow_cnt?>" <?php echo $_ROW['bool_analysis']==0?'':checked?>></td>
 				<td><input type="checkbox" name="report[]" value="<?php echo $follow_cnt?>" <?php echo $_ROW['report']==0?'':checked?>></td>
-				<td><input type="checkbox" name="bool_fabri[]" value="<?php echo $follow_cnt?>" <?php echo $_ROW['bool_fabri']==0?'':checked?>></td>
 
 				<td><input type="number" name="fobser[]" maxlength="2" class="input" value="<?php echo $_ROW['step']?>"> 회</td>
 			</tr>
