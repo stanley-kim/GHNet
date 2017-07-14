@@ -63,6 +63,7 @@
 	<th scope="col" class="split">Obser</th>
 	<th scope="col" class="split">G/A</th>
 	<th scope="col" class="split">Sedation 레폿</th>
+	<th scope="col" class="split">Clinical 레폿</th>
 	<th scope="col" class="split">Charting Obser</th>
 	<th scope="col" class="split">Obser 점수</th>
 	<th scope="col" class="split">ST 환자수</th>
