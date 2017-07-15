@@ -65,6 +65,15 @@ $APPLIED_NUM = getDbRows($table[$m.'apply_list'],
 			." AND st_id = '".$st_id."'"
 );
 
+// 현재 세부 아이템에 신청 갯수 구하기
+$APPLIED_FOR_ITEM_NUM = getDbRows($table[$m.'apply_list'],
+			"apply_info_uid = '".$apply_info_uid."'"
+			." AND apply_item_uid = '".$uid."'"
+			." AND status = '".$d['khusd_st_apply_manager']['apply_list']['APPLY']."'"
+			." AND st_id = '".$st_id."'"
+);
+
+
 // 옵션에 따라 기존 당첨된 만큼 차감을 시킨다.
 // 그렇기 때문에, 이미 당첨된 수가 limit 수보다 크다면, 신청을 추가하지 않고 튕긴다. 
 if($APPLY_INFO['apply_limit'] > 0 && $APPLY_INFO['able_apply_accepted'] == 'n')
@@ -80,6 +89,9 @@ if($APPLY_INFO['apply_limit'] > 0 && $APPLY_INFO['able_apply_accepted'] == 'n')
 
 if($APPLY_INFO['apply_limit'] == 0 && $APPLIED_NUM > 0){
 		getLink('', '', '이미 신청한 항목이 있습니다.', '');
+}
+if($APPLIED_FOR_ITEM_NUM > 0){
+		getLink('', '', '해당 아이템에 이미 신청한 내역이 있습니다.', '');
 }
 
 $_QKEY = 'st_id, apply_info_uid, apply_item_uid, original_apply_item_uid, timestamp, date_reg, status'
