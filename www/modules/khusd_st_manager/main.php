@@ -136,15 +136,18 @@ if($mode == 'score_history' && $MANAGER) {
 	$AVG = db_query('SELECT '.$_data.' FROM '.$_table.' WHERE '.$_where, $DB_CONNECT);
 	$AVG_ARRAY = array();
 //	echo 'SELECT '.$_data.' FROM '.$_table.' WHERE '.$_where;
-	while($_R = db_fetch_array($AVG)) $AVG_ARRAY[] = $_R;
-	
+	while($_R = db_fetch_array($AVG)) {
+		$AVG_ARRAY[$_R['avg_st_id']] = $_R;
+		$AVG_ARRAY[$_R['avg_st_id']]["a"] = 0;
+		$AVG_ARRAY[$_R['avg_st_id']]["p"] = 0;
+	}
 	$_where = "mbrid.uid = mbrdata.memberuid AND mbrid.id = al.st_id and al.apply_info_uid = ail.uid AND al.apply_item_uid = ai.uid and al.status = 'a' and rand != 0 group by al.st_id order by al.st_id";
 	$AVG_DETAIL = db_query('SELECT '.$_data.' FROM '.$_table.' WHERE '.$_where, $DB_CONNECT);
 	$idx = 0;
 	while($_R = db_fetch_array($AVG_DETAIL)){
-		$AVG_ARRAY[$idx]["a"] = $_R['total_count'];
+		$AVG_ARRAY[$_R['avg_st_id']]["a"] = $_R['total_count'];
 		
-		$AVG_ARRAY[$idx]["a_ratio"] = $_R['total_count']/$AVG_ARRAY[$idx]["total_count"]*100;
+		$AVG_ARRAY[$_R['avg_st_id']]["a_ratio"] = $_R['total_count']/$AVG_ARRAY[$_R['avg_st_id']]["total_count"]*100;
 		$idx++;
 	}
 	
@@ -152,7 +155,7 @@ if($mode == 'score_history' && $MANAGER) {
 	$AVG_DETAIL = db_query('SELECT '.$_data.' FROM '.$_table.' WHERE '.$_where, $DB_CONNECT);
 	$idx = 0;
 	while($_R = db_fetch_array($AVG_DETAIL)){
-		$AVG_ARRAY[$idx]["p"] = $_R['total_count'];
+		$AVG_ARRAY[$_R['avg_st_id']]["p"] = $_R['total_count'];
 		$idx++;
 	}	
 	
