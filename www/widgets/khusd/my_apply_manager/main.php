@@ -81,8 +81,9 @@
 	<?php while($_R = db_fetch_array($MY_APPLY_ARRAY)):?>
 	
 	<?php
-	// 치주수술의 경우, 수술정보로 content 항목을 새로 구성
-	if($_R['is_perio_surgery'] == 'y')
+	////// 치주수술의 경우, 수술정보로 content 항목을 새로 구성
+	//if($_R['is_perio_surgery'] == 'y')
+	if(true)
 	{
 		$_R['apply_item_content'] =
 			getDateFormat($_R['apply_item_date_item'],'m/d').'('.getWeek(getDateFormat($_R['apply_item_date_item'], 'w')).')'

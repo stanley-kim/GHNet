@@ -74,7 +74,8 @@ while($_R = db_fetch_array($ITEM_ROWS))
 	$_R['accepted'] = $MY_ACCEPTED_ITEM_ARRAY[$_R['uid']] ? true : false;
 	
 	// 치주수술의 경우, 수술정보로 content 항목을 새로 구성
-	if($APPLY_INFO['is_perio_surgery'] == 'y')
+	//if($APPLY_INFO['is_perio_surgery'] == 'y')
+	if(true)
 	{
 		$_R['content'] =
 			getDateFormat($_R['date_item'],'m/d').'('.getWeek(getDateFormat($_R['date_item'], 'w')).')'

@@ -217,13 +217,13 @@
 					<div>
 						<input type="text" name="content" class="input2" maxlength="90" /> <span>(내용)</span>
 					</div>
-					<?php if($APPLY_INFO['is_perio_surgery'] == 'y'):?>
 					<div>
 						<input type="text" name="s_date" class="input1" value="<?php echo $_SESSION['last_apply_item_s_date']?>" /> <span>날짜 (20140505 형식으로... 꼭 8자리 숫자)</span>
 					</div>
 					<div>
 						<input type="text" name="s_time" class="input1" /> <span>시간 (0903 형식으로... 꼭 4자리 숫자)</span>
 					</div>
+					<?php if($APPLY_INFO['is_perio_surgery'] == 'y'):?>
 					<div>
 						<input type="text" name="pt_name" class="input1" /> <span>환자이름</span>
 					</div>
