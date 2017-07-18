@@ -1,0 +1,155 @@
+
+
+
+<div id="mjointbox">
+
+	<div class="title">
+		이 위젯(<span class="b"><?php echo getFolderName($g['path_widget'].$swidget)?></span>)을 추가하시겠습니까?
+	</div>
+
+
+
+	<form name="procform" onsubmit="return saveCheck(this);">
+
+
+	<table>
+	<tr>
+	<td class="td1">업데이트 주기</td>
+	<td class="td2">:</td>
+	<td class="td3">
+		<select name="period_type" onchange="periodTypeChange(this);">
+		<option value="week"<?php if($wdgvar['period_type'] == 'week'):?> selected<?php endif?>>매주</option>
+		</select>	
+	</td>
+	</tr>
+	<tr>
+	<td class="td1">
+		<select name="start_day">
+		<option value="1"<?php if($wdgvar['start_day'] == '1'):?> selected<?php endif?>>월요일</option>
+		<option value="2"<?php if($wdgvar['start_day'] == '2'):?> selected<?php endif?>>화요일</option>
+		<option value="3"<?php if($wdgvar['start_day'] == '3'):?> selected<?php endif?>>수요일</option>
+		<option value="4"<?php if($wdgvar['start_day'] == '4'):?> selected<?php endif?>>목요일</option>
+		<option value="5"<?php if($wdgvar['start_day'] == '5'):?> selected<?php endif?>>금요일</option>
+		<option value="6"<?php if($wdgvar['start_day'] == '6'):?> selected<?php endif?>>토요일</option>
+		<option value="7"<?php if($wdgvar['start_day'] == '7'):?> selected<?php endif?>>일요일</option>
+		</select>
+		<select name="start_hour">
+			<?php for($i = 0; $i < 24; $i++):?>
+			<?php $hour = sprintf("%02d", $i)?>
+			<option value="<?php echo $hour?>"<?php if($wdgvar['start_hour'] == $hour):?> selected<?php endif?>><?php echo $hour?>시</option>
+			<?php endfor?>
+		</select>
+	</td>
+	<td class="td2">&nbsp;~&nbsp;</td>
+	<td class="td3">
+		<select name="end_day">
+		<option value="1"<?php if($wdgvar['end_day'] == '1'):?> selected<?php endif?>>월요일</option>
+		<option value="2"<?php if($wdgvar['end_day'] == '2'):?> selected<?php endif?>>화요일</option>
+		<option value="3"<?php if($wdgvar['end_day'] == '3'):?> selected<?php endif?>>수요일</option>
+		<option value="4"<?php if($wdgvar['end_day'] == '4'):?> selected<?php endif?>>목요일</option>
+		<option value="5"<?php if($wdgvar['end_day'] == '5'):?> selected<?php endif?>>금요일</option>
+		<option value="6"<?php if($wdgvar['end_day'] == '6'):?> selected<?php endif?>>토요일</option>
+		<option value="7"<?php if($wdgvar['end_day'] == '7'):?> selected<?php endif?>>일요일</option>
+		</select>
+		<select name="end_hour">
+			<?php for($i = 0; $i < 24; $i++):?>
+			<?php $hour = sprintf("%02d", $i)?>
+			<option value="<?php echo $hour?>"<?php if($wdgvar['end_hour'] == $hour):?> selected<?php endif?>><?php echo $hour?>시</option>
+			<?php endfor?>
+		</select>
+	</td>
+	</tr>
+	</table>
+
+	<div class="btnbox">
+	<?php if ($isWcode == 'Y'):?>
+	<input type="button" value="위젯코드" class="btnblue" onclick="widgetCode();" />
+	<?php else :?>
+	<input type="submit" value="<?php echo $option?'속성변경':'위젯추가'?>" class="btnblue" />
+	<?php endif?>
+	</div>
+
+	</form>
+
+
+</div>
+
+<style type="text/css">
+#mjointbox {}
+#mjointbox .title {border-bottom:#dfdfdf dashed 1px;padding:0 0 10px 0;margin:0 0 20px 0;}
+#mjointbox .td1 {padding:0 20px 0 0;letter-spacing:-1px;}
+#mjointbox .td2 {padding:0 15px 0 0;color:#c0c0c0;}
+#mjointbox .td3 {}
+#mjointbox .td4 {padding:10px 0 0 0;color:#999;line-height:150%;}
+#mjointbox .btnbox {text-align:center;padding:20px 0 0 0;margin:20px 0 0 0;border-top:#dfdfdf dashed 1px;}
+</style>
+
+
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+var RB_widgetCode;
+function widgetCode()
+{
+	var f = document.procform;
+	var widgetName = "<?php echo $swidget?>";
+	var widgetInfo = "";
+
+	widgetInfo = "'period_type'=>'"+f.period_type.value+"',";
+	widgetInfo += "'start_day'=>'"+f.start_day.value+"',";
+	widgetInfo += "'start_hour'=>'"+f.start_hour.value+"',";
+	widgetInfo += "'end_day'=>'"+f.end_day.value+"',";
+	widgetInfo += "'end_hour'=>'"+f.end_hour.value+"',";
+
+	RB_widgetCode = "<"+"?php "+"getWidget('"+widgetName+"',array("+widgetInfo+"))?>";
+	OpenWindow('<?php echo $g['s']?>/?r=<?php echo $r?>&system=popup.widgetcode&iframe=Y');
+}
+function periodTypeChange(obj)
+{
+	var f = document.procform;
+	if (obj.value == '')
+	{
+		f.title.value = '';
+		f.link.value = '';
+		f.title.focus();
+	}
+	else {
+		var tt = obj.value.split('^');
+		f.title.value = tt[1];
+		f.link.value = tt[2];
+		f.link.focus();
+	}
+}
+function saveCheck(f)
+{
+	<?php if(!$option):?>
+	var i;
+	var n = 0;
+
+    for (i=0; i<opener.maxTiles; i++)
+	{
+        if (opener.moveObject[i].style.display=='block')
+		{
+			n = i+1;
+        }
+    }
+	<?php else:?>
+	var n = <?php echo $dropfield?>;
+	<?php endif?>
+
+	<?php if(!$option):?>
+	opener.createTile('440px','200px','0px','0px');
+	<?php endif?>
+
+	opener.blocktitle[n] = '업데이트 알람';
+	opener.blockarray[n] = "<?php echo $swidget?>,period_type^" + f.period_type.value + ",start_day^"+f.start_day.value+",start_hour^"+f.start_hour.value+",end_day^"+f.end_day.value+",end_hour^"+f.end_hour.value;
+	opener.getId('wtitle'+n).innerHTML = opener.blocktitle[n];
+	top.close();
+	return false;
+}
+//]]>
+</script>
+

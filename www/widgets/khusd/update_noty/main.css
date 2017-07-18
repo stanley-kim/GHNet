@@ -1,0 +1,58 @@
+.widget_update_alarm {position:relative;padding:0;}
+
+.widget_update_alarm .ltt {
+	padding: 7px 0 7px 5px;
+	border-top: #E2E2E2 solid 1px;
+	background: #F2F2F2;
+}
+
+.widget_update_alarm .title {border-bottom:#efefef dotted 2px;padding:10px 0 5px 0;margin-bottom:5px;}
+.widget_update_alarm .title .article {float:left;padding:5px 0 0 0;}
+.widget_update_alarm .title .name {font:bold 12px gulim;color:#FF5E0F;}
+.widget_update_alarm .title .stat {font:normal 11px dotum;color:#c0c0c0;padding:0 0 0 5px;}
+.widget_update_alarm .title .category {float:right;}
+.widget_update_alarm .title .category select {height:22px;}
+.widget_update_alarm .title .category select .sline {color:#c0c0c0;}
+
+.widget_update_alarm .widget_title {
+	float: left;
+	font-weight: bold;
+	color: #333333;
+}
+
+.widget_update_alarm ul li span {
+	color: #DD1A22;
+}
+
+.widget_update_alarm ul li {
+	padding: 3px 0 3px 13px;
+	line-height: 130%;
+	color: #666666;
+	font-size: 11px;
+	letter-spacing: -1px;
+}
+
+.widget_update_alarm ul li a {
+	border: 0;
+	font-size:11px;
+	font-family:dotum;
+	color:#3829c5;
+	font-weight: bold;
+}
+.widget_update_alarm ul li a.hover {
+	text-decoration: underline;
+	color: #000000;
+}
+
+.widget_update_alarm h6 {border-bottom:#dfdfdf solid 1px;padding:0 0 9px 0;margin:0 0 5px 0;font-weight:bold;font-family:"gothic","dotum";font-size:13px;color:#384799;}
+.widget_update_alarm h6 a {color:#384799;}
+.widget_update_alarm ul {padding:0;margin:0;}
+.widget_update_alarm li {list-style-type:none;padding:5px 0 5px 0;line-height:140%;border-bottom:#dfdfdf dotted 1px;}
+.widget_update_alarm li a {font-family:dotum;font-size:12px;color:#444;}
+.widget_update_alarm li a:hover {text-decoration:underline;}
+.widget_update_alarm li .dot {font:normal 10px arial;color:#999;margin-left:-4px;}
+.widget_update_alarm li .comment {font:normal 11px arial;color:#FC6138;}
+.widget_update_alarm li .new {font-family:arial;font-size:10px;color:#ff0000;}
+.widget_update_alarm .none {border:0;}
+.widget_update_alarm .more {position:absolute;top:4px;right:1px;font-size:11px;font-family:dotum;color:#c0c0c0;}
+.widget_update_alarm .more:hover {text-decoration:underline;color:#000000;}
