@@ -16,6 +16,10 @@ function changeFollowStatus(uid){
 	location.href = "<?php echo $g['khusd_st_pros_change_follow']?>"+uid+"&option="+$("#status_"+uid).val();
 }	
 
+function changeFollowStatus2(uid, _option){
+        location.href = "<?php echo $g['khusd_st_pros_change_follow']?>"+uid+"&option="+_option;
+}
+
 	
 </script>
 
@@ -62,12 +66,11 @@ function changeFollowStatus(uid){
 						<?php endforeach?>
 					</td>
 					<td>
-						<select name="follow_status" class="input" id="status_<?=$MY_FOLLOW['uid']?>">
-							<?php foreach( $d['khusd_st_pros']['STATUS_OPTIONS'] as $type ):?>
-							<option value="<?php echo $type['id'];?>" <?php if( $MY_FOLLOW['status'] == $type['id']):?>selected<?php endif?>><?php echo $type['name'];?></option>
-							<?php endforeach?>
-						</select>
-						<span class="btn00"><a href="#" onclick="changeFollowStatus('<?php echo $MY_FOLLOW["uid"];?>');">저장</a></span>
+
+<span class="btn02"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'f'  );">팔로우</a></span>
+<span class="btn00"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'g'  );">포기</a></span>
+<span class="btn00"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'c'  );">취소</a></span>
+<span class="btn01"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'e'  );">완료</a></span>
 
 						<!--
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_pros']['FOLLOW_STATUS']['DROP']):?>

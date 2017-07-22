@@ -34,10 +34,10 @@ if($FOLLOW && $FOLLOW['uid'] && $FOLLOW['uid'] == $uid)
 	
 	getDbUpdate($table[$m.'follow'], $_set, $_where);
 	
-	getLink('/?c=17/65', '', '팔로우 상태가 변경되었습니다.', '');
+	getLink('/?c=25/81', '', '팔로우 상태가 변경되었습니다.', '');
 }
 else
 {
-	getLink('/?c=17/65', '', '팔로우 정보가 없습니다.', '-1');
+	getLink('/?c=25/81', '', '팔로우 정보가 없습니다.', '-1');
 }
 ?>
