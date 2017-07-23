@@ -19,12 +19,10 @@
 <script type="text/javascript">
 function changeFollowStatus(uid){
 	location.href = "<?php echo $g['khusd_st_pros_change_follow']?>"+uid+"&option="+$("#status_"+uid).val();
+}
 function changeFollowStatus2(uid, _option){
         location.href = "<?php echo $g['khusd_st_pros_change_follow']?>"+uid+"&option="+_option;
-
-
 }	
-
 	
 </script>
 
