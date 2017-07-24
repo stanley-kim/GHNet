@@ -18,6 +18,17 @@ function permcheck($need = 'st', $id = null)
 	$uinfo = getDbData($table['s_mbrid'],"id='".$id."'",'*');
 	if(!$uinfo || !$uinfo['uid'])	return false;	// 회원정보가 없으면 실패로... 최하 권한체크가 학생이기 때문에 비로그인은 없음
 	$uinfo = array_merge($uinfo, getDbData($table['s_mbrdata'],"memberuid='".$uinfo['uid']."'",'*'));
+
+	//protect this codes
+        if($need == 'duplication_checker')
+        {
+                if( $uinfo['admin'] ||
+ 		$uinfo['level'] == $d['khusd_st_manager']['manager_level']['chief_of_case']  )
+                	return true;
+		else	
+			return false;
+        }
+
 	
 	// 관리자이거나 총대 인가? 프리패스
 	// 프리패스 권한은, 총케장과 총대에게~
@@ -59,6 +70,7 @@ function permcheck($need = 'st', $id = null)
 		if($uinfo['level'] >= $d['khusd_st_manager']['manager_level']['deleg'])
 			return true;
 	}
+
 	
 	// 총케이스장
 	// 총케이스장+총대

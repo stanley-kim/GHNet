@@ -126,7 +126,89 @@ if($mode == 'score_history' && $MANAGER) {
 		$TPG = getTotalPage($NUM, $recnum);
 		$ST_INFO = getSTInfo($st_id);
 	}else{
-		
+	
+//dup check start
+                $TCC = getDbArray(
+                        $table['khusd_st_apply_manager'.'apply_list'].' al'
+                        .', '.$table['khusd_st_apply_manager'.'apply_info_list'].' ail'
+                        .', '.$table['khusd_st_apply_manager'.'apply_item'].' ai',
+
+                        "("
+                                ."al.status = '".$d['khusd_st_apply_manager']['apply_list']['APPLY']."'"
+                                ." OR al.status = '".$d['khusd_st_apply_manager']['apply_list']['ACCEPTED']."'"
+                        ." )"
+                        ." AND al.apply_info_uid = ail.uid"
+                        ." AND al.apply_item_uid = ai.uid",
+                        "al.*"
+                        .", IF(ail.status = '".$d['khusd_st_apply_manager']['apply_info']['CLOSED']."', 1, 0) AS is_closed"
+                        .", ail.subject AS apply_info_subject"
+                        .", ail.date_start AS date_start"
+                        .", ail.date_end AS date_end"
+                        .", ail.date_select AS date_select"
+                        .", ail.department AS department"
+                        .", ail.uid AS apply_info_uid"
+                        .", ai.date_item AS date_item"
+                        .", ai.content AS apply_item_content",
+
+                        'al.st_id' ,
+                        'asc' ,
+                        //'desc' ,
+                        0,
+                        0
+                );
+
+        __debug_print("db_query_4_detect. - " . mysql_error());
+        $Duplicate_Check_Dic = array();
+        while($_R = db_fetch_array($TCC))   {
+                $mesial =  intval(intval( $_R['date_item']) / 1000000)   ;
+                $distal =  intval( $_R['date_item']) % 1000000   ;
+                __debug_print("print each rows. - " .$mesial. ' ' .$distal   );
+                if ( $mesial > 20170101 && $_R['rand']!= 0   )  {
+                        if ( $distal < 120000 )
+                                $Duplicate_Check_Dic[$_R['st_id'] ][$mesial]["morning"][$_R['date_end']][$_R['uid']   ]=$_R;
+                        elseif ( $distal >= 120000 AND $distal < 180000 )
+                                $Duplicate_Check_Dic[$_R['st_id']][$mesial]["afternoon"][$_R['date_end']][$_R['uid']   ]=$_R;
+                        else
+                                $Duplicate_Check_Dic[$_R['st_id']][$mesial]["night"][$_R['date_end']][$_R['uid']   ]=$_R;
+                }
+
+        }
+/*
+        foreach($Duplicate_Check_Dic as $dcd1)  // each st_id
+                foreach($dcd1 as $dcd2)         // each day
+                        foreach($dcd2 as $dcd3)    { // each time
+                                //sort($dcd3 ) 1st try;
+                                ksort($dcd3, SORT_NUMERIC ) ;
+                                $a_flag = 0;
+                                foreach($dcd3 as $dcd4)    { // each date_end
+__debug_print("dup count - " . count($dcd4)  );
+                                        if( count($dcd4)>= 2 )  { __debug_print("duplicate!!------------------>>  "  );
+
+                                        foreach($dcd4 as $dcd5)  {  // each uid
+__debug_print("each dup_rs-".$dcd5['st_id'].'/'.$dcd5['date_item'].'/'.$dcd5['date_end'].'/'.$dcd5['status'].'/'.$dcd5['rand']   );
+__debug_print("            ".$dcd5['st_id'].'/'.$dcd5['apply_item_content'].'/'.$dcd5['apply_info_subject'].'/'.$dcd5['status'].'/'.$dcd5['rand']   );
+
+                                        }
+                                        }
+                                        else  {
+
+                                        foreach($dcd4 as $dcd5)  {  // each uid
+if ($a_flag > 0 ) __debug_print("duplicate!----------------->" ) ;
+if ($dcd5['status'] == 'a' ) $a_flag = 1;
+__debug_print("each nor_rs-".$dcd5['st_id'].'/'.$dcd5['date_item'].'/'.$dcd5['date_end'].'/'.$dcd5['status'].'/'.$dcd5['rand']   );
+__debug_print("            ".$dcd5['st_id'].'/'.$dcd5['apply_item_content'].'/'.$dcd5['apply_info_subject'].'/'.$dcd5['status'].'/'.$dcd5['rand']   );
+
+                                        }
+
+
+                                        }
+                                }
+                        }
+//dup check end
+*/
+
+
+	
 	$_data = 'al.st_id as avg_st_id, mbrdata.name as avg_name, count(*) as total_count, AVG(al.rand) as avg_rand';
 	$_table = 			$table['khusd_st_apply_manager'.'apply_list'].' al'
 			.', '.$table['khusd_st_apply_manager'.'apply_info_list'].' ail'
@@ -134,8 +216,10 @@ if($mode == 'score_history' && $MANAGER) {
 			.', '.$table['s_mbrdata'].' mbrdata ,'.$table['s_mbrid'].' mbrid';
 	$_where = "mbrid.uid = mbrdata.memberuid AND mbrid.id = al.st_id and (al.status = 'p' OR al.status = 'a' ) AND al.apply_info_uid = ail.uid AND al.apply_item_uid = ai.uid  and rand != 0 group by al.st_id order by al.st_id";
 	$AVG = db_query('SELECT '.$_data.' FROM '.$_table.' WHERE '.$_where, $DB_CONNECT);
+
 	$AVG_ARRAY = array();
 //	echo 'SELECT '.$_data.' FROM '.$_table.' WHERE '.$_where;
+	///////while($_R = db_fetch_array($AVG)) $AVG_ARRAY[] = $_R;
 	while($_R = db_fetch_array($AVG)) {
 		$AVG_ARRAY[$_R['avg_st_id']] = $_R;
 		$AVG_ARRAY[$_R['avg_st_id']]["a"] = 0;

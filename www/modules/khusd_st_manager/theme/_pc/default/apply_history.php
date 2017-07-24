@@ -1,3 +1,5 @@
+
+
 <div id="apply_history" class="khusd_st manager">
 	
 	<form name="apply_history" action="<?php echo $g['s']?>/" method="get">
@@ -78,7 +80,51 @@
 	<?php endforeach?>
 	</tbody>
 	</table>
-	
+	<?php  
+
+if( permcheck('duplication_checker') )  {
+	include_once $g['path_module'].'khusd_st_manager/function/date.php';
+		echo  "HIHI"."<br>";
+
+        foreach($Duplicate_Check_Dic as $dcd1)  // each st_id
+                foreach($dcd1 as $dcd2)         // each day
+                        foreach($dcd2 as $dcd3)    { // each time
+                                //sort($dcd3 ) 1st try;
+                                ksort($dcd3, SORT_NUMERIC ) ;
+                                $a_flag = 0;
+                                foreach($dcd3 as $dcd4)    { // each date_end
+//echo "count - " . count($dcd4)."<br>" ;
+                                        if( count($dcd4)>= 2 )  {
+echo  "HIHI??------------------>>"."<br>";
+
+                                        foreach($dcd4 as $dcd5)  {  // each uid
+echo "each dup_rs-ID)".$dcd5['st_id'].'/환자예약시간)'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' '.getDateFormat($dcd5['date_item'],'H:i').'/차수신청시간)'.$dcd5['date_end'].'/상태)'.$dcd5['status'].'/rand)'.$dcd5['rand'];
+echo '/세부항목) '.$dcd5['apply_item_content'].'/차수제목) '.$dcd5['apply_info_subject']."<br>"  ;
+
+                                        }
+                                        }
+                                        else  {
+
+                                        foreach($dcd4 as $dcd5)  {  // each uid
+if ($a_flag > 0 )
+	echo "HI?----------------->"."<br>"  ;
+if ($dcd5['status'] == 'a' ) $a_flag = 1;
+echo "each nor_rs-ID)".$dcd5['st_id'].'/환자예약시간)'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' '.getDateFormat($dcd5['date_item'],'H:i').'/차수신청시간)'.$dcd5['date_end'].'/상태)'.$dcd5['status'].'/rand)'.$dcd5['rand']   ;
+echo '/세부항목) '.$dcd5['apply_item_content'].'/차수제목) '.$dcd5['apply_info_subject']."<br>"  ;
+
+                                        }
+
+
+                                        }
+                                }
+                        }
+
+
+} // end of if permcheck
+
+
+
+	?>	
 	<style>
 	.status_a{background-color:#FDF5E6;}
 	.status_p{background-color:#F0F8FF;}		
