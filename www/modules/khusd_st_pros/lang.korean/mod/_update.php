@@ -30,6 +30,13 @@
 		$SCORE['partial_denture_cancel'] = 0;
 		$SCORE['complete_denture_cancel'] = 0;
 		$SCORE['others_cancel'] = 0;
+
+		$SCORE['simple_obser_3_7'] = 0;
+		$SCORE['simple_obser_3_8'] = 0;
+		$SCORE['simple_obser_3_9'] = 0;
+		$SCORE['simple_obser_3_10'] = 0;
+		$SCORE['simple_obser_3_11'] = 0;
+		$SCORE['simple_obser_3_12'] = 0;
 	}
 	
 	

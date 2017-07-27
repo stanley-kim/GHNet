@@ -38,6 +38,13 @@ CREATE TABLE `".$table[$module.'score']."` (
   `partial_denture_complete` int(4) NOT NULL default 0,
   `complete_denture_complete` int(4) NOT NULL default 0,
   `others_complete` int(4) NOT NULL default 0,
+
+  `simple_obser_3_7` int(4) NOT NULL default 0,
+  `simple_obser_3_8` int(4) NOT NULL default 0,
+  `simple_obser_3_9` int(4) NOT NULL default 0,
+  `simple_obser_3_10` int(4) NOT NULL default 0,
+  `simple_obser_3_11` int(4) NOT NULL default 0,
+  `simple_obser_3_12` int(4) NOT NULL default 0,
   
   `st_case_1`	varchar(50) NOT NULL default '',
   `st_case_1_pt_name`	varchar(20) NOT NULL default '',

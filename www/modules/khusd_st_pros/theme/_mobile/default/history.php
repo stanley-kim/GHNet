@@ -32,6 +32,9 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
+	<col width="40"> 
+	<col width="40"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -46,7 +49,7 @@
 	<th colspan="3" scope="col" class="split">Br.</th>
 	<th colspan="3" scope="col" class="split">RPD</th>
 	<th colspan="3" scope="col" class="split">CD</th>
-	<th colspan="3" scope="col" class="split">others</th>
+	<th colspan="6" scope="col" class="split">단순 Obs</th>
 	<th colspan="2" scope="col" class="split">총점</th>
 	<th rowspan="2" scope="col">수정일</th>
 	</tr>
@@ -79,9 +82,12 @@
 	<th scope="col" class="split">완</th>
 	<th scope="col" class="split">취소</th>
 
-	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
+	<th scope="col" class="split">7월</th>
+	<th scope="col" class="split">8월</th>
+	<th scope="col" class="split">9월</th>
+	<th scope="col" class="split">10월</th>
+	<th scope="col" class="split">11월</th>
+	<th scope="col" class="split">12월</th>
 
 	<th scope="col" class="split">실제점수</a></th>
 	<th scope="col" class="split">예상점수</a></th>
@@ -125,9 +131,12 @@
 	<td class="category2"><?php echo $SCORE['complete_denture_complete']?></td>
 	<td><?php echo $SCORE['complete_denture_cancel']?></td>
 	
-	<td class="category1"><?php echo $SCORE['others_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['others_complete']?></td>
-	<td><?php echo $SCORE['others_cancel']?></td>
+	<td><?php echo $SCORE['simple_obser_3_7']?></td>
+	<td><?php echo $SCORE['simple_obser_3_8']?></td>
+	<td><?php echo $SCORE['simple_obser_3_9']?></td>
+	<td><?php echo $SCORE['simple_obser_3_10']?></td>
+	<td><?php echo $SCORE['simple_obser_3_11']?></td>
+	<td><?php echo $SCORE['simple_obser_3_12']?></td>
 	
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td class="category4"><?php echo $SCORE['total_predict_score']?></td>

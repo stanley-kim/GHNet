@@ -64,6 +64,12 @@ $partial_denture_prev 	= intval($partial_denture_prev);
 $complete_denture_prev 	= intval($complete_denture_prev);
 $others_prev 				= intval($others_prev);
 
+$simeple_obser_3_7 = intval($simple_obser_3_7);
+$simeple_obser_3_8 = intval($simple_obser_3_8);
+$simeple_obser_3_9 = intval($simple_obser_3_9);
+$simeple_obser_3_10 = intval($simple_obser_3_10);
+$simeple_obser_3_11 = intval($simple_obser_3_11);
+$simeple_obser_3_12 = intval($simple_obser_3_12);
 
 $st_case_1					= trim($st_case_1);
 $st_case_1_pt_name			= trim($st_case_1_pt_name);
@@ -107,6 +113,8 @@ $QKEY = "s_uid, st_id, "
 	
 	."second_cr_prev, post_core_prev, imp_cr_br_prev, single_cr_prev,"
 	."br_prev, partial_denture_prev, complete_denture_prev, others_prev,"
+	."simple_obser_3_7, simple_obser_3_8, simple_obser_3_9,"
+	."simple_obser_3_10, simple_obser_3_11, simple_obser_3_12,"
 
 	."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly,"
 	."st_case_2, st_case_3_pt_name, st_case_2_last_tx_date, st_case_2_last_tx, st_case_2_last_inst, st_case_2_friendly,"
@@ -126,6 +134,8 @@ $QVAL = "'$s_uid', '$st_id', "
 	
 	."'$second_cr_prev', '$post_core_prev', '$imp_cr_br_prev', '$single_cr_prev',"
 	."'$br_prev', '$partial_denture_prev', '$complete_denture_prev', '$others_prev',"
+	."'$simple_obser_3_7', '$simple_obser_3_8', '$simple_obser_3_9',"
+	."'$simple_obser_3_10', '$simple_obser_3_11', '$simple_obser_3_12',"
 
 	."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly',"
 	."'$st_case_2', '$st_case_3_pt_name', '$st_case_2_last_tx_date', '$st_case_2_last_tx', '$st_case_2_last_inst', '$st_case_2_friendly',"
@@ -135,6 +145,7 @@ $QVAL = "'$s_uid', '$st_id', "
 	."'$date_update'";
 	
 getDbInsert($table[$m.'score'],$QKEY,$QVAL);
+ 
 
 if(isset($n_page) && $n_page == 'home')
 {

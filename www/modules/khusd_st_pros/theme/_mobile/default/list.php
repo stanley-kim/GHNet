@@ -62,7 +62,7 @@
 	<th colspan="4" scope="col" class="split">Br.</th>
 	<th colspan="4" scope="col" class="split">RPD</th>
 	<th colspan="4" scope="col" class="split">CD</th>
-	<th colspan="4" scope="col" class="split">others</th>
+	<th colspan="4" scope="col" class="split">단순 Obs</th>
 	<th colspan="2" scope="col" class="split">총점</th>
 	<th rowspan="2" scope="col">수정일</th>
 	</tr>
@@ -103,10 +103,10 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'complete_denture_prev', $om)?>">지난학기</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'complete_denture', $om)?>">진행+완료</a></th>
 
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'others_ongoing', $om)?>">진행</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'others_complete', $om)?>">완료</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'others_prev', $om)?>">지난학기</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'others', $om)?>">진행+완료</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_7', $om)?>">7월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_8', $om)?>">8월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_9', $om)?>">9월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_10', $om)?>">10월</a></th>
 
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_score', $om)?>">실제점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_predict_score', $om)?>">예상점수</a></th>
@@ -146,10 +146,10 @@
 	<th scope="col" class="split">지난학기</th>
 	<th scope="col" class="split">진행+완료</th>
 
-	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완료</th>
-	<th scope="col" class="split">지난학기</th>
-	<th scope="col" class="split">진행+완료</th>
+	<th scope="col" class="split">7월</th>
+	<th scope="col" class="split">8월</th>
+	<th scope="col" class="split">9월</th>
+	<th scope="col" class="split">10월</th>
 
 	<th scope="col" class="split">실제점수</a></th>
 	<th scope="col" class="split">예상점수</a></th>
@@ -197,10 +197,10 @@
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['complete_denture_prev'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['complete_denture'])?></td>
 
-		<td class="avg"><?php echo sprintf("%1.1f",$AVG['others_ongoing'])?></td>
-		<td class="avg"><?php echo sprintf("%1.1f",$AVG['others_complete'])?></td>
-		<td class="avg"><?php echo sprintf("%1.1f",$AVG['others_prev'])?></td>
-		<td class="avg"><?php echo sprintf("%1.1f",$AVG['others'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_7'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_8'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_9'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_10'])?></td>
 
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_score'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_predict_score'])?></td>
@@ -250,10 +250,10 @@
 	<td><?php echo $SCORE['complete_denture_prev']?></td>
 	<td class="category2"><?php echo $SCORE['complete_denture']?></td>
 	
-	<td class="category1"><?php echo $SCORE['others_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['others_complete']?></td>
-	<td><?php echo $SCORE['others_prev']?></td>
-	<td class="category2"><?php echo $SCORE['others']?></td>
+	<td class="category1"><?php echo $SCORE['simple_obser_3_7']?></td>
+	<td class="category2"><?php echo $SCORE['simple_obser_3_8']?></td>
+	<td><?php echo $SCORE['simple_obser_3_9']?></td>
+	<td class="category2"><?php echo $SCORE['simple_obser_3_10']?></td>
 	
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td class="category4"><?php echo $SCORE['total_predict_score']?></td>
@@ -305,10 +305,10 @@
 	<td><?php echo $SCORE['complete_denture_prev']?></td>
 	<td class="category2"><?php echo $SCORE['complete_denture']?></td>
 	
-	<td class="category1"><?php echo $SCORE['others_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['others_complete']?></td>
-	<td><?php echo $SCORE['others_prev']?></td>
-	<td class="category2"><?php echo $SCORE['others']?></td>
+	<td class="category1"><?php echo $SCORE['simple_obser_3_7']?></td>
+	<td class="category2"><?php echo $SCORE['simple_obser_3_8']?></td>
+	<td><?php echo $SCORE['simple_obser_3_9']?></td>
+	<td class="category2"><?php echo $SCORE['simple_obser_3_10']?></td>
 	
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td class="category4"><?php echo $SCORE['total_predict_score']?></td>
