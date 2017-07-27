@@ -35,10 +35,6 @@
 		</tr>
 
 
-		<tr>
-		<td class="head">Follow 환자수</td>
-		<td class="input"><input type="number" name="follow_pt" maxlength="5" class="input num" value="<?php echo $SCORE['follow_pt']?>">명</td>
-		</tr>
 <!--		<tr>
 		<td class="head">Follow 점수</td>
 		<td class="input">
@@ -46,7 +42,13 @@
 		</td>
 		</tr>-->
 		<tr>
-		<td class="head">Follow 점수</td>
+		<td class="head" rowspan="2" >Follow 점수</td>
+		<td class="input">
+			교픽&nbsp  오전 <input type="number" name="prof_fix_am" maxlength="5" class="input" value="<?php echo $SCORE['prof_fix_am']?>"> 회 &nbsp&nbsp;
+			교픽&nbsp  오후 <input type="number" name="prof_fix_pm" maxlength="5" class="input" value="<?php echo $SCORE['prof_fix_pm']?>"> 회 
+
+		</tr>
+		<tr>
 		<style>
 		.pedia_folow_number input[type="number"]::-webkit-outer-spin-button,
 .pedia_folow_number input[type="number"]::-webkit-inner-spin-button {
@@ -59,17 +61,17 @@
 }
 		</style>
 		<td class="input pedia_folow_number">
-			<b>Ch</b> <input type="number" name="follow_ch" maxlength="2" class="input num" value="<?php echo $SCORE['follow_ch']?>">명
-			<b>1회</b> <input type="number" name="follow_1" maxlength="2" class="input num" value="<?php echo $SCORE['follow_1']?>">명 
-			<b>2회</b> <input type="number" name="follow_2" maxlength="2" class="input num" value="<?php echo $SCORE['follow_2']?>">명 
-			<b>3회</b> <input type="number" name="follow_3" maxlength="2" class="input num" value="<?php echo $SCORE['follow_3']?>">명 
-			<b>4회</b> <input type="number" name="follow_4" maxlength="2" class="input num" value="<?php echo $SCORE['follow_4']?>">명 
-			<b>5회</b> <input type="number" name="follow_5" maxlength="2" class="input num" value="<?php echo $SCORE['follow_5']?>">명 
-			<b>6회</b> <input type="number" name="follow_6" maxlength="2" class="input num" value="<?php echo $SCORE['follow_6']?>">명 
-			<b>7회</b> <input type="number" name="follow_7" maxlength="2" class="input num" value="<?php echo $SCORE['follow_7']?>">명 
-			<b>8회</b> <input type="number" name="follow_8" maxlength="2" class="input num" value="<?php echo $SCORE['follow_8']?>">명 
-			<b>9회</b> <input type="number" name="follow_9" maxlength="2" class="input num" value="<?php echo $SCORE['follow_9']?>">명 
-			<b>10회</b> <input type="number" name="follow_10" maxlength="2" class="input num" value="<?php echo $SCORE['follow_10']?>">명 
+			<b>Ch</b> <input type="number" name="follow_ch" maxlength="2" class="input num" value="<?php echo $SCORE['follow_ch']?>">
+			<b>1칸</b> <input type="number" name="follow_1" maxlength="2" class="input num" value="<?php echo $SCORE['follow_1']?>"> 
+			<b>2칸</b> <input type="number" name="follow_2" maxlength="2" class="input num" value="<?php echo $SCORE['follow_2']?>"> 
+			<b>3칸</b> <input type="number" name="follow_3" maxlength="2" class="input num" value="<?php echo $SCORE['follow_3']?>"> 
+			<b>4칸</b> <input type="number" name="follow_4" maxlength="2" class="input num" value="<?php echo $SCORE['follow_4']?>"> 
+			<b>5칸</b> <input type="number" name="follow_5" maxlength="2" class="input num" value="<?php echo $SCORE['follow_5']?>"> 
+			<b>6칸</b> <input type="number" name="follow_6" maxlength="2" class="input num" value="<?php echo $SCORE['follow_6']?>"> 
+			<b>7칸</b> <input type="number" name="follow_7" maxlength="2" class="input num" value="<?php echo $SCORE['follow_7']?>"> 
+			<b>8칸</b> <input type="number" name="follow_8" maxlength="2" class="input num" value="<?php echo $SCORE['follow_8']?>"> 
+			<b>9칸</b> <input type="number" name="follow_9" maxlength="2" class="input num" value="<?php echo $SCORE['follow_9']?>"> 
+			<b>10칸</b> <input type="number" name="follow_10" maxlength="2" class="input num" value="<?php echo $SCORE['follow_10']?>">
 			
 		</td>
 		</tr>

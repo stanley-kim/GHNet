@@ -7,8 +7,9 @@
 	<col width="95"> 
 	<col width="80"> 
 	<col width="50"> 
-	<col width="50">
 	<col width="50"> 
+	<col width="50"> 
+	<col width="50">
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
@@ -23,7 +24,8 @@
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">이름</th>
 	<th scope="col" class="split">챠팅수</th>
-	<th scope="col" class="split">Follow 환자수</th>
+	<th scope="col" class="split">교픽오전</th>
+	<th scope="col" class="split">교픽오후</th>
 	<th scope="col" class="split">Follow 점수</th>
 	<th scope="col" class="split">Obser</th>
 	<th scope="col" class="split">G/A</th>
@@ -45,7 +47,8 @@
 	<td><?php echo $SCORE['st_info']['name']?></td>
 
 	<td><?php echo $SCORE['charting']?></td>
-	<td><?php echo $SCORE['follow_pt']?></td>
+	<td><?php echo $SCORE['prof_fix_am']?></td>
+	<td><?php echo $SCORE['prof_fix_pm']?></td>
 	<td class="category1"><?php echo $SCORE['follow']?></td>
 	<td class="category2"><?php echo $SCORE['obser']?></td>
 	<td><?php echo $SCORE['ga']?></td>

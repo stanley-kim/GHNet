@@ -25,6 +25,8 @@ CREATE TABLE `".$table[$module.'score']."` (
   `st_point` int(4) NOT NULL default 0,
   `st_assist` int(4) NOT NULL default 0,
   `fix` int(4) NOT NULL default 0,
+  `prof_fix_am` int(4) NOT NULL default 0,
+  `prof_fix_pm` int(4) NOT NULL default 0,
   `st_add_a` int(4) NOT NULL default '0',
   `st_add_b` int(4) NOT NULL default '0',
   `st_add_c` int(4) NOT NULL default '0',

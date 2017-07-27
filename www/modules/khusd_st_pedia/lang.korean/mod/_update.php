@@ -22,6 +22,8 @@
 		$SCORE['st_add_c'] = 0;
 		$SCORE['st_assist'] = 0;
 		$SCORE['fix'] = 0;
+		$SCORE['prof_fix_am'] = 0;
+		$SCORE['prof_fix_pm'] = 0;
 
 		$SCORE['follow_ch'] = '0';
 		for($i = 1; $i < 11; $i++){

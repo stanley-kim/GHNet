@@ -40,6 +40,8 @@ $st_pt		= intval($st_pt);
 $st_point	= intval($st_point);
 $st_assist	= intval($st_assist);
 $fix			= intval($fix);
+$prof_fix_am			= intval($prof_fix_am);
+$prof_fix_pm			= intval($prof_fix_pm);
 
 
 $follow_str = $follow_ch."|".$follow_1."|".$follow_2."|".$follow_3."|".$follow_4."|".$follow_5."|";
@@ -63,8 +65,8 @@ $date_update = $date['totime'];
 if($is_goal == 'n')
 {
 	// 입력한 데이터로 query 생성
-	$QKEY = "s_uid, st_id, follow_pt, follow, charting, charting_obser, obser, ga, sedation_rp, clinical_rp, blsm, st_pt, st_point, st_add_a, st_add_b, st_add_c, st_assist, fix, is_goal, date_update, follow_str";
-	$QVAL = "'$s_uid', '$st_id', '$follow_pt', '$follow', '$charting', '$charting_obser', '$obser', '$ga', '$sedation_rp', '$clinical_rp', '$blsm', '$st_pt', '$st_point', '$st_add_a', '$st_add_b', '$st_add_c', '$st_assist', '$fix', '$is_goal', '$date_update', '$follow_str'";
+	$QKEY = "s_uid, st_id, follow_pt, follow, charting, charting_obser, obser, ga, sedation_rp, clinical_rp, blsm, st_pt, st_point, st_add_a, st_add_b, st_add_c, st_assist, fix, prof_fix_am, prof_fix_pm, is_goal, date_update, follow_str";
+	$QVAL = "'$s_uid', '$st_id', '$follow_pt', '$follow', '$charting', '$charting_obser', '$obser', '$ga', '$sedation_rp', '$clinical_rp', '$blsm', '$st_pt', '$st_point', '$st_add_a', '$st_add_b', '$st_add_c', '$st_assist', '$fix', '$prof_fix_am', '$prof_fix_pm', '$is_goal', '$date_update', '$follow_str'";
 		
 	getDbInsert($table[$m.'score'],$QKEY,$QVAL);
 }

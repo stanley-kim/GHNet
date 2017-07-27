@@ -24,7 +24,6 @@
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
-	<col width="50"> 
 
 <!--	<col width="50"> 
 	<col width="50"> 
@@ -40,7 +39,6 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_id', $om)?>">학번</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'name', $om)?>">이름</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting', $om)?>">챠팅수</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'follow_pt', $om)?>">Follow 환자수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'follow', $om)?>">Follow 점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'obser', $om)?>">Obser</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'ga', $om)?>">G/A</a></th>
@@ -63,7 +61,6 @@
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">이름</th>
 	<th scope="col" class="split">챠팅수</th>
-	<th scope="col" class="split">Follow 환자수</th>
 	<th scope="col" class="split">Follow 점수</th>
 	<th scope="col" class="split">Obser</th>
 	<th scope="col" class="split">G/A</th>
@@ -91,7 +88,6 @@
 	<td></td>
 	<td class="avg">평균</td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting'])?></td>
-	<td class="avg"><?php echo sprintf("%1.1f",$AVG['follow_pt'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['follow'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['obser'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['ga'])?></td>
@@ -120,7 +116,6 @@
 	<td colspan="3">내점수</td>
 
 	<td><?php echo $SCORE['charting']?></td>
-	<td><?php echo $SCORE['follow_pt']?></td>
 	<td class="category1"><?php echo $SCORE['follow']?></td>
 	<td class="category2"><?php echo $SCORE['obser']?></td>
 	<td><?php echo $SCORE['ga']?></td>
@@ -148,7 +143,6 @@
 	<td colspan="3">목표점수</td>
 
 	<td><?php echo $SCORE['charting']?></td>
-	<td><?php echo $SCORE['follow_pt']?></td>
 	<td class="category1"><?php echo $SCORE['follow']?></td>
 	<td class="category2"><?php echo $SCORE['obser']?></td>
 	<td><?php echo $SCORE['ga']?></td>
@@ -177,7 +171,6 @@
 	<td><?php echo $SCORE['st_info']['name']?></td>
 
 	<td><?php echo $SCORE['charting']?></td>
-	<td><?php echo $SCORE['follow_pt']?></td>
 	<td class="category1"><?php echo $SCORE['follow']?></td>
 	<td class="category2"><?php echo $SCORE['obser']?></td>
 	<td><?php echo $SCORE['ga']?></td>
