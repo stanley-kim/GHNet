@@ -47,24 +47,20 @@
 		<td class="input"><input type="number" name="splint_obser" maxlength="5" class="input num" value="<?php echo $SCORE['splint_obser']?>">회</td>
 		</tr>-->
 		<tr>
-		<td class="head">물리치료 고정 옵저</td>
-		<td class="input"><input type="number" name="physical_tx_fix" maxlength="5" class="input num" value="<?php echo $SCORE['physical_tx_fix']?>">회</td>
+		<td class="head">구취측정</td>
+		<td class="input"><input type="number" name="odor" maxlength="5" class="input num" value="<?php echo $SCORE['odor']?>">회</td>
+		</tr>
+		<tr>
+		<td class="head">타액분비율측정</td>
+		<td class="input"><input type="number" name="saliva_test" maxlength="5" class="input num" value="<?php echo $SCORE['saliva_test']?>">회</td>
 		</tr>
 		<tr>
 		<td class="head">물리치료</td>
-		<td class="input">
-			Infrared Lamp: <input type="number" name="infra_tx" maxlength="5" class="input num" value="<?php echo $SCORE['infra_tx']?>">회
-			<br />Ultrasound: <input type="number" name="ultra_tx" maxlength="5" class="input num" value="<?php echo $SCORE['ultra_tx']?>">회
-			<br />EAST: <input type="number" name="east_tx" maxlength="5" class="input num" value="<?php echo $SCORE['east_tx']?>">회
-			<br />TENS: <input type="number" name="tens_tx" maxlength="5" class="input num" value="<?php echo $SCORE['tens_tx']?>">회
-			<br />Iontophoresis<input type="number" name="ionto_tx" maxlength="5" class="input num" value="<?php echo $SCORE['ionto_tx']?>">회
-			<br />TMD Soft Laser<input type="number" name="tmd_tx" maxlength="5" class="input num" value="<?php echo $SCORE['tmd_tx']?>">회
-			<br />연조직 Soft Laser <input type="number" name="soft_tx" maxlength="5" class="input num" value="<?php echo $SCORE['soft_tx']?>">회
-		</td>
+		<td class="input"><input type="number" name="physical_tx" maxlength="5" class="input num" value="<?php echo $SCORE['physical_tx']?>">회</td>
 		</tr>
 		<tr>
-		<td class="head">구취측정</td>
-		<td class="input"><input type="number" name="odor" maxlength="5" class="input num" value="<?php echo $SCORE['odor']?>">회</td>
+		<td class="head">장치제작</td>
+		<td class="input"><input type="number" name="splint_impression" maxlength="5" class="input num" value="<?php echo $SCORE['splint_impression']?>">회</td>
 		</tr>
 		<tr>
 		<td class="head">의료문서</td>
@@ -77,34 +73,6 @@
 		<tr>
 		<td class="head">교수님 Fix 오후</td>
 		<td class="input"><input type="number" name="fix_pm" maxlength="5" class="input num" value="<?php echo $SCORE['fix_pm']?>">회</td>
-		</tr>
-		<tr>
-		<td class="head">1 cycle 포트폴리오</td>
-		<td class="input"><input type="number" name="portfolio1" maxlength="5" class="input num" value="<?php echo $SCORE['portfolio1']?>">회</td>
-		</tr>
-		<tr>
-		<td class="head">2cycle 포트폴리오</td>
-		<td class="input"><input type="number" name="portfolio2" maxlength="5" class="input num" value="<?php echo $SCORE['portfolio2']?>">회</td>
-		</tr>
-		<tr>
-		<td class="head">3 cycle 포트폴리오</td>
-		<td class="input"><input type="number" name="portfolio3" maxlength="5" class="input num" value="<?php echo $SCORE['portfolio3']?>">회</td>
-		</tr>
-		<tr>
-		<td class="head">4 cycle 포트폴리오</td>
-		<td class="input"><input type="number" name="portfolio4" maxlength="5" class="input num" value="<?php echo $SCORE['portfolio4']?>">회</td>
-		</tr>
-		<tr>
-		<td class="head">장치 인기</td>
-		<td class="input"><input type="number" name="splint_impression" maxlength="5" class="input num" value="<?php echo $SCORE['splint_impression']?>">회</td>
-		</tr>
-		<tr>
-		<td class="head">장치 마무리</td>
-		<td class="input"><input type="number" name="splint_polishing" maxlength="5" class="input num" value="<?php echo $SCORE['splint_polishing']?>">회</td>
-		</tr>
-		<tr>
-		<td class="head">장치 조정</td>
-		<td class="input"><input type="number" name="splint_adjust" maxlength="5" class="input num" value="<?php echo $SCORE['splint_adjust']?>">회</td>
 		</tr>
 	</tbody>
 	</table>

@@ -34,6 +34,7 @@ $obser			= intval($obser);
 $splint_obser	= intval($splint_obser);
 $physical_tx	= intval($physical_tx);
 $odor			= intval($odor);
+$saliva_test		= intval($saliva_test);
 $m_text			= intval($m_text);
 $fix_am			= intval($fix_am);
 $fix_pm			= intval($fix_pm);
@@ -57,8 +58,8 @@ $soft_tx			= intval($soft_tx);
 
 
 // 입력한 데이터로 query 생성
-$QKEY = "s_uid, st_id, charting_obser, charting, soft_charting, obser, splint_obser, physical_tx, odor, m_text, fix_am, fix_pm, portfolio1, portfolio2, portfolio3, portfolio4, splint_impression, splint_polishing, splint_adjust, physical_tx_fix, infra_tx, ultra_tx, east_tx, tens_tx, ionto_tx, tmd_tx, soft_tx, date_update";
-$QVAL = "'$s_uid', '$st_id', '$charting_obser', '$charting', '$soft_charting', '$obser', '$splint_obser', '$physical_tx', '$odor', '$m_text', '$fix_am', '$fix_pm', '$portfolio1', '$portfolio2', '$portfolio3','$portfolio4', '$splint_impression', '$splint_polishing', '$splint_adjust', '$physical_tx_fix', '$infra_tx', '$ultra_tx', '$east_tx', '$tens_tx', '$ionto_tx', '$tmd_tx', '$soft_tx', '$date_update'";
+$QKEY = "s_uid, st_id, charting_obser, charting, soft_charting, obser, splint_obser, physical_tx, odor, m_text, fix_am, fix_pm, portfolio1, portfolio2, portfolio3, portfolio4, splint_impression, splint_polishing, splint_adjust, physical_tx_fix, infra_tx, ultra_tx, east_tx, tens_tx, ionto_tx, tmd_tx, soft_tx, saliva_test, date_update";
+$QVAL = "'$s_uid', '$st_id', '$charting_obser', '$charting', '$soft_charting', '$obser', '$splint_obser', '$physical_tx', '$odor', '$m_text', '$fix_am', '$fix_pm', '$portfolio1', '$portfolio2', '$portfolio3','$portfolio4', '$splint_impression', '$splint_polishing', '$splint_adjust', '$physical_tx_fix', '$infra_tx', '$ultra_tx', '$east_tx', '$tens_tx', '$ionto_tx', '$tmd_tx', '$soft_tx', '$saliva_test', '$date_update'";
 	
 getDbInsert($table[$m.'score'],$QKEY,$QVAL);
 

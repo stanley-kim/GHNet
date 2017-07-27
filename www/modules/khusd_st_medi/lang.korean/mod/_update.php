@@ -9,6 +9,7 @@
 		$SCORE['splint_obser'] = 0;
 		$SCORE['physical_tx'] = 0;
 		$SCORE['odor'] = 0;
+		$SCORE['saliva_test'] = 0;
 		$SCORE['m_text'] = 0;
 		$SCORE['charting_obser'] = 0;
 		$SCORE['fix_am'] = 0;

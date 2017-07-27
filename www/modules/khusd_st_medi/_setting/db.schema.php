@@ -38,6 +38,7 @@ CREATE TABLE `".$table[$module.'score']."` (
   `ionto_tx` int(4) NOT NULL default 0,
   `tmd_tx` int(4) NOT NULL default 0,
   `soft_tx` int(4) NOT NULL default 0,
+  `saliva_test` int(4) NOT NULL default 0,
   
   `date_update` varchar(14) NOT NULL default '',
   PRIMARY KEY  (`uid`),
