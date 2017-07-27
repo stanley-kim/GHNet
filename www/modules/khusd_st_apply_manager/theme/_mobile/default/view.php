@@ -80,6 +80,16 @@
 	
 	<div class="item">
 		항목 <span id="item_num1"><?php echo $ITEM_NUM?></span>개
+
+                <?php
+                $num_opened=0;
+                foreach($ITEM_ARRAY as $ITEM) {
+                        if($ITEM['accept_limit'] > 0 && $ITEM['accepted_num'] >= $ITEM['accept_limit']) ;
+                        else $num_opened+=1;
+                }
+                echo '(OPEN:'.$num_opened.')';
+                ?>
+
 		<span class="split">|</span>
 		<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['CLOSED']):?>
 		<span  class="highlight">마감</span>
