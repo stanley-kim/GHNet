@@ -89,33 +89,46 @@ if( permcheck('duplication_checker') )  {
         foreach($Duplicate_Check_Dic as $dcd1)  // each st_id
                 foreach($dcd1 as $dcd2)         // each day
                         foreach($dcd2 as $dcd3)    { // each time
-                                //sort($dcd3 ) 1st try;
+                                //sort($dcd3 ) 1st try; 
+				//ksort to order by date_end
                                 ksort($dcd3, SORT_NUMERIC ) ;
                                 $a_flag = 0;
+				$i = 0;
+				//count of date_end to detect if it is last chasu
+				$len = count($dcd3);  
                                 foreach($dcd3 as $dcd4)    { // each date_end
 //echo "count - " . count($dcd4)."<br>" ;
                                         if( count($dcd4)>= 2 )  {
 echo  "HIHI??------------------>>"."<br>";
-
+$prefix = "each google";
                                         foreach($dcd4 as $dcd5)  {  // each uid
-echo "each dup_rs-ID)".$dcd5['st_id'].'/환자예약시간)'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' '.getDateFormat($dcd5['date_item'],'H:i').'/차수신청시간)'.$dcd5['date_end'].'/상태)'.$dcd5['status'].'/rand)'.$dcd5['rand'];
+echo $prefix;
+echo "ID)".$dcd5['st_id'].'/환자예약시간)'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' '.getDateFormat($dcd5['date_item'],'H:i').'/차수신청시간)'.$dcd5['date_end'].'/상태)'.$dcd5['status'].'/rand)'.$dcd5['rand'];
 echo '/세부항목) '.$dcd5['apply_item_content'].'/차수제목) '.$dcd5['apply_info_subject']."<br>"  ;
 
                                         }
                                         }
                                         else  {
-
                                         foreach($dcd4 as $dcd5)  {  // each uid
-if ($a_flag > 0 )
+$prefix="each nor_rs-";
+if ($a_flag > 0 )  {
 	echo "HI?----------------->"."<br>"  ;
-if ($dcd5['status'] == 'a' ) $a_flag = 1;
-echo "each nor_rs-ID)".$dcd5['st_id'].'/환자예약시간)'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' '.getDateFormat($dcd5['date_item'],'H:i').'/차수신청시간)'.$dcd5['date_end'].'/상태)'.$dcd5['status'].'/rand)'.$dcd5['rand']   ;
+	$prefix = "echo talk!__-";
+}
+// if it is not last date_end , evenif 'a' case, no duplicate possibility
+if ($dcd5['status'] == 'a' && $i != $len-1 )  {  
+	$a_flag = 1;
+	$prefix = "each kakao-";
+}
+echo $prefix;
+echo "ID)".$dcd5['st_id'].'/환자예약시간)'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' '.getDateFormat($dcd5['date_item'],'H:i').'/차수신청시간)'.$dcd5['date_end'].'/상태)'.$dcd5['status'].'/rand)'.$dcd5['rand']   ;
 echo '/세부항목) '.$dcd5['apply_item_content'].'/차수제목) '.$dcd5['apply_info_subject']."<br>"  ;
 
                                         }
 
 
                                         }
+			$i++;
                                 }
                         }
 
