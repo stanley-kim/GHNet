@@ -51,7 +51,7 @@
 		</span>
 		<?php endif?>
 
-		<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN'] && ($MANAGER || $APPLY_INFO['st_id'] == $my['id'])):?>
+		<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN'] && ($MANAGER || $APPLY_INFO['st_id'] == $my['id']) && $ITEM_NUM > 0  ):?>
 		<span class="btn00">
 			<?php if($APPLY_INFO['apply_type'] == 'rand'):?>
 			<a href="<?php echo $g['apply_info_select_random'].$APPLY_INFO['uid']?>" onclick="return confirm('마감하시겠습니까?');">마감하기</a>
@@ -234,10 +234,10 @@
 					</div>
 					<?php endif?>
 					<div>
-						<input type="text" name="s_date" class="input1" value="<?php echo $_SESSION['last_apply_item_s_date']?>" /> <span>날짜 (20140505 형식으로... 꼭 8자리 숫자)</span>
+						<input type="text" name="s_date" class="input1" value="<?php echo $_SESSION['last_apply_item_s_date']?>" /> <span   style="color:#F50D0D" >날짜 (20140505 형식으로... 꼭 8자리 숫자)</span>
 					</div>
 					<div>
-						<input type="text" name="s_time" class="input1" /> <span>시간 (0903 형식으로... 꼭 4자리 숫자)</span>
+						<input type="text" name="s_time" class="input1" /> <span style="color:#F50D0D" >시간 (0903 형식으로... 꼭 4자리 숫자)</span>
 					</div>
 					<?php if($APPLY_INFO['is_perio_surgery'] == 'y'):?>
 					<div>
