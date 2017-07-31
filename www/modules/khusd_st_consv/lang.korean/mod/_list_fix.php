@@ -2,7 +2,8 @@
 	$SCORE_ARRAY = array();
 
 	// 정렬 순서에 대한 옵션 처리
-	if($MANAGER == false && $order)
+	//if($MANAGER == false && $order)
+	if($MANAGER == false)
 	{
 		// 정렬은 관리권한 있는 사용자만 가능
 		getLink('','', '각 과의 연락담당과 총대만 정렬 가능합니다.','');
