@@ -69,10 +69,18 @@ function changeFollowStatus2(uid, _option){
 					업데이트: <?php echo getDateFormat($MY_FOLLOW['date_update'], 'Y-m-d H:i')?></p></td>
 					<td>
 
-						<span class="btn02"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'f'  );">팔로우</a></span>
-						<span class="btn00"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'g'  );">포기</a></span>
-						<span class="btn00"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'c'  );">취소</a></span>
-						<span class="btn01"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'e'  );">완료</a></span>
+<?php if($MY_FOLLOW['status'] != 'f' ):?>
+<span class="btn02"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'f'  );">팔로우</a></span>
+<?php endif?>
+<?php if($MY_FOLLOW['status'] != 'g' ):?>					
+<span class="btn00"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'g'  );">포기</a></span>
+<?php endif?>
+<?php if($MY_FOLLOW['status'] != 'c' ):?>
+<span class="btn00"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'c'  );">취소</a></span>
+<?php endif?>
+<?php if($MY_FOLLOW['status'] != 'e' ):?>
+<span class="btn01"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'e'  );">완료</a></span>
+<?php endif?>
 
 					</td>
 				</tr>
