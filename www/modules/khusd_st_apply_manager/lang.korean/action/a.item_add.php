@@ -35,6 +35,27 @@ $date_reg = $date['totime'];
 
 $date_item = ($s_date && strlen($s_date) == 8 && $s_time && strlen($s_time) == 4) ? $s_date.$s_time.'00' : '';
 
+
+
+if(!isset($accept_limit) || $accept_limit == '')
+{
+        getLink('', '', '최대 수용 인원 필수', '');
+}
+if(!isset($content) || $content == '')
+{
+        getLink('', '', '내용 입력 필수', '');
+}
+if(!isset($s_date) || $s_date == '')
+{
+        getLink('', '', '날짜 필수(20140505 형식으로... 꼭 8자리 숫자)', '');
+}
+if(!isset($s_time) || $s_time == '')
+{
+        getLink('', '', '시간 필수(0903 형식으로... 꼭 4자리 숫자)', '');
+}
+
+
+
 // 치주수술 항목 입력을 편하게 하기 위해...
 // 마지막으로 입력된 수술날짜를 세션으로 저장
 // 귀찮으니 세션 초기화는 없는걸로........( '')a
