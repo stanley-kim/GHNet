@@ -70,7 +70,7 @@
 		</td>
 		</tr>
 		<tr>
-		<td class="head">Inlay</td>
+		<td class="head">Inlay(4학년 1학기)</td>
 		<td class="input">
 			Gold Inlay - prep<input type="checkbox" name="pre_st_inlay_gold_prep" class="checkbox"<?php if($SCORE['pre_st_inlay_gold_prep']):?>  checked<?php endif?>>
 			Gold Inlay - setting<input type="checkbox" name="pre_st_inlay_gold_setting" class="checkbox"<?php if($SCORE['pre_st_inlay_gold_setting']):?>  checked<?php endif?>>
