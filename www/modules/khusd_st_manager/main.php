@@ -128,6 +128,9 @@ if($mode == 'score_history' && $MANAGER) {
 	}else{
 	
 //dup check start
+                $check_start_code = ( 12 - date("w", time()   ) )%7 - 4 ;
+                $check_start_time = date("Ymd", time() + 60*60*24*$check_start_code).'000000';
+
                 $TCC = getDbArray(
                         $table['khusd_st_apply_manager'.'apply_list'].' al'
                         .', '.$table['khusd_st_apply_manager'.'apply_info_list'].' ail'
@@ -138,7 +141,8 @@ if($mode == 'score_history' && $MANAGER) {
                                 ." OR al.status = '".$d['khusd_st_apply_manager']['apply_list']['ACCEPTED']."'"
                         ." )"
                         ." AND al.apply_info_uid = ail.uid"
-                        ." AND al.apply_item_uid = ai.uid",
+                        ." AND al.apply_item_uid = ai.uid"
+                        ." AND ai.date_item >= ".$check_start_time,
                         "al.*"
                         .", IF(ail.status = '".$d['khusd_st_apply_manager']['apply_info']['CLOSED']."', 1, 0) AS is_closed"
                         .", ail.subject AS apply_info_subject"

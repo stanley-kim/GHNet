@@ -84,10 +84,28 @@
 
 	<?php  
 
+function format_print($_dup_check_rows, $_prefix)  {
+	$prefix = $_prefix;
+	$dcd5 = $_dup_check_rows;
+	echo $prefix;
+	echo "ID]".$dcd5['st_id'].']환자예약시간]'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' ]'.getDateFormat($dcd5['date_item'],'H:i').']차수신청시간]'.getDateFormat($dcd5['date_end'],'m/d').'('.getWeek(getDateFormat($dcd5['date_end'], 'w')).')'.' ]'.getDateFormat($dcd5['date_end'],'H:i').']상태)'.$dcd5['status'].' rand) '.$dcd5['rand']   ;
+	echo ' 세부항목]'.$dcd5['apply_item_content'].']차수제목]'.$dcd5['apply_info_subject'].' ]department]'.$dcd5['department']."<br>"  ;
+	echo '</span>';
+}
 
 if( permcheck('duplication_checker') )  {
 	include_once $g['path_module'].'khusd_st_manager/function/date.php';
 		echo  "HIHI"."<br>";
+		echo $date['today']."<br>"; 
+		//$oldday = time()-60*60*24*3;
+		$oldday = time()-60*60*24*2;
+		$oldday = time();
+		$start_code = ( 12 - date("w",$oldday ) )%7 - 4 ;
+		echo "if today is "."<br>";
+		echo date("Ymd", $oldday).'000000'."<br>";
+		echo date("Ymd", $oldday+60*60*24*$start_code).'000000~~';
+		echo date("Ymd", $oldday+60*60*24*($start_code+5))."235959<br>";
+
 
         foreach($Duplicate_Check_Dic as $dcd1)  // each st_id
                 foreach($dcd1 as $dcd2)         // each day
@@ -101,39 +119,30 @@ if( permcheck('duplication_checker') )  {
 				$len = count($dcd3);  
                                 foreach($dcd3 as $dcd4)    { // each date_end
                                         if( count($dcd4)>= 2 )  {
-//echo  '<span style="color:blue;">HIHI??------------------>></span>'."<br>";
-$prefix = '<span style="color:blue;">each google]';
-                                        foreach($dcd4 as $dcd5)  {  // each uid
-echo $prefix;
-echo "ID)".$dcd5['st_id'].']환자예약시간)'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' '.getDateFormat($dcd5['date_item'],'H:i').']차수신청시간)'.$dcd5['date_end'].']상태)'.$dcd5['status'].']rand)'.$dcd5['rand'];
-echo ']세부항목) '.$dcd5['apply_item_content'].']차수제목) '.$dcd5['apply_info_subject']."<br>"  ;
-echo '</span>';
-
-                                        }
+						$prefix = '<span style="color:blue;">each google-';
+                                        	foreach($dcd4 as $dcd5)  {  // each uid
+							format_print($dcd5, $prefix  );
+                                        	}	
                                         }
                                         else  {
-                                        foreach($dcd4 as $dcd5)  {  // each uid
-$prefix='<span style="color:black;">each normal]';
-if ($a_flag > 0 )  {
-	//echo '<span style="color:blue;">HI?-----------------></span>'."<br>"  ;
-	$prefix = '<span style="color:blue;">echo talk--]';
-}
-// if it is not last date_end , evenif 'a' case, no duplicate possibility
-if ($dcd5['status'] == 'a' && $i != $len-1 )  {  
-	$a_flag = 1;
-	$prefix = '<span style="color:blue;">each kakao-]';
-}
-echo $prefix;
-echo "ID)".$dcd5['st_id'].']환자예약시간)'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' '.getDateFormat($dcd5['date_item'],'H:i').']차수신청시간)'.$dcd5['date_end'].']상태)'.$dcd5['status'].']rand)'.$dcd5['rand']   ;
-echo ']세부항목) '.$dcd5['apply_item_content'].']차수제목) '.$dcd5['apply_info_subject']."<br>"  ;
-echo '</span>';
+                                        	foreach($dcd4 as $dcd5)  {  // each uid
+							$prefix='<span style="color:black;">each normal-';
+							if ($a_flag > 0 )  {
+								$prefix = '<span style="color:blue;">echo talk---';
+							}						
+							// if it is not last date_end , evenif 'a' case, no duplicate possibility
+							if ($dcd5['status'] == 'a' && $i != $len-1 )  {  
+								$a_flag = 1;
+								$prefix = '<span style="color:blue;">each kakao--';
+							}				
+							format_print($dcd5, $prefix);
                                         }
 
 
-                                        }
+                                }  //each date_end
 			$i++;
-                                }
                         }
+              }
 
 
 } // end of if permcheck
