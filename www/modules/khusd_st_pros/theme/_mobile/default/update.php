@@ -74,8 +74,7 @@
 		</tr>
 		<tr>
 		<td rowspan="2" class="head">3학년 1학기</td>
-		<td class="">&nbsp7월<input type="number" name="simple_obser_3_7" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_7']?>">회</td>
-		<td>&nbsp8월<input type="number" name="simple_obser_3_8" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_8']?>">회</td>
+		<td>&nbsp7,8월<input type="number" name="simple_obser_3_8" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_8']?>">회</td>
 		<td class="">&nbsp9월<input type="number" name="simple_obser_3_10" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_10']?>">회</td>
 		</tr>
 		<tr>
