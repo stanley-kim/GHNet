@@ -57,6 +57,8 @@ foreach($follow_arr as $aFollow){
 	}
 	$i++;
 }
+$follow += $prof_fix_am *  $d['khusd_st_pedia']['score']['prof_fix_am'];
+$follow += $prof_fix_pm *  $d['khusd_st_pedia']['score']['prof_fix_pm'];
 
 $is_goal 	= isset($is_goal) ? 'y' : 'n';
 

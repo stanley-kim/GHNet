@@ -25,6 +25,8 @@
 	<col width="50"> 
 	<col width="50">--> 
 	<col width="50">
+	<col width="50">
+	<col width="50">
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -33,8 +35,9 @@
 	<th scope="col" class="split">No</th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_id', $om)?>">학번</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'name', $om)?>">이름</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting', $om)?>">챠팅수</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'follow', $om)?>">Follow 점수</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'prof_fix_am', $om)?>">교픽오전</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'prof_fix_pm', $om)?>">교픽오후</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'follow', $om)?>">교픽+Follow 점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'obser', $om)?>">Obser</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'ga', $om)?>">G/A</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'sedation_rp', $om)?>">Sedation 레폿</a></th>
@@ -55,8 +58,9 @@
 	<th scope="col" class="split">No</th>
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">이름</th>
-	<th scope="col" class="split">챠팅수</th>
-	<th scope="col" class="split">Follow 점수</th>
+	<th scope="col" class="split">교픽오전</th>
+	<th scope="col" class="split">교픽오후</th>
+	<th scope="col" class="split">교픽+follow 점수</th>
 	<th scope="col" class="split">Obser</th>
 	<th scope="col" class="split">G/A</th>
 	<th scope="col" class="split">Sedation 레폿</th>
@@ -82,7 +86,8 @@
 	<td></td>
 	<td></td>
 	<td class="avg">평균</td>
-	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['prof_fix_am'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['prof_fix_pm'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['follow'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['obser'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['ga'])?></td>
@@ -110,7 +115,8 @@
 	<tr class="mine">
 	<td colspan="3">내점수</td>
 
-	<td><?php echo $SCORE['charting']?></td>
+	<td><?php echo $SCORE['prof_fix_am']?></td>
+	<td><?php echo $SCORE['prof_fix_pm']?></td>
 	<td class="category1"><?php echo $SCORE['follow']?></td>
 	<td class="category2"><?php echo $SCORE['obser']?></td>
 	<td><?php echo $SCORE['ga']?></td>
@@ -138,7 +144,8 @@
 	<tr class="goal">
 	<td colspan="3">목표점수</td>
 
-	<td><?php echo $SCORE['charting']?></td>
+	<td><?php echo $SCORE['prof_fix_am']?></td>
+	<td><?php echo $SCORE['prof_fix_pm']?></td>
 	<td class="category1"><?php echo $SCORE['follow']?></td>
 	<td class="category2"><?php echo $SCORE['obser']?></td>
 	<td><?php echo $SCORE['ga']?></td>
@@ -167,7 +174,8 @@
 	<td><?php echo $SCORE['st_id']?></td>
 	<td><?php echo $SCORE['st_info']['name']?></td>
 
-	<td><?php echo $SCORE['charting']?></td>
+	<td><?php echo $SCORE['prof_fix_am']?></td>
+	<td><?php echo $SCORE['prof_fix_pm']?></td>
 	<td class="category1"><?php echo $SCORE['follow']?></td>
 	<td class="category2"><?php echo $SCORE['obser']?></td>
 	<td><?php echo $SCORE['ga']?></td>

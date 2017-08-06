@@ -1,5 +1,7 @@
 <?php
 $d['khusd_st_pedia']['score'] = array (
+	'prof_fix_am'			=> 32,
+	'prof_fix_pm'			=> 40,
 	'ga'				=> 25,
 	'charting' 			=> 5,
 	'charting_obser'	=> 1,

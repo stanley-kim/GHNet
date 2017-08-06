@@ -15,7 +15,6 @@
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
-	<col width="50"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -23,10 +22,9 @@
 	<th scope="col" class="split">No</th>
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">이름</th>
-	<th scope="col" class="split">챠팅수</th>
 	<th scope="col" class="split">교픽오전</th>
 	<th scope="col" class="split">교픽오후</th>
-	<th scope="col" class="split">Follow 점수</th>
+	<th scope="col" class="split">교픽+Follow 점수</th>
 	<th scope="col" class="split">Obser</th>
 	<th scope="col" class="split">G/A</th>
 	<th scope="col" class="split">Sedatain 레폿</th>
@@ -46,7 +44,6 @@
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_id']?></td>
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_info']['name']?></td>
 
-	<td><?php echo $SCORE['charting']?></td>
 	<td><?php echo $SCORE['prof_fix_am']?></td>
 	<td><?php echo $SCORE['prof_fix_pm']?></td>
 	<td class="category1"><?php echo $SCORE['follow']?></td>
