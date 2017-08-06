@@ -118,11 +118,11 @@
 						<?php endif?>
 					</td>
 					<td><span class="btn00">
-							<?php if($MANAGER && $APPLIER['status'] != $d['khusd_st_apply_manager']['apply_list']['ACCEPTED']):?>
+							<?php if( permcheck( 'chief_of_case' ) && $APPLIER['status'] != $d['khusd_st_apply_manager']['apply_list']['ACCEPTED']):?>
 							<a href="<?php echo $g['apply_item_apply_accept'].$APPLIER['uid']?>" target="_action_frame_<?php echo $m?>" onclick="return confirm('정말로 당첨시키겠습니까?')">당첨</a>
 							<?php endif?>
 							<?php if($APPLIER['status'] != $d['khusd_st_apply_manager']['apply_list']['CANCEL']
-									&& ( $MANAGER
+									&& (  permcheck( 'chief_of_case' ) 
 									|| ($APPLY_INFO['status'] != $d['khusd_st_apply_manager']['apply_info']['CLOSED']
 									&& $APPLIER['status'] != $d['khusd_st_apply_manager']['apply_list']['ACCEPTED'] 
 									&& $APPLIER['st_id'] == $my['id']))):?>
