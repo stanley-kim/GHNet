@@ -152,6 +152,19 @@ if($FOLLOW_PT)
 }
 else
 {
+
+	$_table = $table[$m.'follow_pt'];
+	$_where ="pt_id = '".$pt_id."'";
+	$_data = '*';
+	$_sort = 'uid';
+	$_orderby = 'ASC';
+
+	$REAL_FOLLOW_PT_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
+	$REAL_FOLLOW_PT = db_fetch_array($REAL_FOLLOW_PT_ROWS);
+	//getLink('', '', '이!!미 등록된  환자 입니다.('.$pt_id.')('.$REAL_FOLLOW_PT.')', '');
+	if ( $REAL_FOLLOW_PT )
+		getLink('', '', '이미 등록된 환자 입니다.(병력번호:'.$pt_id.')', '');
+
 	// 입력한 데이터로 query 생성
 	$QKEY = "pt_name, pt_id, dr_name, status, date_update";
 	$QVAL = "'$pt_name', '$pt_id', '$dr_name', '$status_pt', '$date_update'";
