@@ -37,6 +37,7 @@ else
 	
 	$FOLLOWER_NUM = 0;
 	$ABLE_FOLLOW = true;
+	$ABLE_MODIFY = false;
 	$FOLLOW_PT = db_fetch_array($FOLLOW_PT_ROWS);
 	if($FOLLOW_PT)
 	{
@@ -57,9 +58,10 @@ else
 		{
 			if( $_ROW['status'] ==  $d['khusd_st_pros']['FOLLOW_STATUS']['FOLLOWING'] )
 				$FOLLOW_ARRAY[] = $_ROW;
-
 			//if($_ROW['st_id'] == $st_id && $_ROW['status'] != $d['khusd_st_pros']['FOLLOW_STATUS']['DROP'])
 			//	$ABLE_FOLLOW = false;
+			if($_ROW['st_id'] == $st_id && $_ROW['status'] == $d['khusd_st_pros']['FOLLOW_STATUS']['FOLLOWING'])
+				$ABLE_MODIFY = true; 
 			
 			if( $_ROW['status'] ==  $d['khusd_st_pros']['FOLLOW_STATUS']['FOLLOWING'] )
 				$FOLLOWER_NUM++;
@@ -82,6 +84,7 @@ $_where =
 	." AND fw.st_id = '".$st_id."'";
 $_sort = 'fw.date_update';
 $_orderby = 'DESC';
+
 
 $MY_FOLLOW_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
 $MY_FOLLOW_ARRAY = array();

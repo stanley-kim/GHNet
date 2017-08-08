@@ -17,9 +17,8 @@ function changeFollowStatus(uid){
 }	
 
 function changeFollowStatus2(uid, _option){
-        location.href = "<?php echo $g['khusd_st_pros_change_follow']?>"+uid+"&option="+_option;
-}
-
+	location.href = "<?php echo $g['khusd_st_pros_change_follow']?>"+uid+"&option="+_option;
+}	
 	
 </script>
 
@@ -197,6 +196,12 @@ function changeFollowStatus2(uid, _option){
 					</td>
 				</tr>
 				<tr>
+					<td>담당의</td>
+					<td>
+						<input type="text" name="dr_name" class="input" />
+					</td>
+				</tr>
+				<tr>
 					<td>종류</td>
 					<td id="select">
 						<select name="follow_type" class="input">
@@ -204,12 +209,6 @@ function changeFollowStatus2(uid, _option){
 							<option value="<?php echo $type['id'];?>"><?php echo $type['name'];?></option>
 							<?php endforeach?>
 						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>담당의</td>
-					<td>
-						<input type="text" name="dr_name" class="input" />
 					</td>
 				</tr>
 				<tr>
@@ -221,84 +220,111 @@ function changeFollowStatus2(uid, _option){
 			</table>
 			</form>
 		<?php elseif($FOLLOW_PT):?>
-			<?php if(!$ABLE_FOLLOW):?>
-			<form name="editFollowPt" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>" onsubmit="return updateCheck(this);">
-			<input type="hidden" name="r" value="<?php echo $r?>" />
-			<input type="hidden" name="a" value="edit_follow" />
-			<input type="hidden" name="c" value="<?php echo $c?>" />
-			<input type="hidden" name="m" value="<?php echo $m?>" />
-			
-			<input type="hidden" name="st_id" value="<?php echo $my['id']?>" />
-			<input type="hidden" name="pt_uid" value="<?php echo $FOLLOW_PT['uid']?>" />
-			<input type="hidden" name="pt_id" value="<?php echo $FOLLOW_PT['pt_id']?>" />
+			<?php if($ABLE_MODIFY):?>
+                        <form name="editFollowPt" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>" onsubmit="return updateCheck(this);">
+                        <input type="hidden" name="r" value="<?php echo $r?>" />
+                        <input type="hidden" name="a" value="edit_follow" />
+                        <input type="hidden" name="c" value="<?php echo $c?>" />
+                        <input type="hidden" name="m" value="<?php echo $m?>" />
+
+                        <input type="hidden" name="st_id" value="<?php echo $my['id']?>" />
+                        <input type="hidden" name="pt_uid" value="<?php echo $FOLLOW_PT['uid']?>" />
+                        <input type="hidden" name="pt_id" value="<?php echo $FOLLOW_PT['pt_id']?>" />
+			<table  >
+        <colgroup>
+                <col width=200>
+                <col>
+        </colgroup>
+
+                                <tr>
+                                        <td >환자명</td>
+                                        <td>
+                                                <input type="text" name="pt_name" value="<?php echo $FOLLOW_PT['pt_name']?>" />
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td >병록번호</td>
+                                        <td>
+                                                <?php echo $FOLLOW_PT['pt_id']?>
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td >담당의</td>
+                                        <td>
+                                                <input type="text" name="dr_name" value="<?php echo $FOLLOW_PT['dr_name']?>" />
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td>&nbsp;</td>
+                                        <td>
+                                                <input type="submit" value="수정" class="btnblue" />
+                                        </td>
+                                </tr>
+                        </table>
+                        </form>
 			<?php endif?>
-			<table  class="add_follow_table">
-				<tr>
-					<td>환자명</td>
-					<td>
-						<?php if(!$ABLE_FOLLOW):?>
-						<input type="text" name="pt_name" value="<?php echo $FOLLOW_PT['pt_name']?>" />
-						<?php else:?>
-						<?php echo $FOLLOW_PT['pt_name']?>
-						<?php endif?>
-					</td>
-				</tr>
-				<tr>
-					<td>병록번호</td>
-					<td>
-						<?php echo $FOLLOW_PT['pt_id']?>
-					</td>
-				</tr>
-				<tr>
-					<td>종류</td>
-					<td id="select">
-						<select name="follow_type" class="input">
-							<?php foreach( $d['khusd_st_pros']['TYPES'] as $type ):?>
-							<option value="<?php echo $type['id'];?>"><?php echo $type['name'];?></option>
-							<?php endforeach?>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<td>담당의</td>
-					<td>
-						<input type="text" name="dr_name" value="<?php echo $FOLLOW_PT['dr_name']?>" />
-					</td>
-				</tr>
-				<?php if(!$ABLE_FOLLOW):?>
-				<tr>
-					<td>&nbsp;</td>
-					<td>
-						<input type="submit" value="수정" class="btnblue" />
-					</td>
-				</tr>
-				<?php else:?>
+
+			<?php if($ABLE_FOLLOW):?>
 				<form name="addFollow" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>" onsubmit="return updateCheck(this);">
-				<tr>
+<tr>
 					<input type="hidden" name="r" value="<?php echo $r?>" />
 					<input type="hidden" name="a" value="add_follow" />
 					<input type="hidden" name="c" value="<?php echo $c?>" />
 					<input type="hidden" name="m" value="<?php echo $m?>" />
-					
-					<input type="hidden" name="st_id" value="<?php echo $my['id']?>" />
-					<input type="hidden" name="pt_name"  class="input" value="<?php echo $FOLLOW_PT['pt_name']?>" />
-					<input type="hidden" name="pt_id" class="input" value="<?php echo $FOLLOW_PT['pt_id']?>" />		
-					<input type="hidden" name="dr_name" class="input" value="<?php echo $FOLLOW_PT['dr_name']?>" />
-				</tr>
+
+                                        <input type="hidden" name="st_id" value="<?php echo $my['id']?>" />
+                                        <input type="hidden" name="pt_name"  class="input" value="<?php echo $FOLLOW_PT['pt_name']?>" />
+                                        <input type="hidden" name="pt_id" class="input" value="<?php echo $FOLLOW_PT['pt_id']?>" />
+                                        <input type="hidden" name="dr_name" class="input" value="<?php echo $FOLLOW_PT['dr_name']?>" />
+</tr>
+			<table  >
+        <colgroup>
+                <col width=200>
+                <col >
+        </colgroup>
+
+                               <?php if(!$ABLE_MODIFY):?>
+                                <tr>
+                                        <td >환자명</td>
+                                        <td>
+                                                <?php echo $FOLLOW_PT['pt_name']?>
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td >병록번호</td>
+                                        <td>
+                                                <?php echo $FOLLOW_PT['pt_id']?>
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td >담당의</td>
+                                        <td>
+                                                <?php echo $FOLLOW_PT['dr_name']?>
+                                        </td>
+
+                                </tr>
+                                <?php endif?>
+				<tr>
+					<td >종류</td>
+						<td id="select">
+							<select name="follow_type" class="input">
+					<?php foreach( $d['khusd_st_pros']['TYPES'] as $type ):?>
+				<option value="<?php echo $type['id'];?>"><?php echo $type['name'];?></option>
+				<?php endforeach?>
+			</select>
+		</td>
+			</tr>
 				<tr>
 					<td>&nbsp;</td>
 					<td>
 						<input type="submit" value="팔로우 추가" class="btnblue" />
 					</td>
 				</tr>
-				</form>
 				<?php endif?>
 			</table>
-			<?php if(!$ABLE_FOLLOW):?>
 			</form>
-			<?php endif?>
-		
 		<?php endif?>
+
 	</div>
 
 </div>
