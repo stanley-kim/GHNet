@@ -88,8 +88,11 @@ function format_print($_dup_check_rows, $_prefix)  {
 	$prefix = $_prefix;
 	$dcd5 = $_dup_check_rows;
 	echo $prefix;
-	echo "ID]".$dcd5['st_id'].']환자예약시간]'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' ]'.getDateFormat($dcd5['date_item'],'H:i').']차수신청시간]'.getDateFormat($dcd5['date_end'],'m/d').'('.getWeek(getDateFormat($dcd5['date_end'], 'w')).')'.' ]'.getDateFormat($dcd5['date_end'],'H:i').']상태)'.$dcd5['status'].' rand) '.$dcd5['rand']   ;
-	echo ' 세부항목]'.$dcd5['apply_item_content'].']차수제목]'.$dcd5['apply_info_subject'].' ]department]'.$dcd5['department']."<br>"  ;
+	echo "ID]".$dcd5['st_id'].']'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' ]'.getDateFormat($dcd5['date_item'],'Hi').']'.getDateFormat($dcd5['date_end'],'m/d').'('.getWeek(getDateFormat($dcd5['date_end'], 'w')).')'.' ]'.getDateFormat($dcd5['date_end'],'Hi').']상태)'.$dcd5['status'];
+	//echo ' rand) '.$dcd5['rand'] ;
+	echo ' ]'.$dcd5['apply_item_content'].']'.$dcd5['apply_info_subject'].' ]'.$dcd5['department'];
+	echo "<br>"  ;
+	
 	echo '</span>';
 }
 
