@@ -8,12 +8,12 @@ $d['khusd_st_pros']['score']['complete_denture'] = 50;
 $d['khusd_st_pros']['score']['others'] = 1;
 
 
-$d['khusd_st_pros']['require']['post_core'] = 4;
-$d['khusd_st_pros']['require']['imp_cr_br'] = 2;
-$d['khusd_st_pros']['require']['single_cr'] = 5;
-$d['khusd_st_pros']['require']['br'] = 4;
-$d['khusd_st_pros']['require']['partial_denture'] = 2;
-$d['khusd_st_pros']['require']['complete_denture'] = 2;
+$d['khusd_st_pros']['require']['post_core'] = 0;
+$d['khusd_st_pros']['require']['imp_cr_br'] = 0;
+$d['khusd_st_pros']['require']['single_cr'] = 0;
+$d['khusd_st_pros']['require']['br'] = 0;
+$d['khusd_st_pros']['require']['partial_denture'] = 0;
+$d['khusd_st_pros']['require']['complete_denture'] = 0;
 
 
 
