@@ -85,7 +85,9 @@ $MY_FOLLOW_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
 $MY_FOLLOW_ARRAY = array();
 while( $_ROW = db_fetch_array($MY_FOLLOW_ROWS) )
 {
-	$MY_FOLLOW_ARRAY[$_ROW['pt_uid']] = $_ROW;
+	//$MY_FOLLOW_ARRAY[$_ROW['pt_uid']] = $_ROW;
+	$MY_FOLLOW_ARRAY[$_ROW['pt_uid'].$_ROW['type']] = $_ROW;
+
 }
 
 
