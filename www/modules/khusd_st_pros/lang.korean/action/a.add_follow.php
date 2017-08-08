@@ -112,18 +112,20 @@ if($FOLLOW_PT)
 		{
 			if($FOLLOW['st_id'] == $st_id)
 				if($st_id == $my['id'])
-					getLink('', '', '이미 당신이 팔로우 중인 환자 입니다.', '');
+					getLink('', '', '이미 당신이 팔로우 중인 환자 입니다.'.$follow_type, '');
 				else
 					getLink('', '', '이미 '.$st_id.'님이 팔로우 중인 환자 입니다.', '');
 		}
 	}
 	
-	// 이미 팔로 내역이 있으면 상태랑 날짜만 변경하기
+		
+	// 이미 팔로 내역이 있으면 상태랑 날짜만 변경하기(취소,포기,완료 상태인데 모르고 팔로우 신청하는 경우 있을 수 있음
 	$_table = $table[$m.'follow'];
 	$_where = 
 		"s_uid = '".$s_uid."'"
 		." AND st_id = '".$st_id."'"
-		." AND pt_uid = '".$pt_uid."'";
+		." AND pt_uid = '".$pt_uid."'"
+		." AND type = '".$follow_type."'";
 	
 	$MY_FOLLOW_UID = getDbCnt($_table, 'max(uid)', $_where);
 	
