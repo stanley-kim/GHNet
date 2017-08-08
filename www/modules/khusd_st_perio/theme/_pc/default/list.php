@@ -37,7 +37,6 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40">
-	<col width="40">
 	<col width="40"> 
 	<col width="150"> 
 	</colgroup> 
@@ -77,13 +76,12 @@
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'iot', $om, $order == 'iot')?>">IOT</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'charting', $om, $order == 'charting')?>">Ch</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'ch_iot', $om, $order == 'ch_iot')?>">Ch<br>+<br>IOT</a></th>
-	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'surgery', $om, $order == 'surgery')?>">F/O</a></th>
+	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'surgery', $om, $order == 'surgery')?>">Perio Surgery</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'imp_1st', $om, $order == 'imp_1st')?>">Imp 1st</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'imp_2nd', $om, $order == 'imp_2nd')?>">Imp 2nd</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'total_surgery', $om, $order == 'total_surgery')?>">Total<br>surgery</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'abandon_surgery', $om, $order == 'abandon_surgery')?>">버린 수술 점수</a></th>
-	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'sc', $om, $order == 'sc')?>">SC</a></th>
-	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'sc2', $om, $order == 'sc2')?>">SC2</a></th>
+	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'sc', $om, $order == 'sc')?>">SC,CU,PC,RP</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'others', $om, $order == 'others')?>">others</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'tbi', $om, $order == 'tbi')?>">TBI</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'ob_score_original', $om, $order == 'ob_score_original')?>">Obser 점수</a></th>
@@ -100,13 +98,12 @@
 	<th scope="col" rowspan=2 class="split">IOT</th>
 	<th scope="col" rowspan=2 class="split">Ch</th>
 	<th scope="col" rowspan=2 class="split">Ch<br>+<br>IOT</th>
-	<th scope="col" rowspan=2 class="split">F/O</th>
+	<th scope="col" rowspan=2 class="split">Perio Surgery</th>
 	<th scope="col" rowspan=2 class="split">Imp 1st</th>
 	<th scope="col" rowspan=2 class="split">Imp 2nd</th>
 	<th scope="col" rowspan=2 class="split">Total<br>surgery</th>
 	<th scope="col" rowspan=2 class="split">버린 수술 점수</th>
-	<th scope="col" rowspan=2 class="split">SC</th>
-	<th scope="col" rowspan=2 class="split">SC2</th>
+	<th scope="col" rowspan=2 class="split">SC,Cu,PC,RP</th>
 	<th scope="col" rowspan=2 class="split">others</th>
 	<th scope="col" rowspan=2 class="split">TBI</th>
 	<th scope="col" rowspan=2 class="split">Obser 점수</th>
@@ -158,7 +155,6 @@
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_surgery'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['abandon'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['sc'])?></td>
-		<td class="avg"><?php echo sprintf("%1.1f",$AVG['sc2'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['others'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['tbi'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['ob_score_original'])?></td>
@@ -198,7 +194,6 @@
 	<td class="category2"><?php echo $SCORE['total_surgery']?></td>
 	<td class="category2"><?php echo $SCORE['abandon_surgery']?></td>
 	<td class="category3"><?php echo $SCORE['sc']?></td>
-	<td class="category3"><?php echo $SCORE['sc2']?></td>
 	<td><?php echo $SCORE['others']?></td>
 	<td><?php echo $SCORE['tbi']?></td>
 	<td class="category4"><?php echo $SCORE['ob_score_original']?></td>
@@ -237,7 +232,6 @@
 	<td class="category2"><?php echo $SCORE['total_surgery']?></td>
 	<td class="category2"><?php echo $SCORE['abandon_surgery']?></td>
 	<td class="category3"><?php echo $SCORE['sc']?></td>
-	<td class="category3"><?php echo $SCORE['sc2']?></td>
 	<td><?php echo $SCORE['others']?></td>
 	<td><?php echo $SCORE['tbi']?></td>
 	<td class="category4"><?php echo $SCORE['ob_score_original']?></td>
@@ -277,7 +271,6 @@
 	<td class="category2"><?php echo $SCORE['total_surgery']?></td>
 	<td class="category2"><?php echo $SCORE['abandon_surgery']?></td>
 	<td class="category3"><?php echo $SCORE['sc']?></td>
-	<td class="category3"><?php echo $SCORE['sc2']?></td>
 	<td><?php echo $SCORE['others']?></td>
 	<td><?php echo $SCORE['tbi']?></td>
 	<td class="category4"><?php echo $SCORE['ob_score_original']?></td>
