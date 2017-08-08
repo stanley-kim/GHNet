@@ -95,7 +95,7 @@
 			<td class="title" colspan=2>Observation</td>
 		</tr>
 		<tr>
-		<td class="head">IOT</td>
+		<td class="head">IOT(IntraOral TBI)</td>
 		<td><input type="number" name="iot" maxlength="5" class="input" value="<?php echo $SCORE['iot']?>">회</td>
 		</tr>
 		<tr>
