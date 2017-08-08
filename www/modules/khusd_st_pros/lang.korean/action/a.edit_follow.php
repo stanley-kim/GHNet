@@ -65,11 +65,7 @@ $_where = "pt_id = '".$pt_id."'";
 getDbUpdate($_table, $_set, $_where);
 
 
-$_table = $table[$m.'follow'];
-$_set = "status = '".$status."', type ='".$follow_type."', date_update = '".$date_update."'";
-$_where = "pt_uid = '".$pt_uid."' and st_id ='".$st_id."'";
 
-getDbUpdate($_table, $_set, $_where);
 
 
 getLink('reload', 'parent.', '환자 정보 수정되었습니다.', '');
