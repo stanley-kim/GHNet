@@ -35,6 +35,7 @@ $pt_name = trim($pt_name);
 $pt_id = trim($pt_id);
 $dr_name = trim($dr_name);
 //follow_type
+$follow_type = trim($follow_type);
 
 $date_update = $date['totime'];
 
@@ -91,6 +92,7 @@ if($FOLLOW_PT)
 		"s_uid = '".$s_uid."'"
 		." AND st_id = '".$st_id."'"
 		." AND pt_uid = '".$pt_uid."'"
+		." AND type = '".$follow_type."'"
 		." AND status = '".$d['khusd_st_pros']['FOLLOW_STATUS']['FOLLOWING']."'";
 	$_sort = 'uid';
 	$_orderby = 'ASC';
