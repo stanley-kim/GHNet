@@ -56,8 +56,8 @@ else
 		while( $_ROW = db_fetch_array($FOLLOW_ROWS) ) 
 		{
 			$FOLLOW_ARRAY[] = $_ROW;
-			if($_ROW['st_id'] == $st_id && $_ROW['status'] != $d['khusd_st_pros']['FOLLOW_STATUS']['DROP'])
-				$ABLE_FOLLOW = false;
+			//if($_ROW['st_id'] == $st_id && $_ROW['status'] != $d['khusd_st_pros']['FOLLOW_STATUS']['DROP'])
+			//	$ABLE_FOLLOW = false;
 			
 			if($_ROW['status'] != $d['khusd_st_pros']['FOLLOW_STATUS']['DROP'])
 				$FOLLOWER_NUM++;
