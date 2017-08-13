@@ -56,7 +56,7 @@
 		<tr>
 		<td class="head">전치 Re-endo</td>
 		<td class="input">
-			PE<input type="checkbox" name="pre_st_ant_re_rm" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_ant_re_rm']):?>  checked<?php endif?>>
+			GP제거<input type="checkbox" name="pre_st_ant_re_rm" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_ant_re_rm']):?>  checked<?php endif?>>
 			CE<input type="checkbox" name="pre_st_ant_re_ce" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_ant_re_ce']):?>  checked<?php endif?>>
 			CF<input type="checkbox" name="pre_st_ant_re_cf" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_ant_re_cf']):?>  checked<?php endif?>>
 		</td>
@@ -64,7 +64,7 @@
 		<tr>
 		<td class="head">소구치 Re-endo</td>
 		<td class="input">
-			PE<input type="checkbox" name="pre_st_pre_re_rm" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_pre_re_rm']):?>  checked<?php endif?>>
+			GP제거<input type="checkbox" name="pre_st_pre_re_rm" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_pre_re_rm']):?>  checked<?php endif?>>
 			CE<input type="checkbox" name="pre_st_pre_re_ce" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_pre_re_ce']):?>  checked<?php endif?>>
 			CF<input type="checkbox" name="pre_st_pre_re_cf" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_pre_re_cf']):?>  checked<?php endif?>>
 		</td>
