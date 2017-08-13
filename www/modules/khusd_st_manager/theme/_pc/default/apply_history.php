@@ -90,7 +90,7 @@ function format_print($_dup_check_rows, $_prefix)  {
 	echo $prefix;
 	echo "ID]".$dcd5['st_id'].']'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' ]'.getDateFormat($dcd5['date_item'],'Hi').']'.getDateFormat($dcd5['date_end'],'m/d').'('.getWeek(getDateFormat($dcd5['date_end'], 'w')).')'.' ]'.getDateFormat($dcd5['date_end'],'Hi').']상태)'.$dcd5['status'];
 	//echo ' rand) '.$dcd5['rand'] ;
-	echo ' ]'.$dcd5['apply_item_content'].']'.$dcd5['apply_info_subject'].' ]'.$dcd5['department'];
+	echo ' ]'.$dcd5['apply_item_content'].']'.$dcd5['apply_info_subject'].' ]'.$dcd5['department'].']'.$dcd5['sub_category'];
 	echo "<br>"  ;
 	
 	echo '</span>';

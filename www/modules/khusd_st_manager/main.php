@@ -152,6 +152,7 @@ if($mode == 'score_history' && $MANAGER) {
                         .", ail.department AS department"
                         .", ail.uid AS apply_info_uid"
                         .", ai.date_item AS date_item"
+                        .", ai.sub_category AS sub_category"
                         .", ai.content AS apply_item_content",
 
                         'al.st_id' ,
