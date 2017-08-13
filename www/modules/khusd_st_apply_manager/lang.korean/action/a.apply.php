@@ -74,6 +74,8 @@ $APPLIED_FOR_ITEM_NUM = getDbRows($table[$m.'apply_list'],
 );
 
 
+
+
 // 옵션에 따라 기존 당첨된 만큼 차감을 시킨다.
 // 그렇기 때문에, 이미 당첨된 수가 limit 수보다 크다면, 신청을 추가하지 않고 튕긴다. 
 if($APPLY_INFO['apply_limit'] > 0 && $APPLY_INFO['able_apply_accepted'] == 'n')
@@ -84,6 +86,13 @@ if($APPLY_INFO['apply_limit'] > 0 && $APPLY_INFO['able_apply_accepted'] == 'n')
 	} else if($APPLY_INFO['apply_limit'] <= $ACCEPTED_NUM + $APPLIED_NUM)
 	{
 		getLink('', '', '이미 신청한 항목이 신청 제한 수에 도달하였습니다. 추가 신청이 불가능합니다. 기존 신청 내역을 취소하고 시도해 주세요.', '');
+	}
+}
+else if($APPLY_INFO['apply_limit'] > 0 && $APPLY_INFO['able_apply_accepted'] == 'y')
+{		
+	if($APPLY_INFO['apply_limit'] <= $APPLIED_NUM)
+	{
+		getLink('', '', '이미 신청한 항목이 신청 제한 수에 도달하였습니다. 신청이 불가능합니다..', '');
 	}
 }
 
