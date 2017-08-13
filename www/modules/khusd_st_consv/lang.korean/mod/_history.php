@@ -62,16 +62,28 @@
 	$_table_data_minus_score = 
 		'SELECT mmst.uid,'
 		.'endo_molar, endo_pre, endo_ant, endo_etc,'
-		.genMinusScoreQuery( 'indirect_prep_imp', $d['khusd_st_consv']['require']['obser']['indirect_prep_imp'], $d['khusd_st_consv']['minus']['obser']['indirect_prep_imp'])
-		.'+ '.genMinusScoreQuery( 'indirect_setting', $d['khusd_st_consv']['require']['obser']['indirect_setting'], $d['khusd_st_consv']['minus']['obser']['indirect_setting'])
-		.'+ '.genMinusScoreQuery( 'tooth_colored_simple + tooth_colored_complex + tooth_colored_diastema', 
-					$d['khusd_st_consv']['require']['obser']['tooth_colored'], $d['khusd_st_consv']['minus']['obser']['tooth_colored'])
-		.'+ '.genMinusScoreQuery( 'tooth_colored_complex', 
-					$d['khusd_st_consv']['require']['obser']['tooth_colored_complex'], $d['khusd_st_consv']['minus']['obser']['tooth_colored_complex'])
-		.'+ '.genMinusScoreQuery( 'endo_molar + endo_pre + endo_ant', $d['khusd_st_consv']['require']['obser']['endo'], $d['khusd_st_consv']['minus']['obser']['endo'])
-		.'+ '.genMinusScoreQuery( 'endo_molar', $d['khusd_st_consv']['require']['obser']['endo_molar'], $d['khusd_st_consv']['minus']['obser']['endo_molar'])
-		.'+ '.genMinusScoreQuery( 'surgery', $d['khusd_st_consv']['require']['obser']['surgery'], $d['khusd_st_consv']['minus']['obser']['surgery'])
-		.'+ '.genMinusScoreQuery( 'miscellaneous', $d['khusd_st_consv']['require']['obser']['miscellaneous'], $d['khusd_st_consv']['minus']['obser']['miscellaneous'])
+               .genMinusScoreQuery( 'indirect_prep_imp', $d['khusd_st_consv']['require']['obser']['indirect_prep_imp'], $d['khusd_st_consv']['score']['obser']['indirect_prep_imp'])
+
+                .'+ '.genMinusScoreQuery( 'indirect_setting', $d['khusd_st_consv']['require']['obser']['indirect_setting'], $d['khusd_st_consv']['score']['obser']['indirect_setting'])
+                .'+ '.genMinusScoreQuery( 'tooth_colored_simple + tooth_colored_complex + tooth_colored_diastema',
+                                        $d['khusd_st_consv']['require']['obser']['tooth_colored'], $d['khusd_st_consv']['score']['obser']['tooth_colored_simple'])
+                .'+ '.genMinusScoreQuery( 'tooth_colored_complex',
+                                        $d['khusd_st_consv']['require']['obser']['tooth_colored_complex'], $d['khusd_st_consv']['score']['obser']['tooth_colored_complex'] - $d['khusd_st_consv']['score']['obser']['tooth_colored_simple'])
+                .'+ '.genMinusScoreQuery( 'endo_molar + endo_pre + endo_ant', $d['khusd_st_consv']['require']['obser']['endo'], $d['khusd_st_consv']['score']['obser']['endo_pre_pe'])
+                .'+ '.genMinusScoreQuery( 'endo_molar', $d['khusd_st_consv']['require']['obser']['endo_molar'], $d['khusd_st_consv']['score']['obser']['endo_molar_pe'] - $d['khusd_st_consv']['score']['obser']['endo_pre_pe'])
+                .'+ '.genMinusScoreQuery( 'surgery', $d['khusd_st_consv']['require']['obser']['surgery'], $d['khusd_st_consv']['score']['obser']['surgery'])
+                .'+ '.genMinusScoreQuery( 'miscellaneous', $d['khusd_st_consv']['require']['obser']['miscellaneous'], $d['khusd_st_consv']['score']['obser']['miscellaneous'])
+
+//		.genMinusScoreQuery( 'indirect_prep_imp', $d['khusd_st_consv']['require']['obser']['indirect_prep_imp'], $d['khusd_st_consv']['minus']['obser']['indirect_prep_imp'])
+//		.'+ '.genMinusScoreQuery( 'indirect_setting', $d['khusd_st_consv']['require']['obser']['indirect_setting'], $d['khusd_st_consv']['minus']['obser']['indirect_setting'])
+//		.'+ '.genMinusScoreQuery( 'tooth_colored_simple + tooth_colored_complex + tooth_colored_diastema', 
+//					$d['khusd_st_consv']['require']['obser']['tooth_colored'], $d['khusd_st_consv']['minus']['obser']['tooth_colored'])
+//		.'+ '.genMinusScoreQuery( 'tooth_colored_complex', 
+//					$d['khusd_st_consv']['require']['obser']['tooth_colored_complex'], $d['khusd_st_consv']['minus']['obser']['tooth_colored_complex'])
+//		.'+ '.genMinusScoreQuery( 'endo_molar + endo_pre + endo_ant', $d['khusd_st_consv']['require']['obser']['endo'], $d['khusd_st_consv']['minus']['obser']['endo'])
+//		.'+ '.genMinusScoreQuery( 'endo_molar', $d['khusd_st_consv']['require']['obser']['endo_molar'], $d['khusd_st_consv']['minus']['obser']['endo_molar'])
+//		.'+ '.genMinusScoreQuery( 'surgery', $d['khusd_st_consv']['require']['obser']['surgery'], $d['khusd_st_consv']['minus']['obser']['surgery'])
+//		.'+ '.genMinusScoreQuery( 'miscellaneous', $d['khusd_st_consv']['require']['obser']['miscellaneous'], $d['khusd_st_consv']['minus']['obser']['miscellaneous'])
 		.' AS minus_score'
 		.' FROM '
 			.'(SELECT uid,endo_molar_pe + endo_molar_ce + endo_molar_cf AS endo_molar FROM '.$table[$m.'score'].') emt, '
