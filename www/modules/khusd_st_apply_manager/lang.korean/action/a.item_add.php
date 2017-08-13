@@ -27,6 +27,7 @@ $s_date = trim($s_date);
 $s_time = trim($s_time);
 $pt_id = trim($pt_id);
 $pt_name = trim($pt_name);
+$sub_category = trim($sub_category);
 $doctor = trim($doctor);
 $assist = trim($assist);
 $is_imp_cent = $is_imp_cent == '1' ? 1 : 0;
@@ -61,8 +62,9 @@ if(!isset($s_time) || $s_time == '')
 // 귀찮으니 세션 초기화는 없는걸로........( '')a
 $_SESSION['last_apply_item_s_date'] = $s_date;
 
-$_QKEY = 'apply_info_uid, content, ref_uid, accept_limit, date_reg, date_item, pt_id, pt_name, doctor, assist, is_imp_cent';
-$_QVAL = "'$apply_info_uid', '$content', '$ref_uid', '$accept_limit', '$date_reg', '$date_item', '$pt_id', '$pt_name', '$doctor', '$assist', '$is_imp_cent'";
+$_QKEY = 'apply_info_uid, content, ref_uid, accept_limit, date_reg, date_item, pt_id, pt_name, sub_category, doctor, assist, is_imp_cent';
+$_QVAL = "'$apply_info_uid', '$content', '$ref_uid', '$accept_limit', '$date_reg', '$date_item', '$pt_id', '$pt_name', '$sub_category', '$doctor', '$assist', '$is_imp_cent'";
+
 
 getDbInsert($table[$m.'apply_item'],$_QKEY, $_QVAL);
 

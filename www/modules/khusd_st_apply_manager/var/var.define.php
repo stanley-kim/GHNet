@@ -42,4 +42,31 @@ $d['khusd_st_apply_manager']['perio_sur']['doctor'] = array(
                 ,'dr_'	=> 'Dr.'
 	)
 );
+
+
+
+$d['khusd_st_apply_manager']['pros']['sub_category'] = array(
+    array(      'name'  => 'Post Core',
+                'id'    => 'PostCore'
+            ),
+    array(      'name'  => 'Implant Cr&Br',
+                'id'    => 'imp'
+            ),
+    array(      'name'  => 'Single Cr/Laminamte',
+                'id'    => 'single'
+            ),
+    array(      'name'  => 'Bridge (3unit 이상)',
+                'id'    => 'bridge'
+            ),
+    array(      'name'  => 'Partial Denture',
+                'id'    => 'pd'
+            ),
+    array(      'name'  => 'Complete Denture',
+                'id'    => 'cd'
+        )
+);
+
+
+
+
 ?>

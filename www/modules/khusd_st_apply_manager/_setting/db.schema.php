@@ -72,6 +72,8 @@ CREATE TABLE `".$table[$module.'apply_item']."` (
   `date_reg` varchar(14) NOT NULL default '',
   
   `date_item` varchar(14) NOT NULL default '',
+  `sub_category`        varchar(10) NOT NULL default '',
+
   `doctor`	varchar(20) NOT NULL default '',
   `assist`	varchar(20) NOT NULL default '',
   `pt_name`	varchar(20) NOT NULL default '',

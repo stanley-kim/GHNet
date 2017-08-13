@@ -109,6 +109,7 @@
 			<colgroup>
 				<col>
 				<col width="100">
+				<col width="60">
 				<col width="100">
 				<col width="100">
 				<col width="70">
@@ -119,6 +120,7 @@
 			<thead>
 				<tr>
 					<th scope="col" class="side1">신청 내용</th>
+                                        <th scope="col">종류</th>
 					<th scope="col">총 가능 인원</th>
 					<th scope="col">유효 신청 인원</th>
 					<th scope="col">당첨 인원</th>
@@ -158,6 +160,13 @@
 							<span class="num highlight">[임플란트 센터]</span>
 						<?php endif?>
 					</td>
+					<td>
+                                        <?php foreach( $d['khusd_st_apply_manager']['pros']['sub_category'] as $type ):?>
+                                                        <?php if( $ITEM['sub_category'] == $type['id']):?>
+                                                        <?php echo $type["name"];?>
+                                                        <?php endif?>
+                                        <?php endforeach?>
+                                        </td>
 					<td>
 					<?php echo $ITEM['accept_limit'] == 0 ? '무제한' : $ITEM['accept_limit']?>
 					</td>
@@ -228,6 +237,17 @@
 					<div>
 						<input type="text" name="content" class="input2" maxlength="90" /> <span>(내용)</span>
 					</div>
+                                        <?php if($APPLY_INFO['department'] == 'pros'):?>
+                                        <div>
+                                                <select name="sub_category" >
+                                                        <?php foreach( $d['khusd_st_apply_manager']['pros']['sub_category'] as $sub_category ):?>
+                                                        <option value="<?php echo $sub_category['id'];?>"><?php echo $sub_category['name'];?></option>
+                                                        <?php endforeach?>
+                                                </select><span  style="color:#F50D0D" >  종류</span>
+
+                                        </div>
+                                        <?php endif?>
+
 					<?php if($APPLY_INFO['is_perio_surgery'] == 'y'):?>
 					<div>
 						<input type="text" name="pt_id" class="input1" value="" /> <span><b style="color:blue;">병록번호</b> (12345678 형식으로... 꼭 8자리 숫자)</span>

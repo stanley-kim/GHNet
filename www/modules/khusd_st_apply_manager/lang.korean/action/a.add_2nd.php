@@ -58,9 +58,10 @@ if($uid > 0 && $APPLY_INFO['uid'] == $uid)
 	$ITEM_ROWS = getDbArray($table[$m.'apply_item'], "apply_info_uid='".$uid."'",'*','uid','asc',0,0);
 	while($_ITEM = db_fetch_array($ITEM_ROWS)) 
 	{
-		$_QKEY = 'apply_info_uid, content, ref_uid, accept_limit, date_reg, date_item, doctor, assist, pt_id, pt_name, is_imp_cent';
-		$_QVAL = "'".$LASTUID."', '".mysql_real_escape_string($_ITEM['content'])."', '".$_ITEM['ref_uid']."', '".$_ITEM['accept_limit']."', '".$_ITEM['date_reg']."'"
-				.", '".$_ITEM['date_item']."', '".$_ITEM['doctor']."', '".$_ITEM['assist']."', '".$_ITEM['pt_id']."', '".$_ITEM['pt_name']."', '".$_ITEM['is_imp_cent']."'";
+                $_QKEY = 'apply_info_uid, content, ref_uid, accept_limit, date_reg, date_item, doctor, assist, pt_id, pt_name, is_imp_cent, sub_category';
+                $_QVAL = "'".$LASTUID."', '".mysql_real_escape_string($_ITEM['content'])."', '".$_ITEM['ref_uid']."', '".$_ITEM['accept_limit']."', '".$_ITEM['date_reg']."'"
+                                .", '".$_ITEM['date_item']."', '".$_ITEM['doctor']."', '".$_ITEM['assist']."', '".$_ITEM['pt_id']."', '".$_ITEM['pt_name']."', '".$_ITEM['is_imp_cent']."', '".$_ITEM['sub_category']."'";
+
 		getDbInsert($table[$m.'apply_item'],$_QKEY, $_QVAL);
 		// 새로 추가된 uid 가져온다. 
 		$ITEM_LASTUID = getDbCnt($table[$m.'apply_item'],'max(uid)','');
