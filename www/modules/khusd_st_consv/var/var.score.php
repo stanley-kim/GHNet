@@ -63,8 +63,8 @@ $d['khusd_st_consv']['score']['obser'] = array(
 );
 
 $d['khusd_st_consv']['require']['obser'] = array(
-	'indirect_prep_imp'			=> 6,
-	'indirect_setting'			=> 6,
+	'indirect_prep_imp'			=> 4,
+	'indirect_setting'			=> 4,
 	'tooth_colored'				=> 20,
 	'tooth_colored_complex'		=> 8,
 	'endo_molar'				=> 10,
