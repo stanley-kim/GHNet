@@ -65,7 +65,7 @@
 			<a href="<?php echo $g['apply_info_add_2nd_apply'].$APPLY_INFO['uid']?>" onclick="return confirm('추가 신청을 받으시겠습니까?');">추가신청 생성</a>
 		</span>
 		<?php endif?>
-		<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN'] && ($MANAGER || $APPLY_INFO['st_id'] == $my['id'])):?>
+                <?php if(($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN'] && $APPLY_INFO['date_end'] > $date['totime']  &&   ($MANAGER || $APPLY_INFO['st_id'] == $my['id'])) || ( $APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['CLOSED'] && $ITEM_NUM ==0 &&   permcheck( 'chief_of_case' )    )   ):?>
 		<span class="btn00">
 			<a href="<?php echo $g['apply_info_modify'].$APPLY_INFO['uid']	?>">수정</a>
 		</span>
@@ -160,7 +160,7 @@
 							<span class="num highlight">[임플란트 센터]</span>
 						<?php endif?>
 					</td>
-					<td>
+                                        <td>
                                         <?php foreach( $d['khusd_st_apply_manager']['pros']['sub_category'] as $type ):?>
                                                         <?php if( $ITEM['sub_category'] == $type['id']):?>
                                                         <?php echo $type["name"];?>
