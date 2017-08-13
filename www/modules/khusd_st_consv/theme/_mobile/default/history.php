@@ -33,7 +33,7 @@
 	<tr>
 		<th rowspan="3" scope="col" class="split category1">No</th>
 		<th rowspan="3" scope="col" class="split category1">학번,이름</th>
-		<th colspan="6" scope="col" class="split category2"[Endodontic Tx.]</th>
+		<th colspan="6" scope="col" class="split category2">[Endodontic Tx.]</th>
 		<th colspan="13" scope="col" class="split category3">[일반]</th>
 		<th colspan="3" scope="col" class="split category4"></th>
 		<th rowspan="3" scope="col" class="category5">수정일</th>
