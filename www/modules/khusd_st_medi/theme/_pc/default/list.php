@@ -22,6 +22,7 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -43,7 +44,8 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'fix_pm', $om)?>">Fix 오후</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'fix', $om)?>">Fix 합</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_score', $om)?>">총점</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'splint_impression', $om)?>">장치</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'splint_impression', $om)?>">장치내주</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'splint_impression', $om)?>">장치외주</a></th>
 	<th scope="col">수정일</th>
 	<?php else:?>
 	<th scope="col" class="split">No</th>
@@ -62,7 +64,8 @@
 	<th scope="col" class="split">Fix 오후</th>
 	<th scope="col" class="split">Fix 합</th>
 	<th scope="col" class="split">총점</th>
-	<th scope="col" class="split">장치</th>
+	<th scope="col" class="split">장치내주</th>
+	<th scope="col" class="split">장치외주</th>
 	<th scope="col">수정일</th>
 	<?php endif?>
 	</tr>
@@ -87,6 +90,7 @@
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['fix'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_score'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['splint_impression'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['splint_polishing'])?></td>
 	<td></td>
 	</tr>
 
@@ -112,6 +116,7 @@
 	<td><?php echo $SCORE['fix']?></td>
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td><?php echo $SCORE['splint_impression']?></td>
+	<td><?php echo $SCORE['splint_polishing']?></td>
 	<td><?php echo getDateFormat($SCORE['date_update'],"Y-m-d H:i")?></td>
 	</tr>
 	<?php endif?>
@@ -138,6 +143,7 @@
 	<td><?php echo $SCORE['fix']?></td>
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td><?php echo $SCORE['splint_impression']?></td>
+	<td><?php echo $SCORE['splint_polishing']?></td>
 	<td><?php echo getDateFormat($SCORE['date_update'],"Y-m-d H:i")?></td>
 	</tr>
 	<?php endforeach?>

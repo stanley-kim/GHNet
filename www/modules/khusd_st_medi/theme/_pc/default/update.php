@@ -67,8 +67,11 @@
 		<td class="input"><input type="number" name="physical_tx" maxlength="5" class="input num" value="<?php echo $SCORE['physical_tx']?>">회</td>
 		</tr>
 		<tr>
-		<td class="head">장치제작</td>
-		<td class="input"><input type="number" name="splint_impression" maxlength="5" class="input num" value="<?php echo $SCORE['splint_impression']?>">회</td>
+		<td rowspan="2" class="head">장치제작</td>
+		<td class="input">내주<input type="number" name="splint_impression" maxlength="5" class="input num" value="<?php echo $SCORE['splint_impression']?>">회</td>
+		</tr>
+		<tr>
+		<td class="input">외주<input type="number" name="splint_polishing" maxlength="5" class="input num" value="<?php echo $SCORE['splint_polishing']?>">회</td>
 		</tr>
 		<tr>
 		<td class="head">의료문서</td>

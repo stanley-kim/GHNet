@@ -18,6 +18,7 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -32,6 +33,8 @@
 	<th scope="col" class="split">구취측정</th>
 	<th scope="col" class="split">타액측정</th>
 	<th scope="col" class="split">물리치료</th>
+	<th scope="col" class="split">장치내주</th>
+	<th scope="col" class="split">장치외주</th>
 	<th scope="col" class="split">의료문서</th>
 	<th scope="col" class="split">Fix 오전</th>
 	<th scope="col" class="split">Fix 오후</th>
@@ -57,6 +60,8 @@
 	<td><?php echo $SCORE['odor']?></td>
 	<td><?php echo $SCORE['saliva_test']?></td>
 	<td><?php echo $SCORE['physical_tx']?></td>
+	<td><?php echo $SCORE['splint_impression']?></td>
+	<td><?php echo $SCORE['splint_polishing']?></td>
 	<td><?php echo $SCORE['m_text']?></td>
 	<td><?php echo $SCORE['fix_am']?></td>
 	<td><?php echo $SCORE['fix_pm']?></td>
