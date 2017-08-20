@@ -23,6 +23,7 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -36,9 +37,10 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting', $om)?>">연 Ch</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'obser', $om)?>">단순 Obser</a></th>
 <!--	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'splint_obser', $om)?>">장치 Obser</a></th>-->
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'physical_tx', $om)?>">물리치료</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'odor', $om)?>">구취측정</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'saliva_test', $om)?>">타액검사</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'physical_tx', $om)?>">물리치료</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'soft_tx', $om)?>">추가물치</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'm_text', $om)?>">의료문서</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'fix_am', $om)?>">Fix 오전</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'fix_pm', $om)?>">Fix 오후</a></th>
@@ -59,6 +61,7 @@
 	<th scope="col" class="split">구취측정</th>
 	<th scope="col" class="split">타액측정</th>
 	<th scope="col" class="split">물리치료</th>
+	<th scope="col" class="split">추가물치</th>
 	<th scope="col" class="split">의료문서</th>
 	<th scope="col" class="split">Fix 오전</th>
 	<th scope="col" class="split">Fix 오후</th>
@@ -84,6 +87,7 @@
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['odor'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['saliva_test'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['physical_tx'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['soft_tx'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['m_text'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['fix_am'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['fix_pm'])?></td>
@@ -110,6 +114,7 @@
 	<td><?php echo $SCORE['odor']?></td>
 	<td><?php echo $SCORE['savli_test']?></td>
 	<td><?php echo $SCORE['physical_tx']?></td>
+	<td><?php echo $SCORE['soft_tx']?></td>
 	<td><?php echo $SCORE['m_text']?></td>
 	<td><?php echo $SCORE['fix_am']?></td>
 	<td><?php echo $SCORE['fix_pm']?></td>
@@ -137,6 +142,7 @@
 	<td><?php echo $SCORE['odor']?></td>
 	<td><?php echo $SCORE['saliva_test']?></td>
 	<td><?php echo $SCORE['physical_tx']?></td>
+	<td><?php echo $SCORE['soft_tx']?></td>
 	<td><?php echo $SCORE['m_text']?></td>
 	<td><?php echo $SCORE['fix_am']?></td>
 	<td><?php echo $SCORE['fix_pm']?></td>

@@ -79,7 +79,7 @@
 
 	// 평균 구하기
 	$_data = 'AVG(charting_obser) AS charting_obser, AVG(charting) AS charting, AVG(obser) AS obser, AVG(splint_obser) AS splint_obser, '
-			.' AVG(physical_tx) AS physical_tx, AVG(odor) AS odor, AVG(m_text) AS m_text, AVG(fix_am) AS fix_am, AVG(fix_pm) AS fix_pm,'
+			.' AVG(physical_tx) AS physical_tx, AVG(soft_tx) AS soft_tx, AVG(odor) AS odor, AVG(m_text) AS m_text, AVG(fix_am) AS fix_am, AVG(fix_pm) AS fix_pm,'
 			.' AVG('.$_data_fix.') AS fix,'
 			.' AVG('.$_data_total_score.') AS total_score';
 	$AVG = getDbData($_table, $_where, $_data);
