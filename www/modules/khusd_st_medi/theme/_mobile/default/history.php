@@ -19,6 +19,7 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
