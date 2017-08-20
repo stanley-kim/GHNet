@@ -41,6 +41,10 @@ $is_perio_surgery = isset($GLOBALS['is_perio_surgery']) ? 'y' : 'n';
 $date_reg = $date['totime'];
 //$able_apply_accepted
 
+if (  $date['totime'] > $date_end ) {
+	getLink('', '', '마감시간은 현재 시간 이후여야 합니다.', '');
+}
+
 if($uid > 0)	$APPLY_INFO = getUidData($table[$m.'apply_info_list'],$uid);
 
 if($uid > 0 && $APPLY_INFO['uid'] == $uid)
