@@ -14,7 +14,7 @@
 	else if($om == 'd') $order_mode = DESC;
 	
 	/** 2014.1 학기에 임시용 코드 **/
-	$prev_s_uid = 1;
+	$prev_s_uid = 2;
 //	$s_uid =  $_GET["s_uid"];
 	// 한 학번에 대해 여러 개의 데이터가 존재하므로 가장 최근의 데이터만 출력해주도록 JOIN 을 이용하여 query
 	// 아래 쿼리는 다음의 커리를 참고
@@ -80,7 +80,9 @@
 	$SCORE_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
 	
 	// getDbArray 는 mysql_query 의 리턴값을 리턴하므로, fetch 해줘야 한다
-	while( $_ROW = db_fetch_array($SCORE_ROWS) ) $SCORE_ARRAY[$_ROW['st_id']] = $_ROW;
+	while( $_ROW = db_fetch_array($SCORE_ROWS) )  $SCORE_ARRAY[$_ROW['st_id']] = $_ROW;
+
+
 
 	foreach($SCORE_ARRAY as $SCORE_TMP) {
 		$st_id = $SCORE_TMP['st_id'];
@@ -91,6 +93,7 @@
 		$st_array = array_merge($stid_array, $stdata_array);
 		
 		$SCORE_ARRAY[$st_id]['st_info'] = $st_array;
+
 	}
 
 	// 평균 구하기
