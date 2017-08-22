@@ -8,7 +8,7 @@
 	<col width="35">
 	<col width="105"> 
 	<col width="80"> 
-<!--	<col width="40">--> 
+	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
@@ -32,7 +32,7 @@
 	<th scope="col" class="split">No</th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_id', $om)?>">학번</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'name', $om)?>">이름</a></th>
-<!--	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_obser', $om)?>">Ch Obser</a></th>-->
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_obser', $om)?>">Pre Ch</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting', $om)?>">T Ch</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting', $om)?>">연 Ch</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'obser', $om)?>">단순 Obser</a></th>
@@ -53,7 +53,7 @@
 	<th scope="col" class="split">No</th>
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">이름</th>
-<!--	<th scope="col" class="split">Ch Obser</th>-->
+	<th scope="col" class="split">Pre Ch</th>
 	<th scope="col" class="split">T Ch</th>
 	<th scope="col" class="split">연 Ch</th>
 	<th scope="col" class="split">단순 Obser</th>
@@ -79,7 +79,7 @@
 	<td></td>
 	<td></td>
 	<td class="avg">평균</td>
-<!--	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_obser'])?></td>-->
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_obser'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['soft_charting'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['obser'])?></td>
@@ -106,7 +106,7 @@
 	<tr class="mine">
 	<td colspan="3">내점수</td>
 
-<!--	<td><?php echo $SCORE['charting_obser']?></td>-->
+	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['charting']?></td>
 	<td class="category4"><?php echo $SCORE['soft_charting']?></td>
 	<td class="category4"><?php echo $SCORE['obser']?></td>
@@ -134,7 +134,7 @@
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_id']?></td>
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_info']['name']?></td>
 
-<!--	<td><?php echo $SCORE['charting_obser']?></td>-->
+	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['charting']?></td>
 	<td class="category4"><?php echo $SCORE['soft_charting']?></td>
 	<td class="category4"><?php echo $SCORE['obser']?></td>

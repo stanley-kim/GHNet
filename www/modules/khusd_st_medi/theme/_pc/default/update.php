@@ -34,10 +34,10 @@
 		</tr>
 	</thead>
 	<tbody>
-<!--		<tr>
-		<td class="head">Charting observation</td>
+		<tr>
+		<td class="head">Pre 차팅</td>
 		<td class="input"><input type="number" name="charting_obser" maxlength="5" class="input num" value="<?php echo $SCORE['charting_obser']?>">회</td>
-		</tr>-->
+		</tr>
 		<tr>
 		<td class="head">TMD 차팅</td>
 		<td class="input"><input type="number" name="charting" maxlength="5" class="input num" value="<?php echo $SCORE['charting']?>">명</td>

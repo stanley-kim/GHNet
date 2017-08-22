@@ -6,7 +6,7 @@
 	<col width="35">
 	<col width="105"> 
 	<col width="80"> 
-<!--	<col width="40">--> 
+	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
 <!--	<col width="40"> -->
@@ -28,8 +28,8 @@
 	<th scope="col" class="split">No</th>
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">이름</th>
-<!--	<th scope="col" class="split">Ch Obser</th>-->
-	<th scope="col" class="split">Ch</th>
+	<th scope="col" class="split">Pre Ch</th>
+	<th scope="col" class="split">TMD Ch</th>
 	<th scope="col" class="split">단순 Obser</th>
 <!--	<th scope="col" class="split">장치 Obser</th>-->
 	<th scope="col" class="split">구취측정</th>
@@ -56,7 +56,7 @@
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_id']?></td>
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_info']['name']?></td>
 
-<!--	<td><?php echo $SCORE['charting_obser']?></td>-->
+	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['charting']?></td>
 	<td class="category4"><?php echo $SCORE['obser']?></td>
 <!--	<td><?php echo $SCORE['splint_obser']?></td>-->
