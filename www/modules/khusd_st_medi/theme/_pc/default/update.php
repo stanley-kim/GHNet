@@ -25,10 +25,16 @@
 	<caption>구강내과 점수표</caption>
 	<colgroup>
 		<col width=150>
-		<col>
+		<col width=70>
+		<col width=70>
+		<col width=70>
+		<col width=70>
 	</colgroup>
 	<thead>
 		<tr>
+		<th scope="col"></th>
+		<th scope="col"></th>
+		<th scope="col"></th>
 		<th scope="col"></th>
 		<th scope="col"></th>
 		</tr>
@@ -36,19 +42,46 @@
 	<tbody>
 		<tr>
 		<td class="head">Pre 차팅</td>
-		<td class="input"><input type="number" name="charting_obser" maxlength="5" class="input num" value="<?php echo $SCORE['charting_obser']?>">회</td>
+		<td colspan="4" class="input"><input type="number" name="charting_obser" maxlength="5" class="input num" value="<?php echo $SCORE['charting_obser']?>">회</td>
 		</tr>
 		<tr>
-		<td class="head">TMD 차팅</td>
-		<td class="input"><input type="number" name="charting" maxlength="5" class="input num" value="<?php echo $SCORE['charting']?>">명</td>
+		<td class="head"> </td>
+		<td class="input">차팅</td>
+		<td class="input">check</td>
+		<td class="input">follow 1st</td>
+		<td class="input">follow 2nd</td>
+		</tr>
+		<tr>
+		<td class="head">TMD 차팅 1Cycle</td>
+		<td class="input"><input type="number" name="charting_tmd_1cycle_charting" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_1cycle_charting']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_1cycle_check" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_1cycle_check']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_1cycle_follow1st" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_1cycle_follow1st']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_1cycle_follow2nd" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_1cycle_follow2nd']?>">명</td>
+		</tr>
+		<tr>
+		<td class="head">TMD 차팅 2Cycle</td>
+		<td class="input"><input type="number" name="charting_tmd_2cycle_charting" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_2cycle_charting']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_2cycle_check" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_2cycle_check']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_2cycle_follow1st" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_2cycle_follow1st']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_2cycle_follow2nd" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_2cycle_follow2nd']?>">명</td>
+		</tr>
+		<tr>
+		<td class="head">TMD 차팅 3Cycle</td>
+		<td class="input"><input type="number" name="charting_tmd_3cycle_charting" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_3cycle_charting']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_3cycle_check" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_3cycle_check']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_3cycle_follow1st" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_3cycle_follow1st']?>">명</td>
+		<td class="input"><input type="number" name="charting_tmd_3cycle_follow2nd" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_3cycle_follow2nd']?>">명</td>
 		</tr>
 		<tr>
 		<td class="head">연조직 차팅</td>
-		<td class="input"><input type="number" name="soft_charting" maxlength="5" class="input num" value="<?php echo $SCORE['soft_charting']?>">명</td>
+		<td class="input"><input type="number" name="charting_soft_charting" maxlength="5" class="input num" value="<?php echo $SCORE['charting_soft_charting']?>">명</td>
+		<td class="input"><input type="number" name="charting_soft_check" maxlength="5" class="input num" value="<?php echo $SCORE['charting_soft_check']?>">명</td>
+		<td class="input"><input type="number" name="charting_soft_follow1st" maxlength="5" class="input num" value="<?php echo $SCORE['charting_soft_follow1st']?>">명</td>
+		<td class="input"><input type="number" name="charting_soft_follow2nd" maxlength="5" class="input num" value="<?php echo $SCORE['charting_soft_follow2nd']?>">명</td>
 		</tr>
 		<tr>
 		<td class="head">단순 observation</td>
-		<td class="input"><input type="number" name="obser" maxlength="5" class="input num" value="<?php echo $SCORE['obser']?>">회</td>
+		<td colspan="4" class="input"><input type="number" name="obser" maxlength="5" class="input num" value="<?php echo $SCORE['obser']?>">회</td>
 		</tr>
 <!--		<tr>
 		<td class="head">장치 observation</td>
@@ -56,38 +89,33 @@
 		</tr>-->
 		<tr>
 		<td class="head">구취측정</td>
-		<td class="input"><input type="number" name="odor" maxlength="5" class="input num" value="<?php echo $SCORE['odor']?>">회</td>
+		<td colspan="4" class="input"><input type="number" name="odor" maxlength="5" class="input num" value="<?php echo $SCORE['odor']?>">회</td>
 		</tr>
 		<tr>
 		<td class="head">타액분비율측정</td>
-		<td class="input"><input type="number" name="saliva_test" maxlength="5" class="input num" value="<?php echo $SCORE['saliva_test']?>">회</td>
+		<td colspan="4" class="input"><input type="number" name="saliva_test" maxlength="5" class="input num" value="<?php echo $SCORE['saliva_test']?>">회</td>
 		</tr>
 		<tr>
 		<td class="head">물리치료</td>
-		<td class="input"><input type="number" name="physical_tx" maxlength="5" class="input num" value="<?php echo $SCORE['physical_tx']?>">회</td>
+		<td colspan="4" class="input"><input type="number" name="physical_tx" maxlength="5" class="input num" value="<?php echo $SCORE['physical_tx']?>">회</td>
 		</tr>
 		<tr>
 		<td class="head">추가물리치료</td>
-		<td class="input"><input type="number" name="soft_tx" maxlength="5" class="input num" value="<?php echo $SCORE['soft_tx']?>">회</td>
+		<td colspan="4" class="input"><input type="number" name="soft_tx" maxlength="5" class="input num" value="<?php echo $SCORE['soft_tx']?>">회</td>
 		</tr>
 		<tr>
-		<td rowspan="2" class="head">장치제작</td>
-		<td class="input">내주<input type="number" name="splint_impression" maxlength="5" class="input num" value="<?php echo $SCORE['splint_impression']?>">회</td>
-		</tr>
-		<tr>
-		<td class="input">외주<input type="number" name="splint_polishing" maxlength="5" class="input num" value="<?php echo $SCORE['splint_polishing']?>">회</td>
+		<td class="head">장치제작</td>
+		<td colspan="2" class="input">내주<input type="number" name="splint_impression" maxlength="5" class="input num" value="<?php echo $SCORE['splint_impression']?>">회</td>
+		<td colspan="2" class="input">외주<input type="number" name="splint_polishing" maxlength="5" class="input num" value="<?php echo $SCORE['splint_polishing']?>">회</td>
 		</tr>
 		<tr>
 		<td class="head">의료문서</td>
-		<td class="input"><input type="number" name="m_text" maxlength="5" class="input num" value="<?php echo $SCORE['m_text']?>">회</td>
+		<td colspan="4" class="input"><input type="number" name="m_text" maxlength="5" class="input num" value="<?php echo $SCORE['m_text']?>">회</td>
 		</tr>
 		<tr>
-		<td class="head">교수님 Fix 오전</td>
-		<td class="input"><input type="number" name="fix_am" maxlength="5" class="input num" value="<?php echo $SCORE['fix_am']?>">회</td>
-		</tr>
-		<tr>
-		<td class="head">교수님 Fix 오후</td>
-		<td class="input"><input type="number" name="fix_pm" maxlength="5" class="input num" value="<?php echo $SCORE['fix_pm']?>">회</td>
+		<td class="head">교수님 Fix</td>
+		<td colspan="2" class="input">오전<input type="number" name="fix_am" maxlength="5" class="input num" value="<?php echo $SCORE['fix_am']?>">회</td>
+		<td colspan="2" class="input">오후<input type="number" name="fix_pm" maxlength="5" class="input num" value="<?php echo $SCORE['fix_pm']?>">회</td>
 		</tr>
 	</tbody>
 	</table> 

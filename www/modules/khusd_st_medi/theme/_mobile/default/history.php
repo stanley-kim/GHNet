@@ -9,6 +9,9 @@
 	<col width="40">
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
+	<col width="40"> 
+	<col width="40"> 
 <!--	<col width="40">--> 
 	<col width="40"> 
 	<col width="40"> 
@@ -29,7 +32,10 @@
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">이름</th>
 	<th scope="col" class="split">Pre Ch</th>
-	<th scope="col" class="split">TMD Ch</th>
+	<th scope="col" class="split">TMD Ch1</th>
+	<th scope="col" class="split">TMD Ch2</th>
+	<th scope="col" class="split">TMD Ch3</th>
+	<th scope="col" class="split">연Ch</th>
 	<th scope="col" class="split">단순 Obser</th>
 <!--	<th scope="col" class="split">장치 Obser</th>-->
 	<th scope="col" class="split">구취측정</th>
@@ -57,7 +63,15 @@
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_info']['name']?></td>
 
 	<td><?php echo $SCORE['charting_obser']?></td>
-	<td class="category4"><?php echo $SCORE['charting']?></td>
+<!--	<td class="category4"><?php echo $SCORE['charting']?></td>-->
+
+        <td class="category4"><?php echo $SCORE['charting_tmd_1cycle_charting']?>/<?php echo $SCORE['charting_tmd_1cycle_check']?>/<?php echo $SCORE['charting_tmd_1cycle_follow1st']?>/<?php echo $SCORE['charting_tmd_1cycle_follow2nd']?></td>
+        <td class="category4"><?php echo $SCORE['charting_tmd_2cycle_charting']?>/<?php echo $SCORE['charting_tmd_2cycle_check']?>/<?php echo $SCORE['charting_tmd_2cycle_follow1st']?>/<?php echo $SCORE['charting_tmd_2cycle_follow2nd']?></td>
+        <td class="category4"><?php echo $SCORE['charting_tmd_3cycle_charting']?>/<?php echo $SCORE['charting_tmd_3cycle_check']?>/<?php echo $SCORE['charting_tmd_3cycle_follow1st']?>/<?php echo $SCORE['charting_tmd_3cycle_follow2nd']?></td>
+        <td class="category4"><?php echo $SCORE['charting_soft_charting']?>/<?php echo $SCORE['charting_soft_check']?>/<?php echo $SCORE['charting_soft_follow1st']?>/<?php echo $SCORE['charting_soft_follow2nd']?></td>
+
+
+
 	<td class="category4"><?php echo $SCORE['obser']?></td>
 <!--	<td><?php echo $SCORE['splint_obser']?></td>-->
 	<td><?php echo $SCORE['odor']?></td>

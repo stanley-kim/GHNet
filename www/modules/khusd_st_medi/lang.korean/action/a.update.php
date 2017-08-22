@@ -56,12 +56,34 @@ $ionto_tx			= intval($ionto_tx);
 $tmd_tx			= intval($tmd_tx);
 $soft_tx			= intval($soft_tx);
 
+$charting_tmd_1cycle_charting = intval($charting_tmd_1cycle_charting);
+$charting_tmd_1cycle_check    = intval($charting_tmd_1cycle_check);
+$charting_tmd_1cycle_follow1st= intval($charting_tmd_1cycle_follow1st);
+$charting_tmd_1cycle_follow2nd= intval($charting_tmd_1cycle_follow2nd);
+
+$charting_tmd_2cycle_charting = intval($charting_tmd_2cycle_charting);
+$charting_tmd_2cycle_check    = intval($charting_tmd_2cycle_check);
+$charting_tmd_2cycle_follow1st= intval($charting_tmd_2cycle_follow1st);
+$charting_tmd_2cycle_follow2nd= intval($charting_tmd_2cycle_follow2nd);
+
+$charting_tmd_3cycle_charting = intval($charting_tmd_3cycle_charting);
+$charting_tmd_3cycle_check    = intval($charting_tmd_3cycle_check);
+$charting_tmd_3cycle_follow1st= intval($charting_tmd_3cycle_follow1st);
+$charting_tmd_3cycle_follow2nd= intval($charting_tmd_3cycle_follow2nd);
+
+$charting_soft_charting       = intval($charting_soft_charting);
+$charting_soft_check          = intval($charting_soft_check);
+$charting_soft_follow1st      = intval($charting_soft_follow1st);
+$charting_soft_follow2nd      = intval($charting_soft_follow2nd);
+
 
 // 입력한 데이터로 query 생성
-$QKEY = "s_uid, st_id, charting_obser, charting, soft_charting, obser, splint_obser, physical_tx, odor, m_text, fix_am, fix_pm, portfolio1, portfolio2, portfolio3, portfolio4, splint_impression, splint_polishing, splint_adjust, physical_tx_fix, infra_tx, ultra_tx, east_tx, tens_tx, ionto_tx, tmd_tx, soft_tx, saliva_test, date_update";
-$QVAL = "'$s_uid', '$st_id', '$charting_obser', '$charting', '$soft_charting', '$obser', '$splint_obser', '$physical_tx', '$odor', '$m_text', '$fix_am', '$fix_pm', '$portfolio1', '$portfolio2', '$portfolio3','$portfolio4', '$splint_impression', '$splint_polishing', '$splint_adjust', '$physical_tx_fix', '$infra_tx', '$ultra_tx', '$east_tx', '$tens_tx', '$ionto_tx', '$tmd_tx', '$soft_tx', '$saliva_test', '$date_update'";
+$QKEY = "s_uid, st_id, charting_obser, charting, soft_charting, obser, splint_obser, physical_tx, odor, m_text, fix_am, fix_pm, portfolio1, portfolio2, portfolio3, portfolio4, splint_impression, splint_polishing, splint_adjust, physical_tx_fix, infra_tx, ultra_tx, east_tx, tens_tx, ionto_tx, tmd_tx, soft_tx, saliva_test, charting_tmd_1cycle_charting, charting_tmd_1cycle_check, charting_tmd_1cycle_follow1st, charting_tmd_1cycle_follow2nd,  charting_tmd_2cycle_charting, charting_tmd_2cycle_check, charting_tmd_2cycle_follow1st, charting_tmd_2cycle_follow2nd,  charting_tmd_3cycle_charting, charting_tmd_3cycle_check, charting_tmd_3cycle_follow1st, charting_tmd_3cycle_follow2nd, charting_soft_charting, charting_soft_check, charting_soft_follow1st, charting_soft_follow2nd, date_update";
+$QVAL = "'$s_uid', '$st_id', '$charting_obser', '$charting', '$soft_charting', '$obser', '$splint_obser', '$physical_tx', '$odor', '$m_text', '$fix_am', '$fix_pm', '$portfolio1', '$portfolio2', '$portfolio3','$portfolio4', '$splint_impression', '$splint_polishing', '$splint_adjust', '$physical_tx_fix', '$infra_tx', '$ultra_tx', '$east_tx', '$tens_tx', '$ionto_tx', '$tmd_tx', '$soft_tx', '$saliva_test', '$charting_tmd_1cycle_charting', '$charting_tmd_1cycle_check', '$charting_tmd_1cycle_follow1st', '$charting_tmd_1cycle_follow2nd',  '$charting_tmd_2cycle_charting', '$charting_tmd_2cycle_check', '$charting_tmd_2cycle_follow1st', '$charting_tmd_2cycle_follow2nd',  '$charting_tmd_3cycle_charting', '$charting_tmd_3cycle_check', '$charting_tmd_3cycle_follow1st', '$charting_tmd_3cycle_follow2nd', '$charting_soft_charting', '$charting_soft_check', '$charting_soft_follow1st', '$charting_soft_follow2nd', '$date_update'";
 	
 getDbInsert($table[$m.'score'],$QKEY,$QVAL);
+
+
 
 if(isset($n_page) && $n_page == 'home')
 {
