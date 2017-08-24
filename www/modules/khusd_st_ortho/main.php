@@ -12,5 +12,7 @@ include_once $g['path_module'].'khusd_st_manager/department_core/main.php';	// ê
 $g['khusd_st_ortho_search_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&amp;mode=follow&amp;nameOrId=';
 $g['khusd_st_ortho_drop_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&amp;a=drop_follow&amp;uid=';
 $g['khusd_st_ortho_complete_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&amp;a=complete_follow&amp;uid=';
+$g['khusd_st_ortho_old2new_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&amp;a=old2new&amp;uid=';
+$g['khusd_st_ortho_new2old_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&amp;a=new2old&amp;uid=';
 $g['khusd_st_ortho_go_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&amp;a=go_follow&amp;uid=';
 ?>

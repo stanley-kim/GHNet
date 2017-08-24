@@ -128,6 +128,14 @@ function check_previous(){
 						
 					 업데이트: <?php echo getDateFormat($MY_FOLLOW['date_update'], 'Y-m-d H:i')?></p></td>
 					</td><td>
+
+                                                <?php if($MY_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['OLD']):?>
+                                                <span class="btn01"><a href="<?php echo $g['khusd_st_ortho_old2new_follow'].$MY_FOLLOW['uid']?>">구&#10140신</a></span>
+                                                <?php endif?>
+                                                <?php if($MY_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['NEW']):?>
+                                                <span class="btn01"><a href="<?php echo $g['khusd_st_ortho_new2old_follow'].$MY_FOLLOW['uid']?>">신&#10140구</a></span>
+                                                <?php endif?>
+&nbsp
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['DROP']):?>
 						<span class="btn00"><a href="<?php echo $g['khusd_st_ortho_drop_follow'].$MY_FOLLOW['uid']?>">포기</a></span>
 						<?php endif?>

@@ -22,8 +22,8 @@ height: 21px;
 .khusd_st tbody td {padding:6px 0 4px 0; text-align: center; color:#888888; font-family: arial; font-size:12px; border-bottom: #E6E6E6 solid 1px; line-height: 140%;}
 
 /* follow */
-#ortho_follow table th {padding: 10px 10px 10px 10px;}
-#ortho_follow table td {padding: 10px 10px 10px 10px;}
+#ortho_follow table th {padding: 10px 5px 5px 10px;}
+#ortho_follow table td {padding: 10px 5px 5px 10px;}
 #ortho_follow #followList {padding: 10px 10px 10px 10px;}
 #ortho_follow #select {padding: 0px 0px 0px 0px;}
 
