@@ -113,8 +113,9 @@
 		<tr>
 		<td class="head">Post/Core</td>
 		<td class="input">
-			Post<input type="number" name="f_post" maxlength="5" class="input num" value="<?php echo $SCORE['f_post']?>">회
-			Core<input type="number" name="f_core" maxlength="5" class="input num" value="<?php echo $SCORE['f_core']?>">회
+			<input type="number" name="f_post" maxlength="5" class="input num" value="<?php echo $SCORE['f_post']?>">회
+<!--			Post<input type="number" name="f_post" maxlength="5" class="input num" value="<?php echo $SCORE['f_post']?>">회
+			Core<input type="number" name="f_core" maxlength="5" class="input num" value="<?php echo $SCORE['f_core']?>">회-->
 		</td>
 		</tr>
 		<tr>
