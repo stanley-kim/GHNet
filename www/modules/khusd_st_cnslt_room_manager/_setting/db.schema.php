@@ -68,6 +68,7 @@ CREATE TABLE `".$table[$module.'apply']."` (
   
   `st_date` varchar(8) NOT NULL default '',
   `st_timetype` char(2) NOT NULL default '',
+  `st_timetype_detail` char(2) NOT NULL default '',
   `st_start_time` varchar(4) NOT NULL default '',
   `st_end_time` varchar(4) NOT NULL default '',
   `consv_op` tinyint,
