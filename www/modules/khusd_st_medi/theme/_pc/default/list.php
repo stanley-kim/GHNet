@@ -47,7 +47,7 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'fix', $om)?>">Fix 합</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_score', $om)?>">총점</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'splint_impression', $om)?>">장치내주</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'splint_impression', $om)?>">장치외주</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'splint_polishing', $om)?>">장치외주</a></th>
 	<th scope="col">수정일</th>
 	<?php else:?>
 	<th scope="col" class="split">No</th>
