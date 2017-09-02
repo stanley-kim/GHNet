@@ -48,7 +48,7 @@
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'name', $om, $order == 'name')?>">이름</a></th>
 <!--	<th scope="col" colspan=7 class="split">[Follow]</th>-->
 	<th scope="col" colspan=13 class="split">[Observation]</th>
-	<th scope="col" colspan=5 class="split">[ST Case]</th>
+	<th scope="col" colspan=4 class="split">[ST Case]</th>
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'animal_exp', $om, $order == 'animal_exp')?>">동물<br>실험</a></th>
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'fix', $om, $order == 'fix')?>">Fix</a></th>
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'cp', $om, $order == 'cp')?>">CP</a></th>
@@ -60,7 +60,7 @@
 	<th scope="col" rowspan=3 class="split">이름</th>
 <!--	<th scope="col" colspan=7 class="split">[Follow]</th>-->
 	<th scope="col" colspan=14 class="split">[Observation]</th>
-	<th scope="col" colspan=5 class="split">[ST Case]</th>
+	<th scope="col" colspan=4 class="split">[ST Case]</th>
 	<th scope="col" rowspan=3 class="split">Fix</th>
 	<th scope="col" rowspan=3 class="split">CP</th>
 	<th scope="col" rowspan=3 class="split">Total</th>
