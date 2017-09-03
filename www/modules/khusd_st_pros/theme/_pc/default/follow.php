@@ -20,6 +20,11 @@ function changeFollowStatus2(uid, _option){
 	location.href = "<?php echo $g['khusd_st_pros_change_follow']?>"+uid+"&option="+_option;
 }	
 	
+function changeFollowMemo(uid ){
+	var _memo = document.getElementById(uid).value; 
+	//_memo = '2월22일11:30'; 
+	location.href = "<?php echo $g['khusd_st_pros_follow_memo']?>"+uid+"&memo="+_memo;
+}	
 </script>
 
 <div id="pros_follow" class="khusd_st follow pros">
@@ -39,6 +44,7 @@ function changeFollowStatus2(uid, _option){
 					<th>업데이트</th>
 					<th>팔로우 상태</th>
 					<th>변경</th>
+					<th>메모</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -78,6 +84,9 @@ function changeFollowStatus2(uid, _option){
 <?php if($MY_FOLLOW['status'] != 'e' ):?>
 <span class="btn01"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'e'  );">완료</a></span>
 <?php endif?>
+<?php if($MY_FOLLOW['status'] != 'd' ):?>
+<span class="btn00"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'd'  );">삭제</a></span>
+<?php endif?>
 
 						<!--
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_pros']['FOLLOW_STATUS']['DROP']):?>
@@ -85,6 +94,11 @@ function changeFollowStatus2(uid, _option){
 						<?php endif?>
 						-->
 					</td>
+
+		<td>
+		<input type="text"  id='<?php echo $MY_FOLLOW["uid"];?>'  maxlength="20" class="input" value="<?php echo $MY_FOLLOW['memo'] ?>"/>
+		<span class="btn01"><a href="#" onclick="changeFollowMemo('<?php echo $MY_FOLLOW["uid"];?>' );">저장</a></span>
+		</td>
 				</tr>
 				<?php endforeach?>
 			</tbody>

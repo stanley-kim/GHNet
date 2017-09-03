@@ -75,12 +75,12 @@
 		<tr>
 		<td rowspan="2" class="head">3학년 1학기</td>
 		<td>&nbsp7,8월<input type="number" name="simple_obser_3_8" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_8']?>">회</td>
-		<td class="">&nbsp9월<input type="number" name="simple_obser_3_10" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_10']?>">회</td>
+		<td class="">&nbsp9월<input type="number" name="simple_obser_3_9" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_9']?>">회</td>
 		</tr>
 		<tr>
-		<td>10월<input type="number" name="simple_obser_3_11" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_11']?>">회</td>
-		<td>11월<input type="number" name="simple_obser_3_12" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_12']?>">회</td>
-		<td class="">12월<input type="number" name="others_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['others_ongoing']?>">회</td>
+		<td>10월<input type="number" name="simple_obser_3_10" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_10']?>">회</td>
+		<td>11월<input type="number" name="simple_obser_3_11" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_11']?>">회</td>
+		<td class="">12월<input type="number" name="simple_obser_3_12" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_12']?>">회</td>
 		</tr>
 		<td>
 		<td>
