@@ -53,6 +53,7 @@
         <th scope="col" rowspan=3 class="split">이름</th>
         <th scope="col" rowspan=1 colspan=7  class="split">치주</th>
         <th scope="col" rowspan=1 colspan=1  class="split">외과</th>
+        <th scope="col" rowspan=1 colspan=3  class="split">영상</th>
 	</tr>
 	<tr>
         <th scope="col" rowspan=2 class="split">IOT</th>
@@ -63,6 +64,9 @@
         <th scope="col" rowspan=2 class="split">Imp 2nd</th>
         <th scope="col" rowspan=2 class="split">Total<br>surgery</th>
         <th scope="col" rowspan=2 class="split">Implant</th>
+        <th scope="col" rowspan=2 class="split">판독</th>
+        <th scope="col" rowspan=2 class="split">촬영</th>
+        <th scope="col" rowspan=2 class="split">판+촬</th>
         </tr>
 
         </thead>
@@ -83,6 +87,9 @@
         <td><?php echo $SCORE['imp_2nd']?></td>
         <td class="category2"><?php echo $SCORE['perio_total_surgery']?></td>
         <td><?php echo $SCORE['oms_imp_1st']?></td>
+        <td><?php echo $SCORE['radio_obser_decoding']?></td>
+        <td><?php echo $SCORE['radio_obser_filming']?></td>
+        <td><?php echo $SCORE['radio_decoding_filming']?></td>
 	</tr>
         <?php endforeach?>
         </tbody>
