@@ -26,4 +26,70 @@
 	<?php if($dept_id && $st_id):?>
 	<iframe src="<?php echo $g['s'].'/?m=khusd_st_'.$dept_id.'&amp;mode=history&amp;iframe=Y&amp;st_id='.$st_id?>" width="100%" height="300px" border="0px"> </iframe>
 	<?php endif?>
+
+
+
+        <?php if( permcheck('duplication_checker') ) :?>
+	<br><br><br>
+        <table summary="통합 점수표 입니다.">
+        <caption>통합 점수표</caption>
+        <colgroup>
+        <col width="30">
+        <col width="70">
+        <col width="70">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        </colgroup>
+        <thead>
+
+        <tr>
+        <th scope="col" rowspan=3 class="split">No</th>
+        <th scope="col" rowspan=3 class="split">학번</th>
+        <th scope="col" rowspan=3 class="split">이름</th>
+        <th scope="col" rowspan=1 colspan=7  class="split">치주</th>
+	</tr>
+	<tr>
+        <th scope="col" rowspan=2 class="split">IOT</th>
+        <th scope="col" rowspan=2 class="split">Ch</th>
+        <th scope="col" rowspan=2 class="split">Ch<br>+<br>IOT</th>
+        <th scope="col" rowspan=2 class="split">Perio Surgery</th>
+        <th scope="col" rowspan=2 class="split">Imp 1st</th>
+        <th scope="col" rowspan=2 class="split">Imp 2nd</th>
+        <th scope="col" rowspan=2 class="split">Total<br>surgery</th>
+        </tr>
+
+        </thead>
+        <tbody>
+	<?php $idx=1?>
+       <?php foreach($SCORE_ARRAY as $SCORE):?>
+
+       <tr >
+        <td><?php echo $idx++?></td>
+        <td class="hand" ><?php echo $SCORE['st_id']?></td>
+        <td class="hand" ><?php echo $SCORE['st_info']['name']?></td>
+
+        <td class="category1"><?php echo $SCORE['iot']?></td>
+        <td class="category1"><?php echo $SCORE['charting']?></td>
+        <td class="category1"><?php echo $SCORE['perio_ch_iot']?></td>
+        <td><?php echo $SCORE['surgery']?></td>
+        <td><?php echo $SCORE['imp_1st']?></td>
+        <td><?php echo $SCORE['imp_2nd']?></td>
+        <td class="category2"><?php echo $SCORE['perio_total_surgery']?></td>
+	</tr>
+        <?php endforeach?>
+        </tbody>
+
+
+        </table>
+
+
+	
+	<?php endif?>
+
+
+
 </div>

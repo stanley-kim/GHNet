@@ -41,7 +41,46 @@ if($mode == 'score_history' && $MANAGER) {
 	if($st_name && !$st_id){
 		$st_id = getSTInfoByName($st_name);
 	}
-}else if($mode == 'apply_history' && $MANAGER) {
+
+        $SCORE_ARRAY = array();
+
+        $order_by = $order ? $order : 'st_id';
+        $order_mode = 'ASC';
+
+	$s_uid = '2'; 
+        $_data_perio_ch_iot = 'sc.iot + sc.charting';
+        $_data_perio_total_surgery = 'surgery+imp_1st+imp_2nd+surgery2+imp_1st2+imp_2nd2';
+        $_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id";
+        $_table = 'rb_khusd_st_perio_score sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_join.') sc_j';
+        $_where =
+                "mbrdata.tmpcode!='tester' AND ".
+                "sc.s_uid = '".$s_uid."'"
+                //." AND mbrid.uid = mbrdata.memberuid AND mbrid.id = sc.st_id";
+                ." AND sc.date_update = sc_j.date_update AND sc.st_id = sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = sc.st_id";
+        $_data = 'sc.*'
+                .', ('.$_data_perio_ch_iot.') AS perio_ch_iot'
+                .', ('.$_data_perio_total_surgery.') AS perio_total_surgery';
+
+        $_sort = $order_by;
+        $_orderby = $order_mode;
+
+        $SCORE_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
+ __debug_print("push~score_histroy  fun: " . mysql_error());
+
+        while( $_ROW = db_fetch_array($SCORE_ROWS) ) $SCORE_ARRAY[$_ROW['st_id']] = $_ROW;
+
+        // 각각의 항목에 id와 회원정보를 추가
+        foreach($SCORE_ARRAY as $SCORE_TMP) {
+                $st_id = $SCORE_TMP['st_id'];
+                $stid_array = getDbData($table['s_mbrid'],"id='".$st_id."'", '*');
+                $stdata_array = getDbData($table['s_mbrdata'], "memberuid='".$stid_array['uid']."'", '*');
+                $st_array = array_merge($stid_array, $stdata_array);
+                $SCORE_ARRAY[$st_id]['st_info'] = $st_array;
+        }
+
+
+
+} else if($mode == 'apply_history' && $MANAGER) {
 
 	include_once $g['path_module'].'khusd_st_apply_manager/var/var.define.php';
 	include_once $g['path_module'].'khusd_st_manager/function/member.php';
