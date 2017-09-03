@@ -95,6 +95,55 @@ while( $_ROW = db_fetch_array($MY_FOLLOW_ROWS) )
 
 }
 
+function cmp($a, $b) {
+	switch( $a['status'])  {
+		case 'f' :  $_a_status = 0; break;	
+		case 'e' :  $_a_status = 1; break;
+		case 'g' :  $_a_status = 2; break;	
+		case 'c' :  $_a_status = 3; break;
+		default  :  $_a_status = 4; break;
+	}
+	switch( $b['status'])  {
+		case 'f' :  $_b_status = 0; break;	
+		case 'e' :  $_b_status = 1; break;
+		case 'g' :  $_b_status = 2; break;	
+		case 'c' :  $_b_status = 3; break;
+		default  :  $_b_status = 4; break;
+	}
+	switch( $a['type'] )  {
+		case '2ndCr'    : $_a_type = 0; break;
+		case 'PostCore' : $_a_type = 1; break;
+		case 'imp'      : $_a_type = 2; break;
+		case 'single'   : $_a_type = 3; break;
+		case 'bridge'   : $_a_type = 4; break;
+		case 'pd'       : $_a_type = 5; break;
+		default         : $_a_type = 6; break;
+	}
+	switch( $b['type'] )  {
+		case '2ndCr'    : $_b_type = 0; break;
+		case 'PostCore' : $_b_type = 1; break;
+		case 'imp'      : $_b_type = 2; break;
+		case 'single'   : $_b_type = 3; break;
+		case 'bridge'   : $_b_type = 4; break;
+		case 'pd'       : $_b_type = 5; break;
+		default         : $_b_type = 6; break;
+	}
 
+	if ( $_a_status < $_b_status ) return  -1; 
+	else if ( $_a_status > $_b_status ) return   1; 
+
+	if ( $a['pt_id'] < $b['pt_id'] ) return -1;
+	else if ( $a['pt_id'] >  $b['pt_id'] ) return 1;
+	
+	if ( $_a_type < $_b_type ) return -1;
+	else if ( $_a_type > $_b_type ) return 1;
+
+	if ( $a['date_update'] < $b['date_update'] ) return 1;
+	else if ( $a['date_update'] > $b['date_update'] ) return -1;
+
+	if ( $a['pt_uid'].$a['type'] != $b['pt_uid'].$b['type'] ) return 1;
+	else return 0; 
+}
+usort($MY_FOLLOW_ARRAY, "cmp" );
 
 ?>

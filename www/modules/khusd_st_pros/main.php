@@ -18,6 +18,7 @@ $g['khusd_st_pros_drop_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&amp;a=drop_follow
 $g['khusd_st_pros_change_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&a=change_follow&uid=';
 $g['khusd_st_pros_new_change_follow'] = $g['s'].'/?r='.$r.'&m='.$m.'&a=new_change_follow&uid=';
 $g['khusd_st_pros_follow_comment'] = $g['s'].'/?r='.$r.'&m='.$m.'&a=follow_comment&uid=';
+$g['khusd_st_pros_follow_memo'] = $g['s'].'/?r='.$r.'&m='.$m.'&a=follow_memo&uid=';
 
 //khusd_st_pros_obser_score
 $g['khusd_st_pros_obser_score'] = $g['s'].'/?r='.$r.'&m='.$m.'&a=obser_update';
