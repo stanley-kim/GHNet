@@ -44,20 +44,26 @@ if($mode == 'score_history' && $MANAGER) {
 
         $SCORE_ARRAY = array();
 
-        $order_by = $order ? $order : 'st_id';
+        $order_by = $order ? $order : 'perio_sc.st_id';
         $order_mode = 'ASC';
 
 	$s_uid = '2'; 
-        $_data_perio_ch_iot = 'sc.iot + sc.charting';
-        $_data_perio_total_surgery = 'surgery+imp_1st+imp_2nd+surgery2+imp_1st2+imp_2nd2';
-        $_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id";
-        $_table = 'rb_khusd_st_perio_score sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_join.') sc_j';
+        $_data_perio_ch_iot = 'perio_sc.iot + perio_sc.charting';
+        $_data_perio_total_surgery = 'perio_sc.surgery+perio_sc.imp_1st+perio_sc.imp_2nd+perio_sc.surgery2+perio_sc.imp_1st2+perio_sc.imp_2nd2';
+        $_perio_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id";
+          $_oms_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_oms_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
+
+        //$_table = 'rb_khusd_st_perio_score perio_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_perio_join.') perio_sc_j';
+        $_table = 'rb_khusd_st_perio_score perio_sc,'.'rb_khusd_st_oms_score oms_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_perio_join.') perio_sc_j, ('.$_oms_join.') oms_sc_j';
         $_where =
                 "mbrdata.tmpcode!='tester' AND ".
-                "sc.s_uid = '".$s_uid."'"
-                //." AND mbrid.uid = mbrdata.memberuid AND mbrid.id = sc.st_id";
-                ." AND sc.date_update = sc_j.date_update AND sc.st_id = sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = sc.st_id";
-        $_data = 'sc.*'
+                "perio_sc.s_uid = '".$s_uid."'"
+                ."AND oms_sc.s_uid = '".$s_uid."'"
+                //." AND perio_sc.date_update = perio_sc_j.date_update AND perio_sc.st_id = perio_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = perio_sc.st_id";
+                ." AND perio_sc.date_update = perio_sc_j.date_update AND perio_sc.st_id = perio_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = perio_sc.st_id AND oms_sc.date_update = oms_sc_j.date_update AND oms_sc.st_id = oms_sc_j.st_id AND mbrid.id = oms_sc.st_id";
+
+        $_data = 'perio_sc.*'
+		.', oms_sc.imp_1st AS oms_imp_1st'
                 .', ('.$_data_perio_ch_iot.') AS perio_ch_iot'
                 .', ('.$_data_perio_total_surgery.') AS perio_total_surgery';
 
@@ -65,7 +71,7 @@ if($mode == 'score_history' && $MANAGER) {
         $_orderby = $order_mode;
 
         $SCORE_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
- __debug_print("push~score_histroy  fun: " . mysql_error());
+ __debug_print("push~score_histroy  fun:: " . mysql_error());
 
         while( $_ROW = db_fetch_array($SCORE_ROWS) ) $SCORE_ARRAY[$_ROW['st_id']] = $_ROW;
 

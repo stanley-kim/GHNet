@@ -43,6 +43,7 @@
         <col width="40">
         <col width="40">
         <col width="40">
+        <col width="40">
         </colgroup>
         <thead>
 
@@ -51,6 +52,7 @@
         <th scope="col" rowspan=3 class="split">학번</th>
         <th scope="col" rowspan=3 class="split">이름</th>
         <th scope="col" rowspan=1 colspan=7  class="split">치주</th>
+        <th scope="col" rowspan=1 colspan=1  class="split">외과</th>
 	</tr>
 	<tr>
         <th scope="col" rowspan=2 class="split">IOT</th>
@@ -60,6 +62,7 @@
         <th scope="col" rowspan=2 class="split">Imp 1st</th>
         <th scope="col" rowspan=2 class="split">Imp 2nd</th>
         <th scope="col" rowspan=2 class="split">Total<br>surgery</th>
+        <th scope="col" rowspan=2 class="split">Implant</th>
         </tr>
 
         </thead>
@@ -79,6 +82,7 @@
         <td><?php echo $SCORE['imp_1st']?></td>
         <td><?php echo $SCORE['imp_2nd']?></td>
         <td class="category2"><?php echo $SCORE['perio_total_surgery']?></td>
+        <td><?php echo $SCORE['oms_imp_1st']?></td>
 	</tr>
         <?php endforeach?>
         </tbody>
