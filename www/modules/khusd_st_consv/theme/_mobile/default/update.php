@@ -78,17 +78,18 @@
 			Resin Inlay - setting<input type="checkbox" name="pre_st_inlay_resin_setting" class="checkbox"<?php if($SCORE['pre_st_inlay_resin_setting']):?>  checked<?php endif?>>
 		</td>
 		</tr>
+		<tr> <td  colspan=2> </td> </tr>
 		<tr>
 			<td class="title" colspan=2 style="background-color:#32548D; color:white;">FIX</td>
 		</tr>
-		<!--<tr>
+		<tr>
 			<td class="head">Charting</td>
 			<td class="input">
 				<input type="number" name="f_charting" maxlength="5" class="input num" value="<?php echo $SCORE['f_charting']?>">회
 			</td>
-		</tr>-->
+		</tr>
 		<tr>
-			<td class="title" colspan=2>Operative Observation</td>
+			<td class="title" colspan=2>Operative Part</td>
 		</tr>
 
 		<tr>
@@ -127,7 +128,7 @@
 		<td class="input"><input type="number" name="f_miscellaneous" maxlength="5" class="input num" value="<?php echo $SCORE['f_miscellaneous']?>">회</td>
 		</tr>
 		<tr>
-			<td class="title" colspan=2>Endodoctic observation</td>
+			<td class="title" colspan=2>Endodoctic Part</td>
 		</tr>
 		<tr>
 		<td class="head">대구치 Endo</td>
@@ -157,11 +158,12 @@
 		</td>
 		</tr>
 		</tr>
+		<tr> <td  colspan=2> </td> </tr>
 		<tr>
 			<td class="title" colspan=2 style="background-color:green; color:white;">Observation</td>
 		</tr>
 		<tr>
-			<td class="title" colspan=2>Operative Observation</td>
+			<td class="title" colspan=2>Operative Part</td>
 		</tr>
 
 		<tr>
@@ -203,7 +205,7 @@
 		<td class="input"><input type="number" name="miscellaneous" maxlength="5" class="input num" value="<?php echo $SCORE['miscellaneous']?>">회</td>
 		</tr>
 		<tr>
-			<td class="title" colspan=2>Endodoctic observation</td>
+			<td class="title" colspan=2>Endodoctic Part</td>
 		</tr>
 		<tr>
 		<td class="head">대구치 Endo</td>
@@ -232,7 +234,7 @@
 			♠<input type="number" name="endo_ant_etc" maxlength="5" class="input num" value="<?php echo $SCORE['endo_ant_etc']?>">회
 		</td>
 		</tr>
-	
+		<tr> <td  colspan=2> </td> </tr>	
 
 <!--		<tr>
 			<td class="title" colspan=2>Follow</td>
