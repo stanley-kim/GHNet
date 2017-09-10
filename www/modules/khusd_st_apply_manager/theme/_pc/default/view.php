@@ -65,7 +65,7 @@
 			<a href="<?php echo $g['apply_info_add_2nd_apply'].$APPLY_INFO['uid']?>" onclick="return confirm('추가 신청을 받으시겠습니까?');">추가신청 생성</a>
 		</span>
 		<?php endif?>
-                <?php if(($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN'] && $APPLY_INFO['date_end'] > $date['totime']  &&   ($MANAGER || $APPLY_INFO['st_id'] == $my['id'])) || ( $APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['CLOSED'] && $ITEM_NUM ==0 &&   permcheck( 'chief_of_case' )    )   ):?>
+                <?php if(($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN'] && ( $APPLY_INFO['date_end'] > $date['totime'] || ( $APPLY_INFO['date_end'] <= $date['totime'] && ITEM_NUM==0 )      )  &&   ($MANAGER || $APPLY_INFO['st_id'] == $my['id'])) || ( $APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['CLOSED'] && $ITEM_NUM ==0 &&   permcheck( 'chief_of_case' )    )   ):?>
 		<span class="btn00">
 			<a href="<?php echo $g['apply_info_modify'].$APPLY_INFO['uid']	?>">수정</a>
 		</span>
@@ -93,15 +93,15 @@
 		<span  class="highlight">마감</span>
 		<span class="split">|</span>
 						<?php endif?>
-		신청 시작 <span<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN']):?> class="highlight"<?php endif?>><?php echo getDateFormat($APPLY_INFO['date_start'],'Y-m-d H:i:s')?></span>
+		신청 시작 <span<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN']):?> class="highlight"<?php endif?>><?php echo getDateFormat($APPLY_INFO['date_start'],'Y-m-d(D) H:i:s')?></span>
 		<span class="split">|</span>
-		마감 시각 <span<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN']):?> class="highlight"<?php endif?>><?php echo getDateFormat($APPLY_INFO['date_end'],'Y-m-d H:i:s')?></span>
+		마감 시각 <span<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN']):?> class="highlight"<?php endif?>><?php echo getDateFormat($APPLY_INFO['date_end'],'Y-m-d(D) H:i:s')?></span>
 		<span class="split">|</span>
 		<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['CLOSED']):?>
-		실제마감시각 <span class="highlight"><?php echo getDateFormat($APPLY_INFO['date_select'],'Y-m-d H:i:s')?></span>
+		실제마감시각 <span class="highlight"><?php echo getDateFormat($APPLY_INFO['date_select'],'Y-m-d(D) H:i:s')?></span>
 		<span class="split">|</span>
 		<?php endif?>
-		서버 시각 <span class="highlight"><?php echo getDateFormat($date['totime'],'Y-m-d H:i:s')?></span>
+		서버 시각 <span class="highlight"><?php echo getDateFormat($date['totime'],'Y-m-d(D) H:i:s')?></span>
 	</div>
 	<div id="apply_item_list" class="khusd_st item apply">
 		<table summary="신청 항목 리스트입니다.">
