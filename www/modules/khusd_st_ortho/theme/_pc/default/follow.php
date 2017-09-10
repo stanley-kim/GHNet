@@ -77,10 +77,13 @@ function check_previous(){
 					<th>번호</th>
 					<th>환자명</th>
 					<th>병록번호</th>
-					<th>팔로우 상태</th>
-					<th>진료실 번호</th>
+					<th>상태</th>
+				<!--	<th>팔로우 상태</th>-->
+					<th>진료실</th>
+				<!--	<th>진료실 번호</th>-->
 					<th>담당교수님</th>
-					<th>담당의(수련의)</th>
+					<th>수련의</th>
+				<!--	<th>담당의(수련의)</th>-->
 					<th>단계</th>
 					<th>분석/레포트</th>
 					<th>업데이트 날짜</th>
@@ -96,9 +99,9 @@ function check_previous(){
 					<td><a href="<?php echo $g['khusd_st_ortho_search_follow'].$MY_FOLLOW['pt_id']?>"><?php echo $MY_FOLLOW['pt_id']?></a></td>
 					<td>
 						<?php if($MY_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['NEW'] && $MY_FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW_STATUS']['FOLLOWING']):?>
-						신환 팔로 중
+						신환 팔로중
 						<?php elseif($MY_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['OLD'] && $MY_FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW_STATUS']['FOLLOWING']):?>
-						구환 팔로 중
+						구환 팔로중
 						<?php elseif($MY_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['NEW'] && $MY_FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW_STATUS']['COMPLETE']):?>
 						<b style="color:blue">신환 완료</b>
 						<?php elseif($MY_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['OLD'] && $MY_FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW_STATUS']['COMPLETE']):?>
@@ -123,16 +126,17 @@ function check_previous(){
 						<?php endif?>
 &nbsp&nbsp
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['DROP']):?>
-						<span class="btn00"><a href="<?php echo $g['khusd_st_ortho_drop_follow'].$MY_FOLLOW['uid']?>">포기하기</a></span>
+						<span class="btn00"><a href="<?php echo $g['khusd_st_ortho_drop_follow'].$MY_FOLLOW['uid']?>">포기</a></span>
 						<?php endif?>
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['COMPLETE']):?>
-						<span class="btn01"><a href="<?php echo $g['khusd_st_ortho_complete_follow'].$MY_FOLLOW['uid']?>">완료하기</a></span>
+						<span class="btn01"><a href="<?php echo $g['khusd_st_ortho_complete_follow'].$MY_FOLLOW['uid']?>">완료</a></span>
 						<?php endif?>
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['FOLLOWING']):?>
 						<span class="btn02"><a href="<?php echo $g['khusd_st_ortho_go_follow'].$MY_FOLLOW['uid']?>">팔로우</a></span>
 						<?php endif?>
 
 					</td>
+
 				</tr>
 				<?php endforeach?>
 			</tbody>
