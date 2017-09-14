@@ -68,7 +68,7 @@
         <th scope="col" rowspan=2 class="split">촬영</th>
         <th scope="col" rowspan=2 class="split">판+촬</th>
         </tr>
-
+	<tr></tr>
         </thead>
         <tbody>
 	<?php $idx=1?>
