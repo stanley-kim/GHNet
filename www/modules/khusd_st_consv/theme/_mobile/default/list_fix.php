@@ -160,7 +160,7 @@
 	<td class="category2"><?php echo $SCORE_INFO['post']*$SCORE['f_post_core']?></td>
 	<td><?php echo $SCORE_INFO['others']*$SCORE['f_others']?></td>
 	<td class="category2"><?php echo $SCORE_INFO['charting']*$SCORE['f_charting']?></td>
-	<td class="category2"><?php echo $SCORE_INFO['miscellaneout']*$SCORE['f_miscellaneous']?></td>
+	<td class="category2"><?php echo $SCORE_INFO['miscellaneous']*$SCORE['f_miscellaneous']?></td>
 	<td class="category3"><?php echo $SCORE['op_score']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	
@@ -190,7 +190,7 @@
 	<td class="category2"><?php echo $SCORE_INFO['post']*$SCORE['f_post_core']?></td>
 	<td><?php echo $SCORE_INFO['others']*$SCORE['f_others']?></td>
 	<td class="category2"><?php echo $SCORE_INFO['charting']*$SCORE['f_charting']?></td>
-	<td class="category2"><?php echo $SCORE_INFO['miscellaneout']*$SCORE['f_miscellaneous']?></td>
+	<td class="category2"><?php echo $SCORE_INFO['miscellaneous']*$SCORE['f_miscellaneous']?></td>
 	<td class="category3"><?php echo $SCORE['op_score']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	

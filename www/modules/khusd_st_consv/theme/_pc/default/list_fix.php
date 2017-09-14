@@ -40,7 +40,7 @@
 	<?php if($MANAGER):?>
 		<th rowspan="6" scope="col" class="split category1">No</th>
 		<th rowspan="3" scope="col" class="split category1"><a href="<?php echo getSortingLink($c, 'st_id', $om)?>">학번,이름</a></th>
-		<th colspan="6" scope="col" class="split category2">[Endodontic Tx.]</th>
+		<th colspan="5" scope="col" class="split category2">[Endodontic Tx.]</th>
 		<th colspan="10" scope="col" class="split category3">[일반]</th>
 		<th colspan="1" scope="col" class="split category4"></th>
 		<th rowspan="6" scope="col" class="category5">수정일</th>
@@ -72,7 +72,7 @@
 	<?php else:?>
 		<th rowspan="6" scope="col" class="split category1">No</th>
 		<th rowspan="3" scope="col" class="split category1">학번,이름</th>
-		<th colspan="6" scope="col" class="split category2">[Endodontic Tx.]</th>
+		<th colspan="5" scope="col" class="split category2">[Endodontic Tx.]</th>
 		<th colspan="15" scope="col" class="split category3">[일반]</th>
 		<th colspan="3" scope="col" class="split category4"></th>
 		<th rowspan="6" scope="col" class="category5">수정일</th>
@@ -160,7 +160,7 @@
 	<td class="category2"><?php echo $SCORE_INFO['post']*$SCORE['f_post_core']?></td>
 	<td><?php echo $SCORE_INFO['others']*$SCORE['f_others']?></td>
 	<td class="category2"><?php echo $SCORE_INFO['charting']*$SCORE['f_charting']?></td>
-	<td class="category2"><?php echo $SCORE_INFO['miscellaneout']*$SCORE['f_miscellaneous']?></td>
+	<td class="category2"><?php echo $SCORE_INFO['miscellaneous']*$SCORE['f_miscellaneous']?></td>
 	<td class="category3"><?php echo $SCORE['op_score']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	
@@ -190,7 +190,7 @@
 	<td class="category2"><?php echo $SCORE_INFO['post']*$SCORE['f_post_core']?></td>
 	<td><?php echo $SCORE_INFO['others']*$SCORE['f_others']?></td>
 	<td class="category2"><?php echo $SCORE_INFO['charting']*$SCORE['f_charting']?></td>
-	<td class="category2"><?php echo $SCORE_INFO['miscellaneout']*$SCORE['f_miscellaneous']?></td>
+	<td class="category2"><?php echo $SCORE_INFO['miscellaneous']*$SCORE['f_miscellaneous']?></td>
 	<td class="category3"><?php echo $SCORE['op_score']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	
