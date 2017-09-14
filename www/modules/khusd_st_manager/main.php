@@ -52,16 +52,19 @@ if($mode == 'score_history' && $MANAGER) {
         $_data_perio_total_surgery = 'perio_sc.surgery+perio_sc.imp_1st+perio_sc.imp_2nd+perio_sc.surgery2+perio_sc.imp_1st2+perio_sc.imp_2nd2';
         $_data_radio_decoding_filming = 'radio_sc.obser_decoding + radio_sc.obser_filming';
 
-        $_perio_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id";
-          $_oms_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_oms_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
-        $_radio_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_radio_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
+        //$_perio_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id";
+        $_perio_join = 'SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id ";
+       //   $_oms_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_oms_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
+          $_oms_join = 'SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_oms_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
+        //$_radio_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_radio_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
+        $_radio_join = 'SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_radio_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
 
         $_table = 'rb_khusd_st_perio_score perio_sc,'.'rb_khusd_st_oms_score oms_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_perio_join.') perio_sc_j, ('.$_oms_join.') oms_sc_j ' ;
         $_where =
                 "mbrdata.tmpcode!='tester' AND ".
                 "perio_sc.s_uid = '".$s_uid."'"
                 ."AND oms_sc.s_uid = '".$s_uid."'"
-                ." AND perio_sc.date_update = perio_sc_j.date_update AND perio_sc.st_id = perio_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = perio_sc.st_id AND oms_sc.date_update = oms_sc_j.date_update AND oms_sc.st_id = oms_sc_j.st_id AND mbrid.id = oms_sc.st_id";
+                ." AND perio_sc.uid = perio_sc_j.uid AND perio_sc.st_id = perio_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = perio_sc.st_id AND oms_sc.uid = oms_sc_j.uid AND oms_sc.st_id = oms_sc_j.st_id AND mbrid.id = oms_sc.st_id";
 
         $_data = 'perio_sc.*'
 		.', oms_sc.imp_1st AS oms_imp_1st'
@@ -72,26 +75,27 @@ if($mode == 'score_history' && $MANAGER) {
         $_orderby = $order_mode;
 
         $SCORE_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
- __debug_print("push~score_histroy1  fun:: " . mysql_error());
-
         $order_by = 'radio_sc.st_id';
         $_table = 'rb_khusd_st_radio_score radio_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_radio_join.') radio_sc_j ';
         $_where =
                 "mbrdata.tmpcode!='tester' AND ".
                 "radio_sc.s_uid = '".$s_uid."'"
-                ." AND radio_sc.date_update = radio_sc_j.date_update AND radio_sc.st_id = radio_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = radio_sc.st_id";
+                ." AND radio_sc.uid = radio_sc_j.uid AND radio_sc.st_id = radio_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = radio_sc.st_id";
         $_data = 'radio_sc.obser_decoding AS radio_obser_decoding'
 		.', radio_sc.obser_filming AS radio_obser_filming'
+		.', radio_sc.st_id AS radio_sc_st_id'
                 .', ('.$_data_radio_decoding_filming.') AS radio_decoding_filming';
         $_sort = $order_by;
         $_orderby = $order_mode;
         $SCORE_ROWS2 = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
- __debug_print("push~score_histroy2  fun:: " . mysql_error());
-        while( $_ROW = db_fetch_array($SCORE_ROWS) ) {
-	        $_ROW2 = db_fetch_array($SCORE_ROWS2);
+
+
+        while( $_ROW  = db_fetch_array($SCORE_ROWS) ) {
+	       $_ROW2 = db_fetch_array($SCORE_ROWS2);
 		$_ROW3 = $_ROW + $_ROW2;
+		
 		$SCORE_ARRAY[$_ROW['st_id']] = $_ROW3;
-}
+	}
         // 각각의 항목에 id와 회원정보를 추가
         foreach($SCORE_ARRAY as $SCORE_TMP) {
                 $st_id = $SCORE_TMP['st_id'];
