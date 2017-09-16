@@ -119,13 +119,57 @@ if( permcheck('duplication_checker') )  {
                                 //sort($dcd3 ) 1st try; 
 				//ksort to order by date_end
                                 ksort($dcd3, SORT_NUMERIC ) ;
-                                $a_flag = 0;
+
+				$a_flag = 0 ;
+				$a_etc_flag = 0;
+				$etc_kakaotalk = 0;
 				$i = 0;
+				
+
+				$len = count($dcd3); 
+                                foreach($dcd3 as $dcd4)    { // each date_end
+                                       if( count($dcd4)>= 2 )  {
+                                        }
+                                       else  {
+                                                foreach($dcd4 as $dcd5)  {  // each uid
+                                                        if ($a_flag > 0 && $a_etc_flag > 0 )  { // if something's status = a and depart=etc
+								if( $dcd5['department'] == 'etc' )  // if currents depart = etc  etc_etc_dup case
+									$etc_kakaotalk = $etc_kakaotalk + 1;
+								else   // if current depart != etc not etc_etc dup case
+									$etc_kakaotalk = -100;	
+                                                        }
+                                                        // if it is not last date_end , evenif 'a' case, no duplicate possibility
+                                                        if ($dcd5['status'] == 'a' && $i != $len-1 )  {
+                                                                $a_flag = 1;
+								if( $dcd5['department'] == 'etc' )  //check if status==a and depart=etc
+									$a_etc_flag = 1;
+                                                        }
+							
+                                        	}
+
+                                		$dcd3_keys_i++;
+                                	}  //each date_end
+                        		$i++;
+				}
+
+
+
+                                $a_flag = 0;
+
 				//count of date_end to detect if it is last chasu
-				$len = count($dcd3);  
+				$i = 0;
+				$len = count($dcd3); 
+				
                                 foreach($dcd3 as $dcd4)    { // each date_end
                                         if( count($dcd4)>= 2 )  {
 						$prefix = '<span style="color:blue;">each google-';
+						$ck=0;   //num of etc
+                                        	foreach($dcd4 as $dcd5)  {  // each uid
+							if ( $dcd5['department'] == 'etc'  )  $ck=$ck+1;	
+                                        	}
+						if ( $ck== count($dcd4))
+							$prefix='<span style="color:black;">each normal-';
+	
                                         	foreach($dcd4 as $dcd5)  {  // each uid
 							format_print($dcd5, $prefix  );
                                         	}	
@@ -137,13 +181,16 @@ if( permcheck('duplication_checker') )  {
 								$prefix = '<span style="color:blue;">echo talk---';
 							}						
 							// if it is not last date_end , evenif 'a' case, no duplicate possibility
-							if ($dcd5['status'] == 'a' && $i != $len-1 )  {  
+							if ($dcd5['status'] == 'a' && $i != $len-1 && $etc_kakaotalk <= 0 )  {  
+							//if ($dcd5['status'] == 'a' && $i != $len-1  )  {  
 								$a_flag = 1;
 								$prefix = '<span style="color:blue;">each kakao--';
+								
 							}				
 							format_print($dcd5, $prefix);
                                         }
 
+				$dcd3_keys_i++;
 
                                 }  //each date_end
 			$i++;
