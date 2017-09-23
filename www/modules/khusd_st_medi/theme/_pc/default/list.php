@@ -33,8 +33,8 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_id', $om)?>">학번</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'name', $om)?>">이름</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_obser', $om)?>">Pre Ch</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting', $om)?>">T Ch</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting', $om)?>">연 Ch</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_tmd_1cycle_charting', $om)?>">T Ch</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_soft_charting', $om)?>">연 Ch</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'obser', $om)?>">단순 Obser</a></th>
 <!--	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'splint_obser', $om)?>">장치 Obser</a></th>-->
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'odor', $om)?>">구취측정</a></th>
@@ -80,8 +80,8 @@
 	<td></td>
 	<td class="avg">평균</td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_obser'])?></td>
-	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting'])?></td>
-	<td class="avg"><?php echo sprintf("%1.1f",$AVG['soft_charting'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_tmd_1cycle_charting'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_soft_chartin'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['obser'])?></td>
 <!--	<td class="avg"><?php echo sprintf("%1.1f",$AVG['splint_obser'])?></td>-->
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['odor'])?></td>
@@ -107,8 +107,8 @@
 	<td colspan="3">내점수</td>
 
 	<td><?php echo $SCORE['charting_obser']?></td>
-	<td class="category4"><?php echo $SCORE['charting']?></td>
-	<td class="category4"><?php echo $SCORE['soft_charting']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_1cycle_charting']?></td>
+	<td class="category4"><?php echo $SCORE['charting_soft_charting']?></td>
 	<td class="category4"><?php echo $SCORE['obser']?></td>
 <!--	<td><?php echo $SCORE['splint_obser']?></td>-->
 	<td><?php echo $SCORE['odor']?></td>
@@ -135,8 +135,8 @@
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_info']['name']?></td>
 
 	<td><?php echo $SCORE['charting_obser']?></td>
-	<td class="category4"><?php echo $SCORE['charting']?></td>
-	<td class="category4"><?php echo $SCORE['soft_charting']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_1cycle_charting']?></td>
+	<td class="category4"><?php echo $SCORE['charting_soft_charting']?></td>
 	<td class="category4"><?php echo $SCORE['obser']?></td>
 <!--	<td><?php echo $SCORE['splint_obser']?></td>-->
 	<td><?php echo $SCORE['odor']?></td>
