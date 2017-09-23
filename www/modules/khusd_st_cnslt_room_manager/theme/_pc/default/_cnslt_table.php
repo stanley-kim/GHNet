@@ -2,9 +2,9 @@
 	<caption>
 	<div class="headbox">
 		<div class="table_title">
-			경희대학교 치과대학교 45기
+			경희대학교 치과대학교 47기
 			<br />
-			경희대학교 치의학전문대학원 9기
+			경희대학교 치의학전문대학원 11기
 		</div>
 		
 		<div class="table_date">

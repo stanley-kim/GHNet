@@ -49,10 +49,12 @@ $_orderby = 'ASC';
 
 $CHAIR_RESERV_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
 
+ //__debug_print("push func:@@  " . mysql_error());
 
 while( $_ROW = db_fetch_array($CHAIR_RESERV_ROWS)) 
 {
 	$_chair_no = $_ROW['chair_no'];
+ //__debug_print("push func:@  " . mysql_error());
 
 	$CHAIR_RESERV_ARRAY[$_chair_no]['reserv'][] = $_ROW;
 }

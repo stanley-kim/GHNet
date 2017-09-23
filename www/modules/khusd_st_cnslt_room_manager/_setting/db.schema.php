@@ -30,6 +30,8 @@ CREATE TABLE `".$table[$module.'reservation']."` (
   `chair_end_time` varchar(4) NOT NULL default '',
   
   `memo` varchar(200) NOT NULL default '',
+  `st_type` varchar(8) NOT NULL default '',
+  `chair_timetype_detail` char(2) NOT NULL default '',
   
   `date_reg` varchar(14) NOT NULL default '',
   `date_cancel` varchar(14) NOT NULL default '',
