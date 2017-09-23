@@ -190,8 +190,8 @@
 						마감
 						<?php else:?>
 						<span class="btn00">
-							<?php if(!$ITEM['valid_applied'] && $APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN']):?>
-								<?php if($is_applicable == 1):?>
+							<?php if(!$ITEM['valid_applied']  && $APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN']):?>
+								<?php if($is_applicable == 1  && !$ITEM['accepted'] ):?> 
 								<a href="<?php echo $g['apply_item_apply'].$ITEM['uid']?>" target="_action_frame_<?php echo $m?>" onclick="return confirm('정말로 신청하시겠습니까?')">신청</a>
 								<?php else:?>
 								신청

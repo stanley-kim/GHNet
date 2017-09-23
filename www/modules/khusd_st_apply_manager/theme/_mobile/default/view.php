@@ -66,7 +66,6 @@
 		</span>
 		<?php endif?>
                 <?php if(($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN'] && ( $APPLY_INFO['date_end'] > $date['totime'] ||  ( $APPLY_INFO['date_end'] <= $date['totime'] && ITEM_NUM==0 )    )  &&   ($MANAGER || $APPLY_INFO['st_id'] == $my['id'])) || ( $APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['CLOSED'] && $ITEM_NUM ==0 &&   permcheck( 'chief_of_case' )    )   ):?>
-
 		<span class="btn00">
 			<a href="<?php echo $g['apply_info_modify'].$APPLY_INFO['uid']	?>">수정</a>
 		</span>
@@ -191,7 +190,7 @@
 						<?php else:?>
 						<span class="btn00">
 							<?php if(!$ITEM['valid_applied'] && $APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN']):?>
-								<?php if($is_applicable == 1):?>
+								<?php if($is_applicable == 1 && !$ITEM['accepted'] ):?>
 								<a href="<?php echo $g['apply_item_apply'].$ITEM['uid']?>" target="_action_frame_<?php echo $m?>" onclick="return confirm('정말로 신청하시겠습니까?')">신청</a>
 								<?php else:?>
 								신청
