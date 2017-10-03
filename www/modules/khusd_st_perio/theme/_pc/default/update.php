@@ -161,6 +161,10 @@
 			<td class="title" colspan=2>ST Case</td>
 		</tr>
 		<tr>
+		<td class="head">PreScaling (PreSC)</td>
+		<td><input type="checkbox" name="st_presc" value="st_presc" <?php echo $SCORE['stpresc']==0?'':checked?> ></td>
+		</tr>
+		<tr>
 		<td class="head">Scaling (SC)</td>
 		<td><input type="number" name="st_sc" maxlength="5" class="input" value="<?php echo $SCORE['stsc']?>">회</td>
 		</tr>

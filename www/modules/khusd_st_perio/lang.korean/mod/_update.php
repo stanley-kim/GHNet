@@ -40,6 +40,7 @@
 		$SCORE['imp_2nd2'] = 0;
 		$SCORE['abandon'] = 0;
 		$SCORE['sc2'] = 0;
+		$SCORE['stpresc'] = 0;
 		$SCORE['stsc'] = 0;
 		$SCORE['stpc'] = 0;
 		$SCORE['stcu'] = 0;
