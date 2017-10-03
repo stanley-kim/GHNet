@@ -37,13 +37,23 @@
         <col width="30">
         <col width="70">
         <col width="70">
-        <col width="40">
-        <col width="40">
-        <col width="40">
-        <col width="40">
-        <col width="40">
-        <col width="40">
-        <col width="40">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
         </colgroup>
         <thead>
 
@@ -54,6 +64,7 @@
         <th scope="col" rowspan=1 colspan=7  class="split">치주</th>
         <th scope="col" rowspan=1 colspan=1  class="split">외과</th>
         <th scope="col" rowspan=1 colspan=3  class="split">영상</th>
+        <th scope="col" rowspan=1 colspan=6  class="split">내과</th>
 	</tr>
 	<tr>
         <th scope="col" rowspan=2 class="split">IOT</th>
@@ -67,6 +78,12 @@
         <th scope="col" rowspan=2 class="split">판독</th>
         <th scope="col" rowspan=2 class="split">촬영</th>
         <th scope="col" rowspan=2 class="split">판+촬</th>
+        <th scope="col" rowspan=2 class="split">오전픽스</th>
+        <th scope="col" rowspan=2 class="split">오후픽스</th>
+        <th scope="col" rowspan=2 class="split">픽스합계</th>
+        <th scope="col" rowspan=2 class="split">장치내주</th>
+        <th scope="col" rowspan=2 class="split">장치외주</th>
+        <th scope="col" rowspan=2 class="split">장치합계</th>
         </tr>
 	<tr></tr>
         </thead>
@@ -90,6 +107,12 @@
         <td><?php echo $SCORE['radio_obser_decoding']?></td>
         <td><?php echo $SCORE['radio_obser_filming']?></td>
         <td><?php echo $SCORE['radio_decoding_filming']?></td>
+        <td><?php echo $SCORE['medi_fix_am']?></td>
+        <td><?php echo $SCORE['medi_fix_pm']?></td>
+        <td><?php echo $SCORE['medi_prof_fix']?></td>
+        <td><?php echo $SCORE['medi_splint_in']?></td>
+        <td><?php echo $SCORE['medi_splint_out']?></td>
+        <td><?php echo $SCORE['medi_splint']?></td>
 	</tr>
         <?php endforeach?>
         </tbody>
