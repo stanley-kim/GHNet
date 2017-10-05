@@ -25,6 +25,7 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -33,7 +34,7 @@
 	<th scope="col" rowspan=2 class="split">학번</th>
 	<th scope="col" rowspan=2 class="split">이름</th>
 	<th scope="col" colspan=14 class="split">[Observation]</th>
-	<th scope="col" colspan=4 class="split">[ST Case]</th>
+	<th scope="col" colspan=5 class="split">[ST Case]</th>
 	<th scope="col" rowspan=2 class="split">동물<br/>실험</th>
 	<th scope="col" rowspan=2>수정일</th>
 	</tr>
@@ -53,6 +54,7 @@
 	<th scope="col" class="split">Obser 점수</th>
 	<th scope="col" class="split">Total</th>
 	<th scope="col" class="split">Pre ST</th>
+	<th scope="col" class="split">Pre SC</th>
 	<th scope="col" class="split">SC</th>
 	<th scope="col" class="split">PC</th>
 	<th scope="col" class="split">CU</th>
@@ -83,6 +85,7 @@
 	<td class="category4"><?php echo $SCORE['ob_score']?></td>
 	<td class="category4"><?php echo sprintf("%1.2f", $SCORE['total_score'])?></td>
 	<td class="category5"><?php echo ($SCORE['pre_st'] == 1 ? '완' : '')?></td>
+	<td><?php echo ($SCORE['stpresc'] == 1 ? '완' : '')?></td>
 	<td><?php echo $SCORE['stsc']?></td>
 	<td><?php echo $SCORE['stpc']?></td>
 	<td><?php echo $SCORE['stcu']?></td>
