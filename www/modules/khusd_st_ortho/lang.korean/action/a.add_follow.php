@@ -81,8 +81,7 @@ $status_pt = $d['khusd_st_ortho']['FOLLOW_PT']['FOLLOWING'];
 $_table = $table[$m.'follow_pt'];
 $_where =
 	"("
-		."pt_name = '".$pt_name."'"
-		." AND pt_id = '".$pt_id."'"
+		." pt_id = '".$pt_id."'"
 	.")";
 $_data = '*';
 $_sort = 'uid';
@@ -170,8 +169,7 @@ if(!$IS_UPDATED)
 {
 	$_table = $table[$m.'follow_pt'];
 	$_where = 
-		"pt_name = '".$pt_name."'"
-		." AND pt_id = '".$pt_id."'";
+		"pt_id = '".$pt_id."'";
 	
 	$FOLLOW_PT_UID = getDbCnt($_table, 'uid', $_where);
 	
