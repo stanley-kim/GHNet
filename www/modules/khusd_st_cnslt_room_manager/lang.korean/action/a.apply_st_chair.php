@@ -187,6 +187,64 @@ elseif($st_type == 'pedia')
 		$st_end_time = '1730';
 	}
 }
+elseif($st_type == 'radio')
+{
+        if($st_timetype == 'am' && $st_timetype_detail == '1')
+        {
+                $st_start_time = '0900';
+                $st_end_time = '1030';
+        }
+        else if($st_timetype == 'am' && $st_timetype_detail == '2')
+        {
+                $st_start_time = '1030';
+                $st_end_time = '1200';
+        }
+        else if($st_timetype == 'pm' && $st_timetype_detail == '1')
+        {
+                $st_start_time = '1330';
+                $st_end_time = '1500';
+        }
+        else if($st_timetype == 'pm' && $st_timetype_detail == '2')
+        {
+                $st_start_time = '1500';
+                $st_end_time = '1700';
+        }
+        else if($st_timetype == 'nt' && $st_timetype_detail == '1')
+        {
+                $st_start_time = '1730';
+                $st_end_time = '1830';
+        }
+        else if($st_timetype == 'nt' && $st_timetype_detail == '2')
+        {
+                $st_start_time = '1830';
+                $st_end_time = '1930';
+        }
+        else if($st_timetype == 'nt' && $st_timetype_detail == '3')
+        {
+                $st_start_time = '1930';
+                $st_end_time = '2030';
+        }
+        else if($st_timetype == 'am')
+        {
+                $st_start_time = '0900';
+                $st_end_time = '1030';
+        }
+        else if($st_timetype == 'pm')
+        {
+                $st_start_time = '1330';
+                $st_end_time = '1500';
+        }
+        else if($st_timetype == 'nt')
+        {
+                $st_start_time = '1730';
+                $st_end_time = '1830';
+        }
+        else
+        {
+                $st_start_time = '1330';
+                $st_end_time = '1700';
+        }
+}
 
 if(!$st_start_time)
 {

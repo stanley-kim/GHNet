@@ -13,10 +13,12 @@
 			$st_timetype_string = '야간';
 	?>
 	<?php echo $st_timetype_string?>
+        <a href="<?php echo $g['khusd_st_cnslt_room_manager_cnslt_table'].$st_date.'000000'?>" class="highlight">체어 배정표 보러가기</a>
 	</caption> 
 	<colgroup> 
 	<col width="35">
 	<col width="65"> 
+	<col width="50"> 
 	<col width="50"> 
 	<col width="65"> 
 	<col width="50"> 
@@ -27,6 +29,7 @@
 	<tr>
 	<th scope="col" class="split">No</th>
 	<th scope="col" class="split">상태</th>
+        <th scope="col" class="split">체어</th>
 	<th scope="col" class="split">타임</th>
 	<th scope="col" class="split">신청자</th>
 	<th scope="col" class="split">환자명</th>
@@ -96,6 +99,19 @@
 			<?php echo $_status; ?>
 		<?php endif?>
 	</td>
+        <td>
+                <?php if($MANAGER):?>
+                <select name="chair" onChange="updateChair(this.form)">
+                        <option value="0" selected>미정</option>
+                        <?php for($_idx = 0; $_idx < $CHAIR_NUM_MAX; $_idx++):?>
+                        <option value="<?php echo $_idx + 1?>"<?php if($ST_CHAIR['chair_no'] == ($_idx + 1)):?> selected<?php endif?>><?php echo $_idx + 1?></option>
+                        <?php endfor?>
+                </select>
+                <?php else:?>
+                <?php echo $ST_CHAIR['chair_no'] == 0 ? '미배정' : $ST_CHAIR['chair_no']?>
+                <?php endif?>
+
+        </td>
 	<td class="timetype">
 		<?php echo $st_timetype_string." ".$ST_CHAIR['st_timetype_detail'].""?>
 	</td>
@@ -247,6 +263,29 @@
 		
 		form.submit();
 	}
+
+        function updateChair(form)
+        {
+                if(form.chair.value == '0')
+                {
+                        alert('잘못된 체어 번호입니다.');
+                        form.chair.value = form._chair.value;
+                        return;
+                }
+
+                if(form.status.value == '<?php echo $d['khusd_st_cnslt_room_manager']['apply']['status']['CANCEL']?>')
+                {
+                        alert('취소 상태에서는 체어번호를 변경할 수 없습니다.');
+                        form.chair.value = form._chair.value;
+                        return;
+                }
+                else
+                {
+                        form.status.value = '<?php echo $d['khusd_st_cnslt_room_manager']['apply']['status']['ACCEPTED']?>';
+                }
+
+                form.submit();
+        }
 	
 	//]]>
 	</script>
