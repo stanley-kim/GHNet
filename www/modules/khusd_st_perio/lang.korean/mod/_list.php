@@ -139,7 +139,6 @@
 		.', AVG(fix) AS fix'
 		.', AVG(cp) AS cp'
 		.', AVG('.$_data_ob_score_original.') AS ob_score_original'
-		.', AVG('.$_data_total_score.') AS total_score'
 		.', SUM('.$_data_pre_st.') AS pre_st'
 		.', SUM(stpresc) AS stpresc'
 		.', AVG(stsc) AS stsc'
