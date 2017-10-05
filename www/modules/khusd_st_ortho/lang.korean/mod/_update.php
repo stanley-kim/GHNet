@@ -31,7 +31,7 @@
 	// 현재 로그인한 사용자의 팔로우 보여주기
 	// 환자명 / 병록번호로 검색하기
 	$_data = 'fw.uid, fw.type, fw.status, fw.step, fw.report, pt.pt_name, pt.pt_id, pt.dr_name';
-	$_data = 'fw.uid, fw.type, fw.status, fw.step, fw.bool_analysis  , fw.report, fw.bool_fabri  , pt.pt_name, pt.pt_id, pt.dr_name';
+	$_data = 'fw.uid, fw.type, fw.status, fw.step, fw.bool_analysis, fw.bool_mandatorybonding, fw.bool_bonding, fw.report, fw.bool_fabri  , pt.pt_name, pt.pt_id, pt.dr_name';
 	$_table = $table[$m.'follow_pt'].' pt LEFT JOIN '.$table[$m.'follow'].' fw ON pt.uid=fw.pt_uid';
 	$_where = 
 		"fw.s_uid = '".$s_uid."'"

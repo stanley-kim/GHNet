@@ -11,6 +11,7 @@ include_once $g['path_module'].'khusd_st_ortho/var/var.score.php';	// 필수 인
 
 include_once $g['path_module'].'khusd_st_manager/function/debug.php'; // for debug
 
+include_once $g['path_module'].'khusd_st_ortho/function/calc.php';	// 팔로우, 옵져 점수 계산을 위한  인클루드 파일
 //__debug_print("IN UPDATE ACTION");
 
 // 로그인 & 권한 체크
@@ -72,6 +73,14 @@ for($i=0; $i<count($_POST['bool_analysis']); $i++) {
 	$temp = intval($_POST['bool_analysis'][$i]);
 	$fbool_analysis[$temp] = 1;
 }
+for($i=0; $i<count($_POST['bool_mandatorybonding']); $i++) {
+	$temp = intval($_POST['bool_mandatorybonding'][$i]);
+	$fbool_mandatorybonding[$temp] = 1;
+}
+for($i=0; $i<count($_POST['bool_bonding']); $i++) {
+	$temp = intval($_POST['bool_bonding'][$i]);
+	$fbool_bonding[$temp] = 1;
+}
 
 // Obser score calculation // As of ss 2015, no more observation
 //단순 옵저
@@ -89,25 +98,23 @@ for($i=0; $i<count($_POST['fobser']); $i++) {
 	$follow_list[$i] = intval($follow_list[$i]);
 	if(!$freport[$i]) $freport[$i] = 0;
 	if(!$fbool_analysis[$i]) $fbool_analysis[$i] = 0;
+	if(!$fbool_mandatorybonding[$i]) $fbool_mandatorybonding[$i] = 0;
+	if(!$fbool_bonding[$i]) $fbool_bonding[$i] = 0;
 	$fobser[$i] = intval($_POST['fobser'][$i]);
 	
-	__debug_print("UID: ".$follow_list[$i].",ANALYSIS: ".$fbool_analysis[$i].", REPORT: ".$freport[$i].",FOBSER: ".$fobser[$i]);
+	//__debug_print("UID: ".$follow_list[$i].",ANALYSIS: ".$fbool_analysis[$i].", REPORT: ".$freport[$i].",FOBSER: ".$fobser[$i]);
 	//__debug_print("UID: ".$follow_list[$i].", REPORT: ".$freport[$i].", FOBSER: ".$fobser[$i]);
 	
 	if($i < $follow_new_cnt) {
 		// new patient
-		if($fobser[$i] >= $d['khusd_st_ortho']['score']['follow_req_new'] && $freport[$i] != 0) {
+		if($fobser[$i] >= $d['khusd_st_ortho']['score']['follow_req_new'] && $fbool_analysis[$i] != 0 && ( ($fbool_mandatorybonding[$i]!=0&&$fbool_bonding[$i]!= 0) || ($fbool_mandatorybonding[$i] == 0) )  ) {
 			$follow_new = $follow_new
-				+ $fobser[$i] * $d['khusd_st_ortho']['score']['follow_new']
-				+ $freport[$i] * $d['khusd_st_ortho']['score']['follow_report_fabri'];
+				+follow_point2($d['khusd_st_ortho']['FOLLOW_TYPE']['NEW'], $freport[$i],$fbool_analysis[$i],$fbool_mandatorybonding[$i],$fbool_bonding[$i] ,$fobser[$i], 
+$d['khusd_st_ortho']['FOLLOW_TYPE']['NEW'],$d['khusd_st_ortho']['FOLLOW_TYPE']['OLD'],
+$d['khusd_st_ortho']['score']['follow_req_new'],$d['khusd_st_ortho']['score']['follow_req_old'],
+$d['khusd_st_ortho']['score']['follow_new_report'],  $d['khusd_st_ortho']['score']['follow_old_report'], $d['khusd_st_ortho']['score']['obser'] 
+ ); 
 			
-			for($j=$fobser[$i]-$d['khusd_st_ortho']['score']['follow_req_new']; $j>0; $j--)
-			{
-				$follow_new += $j;
-			}
-			
-			// model fabrication; treated as valid for 2014-FW only
-			//$follow_new += $d['khusd_st_ortho']['score']['fabrication'];
 		} else {
 			// no point when the requirement is not fulfilled // temporarily set as obser
 			//$obser = $obser + $fobser[$i] * $d['khusd_st_ortho']['score']['obser'];
@@ -116,17 +123,19 @@ for($i=0; $i<count($_POST['fobser']); $i++) {
 		$follow_new_obs_cnt += $fobser[$i];
 	} else {
 		// old patient
-		if($fobser[$i] >= $d['khusd_st_ortho']['score']['follow_req_old'] && $freport[$i] != 0) {
+		if($fobser[$i] >= $d['khusd_st_ortho']['score']['follow_req_old'] ) {
 			$follow_old = $follow_old
-				+ $fobser[$i] * $d['khusd_st_ortho']['score']['follow_old']
-				+ $freport[$i] * $d['khusd_st_ortho']['score']['follow_report'];
-			
-			for($j=$fobser[$i]-$d['khusd_st_ortho']['score']['follow_req_old']; $j>0; $j--)
-			{
-				$follow_old += $j;
-			}
+				+follow_point2($d['khusd_st_ortho']['FOLLOW_TYPE']['OLD'],$freport[$i],$fbool_analysis[$i],$fbool_mandatorybonding[$i],$fbool_bonding[$i] ,$fobser[$i], 
+$d['khusd_st_ortho']['FOLLOW_TYPE']['NEW'],$d['khusd_st_ortho']['FOLLOW_TYPE']['OLD'],
+$d['khusd_st_ortho']['score']['follow_req_new'],$d['khusd_st_ortho']['score']['follow_req_old'],
+$d['khusd_st_ortho']['score']['follow_new_report'],  $d['khusd_st_ortho']['score']['follow_old_report'], $d['khusd_st_ortho']['score']['obser'] 
+ ); 
 		} else {
-			//$obser = $obser + $fobser[$i] * $d['khusd_st_ortho']['score']['obser'];
+			$obser = $obser + obser_point($d['khusd_st_ortho']['FOLLOW_TYPE']['OLD'],$freport[$i],$fbool_analysis[$i],$fbool_mandatorybonding[$i],$fbool_bonding[$i] ,$fobser[$i], 
+$d['khusd_st_ortho']['FOLLOW_TYPE']['NEW'],$d['khusd_st_ortho']['FOLLOW_TYPE']['OLD'],
+$d['khusd_st_ortho']['score']['follow_req_new'],$d['khusd_st_ortho']['score']['follow_req_old'],
+$d['khusd_st_ortho']['score']['follow_new_report'],  $d['khusd_st_ortho']['score']['follow_old_report'], $d['khusd_st_ortho']['score']['obser'] 
+);
 		}
 		
 		$follow_old_obs_cnt += $fobser[$i];
@@ -134,7 +143,7 @@ for($i=0; $i<count($_POST['fobser']); $i++) {
 	
 	// UPDATE FOLLOW TABLE INFORMATION
 	$_set = "step='".$fobser[$i]."', report='".$freport[$i]."', date_update='".$date_update."'";
-	$_set = "step='".$fobser[$i]."', bool_analysis='".$fbool_analysis[$i]."', report='".$freport[$i]."', date_update='".$date_update."'";
+	$_set = "step='".$fobser[$i]."', bool_analysis='".$fbool_analysis[$i]."', report='".$freport[$i]."', bool_mandatorybonding='".$fbool_mandatorybonding[$i]."', bool_bonding='".$fbool_bonding[$i]. "', date_update='".$date_update."'";
 	$_where = "uid='".$follow_list[$i]."'";
 	
 	//__debug_print("UPDATE $table[$m.'follow'] SET $_set WHERE $_where");

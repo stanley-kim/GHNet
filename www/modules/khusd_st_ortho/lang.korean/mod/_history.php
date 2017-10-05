@@ -50,4 +50,25 @@
 	
 	$NUM = getDbRows($table[$m.'score'], "st_id='".$st_id."'");
 	$TPG = getTotalPage($NUM, $recnum);
+
+$_data = 'fw.*, pt.pt_name AS pt_name, pt.pt_id AS pt_id, pt.dr_room AS dr_room, pt.pf_name AS pf_name, pt.dr_name AS dr_name, mbrdata.name AS st_name';
+$_table = $table[$m.'follow_pt'].' pt, '.$table[$m.'follow'].' fw, '.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid';
+$_where =
+        "fw.s_uid = '".$s_uid."'"
+        ." AND pt.uid = fw.pt_uid"
+        ." AND mbrid.uid = mbrdata.memberuid"
+        ." AND mbrid.id = fw.st_id"
+        ." AND fw.st_id = '".$st_id."'";
+$_sort = 'fw.status ASC, fw.type DESC';
+$_orderby = ' ';
+
+$MY_FOLLOW_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
+$MY_FOLLOW_ARRAY = array();
+while( $_ROW = db_fetch_array($MY_FOLLOW_ROWS) )
+{
+        $MY_FOLLOW_ARRAY[$_ROW['pt_uid']] = $_ROW;
+}
+
+
+
 ?>

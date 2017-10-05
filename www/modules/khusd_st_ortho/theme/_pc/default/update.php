@@ -21,9 +21,15 @@
 		<col width=80>
 		<col width=80>
 		<col width=80>
+		<col width=80>
+		<col width=80>
+		<col width=80>
 	</colgroup>
 	<thead>
 		<tr>
+		<th scope="col"></th>
+		<th scope="col"></th>
+		<th scope="col"></th>
 		<th scope="col"></th>
 		<th scope="col"></th>
 		<th scope="col"></th>
@@ -55,20 +61,25 @@
 			C: <input type="number" name="fabri_c" maxlength="5" class="input" value="<?php echo $SCORE['fabri_c']?>"> 회 &nbsp;
 		</td>
 		</tr>
-
+		<tr> <td><br><br></td> </tr>
 		<tr>
 		<td class="head" colspan="8">Follow 환자</td>
 		</tr>
 		<tr>
-		<td colspan="8">*주의: <b style="text-decoration: underline;color:blue;">신환 F/U 분석 상담</b>은 횟수에 포함되지 않습니다.</td>
+		<td colspan="8">본딩필수: 본딩이 필수인 치료는 check, 본딩이 필수가 아닌 치료(ex 성장조절치료)인 경우 uncheck 해주시면 됩니다.(신환만 해당)</td>
+		</tr>
+		<tr>
+		<td colspan="8">F/U 횟수: <b style="text-decoration: underline;color:blue;">신환 F/U 분석 상담</b>은 F/U 횟수에 포함되지 않습니다.</td>
 		</tr>
 		<tr class="sub_head">
-			<td width="15%">신/구</td>
-			<td width="15%">병록번호</td>
-			<td width="15%">이름</td>
-			<td width="15%">분석</td>
-			<td width="15%">Report</td>
-			<td width="15%">옵져</td>
+			<td width="10%">신/구</td>
+			<td width="10%">병록번호</td>
+			<td width="10%">이름</td>
+			<td width="10%">Report</td>
+			<td width="10%">분석참석</td>
+			<td width="10%">본딩필수</td>
+			<td width="10%">본딩참석</td>
+			<td width="10%">F/U횟수</td>
 		</tr>
 		<?php
 			$follow_cnt = 0;
@@ -86,8 +97,10 @@
 				<?php endif?>
 				<td><?php echo $_ROW['pt_id']?></td>
 				<td><?php echo $_ROW['pt_name']?></td>
-				<td><input type="checkbox" name="bool_analysis[]" value="<?php echo $follow_cnt?>" <?php echo $_ROW['bool_analysis']==0?'':checked?>></td>
-				<td><input type="checkbox" name="report[]" value="<?php echo $follow_cnt?>" <?php echo $_ROW['report']==0?'':checked?>></td>
+				<td><input type="checkbox" name="report[]" value="<?php echo $follow_cnt?>"  <?php echo $_ROW['report']==0?'':checked?>></td>
+				<td><input type="checkbox" name="bool_analysis[]" value="<?php echo $follow_cnt?>" <?php if($_ROW['type']==0) echo disabled?>   <?php echo $_ROW['bool_analysis']==0?'':checked?>></td>
+				<td><input type="checkbox" name="bool_mandatorybonding[]" value="<?php echo $follow_cnt?>"  <?php if($_ROW['type']==0) echo disabled?>   <?php echo $_ROW['bool_mandatorybonding']==0?'':checked?>></td>
+				<td><input type="checkbox" name="bool_bonding[]" value="<?php echo $follow_cnt?>"  <?php if($_ROW['type']==0) echo disabled?>   <?php echo $_ROW['bool_bonding']==0?'':checked?>></td>
 				<td><input type="number" name="fobser[]" maxlength="2" class="input" value="<?php echo $_ROW['step']?>"> 회</td>
 			</tr>
 			<?php $follow_cnt++;?>

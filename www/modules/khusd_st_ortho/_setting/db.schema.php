@@ -81,6 +81,8 @@ CREATE TABLE `".$table[$module.'follow']."` (
   `bool_analysis` tinyint(1) default '0',
   `bool_fabri` tinyint(1) default '0',
   `report` tinyint(1) default '0',
+  `bool_mandatorybonding` tinyint(1) default '1',
+  `bool_bonding` tinyint(1) default '0',
 
   PRIMARY KEY  (`uid`),
   KEy `pt_uid` (`pt_uid`),
