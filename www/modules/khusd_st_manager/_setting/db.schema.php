@@ -34,4 +34,25 @@ db_query($_tmp, $DB_CONNECT);
 db_query("OPTIMIZE TABLE ".$table[$module.'s_mbr'],$DB_CONNECT); 
 }
 
+// verification  rule 
+$_tmp = db_query( "select count(*) from ".$table[$module.'verification_rule'], $DB_CONNECT );
+if ( !$_tmp ) {
+$_tmp = ("
+CREATE TABLE ".$table[$module.'verification_rule']." (
+	uid		INT			PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+	
+	perio_surgery_on		VARCHAR(5)	DEFAULT '0000' NOT NULL,
+	perio_surgery_selection		VARCHAR(5)	DEFAULT 'GGGG' NOT NULL,
+	perio_surgery_standard		VARCHAR(5)	DEFAULT '0000' NOT NULL,
+	perio_surgery_num_apply		VARCHAR(5)	DEFAULT '0000' NOT NULL,
+	perio_chiot_on			VARCHAR(5)	DEFAULT '0000' NOT NULL,
+	perio_chiot_selection		VARCHAR(5)	DEFAULT 'GGGG' NOT NULL,
+	perio_chiot_standard		VARCHAR(5)	DEFAULT '0000' NOT NULL,
+	perio_chiot_num_apply		VARCHAR(5)	DEFAULT '0000' NOT NULL,
+	
+	KEY uid(uid)
+) ENGINE=".$DB['type']." CHARSET=UTF8");                            
+db_query($_tmp, $DB_CONNECT);
+db_query("OPTIMIZE TABLE ".$table[$module.'verification_rule'],$DB_CONNECT); 
+}
 ?>

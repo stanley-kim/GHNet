@@ -116,4 +116,11 @@ $dept_array = array(
 					)
 		);
 
+$d['khusd_st_manager']['selection']['perio_surgery']['surgery'] = "S";
+$d['khusd_st_manager']['selection']['perio_surgery']['group'] = 'G';
+
+$d['khusd_st_manager']['selection']['perio_chiot']['ch'] = "C";
+$d['khusd_st_manager']['selection']['perio_chiot']['iot'] = "I";
+$d['khusd_st_manager']['selection']['perio_chiot']['chiot'] = "P";
+$d['khusd_st_manager']['selection']['perio_chiot']['group'] = 'G';
 ?>
