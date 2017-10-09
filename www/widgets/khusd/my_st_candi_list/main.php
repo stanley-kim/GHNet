@@ -65,6 +65,7 @@
 	
 	<?php
 	$candi_list_link = getLinkFilter($g['s'].'/?'.($_HS['usecode']?'r='.$r.'&amp;':'').'m=khusd_st_cnslt_room_manager',array($iframe?'iframe':'')).'&amp;mode=st_candi_list&amp;st_date=';
+	$chair_assignment_list_link = getLinkFilter($g['s'].'/?'.($_HS['usecode']?'r='.$r.'&amp;':'').'m=khusd_st_cnslt_room_manager',array($iframe?'iframe':'')).'&amp;mode=cnslt_table&amp;ch_date=';
 	?>
 	
 	<?php if($my['id']):?>
@@ -100,20 +101,20 @@
 		<span><?php echo $week_string?></span>(<?php echo getDateFormat($date_array[$key], 'Y-m-d') ?>) : 
 		<br />
 		<span>
-			OP배정자 [<a href="">오전</a>( <?php echo $consv_op_accepted_array[$key]['am']?> 명)
-			<a href="">오후</a>( <?php echo $consv_op_accepted_array[$key]['pm']?> 명)
+			OP배정자 [<a href="<?php echo $chair_assignment_list_link.$date_array[$key].'000000'?>">오전</a>( <?php echo $consv_op_accepted_array[$key]['am']?> 명)
+			<a href="<?php echo $chair_assignment_list_link.$date_array[$key].'000000'?>">오후</a>( <?php echo $consv_op_accepted_array[$key]['pm']?> 명)
 			]
 		</span>
 		<br />
 		<span>
-			치주배정자 [<a href="">오전</a>( <?php echo $perio_accepted_array[$key]['am']?> 명)
-			<a href="">오후</a>( <?php echo $perio_accepted_array[$key]['pm']?> 명)
+			치주배정자 [<a href="<?php echo $chair_assignment_list_link.$date_array[$key].'000000'?>">오전</a>( <?php echo $perio_accepted_array[$key]['am']?> 명)
+			<a href="<?php echo $chair_assignment_list_link.$date_array[$key].'000000'?>">오후</a>( <?php echo $perio_accepted_array[$key]['pm']?> 명)
 			]
 		</span>
 		<br />
 		<span>
-			보철배정자 [<a href="">오전</a>( <?php echo $pros_accepted_array[$key]['am']?> 명)
-			<a href="">오후</a>( <?php echo $pros_accepted_array[$key]['pm']?> 명)
+			보철배정자 [<a href="<?php echo $chair_assignment_list_link.$date_array[$key].'000000'?>">오전</a>( <?php echo $pros_accepted_array[$key]['am']?> 명)
+			<a href="<?php echo $chair_assignment_list_link.$date_array[$key].'000000'?>">오후</a>( <?php echo $pros_accepted_array[$key]['pm']?> 명)
 			]
 		</span>
 	</li>
