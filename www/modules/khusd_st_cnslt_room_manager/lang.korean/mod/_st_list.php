@@ -10,6 +10,7 @@
 
 	$st_date = $st_date ? $st_date : $date['today'];
 	$st_timetype = $st_timetype ? $st_timetype : 'am';
+	$st_type = $department ? $department : 'radio';
 	
 	$ST_APPLY_NUM = 0;	// 영상과에서 현재 신청자 수를 알기 위해 사용
 	$ST_CHAIR_ARRAY = array();
