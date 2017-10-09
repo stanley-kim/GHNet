@@ -650,6 +650,8 @@ elseif($mode == 'verification' && $MANAGER) {
                         .", ail.department AS department"
                         .", ail.is_perio_surgery AS is_perio_surgery"
                         .", ail.uid AS apply_info_uid"
+                        .", ail.apply_limit AS apply_limit"
+                        .", ai.accept_limit AS accept_limit"
                         .", ai.date_item AS date_item"
                         .", ai.sub_category AS sub_category"
                         .", ai.content AS apply_item_content",
@@ -661,12 +663,14 @@ elseif($mode == 'verification' && $MANAGER) {
                         0
                 );
 
-
+	$zeros = array();
+	$accept_limits = array();
+	$apply_limits = array();
         //__debug_print("db_query_4_detect. - " . mysql_error());
         $Duplicate_Check_Dic = array();
         while($_R = db_fetch_array($TCC))   {
-                $mesial =  intval(intval( $_R['date_item']) / 1000000)   ;
-                $distal =  intval( $_R['date_item']) % 1000000   ;
+                $mesial =  intval(intval( $_R['date_item']) / 1000000)   ;     //morning
+                $distal =  intval( $_R['date_item']) % 1000000   ;             //afternoon
                 __debug_print("print each rows. - " .$mesial. ' ' .$distal   );
                 if ( $mesial > 20170101 && $_R['rand']!= 0   )  {
                         if ( $distal < 120000 )
@@ -676,10 +680,31 @@ elseif($mode == 'verification' && $MANAGER) {
                         else
                                 $Duplicate_Check_Dic[$_R['st_id']][$mesial]["night"][$_R['date_end']][$_R['uid']   ]=$_R;
                 }
+	
+		if( $_R['rand'] == 0 )    { 
+ //__debug_print("db_query_go for_opened search detect main.php. - " .$_R['apply_item_uid'] ); 
+			$zeros[  $_R['apply_info_uid']  ][$_R['apply_item_uid'] ]++;
 
+		}
+		$accept_limits[ $_R['apply_info_uid'] ][ $_R['apply_item_uid']] = $_R['accept_limit'];
+		$apply_limits[ $_R['apply_info_uid'] ]  = $_R['apply_limit'];
         }
 
-
+	$MandatoryTime = array();
+	foreach( array_keys($accept_limits) AS $tmp_apply_info)   {
+		$opened = 0;
+		foreach( array_keys($accept_limits[$tmp_apply_info])  AS $tmp_apply_item)  {
+			if ( $accept_limits[$tmp_apply_info][$tmp_apply_item] > 0  && $accept_limits[$tmp_apply_info][$tmp_apply_item] > $zeros[$tmp_apply_info][$tmp_apply_item]  )   {
+ //__debug_print("db_query_go for_opened++ search detect2 main.php. - " .$tmp_apply_info.'_'.$tmp_apply_item.'_'. $accept_limits[$tmp_apply_info][$tmp_apply_item]  .'>'.$zeros[$tmp_apply_info][$tmp_apply_item] ); 
+				$opened=$opened+1;  	
+ __debug_print("db_query_go for_opened++ search detect2 main.php. - " .$tmp_apply_info.'_'.$tmp_apply_item.'_'. $accept_limits[$tmp_apply_info][$tmp_apply_item]  .'>'.$zeros[$tmp_apply_info][$tmp_apply_item].'_'.$opened ); 
+			}
+		}	
+		if( $apply_limits[$tmp_apply_info] >0 && $apply_limits[$tmp_apply_info] == $opened )   {
+ __debug_print("db_query_go for_opened+++ search detect2 main.php. - " .$tmp_apply_info.'_'. $apply_limits[$tmp_apply_info] .'=='.$opened  ); 
+			$MandatoryTime[$tmp_apply_info] = true;
+		}
+	} 
 		
 } //verification end
 

@@ -307,7 +307,7 @@ __debug_print("db_query_go for_detect. getOneValue2 - " . $st_id );
 	return 0;
 }
 
-function isWithinRuleRange($st_id,  $department, $is_perio_surgery,  $idx, $rules)  {
+function isWithinRuleRange($st_id,  $department, $is_perio_surgery, $apply_info_uid,  $idx, $rules)  {
         $perio_surgery_on = $rules['perio_surgery']['perio_surgery_on'];
         $perio_surgery_selection = $rules['perio_surgery']['perio_surgery_selection'];
         $perio_surgery_num_apply = $rules['perio_surgery']['perio_surgery_num_apply'];
@@ -327,7 +327,7 @@ __debug_print("db_query_go for_detect. WiRa1 Off - " . $st_id );
 			return false;
 		}
 __debug_print("db_query_go for_detect. WiRa2 - " .$rules['perio_surgery']['perio_surgery_selection'][ $idx -1 ] .'-'.$rules['selection']['perio_surgery']['surgery']  );
-		if( $rules['perio_surgery']['perio_surgery_selection'][ $idx -1 ] == $rules['selection']['perio_surgery']['surgery'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $rules['perio_surgery']['perio_surgery_selection'][ $idx -1 ],$rules ) <= $rules['perio_surgery']['perio_surgery_standard'][ $idx -1 ] )   {
+		if( $rules['perio_surgery']['perio_surgery_selection'][ $idx -1 ] == $rules['selection']['perio_surgery']['surgery'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $rules['perio_surgery']['perio_surgery_selection'][ $idx -1 ],$rules ) <= $rules['perio_surgery']['perio_surgery_standard'][ $idx -1 ] && $rules['MandatoryTime'][ $apply_info_uid]      )   {
 __debug_print("db_query_go for_detect. WiRa3 - " . $st_id );
 			return true;	
 		}
@@ -337,11 +337,11 @@ __debug_print("db_query_go for_detect. WiRa3 - " . $st_id );
 __debug_print("db_query_go for_detect. WiRa4 - " . $st_id );
 		if( $rules['perio_chiot']['perio_chiot_on'][ $idx -1 ] != '1') return false;
 __debug_print("db_query_go for_detect. WiRa5 Off- " . $st_id );
-		if(      $perio_chiot_selection[ $idx -1 ] == $rules['selection']['perio_chiot']['ch'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $rules['perio_chiot']['perio_chiot_selection'][ $idx -1 ] ,$rules) <= $rules['perio_chiot']['perio_chiot_standard'][ $idx -1 ] )  
+		if(      $perio_chiot_selection[ $idx -1 ] == $rules['selection']['perio_chiot']['ch'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $rules['perio_chiot']['perio_chiot_selection'][ $idx -1 ] ,$rules) <= $rules['perio_chiot']['perio_chiot_standard'][ $idx -1 ] && $rules['MandatoryTime'][ $apply_info_uid]   )  
 			return true;
-		else if( $perio_chiot_selection[ $idx -1 ] == $rules['selection']['perio_chiot']['iot'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $perio_chiot_selection[ $idx -1 ], $rules ) <= $perio_chiot_standard[ $idx -1 ] )  
+		else if( $perio_chiot_selection[ $idx -1 ] == $rules['selection']['perio_chiot']['iot'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $perio_chiot_selection[ $idx -1 ], $rules ) <= $perio_chiot_standard[ $idx -1 ]  && $rules['MandatoryTime'][ $apply_info_uid]     )  
 			return true;
-		else if( $perio_chiot_selection[ $idx -1 ] == $rules['selection']['perio_chiot']['chiot'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $perio_chiot_selection[ $idx -1 ], $rules ) <= $perio_chiot_standard[ $idx -1 ] )  
+		else if( $perio_chiot_selection[ $idx -1 ] == $rules['selection']['perio_chiot']['chiot'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $perio_chiot_selection[ $idx -1 ], $rules ) <= $perio_chiot_standard[ $idx -1 ] && $rules['MandatoryTime'][ $apply_info_uid]    )  
 			return true;	
 
 	}
@@ -355,7 +355,7 @@ function isMandatoryTime( $dcd5, $rules ) {
 //__debug_print("db_query_go for_detect. PS0 - " . $dcd5['st_id'] );
 		for($idx=1; $idx<=4 ; $idx++)  {
 //__debug_print("db_query_go for_detect. PS1 - ".$dcd5['st_id']. '-' . $rules['perio_surgery']['latest_perio_surgery'][$idx]['apply_info_uid'].'-'.  $dcd5['apply_info_uid'] );
-			if( $rules['perio_surgery']['latest_perio_surgery'][$idx]['apply_info_uid'] == $dcd5['apply_info_uid'] &&  isWithinRuleRange($dcd5['st_id'],  $dcd5['department'], $dcd5['is_perio_surgery'],  $idx, $rules)    )    { 
+			if( $rules['perio_surgery']['latest_perio_surgery'][$idx]['apply_info_uid'] == $dcd5['apply_info_uid'] &&  isWithinRuleRange($dcd5['st_id'],  $dcd5['department'], $dcd5['is_perio_surgery'], $dcd5['apply_info_uid'],  $idx, $rules)    )    { 
 //__debug_print("db_query_go for_detect. PS2 - " . $dcd5['st_id'] );
 				return true;
 			}
@@ -365,7 +365,7 @@ function isMandatoryTime( $dcd5, $rules ) {
 //__debug_print("db_query_go for_detect. PCI 0 " . $dcd5['st_id'] );
 		for($idx=1; $idx<=4 ; $idx++)  {
 //__debug_print("db_query_go for_detect. PCI1 - ".$dcd5['st_id']. '-' . $rules['perio_chiot']['latest_perio_chiot'][$idx]['apply_info_uid'].'-'.  $dcd5['apply_info_uid'] );
-			if( $rules['perio_chiot']['latest_perio_chiot'][$idx]['apply_info_uid'] == $dcd5['apply_info_uid'] &&  isWithinRuleRange($dcd5['st_id'],  $dcd5['department'], $dcd5['is_perio_surgery'],  $idx, $rules)    )   {
+			if( $rules['perio_chiot']['latest_perio_chiot'][$idx]['apply_info_uid'] == $dcd5['apply_info_uid'] &&  isWithinRuleRange($dcd5['st_id'],  $dcd5['department'], $dcd5['is_perio_surgery'],  $dcd5['apply_info_uid'] ,  $idx, $rules)    )   {
 //__debug_print("db_query_go for_detect. PCI 2- " . $dcd5['st_id'] );
 				return true;
 			}
@@ -417,6 +417,7 @@ __debug_print("db_query_go for_detect. HH 5" . $uid );
                 echo date("Ymd", $oldday+60*60*24*$start_code).'000000~~';
                 echo date("Ymd", $oldday+60*60*24*($start_code+5))."235959<br>";
 
+	$rules['MandatoryTime'] = $MandatoryTime;
 	$rules['selection'] = $d['khusd_st_manager']['selection'];
 
 	$rules['perio_surgery']['latest_perio_surgery'] = $latest_perio_surgery ;
