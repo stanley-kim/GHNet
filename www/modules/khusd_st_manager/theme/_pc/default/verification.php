@@ -133,7 +133,8 @@
 	}
 	//to detect each apply_info  
 	$latest_perio_surgery=array();	
-	$latest_perio_chiot=array();	
+	$latest_perio_chiot=array();
+	$latest_radio=array();	
         foreach($APPLY_INFOS as $EACH_INFO) {
 		if( $EACH_INFO['is_perio_surgery'] == 'y' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_1st_end_time)   { 
 			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
@@ -171,6 +172,46 @@
 			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
 			$latest_perio_chiot[4] = $EACH_INFO;
 		}
+		else if(  $EACH_INFO['department'] == 'oms' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_1st_end_time)   { 
+
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_oms[1] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'oms' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_2nd_end_time)   { 
+
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_oms[2] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'oms' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_3rd_end_time)   { 
+
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_oms[3] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'oms' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_4th_end_time)   { 
+
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_oms[4] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'radio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_1st_end_time)   { 
+
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_radio[1] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'radio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_2nd_end_time)   { 
+
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_radio[2] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'radio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_3rd_end_time)   { 
+
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_radio[3] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'radio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_4th_end_time)   { 
+
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_radio[4] = $EACH_INFO;
+		}
 
 	}
 	$RULE = array();
@@ -181,7 +222,6 @@
 	//to restore saved rules
 	$perio_surgery_on = str_split( $RULE['perio_surgery_on']  ) ;
 	$perio_surgery_selection = str_split( $RULE['perio_surgery_selection']  ) ;
-//			__debug_print("db_query_go for_detect~!. - " .  $perio_surgery_selection[1].' '. $RULE['perio_surgery_selection'] );
 	$perio_surgery_standard = str_split( $RULE['perio_surgery_standard']  ) ;
 	$perio_surgery_num_apply = str_split( $RULE['perio_surgery_num_apply']  ) ;
 
@@ -190,6 +230,15 @@
 	$perio_chiot_standard = str_split( $RULE['perio_chiot_standard']  ) ;
 	$perio_chiot_num_apply = str_split( $RULE['perio_chiot_num_apply']  ) ;
 
+	$oms_on        = str_split( $RULE['oms_on']  ) ;
+	$oms_selection = str_split( $RULE['oms_selection']  ) ;
+	$oms_standard  = str_split( $RULE['oms_standard']  ) ;
+	$oms_num_apply = str_split( $RULE['oms_num_apply']  ) ;
+
+	$radio_on        = str_split( $RULE['radio_on']  ) ;
+	$radio_selection = str_split( $RULE['radio_selection']  ) ;
+	$radio_standard  = str_split( $RULE['radio_standard']  ) ;
+	$radio_num_apply = str_split( $RULE['radio_num_apply']  ) ;
 	?>
 	<table summary="규칙표 입니다.">
 	<caption>Rule</caption>
@@ -246,6 +295,42 @@
 		</tr>
 		<?php }?>
 
+		<?php $idx = 1 ?>
+		<?php for($idx=1;$idx<=4;$idx++) {?>
+		<tr>
+		<td   rowspan="1" class="head">oms surgery</td>
+		<td   class="head"><?php echo $idx?>차 <input type="checkbox"  name=checkbox_oms_on[<?php echo $idx-1?>] value="1"   <?php if( $oms_on[$idx-1] == '1'  )  echo checked ?>  >On</td>
+		<td> <?php echo getDateFormat($latest_oms[$idx]['date_start'],'Y-m-d H:i')  ?>~ <?php echo getDateFormat($latest_oms[$idx]['date_end'],'Y-m-d H:i')  ?></td>
+		<td><?php echo $latest_oms[$idx]['apply_info_subject']   ?>   </td>
+		<td>
+			<input type="radio"  name=checkbox_oms_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['oms']['surgery']  ?>   <?php if( $oms_selection[$idx-1] == $d['khusd_st_manager']['selection']['oms']['surgery']  )  echo checked ?>  >수술합
+			<input type="radio"  name=checkbox_oms_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['oms']['group']  ?>   <?php if( $oms_selection[$idx-1] == $d['khusd_st_manager']['selection']['oms']['group'] )  echo checked ?>  >Group
+			<br><input type="number" name=input_oms_standard[<?php echo $idx-1?>] maxlength="2" class="input" value="<?php echo $oms_standard[$idx-1] ?>">회이하<br>
+			<input type="number" name=input_oms_num_apply[<?php echo $idx-1?>] maxlength="2" class="input" value="<?php echo $oms_num_apply[$idx-1] ?>">회지원
+
+		</td>
+		</tr>
+		<?php }?>
+
+		<?php $idx = 1 ?>
+		<?php for($idx=1;$idx<=4;$idx++) {?>
+		<tr>
+		<td   rowspan="1" class="head">영상</td>
+		<td   class="head"><?php echo $idx?>차 <input type="checkbox"  name=checkbox_radio_on[<?php echo $idx-1?>] value="1"   <?php if( $radio_on[$idx-1] == '1'  )  echo checked ?>  >On</td>
+		<td> <?php echo getDateFormat($latest_radio[$idx]['date_start'],'Y-m-d H:i')  ?>~ <?php echo getDateFormat($latest_radio[$idx]['date_end'],'Y-m-d H:i')  ?></td>
+		<td><?php echo $latest_radio[$idx]['apply_info_subject']   ?>   </td>
+		<td>
+			<input type="radio"  name=checkbox_radio_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['radio']['filming']  ?>    <?php if( $radio_selection[$idx-1] == $d['khusd_st_manager']['selection']['radio']['filming']   )  echo checked ?>  >촬옵
+			<input type="radio"  name=checkbox_radio_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['radio']['decoding']  ?>   <?php if( $radio_selection[$idx-1] == $d['khusd_st_manager']['selection']['radio']['decoding']  )  echo checked ?>  >판옵
+			<input type="radio"  name=checkbox_radio_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['radio']['fandp']  ?>      <?php if( $radio_selection[$idx-1] == $d['khusd_st_manager']['selection']['radio']['fandp']  )  echo checked ?>  >촬+판옵
+			<input type="radio"  name=checkbox_radio_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['radio']['group']  ?>      <?php if( $radio_selection[$idx-1] == $d['khusd_st_manager']['selection']['radio']['group'] )  echo checked ?>  >Group
+			<br><input type="number" name=input_radio_standard[<?php echo $idx-1?>] maxlength="2" class="input" value="<?php echo $radio_standard[$idx-1] ?>">회이하<br>
+			<input type="number" name=input_radio_num_apply[<?php echo $idx-1?>] maxlength="2" class="input" value="<?php echo $radio_num_apply[$idx-1] ?>">회지원
+
+		</td>
+		</tr>
+		<?php }?>
+
 	</tbody>
 	</table>
 
@@ -277,6 +362,8 @@ function isMandatory( $dcd5 , $rules) {
 		return true;  // have to modify 
 	else if( $dcd5['department'] == 'perio' && $dcd5['is_perio_surgery'] == 'n' )
 		return true;
+	else if( $dcd5['department'] == 'oms' )
+		return true;
 	else  
 		return false;
 	return false;
@@ -303,6 +390,16 @@ __debug_print("db_query_go for_detect. getOneValue3 - " . $st_id );
 			return $SCORE_ARRAY[ $st_id ]['perio_ch_iot'] ;
 		else    return  0 ;	
 	}
+        else if( $department == 'oms'  )    {
+ 		if( $selection == $rules['selection']['oms']['surgery'] )   { 
+__debug_print("db_query_go for_detect. getOneValue10 - " . $st_id );
+			return $SCORE_ARRAY[ $st_id ]['oms_imp_1st'] ;
+		}
+		else    {
+__debug_print("db_query_go for_detect. getOneValue13 - " . $st_id );
+			return  0 ;	
+		}
+	}
 __debug_print("db_query_go for_detect. getOneValue2 - " . $st_id );
 	return 0;
 }
@@ -317,6 +414,9 @@ function isWithinRuleRange($st_id,  $department, $is_perio_surgery, $apply_info_
         $perio_chiot_selection = $rules['perio_chiot']['perio_chiot_selection'];
         $perio_chiot_num_apply = $rules['perio_chiot']['perio_chiot_num_apply'];
 
+        $oms_on = $rules['oms']['oms_on'];
+        $oms_selection = $rules['oms']['oms_selection'];
+        $oms_num_apply = $rules['oms']['oms_num_apply'];
 
 
 __debug_print("db_query_go for_detect. WiRa0 - " . $st_id );
@@ -345,6 +445,14 @@ __debug_print("db_query_go for_detect. WiRa5 Off- " . $st_id );
 			return true;	
 
 	}
+        else if( $department == 'oms'  )    {  //oms chiot case
+__debug_print("db_query_go for_detect. WiRa7 - " . $st_id );
+		if( $rules['oms']['oms_on'][ $idx -1 ] != '1') return false;
+__debug_print("db_query_go for_detect. WiRa7 Off- " . $st_id );
+		if(      $oms_selection[ $idx -1 ] == $rules['selection']['oms']['surgery'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $rules['oms']['oms_selection'][ $idx -1 ] ,$rules) <= $rules['oms']['oms_standard'][ $idx -1 ] && $rules['MandatoryTime'][ $apply_info_uid]   )  
+			return true;
+
+	}
 	return false ; 
 }
 
@@ -366,6 +474,16 @@ function isMandatoryTime( $dcd5, $rules ) {
 		for($idx=1; $idx<=4 ; $idx++)  {
 //__debug_print("db_query_go for_detect. PCI1 - ".$dcd5['st_id']. '-' . $rules['perio_chiot']['latest_perio_chiot'][$idx]['apply_info_uid'].'-'.  $dcd5['apply_info_uid'] );
 			if( $rules['perio_chiot']['latest_perio_chiot'][$idx]['apply_info_uid'] == $dcd5['apply_info_uid'] &&  isWithinRuleRange($dcd5['st_id'],  $dcd5['department'], $dcd5['is_perio_surgery'],  $dcd5['apply_info_uid'] ,  $idx, $rules)    )   {
+//__debug_print("db_query_go for_detect. PCI 2- " . $dcd5['st_id'] );
+				return true;
+			}
+		}
+	}
+        else if( $dcd5['department'] == 'oms'  )    {   //oms case
+//__debug_print("db_query_go for_detect. PCI 0 " . $dcd5['st_id'] );
+		for($idx=1; $idx<=4 ; $idx++)  {
+//__debug_print("db_query_go for_detect. PCI1 - ".$dcd5['st_id']. '-' . $rules['perio_chiot']['latest_perio_chiot'][$idx]['apply_info_uid'].'-'.  $dcd5['apply_info_uid'] );
+			if( $rules['oms']['latest_oms'][$idx]['apply_info_uid'] == $dcd5['apply_info_uid'] &&  isWithinRuleRange($dcd5['st_id'],  $dcd5['department'], $dcd5['is_perio_surgery'],  $dcd5['apply_info_uid'] ,  $idx, $rules)    )   {
 //__debug_print("db_query_go for_detect. PCI 2- " . $dcd5['st_id'] );
 				return true;
 			}
@@ -430,6 +548,11 @@ __debug_print("db_query_go for_detect. HH 5" . $uid );
 	$rules['perio_chiot']['perio_chiot_selection'] = $perio_chiot_selection;
 	$rules['perio_chiot']['perio_chiot_num_apply'] = $perio_chiot_num_apply;
 
+	$rules['oms']['latest_oms'] = $latest_oms ;
+	$rules['oms']['oms_on'] =  $oms_on;
+	$rules['oms']['oms_selection'] = $oms_selection;
+	$rules['oms']['oms_num_apply'] = $oms_num_apply;
+
         foreach($Duplicate_Check_Dic as $dcd1)  // each st_id
                 foreach($dcd1 as $dcd2)         // items each day
                         foreach($dcd2 as $dcd3)    { // items each time
@@ -437,6 +560,7 @@ __debug_print("db_query_go for_detect. HH 5" . $uid );
                                 //ksort to order by date_end
                                 ksort($dcd3, SORT_NUMERIC ) ;
                                 $a_flag = 0;
+				$g_flag = 0;
                                 $i = 0;
                                 //count of date_end to detect if it is last chasu
                                 $len = count($dcd3);
@@ -444,10 +568,12 @@ __debug_print("db_query_go for_detect. HH 5" . $uid );
                                         if( count($dcd4)>= 2 )  { //same date_end multiple uid
                                                 $prefix = '<span style="color:blue;">each google-';
 						if (  isAllMandatoryTime($dcd4, $rules)  )  
-                                                                $prefix='<span style="color:black;">each normal-';
+                                                                //$prefix='<span style="color:black;">each normal-';
+                                                		$prefix = '<span style="color:gray;">each google-';
                                                 foreach($dcd4 as $dcd5)  {  // each infos uid
                                                         if( $dcd5['department']=='etc'  )
-                                                                $prefix='<span style="color:black;">each normal-';
+                                                                $prefix='<span style="color:gray;">each normal-';
+                                                                //$prefix='<span style="color:black;">each normal-';
 
                                                         format_print($dcd5, $prefix  );
                                                 }
@@ -458,12 +584,19 @@ __debug_print("db_query_go for_detect. HH 5" . $uid );
                                                         if ($a_flag > 0 && $dcd5['department'] != 'etc' && !isMandatoryTime($dcd5, $rules)  )  {
                                                                 $prefix = '<span style="color:blue;">echo talk---';
                                                         }
+							else if( $g_flag > 0)  
+                                                                $prefix = '<span style="color:gray;">echo talk---';
+
                                                         // if it is not last date_end , evenif 'a' case, no duplicate possibility
                                                         if ($dcd5['status'] == 'a' && $i != $len-1 && $dcd5['department'] != 'etc' && haveHalf($dcd5['uid'], $dcd3, $rules)  )  {
                                                         //if ($dcd5['status'] == 'a' && $i != $len-1 && $dcd5['department'] != 'etc'   )  {
                                                                 $a_flag = 1;
                                                                 $prefix = '<span style="color:blue;">each kakao--';
                                                         }
+							else if( $dcd5['status'] == 'a' && $i != $len-1 )  {
+								$g_flag = 1;
+                                                                $prefix = '<span style="color:gray;">each kakao--';
+							}
                                                         format_print($dcd5, $prefix);
                                         }
 

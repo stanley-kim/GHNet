@@ -33,6 +33,15 @@ $temp_chiot_selection = '';
 $temp_chiot_standard = '';
 $temp_chiot_num_apply = '';
 $temp_chiot_on = '';
+$temp_oms_selection = '';
+$temp_oms_standard = '';
+$temp_oms_num_apply = '';
+$temp_oms_on = '';
+$temp_radio_selection = '';
+$temp_radio_standard = '';
+$temp_radio_num_apply = '';
+$temp_radio_on = '';
+
 for($i=0; $i< 4  ; $i++) {
 	if(  isset( $_POST[ 'input_perio_surgery_standard' ][$i]  ) &&  is_int(intval($_POST[ 'input_perio_surgery_standard' ][$i]))  )
 	        $temp_standard = $temp_standard.strval( intval($_POST[ 'input_perio_surgery_standard' ][$i]) );
@@ -66,6 +75,22 @@ for($i=0; $i< 4  ; $i++) {
 //getLink('', '', '미 업데이트 구성원에게 업데이트 독촉 알림을 전달하였습니다.'.$temp. 'qwer' , '');
 }
 
+for($i=0; $i< 4  ; $i++) {
+	if(  isset( $_POST[ 'input_oms_standard' ][$i]  ) &&  is_int(intval($_POST[ 'input_oms_standard' ][$i]))  )
+	        $temp_oms_standard = $temp_oms_standard.strval( intval($_POST[ 'input_oms_standard' ][$i]) );
+	else 
+	        $temp_oms_standard = $temp_oms_standard.strval('0'); 
+	if( isset( $_POST[ 'input_oms_num_apply' ][$i] ) && is_int(intval($_POST[ 'input_oms_num_apply' ][$i])) )
+		$temp_oms_num_apply = $temp_oms_num_apply.strval( intval($_POST[ 'input_oms_num_apply' ][$i]) );
+	else
+		$temp_oms_num_apply = $temp_oms_num_apply.strval('0'); 
+	$temp_oms_selection = $temp_oms_selection. $_POST['checkbox_oms_selection'][$i];	
+	if(  isset($_POST['checkbox_oms_on'][$i] )  ) $temp_oms_on = $temp_oms_on. '1';
+	else $temp_oms_on = $temp_oms_on . '0'; 
+	//$temp_on = $temp_on. $_POST['checkbox_perio_surgery_on'][$i];	
+//getLink('', '', '미 업데이트 구성원에게 업데이트 독촉 알림을 전달하였습니다.'.$temp. 'qwer' , '');
+}
+
 //for($i=0; $i< count( $_POST['checkbox_perio_surgery_selection'] )  ; $i++) {
 //$temp_selection = $temp_selection. $_POST['checkbox_perio_surgery_selection'][$i];	
 //getLink('', '', '미 업데이트9 구성원에게 업데이트 독촉 알림을 전달하였습니다.'.$temp. 'qwer' , '');
@@ -73,6 +98,7 @@ for($i=0; $i< 4  ; $i++) {
 //}
         $_set =  "perio_surgery_on='".$temp_on."', perio_surgery_selection='".$temp_selection."', perio_surgery_standard='".$temp_standard."', perio_surgery_num_apply='".$temp_num_apply."'";
         $_set =  $_set.", perio_chiot_on='".$temp_chiot_on."', perio_chiot_selection='".$temp_chiot_selection."', perio_chiot_standard='".$temp_chiot_standard."', perio_chiot_num_apply='".$temp_chiot_num_apply."'";
+        $_set =  $_set.", oms_on='".$temp_oms_on."', oms_selection='".$temp_oms_selection."', oms_standard='".$temp_oms_standard."', oms_num_apply='".$temp_oms_num_apply."'";
         $_where = "uid='".'1'."'";
 
 

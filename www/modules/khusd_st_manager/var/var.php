@@ -123,4 +123,12 @@ $d['khusd_st_manager']['selection']['perio_chiot']['ch'] = "C";
 $d['khusd_st_manager']['selection']['perio_chiot']['iot'] = "I";
 $d['khusd_st_manager']['selection']['perio_chiot']['chiot'] = "P";
 $d['khusd_st_manager']['selection']['perio_chiot']['group'] = 'G';
+
+$d['khusd_st_manager']['selection']['oms']['surgery'] = "S";
+$d['khusd_st_manager']['selection']['oms']['group'] = 'G';
+
+$d['khusd_st_manager']['selection']['radio']['filming'] = "F";
+$d['khusd_st_manager']['selection']['radio']['decoding'] = "D";
+$d['khusd_st_manager']['selection']['radio']['fandp'] = "P";
+$d['khusd_st_manager']['selection']['radio']['group'] = 'G';
 ?>

@@ -583,7 +583,7 @@ elseif($mode == 'verification' && $MANAGER) {
 
 
 
-
+//rule save
 		$APPLY_INFOS = array();
                 $TCD = getDbArray(
                         $table['khusd_st_apply_manager'.'apply_info_list'].' ail' , '' ,  
@@ -614,7 +614,15 @@ elseif($mode == 'verification' && $MANAGER) {
 			.", vr.perio_chiot_on AS perio_chiot_on"
 			.", vr.perio_chiot_selection AS perio_chiot_selection"
 			.", vr.perio_chiot_standard AS perio_chiot_standard"
-			.", vr.perio_chiot_num_apply AS perio_chiot_num_apply",
+			.", vr.perio_chiot_num_apply AS perio_chiot_num_apply"
+			.", vr.oms_on AS oms_on"
+			.", vr.oms_selection AS oms_selection"
+			.", vr.oms_standard AS oms_standard"
+			.", vr.oms_num_apply AS oms_num_apply"
+			.", vr.radio_on AS radio_on"
+			.", vr.radio_selection AS radio_selection"
+			.", vr.radio_standard AS radio_standard"
+			.", vr.radio_num_apply AS radio_num_apply",
 			 'vr.uid', 'desc', 0 , 0);
  __debug_print("db_query_go for_rule detect main.php. - " . mysql_error()); 
         	while($_R = db_fetch_array($TCD))  {
@@ -687,6 +695,9 @@ elseif($mode == 'verification' && $MANAGER) {
 
 		}
 		$accept_limits[ $_R['apply_info_uid'] ][ $_R['apply_item_uid']] = $_R['accept_limit'];
+ __debug_print("db_query_go for_mb_strpos search detect2 main.php. - " .$_R['apply_item_content']. '_'. mb_strpos( $_R['apply_item_content']  ,  "(4", 0,  "UTF-8"     )  ); 
+
+
 		$apply_limits[ $_R['apply_info_uid'] ]  = $_R['apply_limit'];
         }
 
