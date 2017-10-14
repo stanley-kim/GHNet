@@ -133,8 +133,9 @@
 	}
 	//to detect each apply_info  
 	$latest_perio_surgery=array();	
-	$latest_perio_chiot=array();
-	$latest_radio=array();	
+	$latest_perio_chiot  =array();
+	$latest_oms          =array();
+	$latest_radio        =array();	
         foreach($APPLY_INFOS as $EACH_INFO) {
 		if( $EACH_INFO['is_perio_surgery'] == 'y' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_1st_end_time)   { 
 			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
@@ -220,14 +221,14 @@
 		break;
 	}
 	//to restore saved rules
-	$perio_surgery_on = str_split( $RULE['perio_surgery_on']  ) ;
+	$perio_surgery_on        = str_split( $RULE['perio_surgery_on']  ) ;
 	$perio_surgery_selection = str_split( $RULE['perio_surgery_selection']  ) ;
-	$perio_surgery_standard = str_split( $RULE['perio_surgery_standard']  ) ;
+	$perio_surgery_standard  = str_split( $RULE['perio_surgery_standard']  ) ;
 	$perio_surgery_num_apply = str_split( $RULE['perio_surgery_num_apply']  ) ;
 
-	$perio_chiot_on = str_split( $RULE['perio_chiot_on']  ) ;
+	$perio_chiot_on        = str_split( $RULE['perio_chiot_on']  ) ;
 	$perio_chiot_selection = str_split( $RULE['perio_chiot_selection']  ) ;
-	$perio_chiot_standard = str_split( $RULE['perio_chiot_standard']  ) ;
+	$perio_chiot_standard  = str_split( $RULE['perio_chiot_standard']  ) ;
 	$perio_chiot_num_apply = str_split( $RULE['perio_chiot_num_apply']  ) ;
 
 	$oms_on        = str_split( $RULE['oms_on']  ) ;
@@ -364,6 +365,8 @@ function isMandatory( $dcd5 , $rules) {
 		return true;
 	else if( $dcd5['department'] == 'oms' )
 		return true;
+	else if( $dcd5['department'] == 'radio' )
+		return true;
 	else  
 		return false;
 	return false;
@@ -400,6 +403,15 @@ __debug_print("db_query_go for_detect. getOneValue13 - " . $st_id );
 			return  0 ;	
 		}
 	}
+        else if( $department == 'radio'  )    {
+ 		if( $selection == $rules['selection']['radio']['filming'] ) 
+			return $SCORE_ARRAY[ $st_id ]['radio_obser_filming'] ;
+ 		if( $selection == $rules['selection']['radio']['decoding'] ) 
+			return $SCORE_ARRAY[ $st_id ]['radio_obser_decoding'] ;
+ 		if( $selection == $rules['selection']['radio']['fandp'] ) 
+			return $SCORE_ARRAY[ $st_id ]['radio_decoding_filming'] ;
+		else    return  0 ;	
+	}
 __debug_print("db_query_go for_detect. getOneValue2 - " . $st_id );
 	return 0;
 }
@@ -418,6 +430,9 @@ function isWithinRuleRange($st_id,  $department, $is_perio_surgery, $apply_info_
         $oms_selection = $rules['oms']['oms_selection'];
         $oms_num_apply = $rules['oms']['oms_num_apply'];
 
+        $radio_on        = $rules['radio']['radio_on'];
+        $radio_selection = $rules['radio']['radio_selection'];
+        $radio_num_apply = $rules['radio']['radio_num_apply'];
 
 __debug_print("db_query_go for_detect. WiRa0 - " . $st_id );
 	if ( $idx <0 || $idx >4 ) return false; 
@@ -453,6 +468,18 @@ __debug_print("db_query_go for_detect. WiRa7 Off- " . $st_id );
 			return true;
 
 	}
+        else if( $department == 'radio'  )    {  //radio case
+__debug_print("db_query_go for_detect. WiRa14 - " . $st_id );
+		if( $rules['radio']['radio_on'][ $idx -1 ] != '1') return false;
+__debug_print("db_query_go for_detect. WiRa15 Off- " . $st_id );
+		if(      $radio_selection[ $idx -1 ] == $rules['selection']['radio']['filming'] &&   _getOnesValue( $st_id, $department, $is_perio_surgery, $radio_selection[ $idx -1 ] ,$rules) <= $rules['radio']['radio_standard'][ $idx -1 ] && $rules['MandatoryTime'][ $apply_info_uid]   )  
+			return true;
+		else if( $radio_selection[ $idx -1 ] == $rules['selection']['radio']['decoding'] &&  _getOnesValue( $st_id, $department, $is_perio_surgery, $radio_selection[ $idx -1 ], $rules ) <= $radio_standard[ $idx -1 ]  && $rules['MandatoryTime'][ $apply_info_uid]     )  
+			return true;
+		else if( $radio_selection[ $idx -1 ] == $rules['selection']['radio']['fandp'] &&     _getOnesValue( $st_id, $department, $is_perio_surgery, $radio_selection[ $idx -1 ], $rules ) <= $radio_standard[ $idx -1 ] && $rules['MandatoryTime'][ $apply_info_uid]    )  
+			return true;	
+
+	}
 	return false ; 
 }
 
@@ -484,6 +511,16 @@ function isMandatoryTime( $dcd5, $rules ) {
 		for($idx=1; $idx<=4 ; $idx++)  {
 //__debug_print("db_query_go for_detect. PCI1 - ".$dcd5['st_id']. '-' . $rules['perio_chiot']['latest_perio_chiot'][$idx]['apply_info_uid'].'-'.  $dcd5['apply_info_uid'] );
 			if( $rules['oms']['latest_oms'][$idx]['apply_info_uid'] == $dcd5['apply_info_uid'] &&  isWithinRuleRange($dcd5['st_id'],  $dcd5['department'], $dcd5['is_perio_surgery'],  $dcd5['apply_info_uid'] ,  $idx, $rules)    )   {
+//__debug_print("db_query_go for_detect. PCI 2- " . $dcd5['st_id'] );
+				return true;
+			}
+		}
+	}
+        else if( $dcd5['department'] == 'radio'  )    {   //radio case
+//__debug_print("db_query_go for_detect. PCI 0 " . $dcd5['st_id'] );
+		for($idx=1; $idx<=4 ; $idx++)  {
+//__debug_print("db_query_go for_detect. PCI1 - ".$dcd5['st_id']. '-' . $rules['perio_chiot']['latest_perio_chiot'][$idx]['apply_info_uid'].'-'.  $dcd5['apply_info_uid'] );
+			if( $rules['radio']['latest_radio'][$idx]['apply_info_uid'] == $dcd5['apply_info_uid'] &&  isWithinRuleRange($dcd5['st_id'],  $dcd5['department'], $dcd5['is_perio_surgery'],  $dcd5['apply_info_uid'] ,  $idx, $rules)    )   {
 //__debug_print("db_query_go for_detect. PCI 2- " . $dcd5['st_id'] );
 				return true;
 			}
@@ -548,10 +585,15 @@ __debug_print("db_query_go for_detect. HH 5" . $uid );
 	$rules['perio_chiot']['perio_chiot_selection'] = $perio_chiot_selection;
 	$rules['perio_chiot']['perio_chiot_num_apply'] = $perio_chiot_num_apply;
 
-	$rules['oms']['latest_oms'] = $latest_oms ;
-	$rules['oms']['oms_on'] =  $oms_on;
+	$rules['oms']['latest_oms']    = $latest_oms ;
+	$rules['oms']['oms_on']        =  $oms_on;
 	$rules['oms']['oms_selection'] = $oms_selection;
 	$rules['oms']['oms_num_apply'] = $oms_num_apply;
+
+	$rules['radio']['latest_radio']    = $latest_radio ;
+	$rules['radio']['radio_on']        =  $radio_on;
+	$rules['radio']['radio_selection'] = $radio_selection;
+	$rules['radio']['radio_num_apply'] = $radio_num_apply;
 
         foreach($Duplicate_Check_Dic as $dcd1)  // each st_id
                 foreach($dcd1 as $dcd2)         // items each day
