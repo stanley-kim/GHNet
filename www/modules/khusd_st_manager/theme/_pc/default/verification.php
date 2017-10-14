@@ -303,7 +303,7 @@
 		<td> <?php echo getDateFormat($latest_oms[$idx]['date_start'],'Y-m-d H:i')  ?>~ <?php echo getDateFormat($latest_oms[$idx]['date_end'],'Y-m-d H:i')  ?></td>
 		<td><?php echo $latest_oms[$idx]['apply_info_subject']   ?>   </td>
 		<td>
-			<input type="radio"  name=checkbox_oms_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['oms']['surgery']  ?>   <?php if( $oms_selection[$idx-1] == $d['khusd_st_manager']['selection']['oms']['surgery']  )  echo checked ?>  >수술합
+			<input type="radio"  name=checkbox_oms_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['oms']['surgery']  ?>   <?php if( $oms_selection[$idx-1] == $d['khusd_st_manager']['selection']['oms']['surgery']  )  echo checked ?>  >수술
 			<input type="radio"  name=checkbox_oms_selection[<?php echo $idx-1?>] value=<?php echo $d['khusd_st_manager']['selection']['oms']['group']  ?>   <?php if( $oms_selection[$idx-1] == $d['khusd_st_manager']['selection']['oms']['group'] )  echo checked ?>  >Group
 			<br><input type="number" name=input_oms_standard[<?php echo $idx-1?>] maxlength="2" class="input" value="<?php echo $oms_standard[$idx-1] ?>">회이하<br>
 			<input type="number" name=input_oms_num_apply[<?php echo $idx-1?>] maxlength="2" class="input" value="<?php echo $oms_num_apply[$idx-1] ?>">회지원
