@@ -31,6 +31,7 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -45,7 +46,7 @@
 	<th colspan="3" scope="col" class="split">Br.</th>
 	<th colspan="3" scope="col" class="split">RPD</th>
 	<th colspan="3" scope="col" class="split">CD</th>
-	<th colspan="3" scope="col" class="split">단순 Obs</th>
+	<th colspan="4" scope="col" class="split">단순 Obs</th>
 	<th colspan="2" scope="col" class="split">총점</th>
 	<th rowspan="2" scope="col">수정일</th>
 	</tr>
@@ -81,6 +82,7 @@
 	<th scope="col" class="split">1cycle</th>
 	<th scope="col" class="split">2cycle</th>
 	<th scope="col" class="split">3cycle</th>
+	<th scope="col" class="split">합</th>
 
 	<th scope="col" class="split">실제점수</a></th>
 	<th scope="col" class="split">예상점수</a></th>
@@ -127,6 +129,7 @@
 	<td><?php echo $SCORE['simple_obser_3_8']?></td>
 	<td><?php echo $SCORE['simple_obser_3_10']?></td>
 	<td><?php echo $SCORE['simple_obser_3_12']?></td>
+	<td><?php echo $SCORE['total_simple_obser']?></td>
 	
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td class="category4"><?php echo $SCORE['total_predict_score']?></td>

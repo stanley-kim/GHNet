@@ -19,7 +19,8 @@
 	$recnum = $recnum && $recnum < 200 ? $recnum : $d['khusd_st_manager']['history_recnum'];
 
 	// 쿼리는 list 모드일 때의 쿼리 참고.. .이 변수들을 합치면 좋겠음....
-		
+	$_data_total_simple_obser = 'sc.simple_obser_3_8 + sc.simple_obser_3_10 + sc.simple_obser_3_12' ; 		
+	//$_data_total_simple_obser = 'sc.simple_obser_3_8 ' ; 		
 	$_data_total_score = 
 		'sc.post_core_complete * '.$d['khusd_st_pros']['score']['post_core']
 		.'+ sc.imp_cr_br_complete * '.$d['khusd_st_pros']['score']['imp_cr_br']
@@ -52,6 +53,7 @@
 		.' AND mbrid.id = sc.st_id'
 		." AND sc.st_id = '".$st_id."'";
 	$_data = 'sc.*, '.$_data_total_score.' AS total_score, '.$_data_total_predict_score.' AS total_predict_score';
+	$_data = $_data.', '.$_data_total_simple_obser.' AS total_simple_obser';
 	$_sort = $order_by;
 	$_orderby = $order_mode;
 	
