@@ -13,7 +13,7 @@ if(!$table[$m.'follow_pt']){
 	}
 
 
-$d['khusd_st_pros']['FOLLOWER_LIMIT'] = 10; // temporarily set as 4 (originally 2)
+$d['khusd_st_pros']['FOLLOWER_LIMIT'] = 30; // temporarily set as 4 (originally 2)
 
 $d['khusd_st_pros']['FOLLOW_PT']['FOLLOWING'] = 'f';
 $d['khusd_st_pros']['FOLLOW_PT']['FREE'] = 'e';
