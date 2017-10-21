@@ -106,7 +106,7 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_8', $om)?>">1cycle</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_9', $om)?>">2cycle</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_10', $om)?>">3cycle</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_11', $om)?>">3cycle</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_simple_obser', $om)?>">합</a></th>
 
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_score', $om)?>">실제점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_predict_score', $om)?>">예상점수</a></th>
@@ -149,7 +149,7 @@
 	<th scope="col" class="split">1cycle</th>
 	<th scope="col" class="split">2cycle</th>
 	<th scope="col" class="split">3cycle</th>
-	<th scope="col" class="split">3cycle</th>
+	<th scope="col" class="split">합</th>
 
 	<th scope="col" class="split">실제점수</a></th>
 	<th scope="col" class="split">예상점수</a></th>
@@ -200,7 +200,7 @@
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_8'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_10'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_12'])?></td>
-		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_12'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_simple_obser'])?></td>
 
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_score'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_predict_score'])?></td>
@@ -253,7 +253,7 @@
 	<td class="category2"><?php echo $SCORE['simple_obser_3_8']?></td>
 	<td><?php echo $SCORE['simple_obser_3_10']?></td>
 	<td class="category2"><?php echo $SCORE['simple_obser_3_12']?></td>
-	<td class="category2"><?php echo $SCORE['simple_obser_3_12']?></td>
+	<td class="category2"><?php echo $SCORE['total_simple_obser']?></td>
 	
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td class="category4"><?php echo $SCORE['total_predict_score']?></td>
@@ -308,7 +308,7 @@
 	<td class="category2"><?php echo $SCORE['simple_obser_3_8']?></td>
 	<td><?php echo $SCORE['simple_obser_3_10']?></td>
 	<td class="category2"><?php echo $SCORE['simple_obser_3_12']?></td>
-	<td class="category2"><?php echo $SCORE['simple_obser_3_12']?></td>
+	<td class="category2"><?php echo $SCORE['total_simple_obser']?></td>
 	
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td class="category4"><?php echo $SCORE['total_predict_score']?></td>

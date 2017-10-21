@@ -20,7 +20,7 @@
 
 	// 쿼리는 list 모드일 때의 쿼리 참고.. .이 변수들을 합치면 좋겠음....
 	$_data_total_simple_obser = 'sc.simple_obser_3_8 + sc.simple_obser_3_10 + sc.simple_obser_3_12' ; 		
-	//$_data_total_simple_obser = 'sc.simple_obser_3_8 ' ; 		
+	 		
 	$_data_total_score = 
 		'sc.post_core_complete * '.$d['khusd_st_pros']['score']['post_core']
 		.'+ sc.imp_cr_br_complete * '.$d['khusd_st_pros']['score']['imp_cr_br']

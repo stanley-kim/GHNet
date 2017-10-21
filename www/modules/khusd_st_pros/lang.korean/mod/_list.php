@@ -34,6 +34,7 @@
 		AND mbrid.id = sc.st_id 
 	order by sc.follow DESC
 	*/
+        $_data_total_simple_obser = 'sc.simple_obser_3_8 + sc.simple_obser_3_10 + sc.simple_obser_3_12' ;
 	
 	$_data_total_score = 
 		'sc.post_core_complete * '.$d['khusd_st_pros']['score']['post_core']
@@ -84,6 +85,7 @@
 		.', '.$_data_partial_denture.' AS partial_denture'
 		.', '.$_data_complete_denture.' AS complete_denture'
 		.', '.$_data_others.' AS others'
+		.', '.$_data_total_simple_obser.' AS total_simple_obser'
 		.', '.$_data_total_score.' AS total_score'
 		.', '.$_data_total_predict_score.' AS total_predict_score';
 	$_sort = $order_by;
@@ -138,6 +140,9 @@
 			.', AVG(others_ongoing) AS others_ongoing'
 			.', AVG(others_complete) AS others_complete'
 			.', AVG(others_cancel) AS others_cancel'
+			.', AVG(simple_obser_3_8) AS simple_obser_3_8'
+			.', AVG(simple_obser_3_10) AS simple_obser_3_10'
+			.', AVG(simple_obser_3_12) AS simple_obser_3_12'
 
 			.', AVG('.$_data_second_cr.') AS second_cr'
 			.', AVG('.$_data_post_core.') AS post_core'
@@ -149,6 +154,7 @@
 			.', AVG('.$_data_others.') AS others'
 
 			.', AVG('.$_data_total_score.') AS total_score'
+			.', AVG('.$_data_total_simple_obser.') AS total_simple_obser'
 			.', AVG('.$_data_total_predict_score.') AS total_predict_score';
 	$AVG = getDbData($_table, $_where, $_data);
 ?>
