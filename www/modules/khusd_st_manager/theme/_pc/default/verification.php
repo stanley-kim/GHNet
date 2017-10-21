@@ -26,6 +26,12 @@
         <col width="30">
         <col width="30">
         <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
         </colgroup>
         <thead>
 
@@ -38,6 +44,7 @@
         <th scope="col" rowspan=1 colspan=3  class="split">영상</th>
         <th scope="col" rowspan=1 colspan=6  class="split">내과</th>
         <th scope="col" rowspan=1 colspan=1  class="split">보존</th>
+        <th scope="col" rowspan=1 colspan=6  class="split">보철</th>
         </tr>
         <tr>
         <th scope="col" rowspan=2 class="split">IOT</th>
@@ -58,6 +65,12 @@
         <th scope="col" rowspan=2 class="split">장치외주</th>
         <th scope="col" rowspan=2 class="split">장치합계</th>
         <th scope="col" rowspan=2 class="split">수술</th>
+        <th scope="col" rowspan=2 class="split">Post</th>
+        <th scope="col" rowspan=2 class="split">Imp</th>
+        <th scope="col" rowspan=2 class="split">SingleCr</th>
+        <th scope="col" rowspan=2 class="split">Br</th>
+        <th scope="col" rowspan=2 class="split">RPD</th>
+        <th scope="col" rowspan=2 class="split">CD</th>
         </tr>
         <tr></tr>
         </thead>
@@ -88,6 +101,12 @@
         <td><?php echo $SCORE['medi_splint_out']?></td>
         <td><?php echo $SCORE['medi_splint']?></td>
         <td><?php echo $SCORE['consv_surgery']?></td>
+        <td><?php echo $SCORE['pros_post_core']?></td>
+        <td><?php echo $SCORE['pros_imp_cr_br']?></td>
+        <td><?php echo $SCORE['pros_single_cr']?></td>
+        <td><?php echo $SCORE['pros_br']?></td>
+        <td><?php echo $SCORE['pros_partial_denture']?></td>
+        <td><?php echo $SCORE['pros_complete_denture']?></td>
         </tr>
         <?php endforeach?>
         </tbody>
@@ -114,6 +133,7 @@
 	$apply_regular_2nd_end_time = '1420';
 	$apply_regular_3rd_end_time = '1430';
 	$apply_regular_4th_end_time = '1440';
+	$apply_regular_4th_end_time = '1445';
 
 	// to detect appliance day
 	$apply_regular_1st_end_day='';

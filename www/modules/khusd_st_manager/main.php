@@ -462,6 +462,31 @@ elseif($mode == 'verification' && $MANAGER) {
                 $st_id = getSTInfoByName($st_name);
         }
 
+	function isSameTime( $date_item0, $date_item1) {
+                $mesial0 =  intval(intval( $date_item0) / 1000000)   ;     //morning
+                $mesial1 =  intval(intval( $date_item1) / 1000000)   ;     //morning
+                $distal0 =  intval( $date_item0) % 1000000   ;             //afternoon
+                $distal1 =  intval( $date_item1) % 1000000   ;             //afternoon
+                __debug_print("print isSameTime para0. - " .$mesial0. ' ' .$distal0   );
+                __debug_print("print isSameTime para1. - " .$mesial1. ' ' .$distal1   );
+                if ( $mesial0 == $mesial1 )     {
+                        if     ( $distal0  < 120000 && $distal1 <  120000 )   {
+                		__debug_print("print each SameTimerowsMor. - " .$distal0. ' ' .$distal1   );
+				return true;
+			}
+                        elseif ( $distal0 >= 120000 && $distal0 <  180000 &&  $distal1 >= 120000 && $distal1 < 180000 )   {
+                		__debug_print("print each SameTimerowsAft. - " .$distal0. ' ' .$distal1   );
+				return true;
+			}
+                        elseif ( $distal0 >= 180000 && $distal1 >= 180000 )    {
+                		__debug_print("print each SameTimerowsEve. - " .$distal0. ' ' .$distal1   );
+				return true;
+			}
+                        
+		}
+		return false;
+	}
+
         $SCORE_ARRAY = array();
 
         $order_by = $order ? $order : 'perio_sc.st_id';
@@ -474,6 +499,15 @@ elseif($mode == 'verification' && $MANAGER) {
         $_data_medi_prof_fix = 'medi_sc.fix_am + medi_sc.fix_pm';
         $_data_medi_splint = 'medi_sc.splint_impression + 0.5*medi_sc.splint_polishing';
 
+        $_data_post_core = 'pros_sc.post_core_complete + pros_sc.post_core_ongoing';
+        $_data_imp_cr_br = 'pros_sc.imp_cr_br_complete + pros_sc.imp_cr_br_ongoing';
+        $_data_single_cr = 'pros_sc.single_cr_complete + pros_sc.single_cr_ongoing';
+        $_data_br = 'pros_sc.br_complete + pros_sc.br_ongoing';
+        $_data_partial_denture = 'pros_sc.partial_denture_complete + pros_sc.partial_denture_ongoing';
+        $_data_complete_denture = 'pros_sc.complete_denture_complete + pros_sc.complete_denture_ongoing';
+
+
+
         //$_perio_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id";
         $_perio_join = 'SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id ";
        //   $_oms_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_oms_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
@@ -482,6 +516,9 @@ elseif($mode == 'verification' && $MANAGER) {
         $_radio_join = 'SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_radio_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
         $_medi_join = 'SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_medi_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
         $_consv_join ='SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_consv_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
+        $_pros_join = 'SELECT MAX(uid) uid,st_id FROM '. 'rb_khusd_st_pros_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
+
+
 
 
         $_table = 'rb_khusd_st_perio_score perio_sc,'.'rb_khusd_st_oms_score oms_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_perio_join.') perio_sc_j, ('.$_oms_join.') oms_sc_j ' ;
@@ -551,6 +588,22 @@ elseif($mode == 'verification' && $MANAGER) {
         $_orderby = $order_mode;
         $SCORE_ROWS4 = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
 
+        $order_by = 'pros_sc.st_id';
+        $_table = 'rb_khusd_st_pros_score pros_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_pros_join.') pros_sc_j ';
+        $_where =
+                "mbrdata.tmpcode!='tester' AND ".
+                "pros_sc.s_uid = '".$s_uid."'"
+                ." AND pros_sc.uid = pros_sc_j.uid AND pros_sc.st_id = pros_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = pros_sc.st_id";
+        $_data = '  pros_sc.s_uid AS pros_s_uid'
+                .', ('.$_data_post_core.') AS pros_post_core'
+                .', ('.$_data_imp_cr_br.') AS pros_imp_cr_br'
+                .', ('.$_data_single_cr.') AS pros_single_cr'
+                .', ('.$_data_br.')        AS pros_br'
+                .', ('.$_data_partial_denture.')  AS pros_partial_denture'
+                .', ('.$_data_complete_denture.') AS pros_complete_denture';
+        $_sort = $order_by;
+        $_orderby = $order_mode;
+        $SCORE_ROWS5 = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
 
 
         __debug_print("db_query_go_detect. - " . mysql_error());
@@ -558,9 +611,10 @@ elseif($mode == 'verification' && $MANAGER) {
                $_ROW2 = db_fetch_array($SCORE_ROWS2);
                $_ROW3 = db_fetch_array($SCORE_ROWS3);
                $_ROW4 = db_fetch_array($SCORE_ROWS4);
-                $_ROW5 = $_ROW + $_ROW2 + $_ROW3+ $_ROW4;
+               $_ROW5 = db_fetch_array($SCORE_ROWS5);
+                $_ROW10 = $_ROW + $_ROW2 + $_ROW3+ $_ROW4+ $_ROW5;
 
-                $SCORE_ARRAY[$_ROW['st_id']] = $_ROW5;
+                $SCORE_ARRAY[$_ROW['st_id']] = $_ROW10;
         }
 
 
@@ -674,6 +728,7 @@ elseif($mode == 'verification' && $MANAGER) {
 	$zeros = array();
 	$accept_limits = array();
 	$apply_limits = array();
+	$date_items = array();
         //__debug_print("db_query_4_detect. - " . mysql_error());
         $Duplicate_Check_Dic = array();
         while($_R = db_fetch_array($TCC))   {
@@ -695,26 +750,51 @@ elseif($mode == 'verification' && $MANAGER) {
 
 		}
 		$accept_limits[ $_R['apply_info_uid'] ][ $_R['apply_item_uid']] = $_R['accept_limit'];
- __debug_print("db_query_go for_mb_strpos search detect2 main.php. - " .$_R['apply_item_content']. '_'. mb_strpos( $_R['apply_item_content']  ,  "(4", 0,  "UTF-8"     )  ); 
+ //__debug_print("db_query_go for_mb_strpos search detect2 main.php. - " .$_R['apply_item_content']. '_'. mb_strpos( $_R['apply_item_content']  ,  "(4", 0,  "UTF-8"     )  ); 
 
 
 		$apply_limits[ $_R['apply_info_uid'] ]  = $_R['apply_limit'];
+		$date_items[ $_R['apply_info_uid'] ][ $_R['apply_item_uid']] = $_R['date_item'];
+		
         }
 
 	$MandatoryTime = array();
 	foreach( array_keys($accept_limits) AS $tmp_apply_info)   {
 		$opened = 0;
+		$open_items = array();
 		foreach( array_keys($accept_limits[$tmp_apply_info])  AS $tmp_apply_item)  {
 			if ( $accept_limits[$tmp_apply_info][$tmp_apply_item] > 0  && $accept_limits[$tmp_apply_info][$tmp_apply_item] > $zeros[$tmp_apply_info][$tmp_apply_item]  )   {
  //__debug_print("db_query_go for_opened++ search detect2 main.php. - " .$tmp_apply_info.'_'.$tmp_apply_item.'_'. $accept_limits[$tmp_apply_info][$tmp_apply_item]  .'>'.$zeros[$tmp_apply_info][$tmp_apply_item] ); 
-				$opened=$opened+1;  	
- __debug_print("db_query_go for_opened++ search detect2 main.php. - " .$tmp_apply_info.'_'.$tmp_apply_item.'_'. $accept_limits[$tmp_apply_info][$tmp_apply_item]  .'>'.$zeros[$tmp_apply_info][$tmp_apply_item].'_'.$opened ); 
+				$opened=$opened+1;  
+				//$open_items[] = $accept_limits[$tmp_apply_info][$tmp_apply_item];  //wrong
+				$open_items[] = $date_items[$tmp_apply_info][$tmp_apply_item];
+ __debug_print("db_query_go for_opened++ search detect2 main.php. - " .$tmp_apply_info.'_'.$tmp_apply_item.'_('. $accept_limits[$tmp_apply_info][$tmp_apply_item]  .'>'.$zeros[$tmp_apply_info][$tmp_apply_item].')_'.$opened ); 
+ __debug_print("db_query_go for_opened   search detect2 main.php. - " .$tmp_apply_info.'_'.$tmp_apply_item.'__'. $date_items[$tmp_apply_info][$tmp_apply_item]  ); 
 			}
 		}	
 		if( $apply_limits[$tmp_apply_info] >0 && $apply_limits[$tmp_apply_info] == $opened )   {
  __debug_print("db_query_go for_opened+++ search detect2 main.php. - " .$tmp_apply_info.'_'. $apply_limits[$tmp_apply_info] .'=='.$opened  ); 
 			$MandatoryTime[$tmp_apply_info] = true;
 		}
+		if ( count($open_items) > 0 )  {
+			foreach( $open_items AS $_R  )    {
+				$saved = $_R ;
+				break;
+			}
+			$value = 1;
+			foreach( $open_items AS $_R  )    {
+				if( !isSameTime( $saved, $_R) )      
+					$value = 0 ;
+				else 
+					$value = $value * 1;
+			}
+			if ( $value == 1 )   { 
+ __debug_print("db_query_go for_value==1 - " .$tmp_apply_info  ); 
+				$MandatoryTime[$tmp_apply_info] = true;
+			}
+
+			
+		}		
 	} 
 		
 } //verification end
