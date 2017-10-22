@@ -61,7 +61,7 @@
 		</span>
 		<?php endif?>
 		<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['CLOSED'] && ($MANAGER || $APPLY_INFO['st_id'] == $my['id'])):?>
-		<span class="btn00">
+		<span class="btn02">
 			<a href="<?php echo $g['apply_info_add_2nd_apply'].$APPLY_INFO['uid']?>" onclick="return confirm('추가 신청을 받으시겠습니까?');">추가신청 생성</a>
 		</span>
 		<?php endif?>
