@@ -84,6 +84,14 @@
 		<td class="head">ST Assist</td>
 		<td><input type="number" name="st_assist" maxlength="5" class="input" value="<?php echo $SCORE['st_assist']?>">개</td>
 		</tr>
+                <tr>
+                <td class="head">ST Dressing</td>
+                <td><input type="number" name="st_dressing" maxlength="5" class="input" value="<?php echo $SCORE['st_dressing']?>">개</td>
+                </tr>
+                <td class="head">ST Stitch out</td>
+                <td><input type="number" name="st_stitchout" maxlength="5" class="input" value="<?php echo $SCORE['st_stitchout']?>">개</td>
+                </tr>
+
 	</tbody>
 	</table>
 
