@@ -48,6 +48,8 @@ CREATE TABLE `".$table[$module.'score']."` (
   
   `st_case_1`	varchar(50) NOT NULL default '',
   `st_case_1_pt_name`	varchar(20) NOT NULL default '',
+  `st_case_1_pt_id`	varchar(20) NOT NULL default '',
+  `st_case_1_dental_formula`	varchar(20) NOT NULL default '',
   `st_case_1_last_tx_date`	varchar(14) NOT NULL default '',
   `st_case_1_last_tx`		varchar(50) NOT NULL default '',
   `st_case_1_last_inst`		varchar(20) NOT NULL default '',
@@ -55,6 +57,8 @@ CREATE TABLE `".$table[$module.'score']."` (
   
   `st_case_2`	varchar(50) NOT NULL default '',
   `st_case_2_pt_name`	varchar(20) NOT NULL default '',
+  `st_case_2_pt_id`	varchar(20) NOT NULL default '',
+  `st_case_2_dental_formula`	varchar(20) NOT NULL default '',
   `st_case_2_last_tx_date`	varchar(14) NOT NULL default '',
   `st_case_2_last_tx`		varchar(50) NOT NULL default '',
   `st_case_2_last_inst`		varchar(20) NOT NULL default '',
@@ -62,6 +66,8 @@ CREATE TABLE `".$table[$module.'score']."` (
 
   `st_case_3`	varchar(50) NOT NULL default '',
   `st_case_3_pt_name`	varchar(20) NOT NULL default '',
+  `st_case_3_pt_id`	varchar(20) NOT NULL default '',
+  `st_case_3_dental_formula`	varchar(20) NOT NULL default '',
   `st_case_3_last_tx_date`	varchar(14) NOT NULL default '',
   `st_case_3_last_tx`		varchar(50) NOT NULL default '',
   `st_case_3_last_inst`		varchar(20) NOT NULL default '',

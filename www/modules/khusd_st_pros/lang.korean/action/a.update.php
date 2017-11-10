@@ -87,6 +87,8 @@ $st_case_2_friendly			= isset($GLOBALS['st_case_2_friendly']) ? 'y' : 'n';
 
 $st_case_3					= trim($st_case_3);
 $st_case_3_pt_name			= trim($st_case_3_pt_name);
+$st_case_3_pt_id			= trim($st_case_3_pt_id);
+$st_case_3_dental_formula			= trim($st_case_3_dental_formula);
 $st_case_3_last_tx_date		= ($st_case_3_last_tx_date ? date("Ymd", strtotime($st_case_3_last_tx_date)) : '');
 $st_case_3_last_tx			= trim($st_case_3_last_tx);
 $st_case_3_last_inst		= trim($st_case_3_last_inst);
@@ -116,9 +118,11 @@ $QKEY = "s_uid, st_id, "
 	."simple_obser_3_7, simple_obser_3_8, simple_obser_3_9,"
 	."simple_obser_3_10, simple_obser_3_11, simple_obser_3_12,"
 
-	."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly,"
+	//."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly,"
+	."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly, st_case_1_pt_id, st_case_1_dental_formula,"
 	."st_case_2, st_case_3_pt_name, st_case_2_last_tx_date, st_case_2_last_tx, st_case_2_last_inst, st_case_2_friendly,"
-	."st_case_3, st_case_2_pt_name, st_case_3_last_tx_date, st_case_3_last_tx, st_case_3_last_inst, st_case_3_friendly,"
+	//."st_case_3, st_case_2_pt_name, st_case_3_last_tx_date, st_case_3_last_tx, st_case_3_last_inst, st_case_3_friendly,"
+	."st_case_3, st_case_2_pt_name, st_case_3_last_tx_date, st_case_3_last_tx, st_case_3_last_inst, st_case_3_friendly, st_case_3_pt_id, st_case_3_dental_formula,"
 	."st_score,"
 	
 	."date_update";
@@ -137,15 +141,17 @@ $QVAL = "'$s_uid', '$st_id', "
 	."'$simple_obser_3_7', '$simple_obser_3_8', '$simple_obser_3_9',"
 	."'$simple_obser_3_10', '$simple_obser_3_11', '$simple_obser_3_12',"
 
-	."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly',"
+	//."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly',"
+	."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly', '$st_case_1_pt_id', '$st_case_1_dental_formula',"
 	."'$st_case_2', '$st_case_3_pt_name', '$st_case_2_last_tx_date', '$st_case_2_last_tx', '$st_case_2_last_inst', '$st_case_2_friendly',"
-	."'$st_case_3', '$st_case_2_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly',"
+	//."'$st_case_3', '$st_case_2_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly',"
+	."'$st_case_3', '$st_case_2_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly', '$st_case_3_pt_id', '$st_case_3_dental_formula',"
 	."'$st_score',"
 
 	."'$date_update'";
 	
 getDbInsert($table[$m.'score'],$QKEY,$QVAL);
- 
+
 
 if(isset($n_page) && $n_page == 'home')
 {

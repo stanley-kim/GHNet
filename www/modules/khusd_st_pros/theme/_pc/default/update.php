@@ -98,7 +98,7 @@
 			<td class="title" colspan=4>ST Case</td>
 		</tr>
 		<tr>
-		<td rowspan="6" class="head">ST Case 1</td>
+		<td rowspan="8" class="head">ST Case 1</td>
 		<td colspan="3">
 			<select name="st_case_1">
 				<option value=""<?php if($SCORE['st_case_1'] == ''):?> selected<?php endif?>>------------</option>
@@ -116,6 +116,19 @@
 			<input type="text" name="st_case_1_pt_name" maxlength="10" class="input" value="<?php echo $SCORE['st_case_1_pt_name']?>" />
 		</td>
 		</tr>
+               <tr>
+                <td>병록번호</td>
+                <td colspan="2">
+                        <input type="text" name="st_case_1_pt_id" maxlength="10" class="input" value="<?php echo $SCORE['st_case_1_pt_id']?>" />
+                </td>
+                </tr>
+                <tr>
+                <td>치식</td>
+                <td colspan="2">
+                        <input type="text" name="st_case_1_dental_formula" maxlength="10" class="input" value="<?php echo $SCORE['st_case_1_dental_formula']?>" />
+                </td>
+                </tr>
+
 		<tr>
 		<td>친환시 체크</td>
 		<td colspan="2">
@@ -153,7 +166,7 @@
 
 
 		<tr>
-		<td rowspan="6" class="head">ST Case 2</td>
+		<td rowspan="8" class="head">ST Case 2</td>
 		<td colspan="3">
 			<select name="st_case_2">
 				<option value=""<?php if($SCORE['st_case_2'] == ''):?> selected<?php endif?>>------------</option>
@@ -170,6 +183,19 @@
 			<input type="text" name="st_case_2_pt_name" maxlength="10" class="input" value="<?php echo $SCORE['st_case_2_pt_name']?>" />
 		</td>
 		</tr>
+               <tr>
+                <td>병록번호</td>
+                <td colspan="2">
+                        <input type="text" name="st_case_2_pt_id" maxlength="10" class="input" value="<?php echo $SCORE['st_case_2_pt_id']?>" />
+                </td>
+                </tr>
+                <tr>
+                <td>치식</td>
+                <td colspan="2">
+                        <input type="text" name="st_case_2_dental_formula" maxlength="10" class="input" value="<?php echo $SCORE['st_case_2_dental_formula']?>" />
+                </td>
+                </tr>
+
 		<tr>
 		<td>친환시 체크</td>
 		<td colspan="2">
@@ -207,7 +233,7 @@
 
 
 		<tr>
-		<td rowspan="6" class="head">ST Case 3</td>
+		<td rowspan="8" class="head">ST Case 3</td>
 		<td colspan="3">
 			<select name="st_case_3">
 				<option value=""<?php if($SCORE['st_case_3'] == ''):?> selected<?php endif?>>------------</option>
@@ -222,6 +248,18 @@
 		<td>환자명</td>
 		<td colspan="2">
 			<input type="text" name="st_case_3_pt_name" maxlength="10" class="input" value="<?php echo $SCORE['st_case_3_pt_name']?>" />
+		</td>
+		</tr>
+		<tr>
+		<td>병록번호</td>
+		<td colspan="2">
+			<input type="text" name="st_case_3_pt_id" maxlength="10" class="input" value="<?php echo $SCORE['st_case_3_pt_id']?>" />
+		</td>
+		</tr>
+		<tr>
+		<td>치식</td>
+		<td colspan="2">
+			<input type="text" name="st_case_3_dental_formula" maxlength="10" class="input" value="<?php echo $SCORE['st_case_3_dental_formula']?>" />
 		</td>
 		</tr>
 		<tr>

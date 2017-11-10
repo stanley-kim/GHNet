@@ -26,6 +26,8 @@ function getProsSTPT($st_id)
 		'sc.uid'
 		
 		.', sc.st_case_1_pt_name'
+		.', sc.st_case_1_pt_id'
+		.', sc.st_case_1_dental_formula'
 		.', sc.st_case_1_last_tx_date'
 		.', sc.st_case_1_last_tx'
 		.', sc.st_case_1_last_inst'
@@ -55,6 +57,8 @@ function getProsSTPT($st_id)
 		1	=> 	array(
 					'id'			=> 'pros_pt_case_1', 
 					'pt_name'		=> $_ROW['st_case_1_pt_name'], 
+					'pt_id'		=> $_ROW['st_case_1_pt_id'], 
+					'dental_formula'		=> $_ROW['st_case_1_dental_formula'], 
 					'last_tx_date'	=> $_ROW['st_case_1_last_tx_date'], 
 					'last_tx'		=> $_ROW['st_case_1_last_tx'], 
 					'last_inst'		=> $_ROW['st_case_1_last_inst'], 
