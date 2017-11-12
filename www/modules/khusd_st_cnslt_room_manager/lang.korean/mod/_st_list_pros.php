@@ -51,6 +51,8 @@
 			) AS pros_pt_idx"
 
 		.', sc.st_case_1_pt_name'
+		.', sc.st_case_1_pt_id'
+		.', sc.st_case_1_dental_formula'
 		.', sc.st_case_1_last_tx_date'
 		.', sc.st_case_1_last_tx'
 		.', sc.st_case_1_last_inst'

@@ -39,6 +39,8 @@ if(!$CHAIR || $CHAIR['uid'] != $uid)
 }
 
 $pt_name = $CHAIR['pt_name'];
+$pt_id   = $CHAIR['pt_id'];
+$dental_formula   = $CHAIR['dental_formula'];
 $tx_plan = $CHAIR['tx_plan'];
 $chair_date = $CHAIR['st_date'];
 $chair_timetype = $CHAIR['st_timetype'];
@@ -167,8 +169,8 @@ if($status == $d['khusd_st_cnslt_room_manager']['apply']['status']['ACCEPTED'])
 	if($chair > 0)
 	{
 		// 새로운 체어 배정
-		$QKEY = 'st_id, pt_name, reserve_status, st_type, department, tx_plan, chair_no, chair_date, chair_timetype, chair_timetype_detail, chair_start_time, chair_end_time, date_reg, memo';
-		$QVAL = "'$st_id', '$pt_name', '', '$st_type', '$department', '$tx_plan', '$chair', '$chair_date', '$chair_timetype', '$chair_timetype_detail', '$chair_start_time', '$chair_end_time', '$date_reg', '$memo'";
+		$QKEY = 'st_id, pt_name, pt_id, dental_formula,  reserve_status, st_type, department, tx_plan, chair_no, chair_date, chair_timetype, chair_timetype_detail, chair_start_time, chair_end_time, date_reg, memo';
+		$QVAL = "'$st_id', '$pt_name', '$pt_id', '$dental_formula', '', '$st_type', '$department', '$tx_plan', '$chair', '$chair_date', '$chair_timetype', '$chair_timetype_detail', '$chair_start_time', '$chair_end_time', '$date_reg', '$memo'";
 		
 		getDbInsert($_table, $QKEY, $QVAL);
 	}

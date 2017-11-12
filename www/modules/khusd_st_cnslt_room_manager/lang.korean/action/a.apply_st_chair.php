@@ -30,6 +30,8 @@ $s_uid 		= $SEMESTER_INFO['uid'];
 $st_date 	= trim($st_date);
 $st_timetype	= trim($st_timetype);
 $pt_name	= trim($pt_name);
+$pt_id	        = trim($pt_id);
+$dental_formula = trim($dental_formula);
 $tx_plan	= trim($tx_plan);
 $department = trim($department);
 $st_type = trim($st_type);
@@ -51,6 +53,9 @@ if($st_type == 'pros')
 		
 		$PROS_PT = $PROS_PT_ARRAY[substr($memo, strlen('pros_pt_case_'), 1)];
 		$pt_name = $PROS_PT['pt_name'];
+		$pt_id   = $PROS_PT['pt_id'];
+		$dental_formula   = $PROS_PT['dental_formula'];
+	
 	}
 }
 if(false && $st_type == 'pros')
@@ -278,8 +283,8 @@ if(!$st_end_time)
 }
 
 // 입력한 데이터로 query 생성
-$QKEY = "s_uid, st_id, st_date, st_timetype, st_start_time, st_end_time, pt_name, st_type, department, tx_plan, status, memo, date_reg";
-$QVAL = "'$s_uid', '$st_id', '$st_date', '$st_timetype', '$st_start_time', '$st_end_time', '$pt_name', '$st_type', '$department', '$tx_plan', '$status', '$memo', '$date_reg'";
+$QKEY = "s_uid, st_id, st_date, st_timetype, st_start_time, st_end_time, pt_name, pt_id, dental_formula, st_type, department, tx_plan, status, memo, date_reg";
+$QVAL = "'$s_uid', '$st_id', '$st_date', '$st_timetype', '$st_start_time', '$st_end_time', '$pt_name', '$pt_id', '$dental_formula', '$st_type', '$department', '$tx_plan', '$status', '$memo', '$date_reg'";
 
 if($st_type == 'consv')
 {

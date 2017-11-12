@@ -27,6 +27,7 @@
 	<col width="150"> 
 	<col width="150"> 
 	<col width="150"> 
+	<col width="150"> 
 	</colgroup> 
 
 	<thead>
@@ -35,6 +36,7 @@
 	<th scope="col" class="split">이름</th>
 	<th scope="col" class="split">환자</th>
 	<th scope="col" class="split">단계</th>
+        <th scope="col" class="split">치식</th>
 	<th scope="col" class="split mid_col">친환</th>
 	<th colspan="3" scope="col" class="split">Last tx. (일자, 내용, 인스트럭터)</th>
 	</tr>
@@ -46,8 +48,10 @@
 	<tr>
 		<td><?php echo $ROW['chair_no']?></td>
 		<td><?php echo $ROW['st_name']?></td>
-		<td><?php echo $ROW['pt_name']?></td>
+                <td><?php echo $ROW['pt_name']?><br><?php echo $ROW['pt_id'] ?></td>
+
 		<td><?php echo $tx_plan_array[$ROW['tx_plan']]['name']?></td>
+                <td><?php echo $ROW['dental_formula']?></td>
 		<td class="mid_col"><?php echo $ROW['pt_info']['friendly'] == 'y' ? 'O' : 'X'?></td>
 		<td><?php echo getDateFormat($ROW['pt_info']['last_tx_date'],'y/n/j')?></td>
 		<td><?php echo $tx_plan_array[$ROW['pt_info']['last_tx']]['name']?></td>
@@ -81,6 +85,7 @@
 	<col width="150"> 
 	<col width="150"> 
 	<col width="150"> 
+	<col width="150"> 
 	</colgroup> 
 
 	<thead>
@@ -89,6 +94,7 @@
 	<th scope="col" class="split">이름</th>
 	<th scope="col" class="split">환자</th>
 	<th scope="col" class="split">단계</th>
+        <th scope="col" class="split">치식</th>
 	<th scope="col" class="split mid_col">친환</th>
 	<th colspan="3" scope="col" class="split">Last tx. (일자, 내용, 인스트럭터)</th>
 	</tr>
@@ -100,8 +106,10 @@
 	<tr>
 		<td><?php echo $ROW['chair_no']?></td>
 		<td><?php echo $ROW['st_name']?></td>
-		<td><?php echo $ROW['pt_name']?></td>
+                <td><?php echo $ROW['pt_name']?><br><?php echo $ROW['pt_id'] ?></td>
+
 		<td><?php echo $tx_plan_array[$ROW['tx_plan']]['name']?></td>
+                <td><?php echo $ROW['dental_formula']?></td>
 		<td class="mid_col"><?php echo $ROW['pt_info']['friendly'] == 'y' ? 'O' : 'X'?></td>
 		<td><?php echo getDateFormat($ROW['pt_info']['last_tx_date'],'y/n/j')?></td>
 		<td><?php echo $tx_plan_array[$ROW['pt_info']['last_tx']]['name']?></td>

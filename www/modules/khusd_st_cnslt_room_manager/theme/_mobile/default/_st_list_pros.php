@@ -16,6 +16,7 @@
 	<col width="90"> 
 	<col width="50"> 
 	<col width="50"> 
+	<col width="50"> 
 	<col width="290"> 
 	<col width="120"> 
 	<col width="120"> 
@@ -28,6 +29,7 @@
 	<th scope="col" class="split">진료내용</th>
 	<th scope="col" class="split">학생명</th>
 	<th scope="col" class="split">환자명</th>
+	<th scope="col" class="split">치식</th>
 	<th scope="col" class="split">기타</th>
 	<th scope="col" class="split">신청시간</th>
 	<th scope="col" class="split">취소시간</th>
@@ -102,7 +104,10 @@
 	</td>
 	<td><?php echo $tx_plan_array[$ST_CHAIR['tx_plan']]['name']?></td>
 	<td><?php echo $ST_CHAIR['st_info']['name']?></td>
-	<td><?php echo $ST_CHAIR['pt_name']?></td>
+        <td><?php echo $ST_CHAIR['pt_name']?></td>
+
+        <td><?php echo $ST_CHAIR['dental_formula']?></td>
+
 	<td>
 		<?php if($ST_CHAIR['pros_pt_idx']):?>
 			친환 <?php if($ST_CHAIR[$ST_CHAIR['pros_pt_idx'].'_friendly'] == 'y'):?>O<?php else:?>X<?php endif?>

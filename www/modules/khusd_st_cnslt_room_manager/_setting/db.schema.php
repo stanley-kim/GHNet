@@ -17,6 +17,8 @@ CREATE TABLE `".$table[$module.'reservation']."` (
   
   `st_id` varchar(20) NOT NULL default '0',
   `pt_name` varchar(20) NOT NULL default '',
+  `pt_id` varchar(20) NOT NULL default '',
+  `dental_formula` varchar(20) NOT NULL default '',
   
   `reserve_status` char(1) NOT NULL default '',  
   `department` varchar(8) NOT NULL default '',
@@ -64,6 +66,8 @@ CREATE TABLE `".$table[$module.'apply']."` (
   `st_id` varchar(20) NOT NULL default '0',
   
   `pt_name` varchar(20) NOT NULL default '',
+  `pt_id` varchar(20) NOT NULL default '',
+  `dental_formula` varchar(20) NOT NULL default '',
   `department` varchar(8) NOT NULL default '',
   `st_type` varchar(8) NOT NULL default '',
   `tx_plan` varchar(20) NOT NULl default '0',
