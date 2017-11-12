@@ -10,10 +10,10 @@ $d['khusd_st_cnslt_room_manager']['st_time'] = array(
 	'end_hour'		=> 14
 );
 
-// 신청시간 : 토요일 오후 4시 ~ 토요일 오후 6시
+// 신청시간 : 토요일 오후 4시(x) 14시30분 ~ 토요일 오후 6시
 $d['khusd_st_cnslt_room_manager']['apply_time'] = array(
 	'start_day'		=> -1,
-	'start_hour'	        => 16,
+	'start_hour'	        => 14,
 	'end_day'		=> -1, 
 	'end_hour'		=> 18
 );
