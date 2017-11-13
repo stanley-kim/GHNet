@@ -42,7 +42,9 @@ $temp_radio_standard = '';
 $temp_radio_num_apply = '';
 $temp_radio_on = '';
 
-for($i=0; $i< 4  ; $i++) {
+$apply_last_order = 5;
+
+for($i=0; $i< $apply_last_order  ; $i++) {
 	if(  isset( $_POST[ 'input_perio_surgery_standard' ][$i]  ) &&  is_int(intval($_POST[ 'input_perio_surgery_standard' ][$i]))  )
 	        $temp_standard = $temp_standard.strval( intval($_POST[ 'input_perio_surgery_standard' ][$i]) );
 	else 
@@ -57,7 +59,7 @@ for($i=0; $i< 4  ; $i++) {
 	//$temp_on = $temp_on. $_POST['checkbox_perio_surgery_on'][$i];	
 //getLink('', '', '미 업데이트 구성원에게 업데이트 독촉 알림을 전달하였습니다.'.$temp. 'qwer' , '');
 }
-for($i=0; $i< 4  ; $i++) {
+for($i=0; $i< $apply_last_order  ; $i++) {
 	if(  isset( $_POST[ 'input_perio_chiot_standard' ][$i] ) &&  is_int(intval($_POST[ 'input_perio_chiot_standard' ][$i])) )
 	        $temp_chiot_standard  = $temp_chiot_standard.strval(  intval( $_POST[ 'input_perio_chiot_standard' ][$i])   );
 	else
@@ -75,7 +77,7 @@ for($i=0; $i< 4  ; $i++) {
 //getLink('', '', '미 업데이트 구성원에게 업데이트 독촉 알림을 전달하였습니다.'.$temp. 'qwer' , '');
 }
 
-for($i=0; $i< 4  ; $i++) {
+for($i=0; $i< $apply_last_order  ; $i++) {
 	if(  isset( $_POST[ 'input_oms_standard' ][$i]  ) &&  is_int(intval($_POST[ 'input_oms_standard' ][$i]))  )
 	        $temp_oms_standard = $temp_oms_standard.strval( intval($_POST[ 'input_oms_standard' ][$i]) );
 	else 
@@ -91,7 +93,7 @@ for($i=0; $i< 4  ; $i++) {
 //getLink('', '', '미 업데이트 구성원에게 업데이트 독촉 알림을 전달하였습니다.'.$temp. 'qwer' , '');
 }
 
-for($i=0; $i< 4  ; $i++) {
+for($i=0; $i< $apply_last_order  ; $i++) {
 	if(  isset( $_POST[ 'input_radio_standard' ][$i]  ) &&  is_int(intval($_POST[ 'input_radio_standard' ][$i]))  )
 	        $temp_radio_standard = $temp_radio_standard.strval( intval($_POST[ 'input_radio_standard' ][$i]) );
 	else 
