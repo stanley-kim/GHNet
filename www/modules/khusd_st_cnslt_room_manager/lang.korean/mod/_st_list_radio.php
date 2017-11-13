@@ -23,7 +23,8 @@
 	else if($om == 'd') $order_mode = 'DESC';
 
 	
-	$_join = 'SELECT MAX(date_update) date_update,st_id FROM '.$table['khusd_st_radio'.'score'].' GROUP BY st_id';
+	//$_join = 'SELECT MAX(date_update) date_update,st_id FROM '.$table['khusd_st_radio'.'score'].' GROUP BY st_id';
+	$_join = 'SELECT MAX(uid) uid,st_id,date_update FROM '.$table['khusd_st_radio'.'score'].' GROUP BY st_id';
 	$_table = 
 		$table[$m.'apply'].' st'
 		.', '.$table['khusd_st_radio'.'score'].' sc'
@@ -32,7 +33,8 @@
 		.',('.$_join.') sc_j';
 	$_where = 
 		"st.st_type = '".$st_type."'"
-		.' AND sc.date_update = sc_j.date_update'
+		//.' AND sc.date_update = sc_j.date_update'
+		.' AND sc.uid = sc_j.uid'
 		.' AND st.st_id = sc.st_id'
 		.' AND sc.st_id = sc_j.st_id'
 		.' AND mbrid.uid = mbrdata.memberuid'
