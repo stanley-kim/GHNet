@@ -32,6 +32,9 @@
         <col width="30">
         <col width="30">
         <col width="30">
+        <col width="30">
+        <col width="30">
+        <col width="30">
         </colgroup>
         <thead>
 
@@ -45,6 +48,8 @@
         <th scope="col" rowspan=1 colspan=6  class="split">내과</th>
         <th scope="col" rowspan=1 colspan=1  class="split">보존</th>
         <th scope="col" rowspan=1 colspan=6  class="split">보철</th>
+        <th scope="col" rowspan=1 colspan=2  class="split">소치</th>
+        <th scope="col" rowspan=1 colspan=1  class="split">교정</th>
         </tr>
         <tr>
         <th scope="col" rowspan=2 class="split">IOT</th>
@@ -71,6 +76,9 @@
         <th scope="col" rowspan=2 class="split">Br</th>
         <th scope="col" rowspan=2 class="split">RPD</th>
         <th scope="col" rowspan=2 class="split">CD</th>
+        <th scope="col" rowspan=2 class="split">ga</th>
+        <th scope="col" rowspan=2 class="split">교픽</th>
+        <th scope="col" rowspan=2 class="split">신환수</th>
         </tr>
         <tr></tr>
         </thead>
@@ -86,27 +94,30 @@
         <td class="category1"><?php echo $SCORE['iot']?></td>
         <td class="category1"><?php echo $SCORE['charting']?></td>
         <td class="category1"><?php echo $SCORE['perio_ch_iot']?></td>
-        <td><?php echo $SCORE['surgery']?></td>
-        <td><?php echo $SCORE['imp_1st']?></td>
-        <td><?php echo $SCORE['imp_2nd']?></td>
+        <td class="category2"><?php echo $SCORE['surgery']?></td>
+        <td class="category2"><?php echo $SCORE['imp_1st']?></td>
+        <td class="category2"><?php echo $SCORE['imp_2nd']?></td>
         <td class="category2"><?php echo $SCORE['perio_total_surgery']?></td>
-        <td><?php echo $SCORE['oms_imp_1st']?></td>
+        <td class="category3"><?php echo $SCORE['oms_imp_1st']?></td>
         <td><?php echo $SCORE['radio_obser_decoding']?></td>
         <td><?php echo $SCORE['radio_obser_filming']?></td>
         <td><?php echo $SCORE['radio_decoding_filming']?></td>
-        <td><?php echo $SCORE['medi_fix_am']?></td>
-        <td><?php echo $SCORE['medi_fix_pm']?></td>
-        <td><?php echo $SCORE['medi_prof_fix']?></td>
-        <td><?php echo $SCORE['medi_splint_in']?></td>
-        <td><?php echo $SCORE['medi_splint_out']?></td>
-        <td><?php echo $SCORE['medi_splint']?></td>
-        <td><?php echo $SCORE['consv_surgery']?></td>
+        <td class="category1"><?php echo $SCORE['medi_fix_am']?></td>
+        <td class="category1"><?php echo $SCORE['medi_fix_pm']?></td>
+        <td class="category1"><?php echo $SCORE['medi_prof_fix']?></td>
+        <td class="category1"><?php echo $SCORE['medi_splint_in']?></td>
+        <td class="category1"><?php echo $SCORE['medi_splint_out']?></td>
+        <td class="category1"><?php echo $SCORE['medi_splint']?></td>
+        <td class="category2"><?php echo $SCORE['consv_surgery']?></td>
         <td><?php echo $SCORE['pros_post_core']?></td>
         <td><?php echo $SCORE['pros_imp_cr_br']?></td>
         <td><?php echo $SCORE['pros_single_cr']?></td>
         <td><?php echo $SCORE['pros_br']?></td>
         <td><?php echo $SCORE['pros_partial_denture']?></td>
         <td><?php echo $SCORE['pros_complete_denture']?></td>
+        <td class="category1"><?php echo $SCORE['pedia_ga']?></td>
+        <td class="category1"><?php echo $SCORE['pedia_prof_fix']?></td>
+        <td class="category2"><?php echo $SCORE['ortho_follow_new_cnt']?></td>
         </tr>
         <?php endforeach?>
         </tbody>
