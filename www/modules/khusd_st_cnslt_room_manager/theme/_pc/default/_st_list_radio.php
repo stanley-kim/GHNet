@@ -89,11 +89,8 @@
 				<?php elseif($ST_CHAIR['status'] == $_ST_STATUS['ACCEPTED']):?>
 				<option value="<?php echo $_ST_STATUS['ACCEPTED']?>"<?php if($ST_CHAIR['status'] == $_ST_STATUS['ACCEPTED']):?> selected<?php endif?>>당첨</option>
 				<?php endif?>
-				<?php if($cur_time_t >= $st_apply_start_date_t && $cur_time_t <= $st_apply_end_date_t):?>
 				<option value="delete">삭제</option>
-				<?php else:?>
 				<option value="<?php echo $_ST_STATUS['CANCEL']?>"<?php if($ST_CHAIR['status'] == $_ST_STATUS['CANCEL']):?> selected<?php endif?>>취소</option>
-				<?php endif?>
 			<?php endif?>
 		</select>
 		<?php else:?>
