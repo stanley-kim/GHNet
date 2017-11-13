@@ -120,7 +120,7 @@ if(!permcheck('chief_of_cnslt_room') && !permcheck('chief_of_op')) {
 			$_perm = true;
 	}
 	if(!$_perm)
-		getLink('', '', '권한이 없습니다.', '');
+		getLink('', '', '권한이 없습니다. 수정가능시간이 지났습니다.', '');
 }
 
 // 배정되어 있을 때에는 '취소' 만 가능
