@@ -78,7 +78,8 @@
 	}
 
 	// 평균 구하기
-	$_data = 'AVG(charting_obser) AS charting_obser, AVG(charting_tmd_1cycle_charting) AS charting_tmd_1cycle_charting, AVG(charting_soft_charting) AS charting_soft_charting, AVG(obser) AS obser, AVG(splint_obser) AS splint_obser, '
+	//$_data = 'AVG(charting_obser) AS charting_obser, AVG(charting_tmd_1cycle_charting) AS charting_tmd_1cycle_charting, AVG(charting_soft_charting) AS charting_soft_charting, AVG(obser) AS obser, AVG(splint_obser) AS splint_obser, '
+	$_data = 'AVG(charting_obser) AS charting_obser, AVG(charting_tmd_1cycle_charting) AS charting_tmd_1cycle_charting, AVG(charting_tmd_2cycle_charting) AS charting_tmd_2cycle_charting, AVG(charting_tmd_3cycle_charting) AS charting_tmd_3cycle_charting, AVG(charting_soft_charting) AS charting_soft_charting, AVG(obser) AS obser, AVG(splint_obser) AS splint_obser, '
 			.' AVG(physical_tx) AS physical_tx, AVG(soft_tx) AS soft_tx, AVG(odor) AS odor, AVG(m_text) AS m_text, AVG(fix_am) AS fix_am, AVG(fix_pm) AS fix_pm, AVG(splint_impression) as splint_impression, AVG(splint_polishing) AS splint_polishing,'
 			//.' AVG(physical_tx) AS physical_tx, AVG(soft_tx) AS soft_tx, AVG(odor) AS odor, AVG(m_text) AS m_text, AVG(fix_am) AS fix_am, AVG(fix_pm) AS fix_pm,'
 			.' AVG('.$_data_fix.') AS fix,'
