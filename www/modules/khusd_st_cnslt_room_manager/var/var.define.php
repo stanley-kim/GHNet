@@ -19,8 +19,9 @@ $d['khusd_st_cnslt_room_manager']['apply_time'] = array(
 );
 
 $d['khusd_st_cnslt_room_manager']['cancel_time'] = array(
-	'am'		=> 10,
-	'pm'	        => 18
+	'am'		=> 11,
+	'pm'	        => 16,
+	'nt'	        => 19
 );
 
 // 신청자가 신청 상태일 때 취소 혹은 삭제할 수 있는데, 

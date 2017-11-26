@@ -108,6 +108,7 @@
 	while( $_ROW = db_fetch_array($ST_CHAIR_ROWS) ) 
 	{
 		$ST_CHAIR_ARRAY[] = $_ROW;
+//__debug_print('SELECT ROW_'.$_ROW['st_info']['name'].'_'.$_ROW['pt_name'] );
 		if($_ROW['status'] == $d['khusd_st_cnslt_room_manager']['apply']['status']['APPLY'])
 			$ST_APPLY_NUM++;
 	}
@@ -122,6 +123,7 @@
 		$st_array = array_merge($stid_array, $stdata_array);
 		
 		$ST_CHAIR_ARRAY[$IDX]['st_info'] = $st_array;
+        //__debug_print('SELECTXX000_'.$IDX.'__'.$ST_CHAIR_ARRAY[$IDX]['st_info']['name'].'_'.$ST_CHAIR_ARRAY[$IDX]['pt_name'] );
 	}
 	
 	
@@ -130,6 +132,7 @@
 			$ST_CHAIR_ARRAY_1st = array();
 			$ST_CHAIR_ARRAY_2nd = array();
 			$ST_CHAIR_ARRAY_etc = array();
+
 			foreach($ST_CHAIR_ARRAY as $IDX => $SCORE_TMP) {
 				if($SCORE_TMP['st_timetype_detail'] == "1"){
 					$ST_CHAIR_ARRAY_1st[$IDX] = $SCORE_TMP;
@@ -162,6 +165,30 @@
 			array_multisort($price, SORT_ASC, $ST_CHAIR_ARRAY_etc);
 			
 			$ST_CHAIR_ARRAY = array_merge($ST_CHAIR_ARRAY_1st, $ST_CHAIR_ARRAY_2nd, $ST_CHAIR_ARRAY_etc);
+
+
+foreach($ST_CHAIR_ARRAY as $tmptmp)   {
+        //__debug_print('SELECT000 '.$tmptmp['st_info']['name'].'_'.$tmptmp['pt_name'] );
+
+}
+
+        //__debug_print('SELECT00000 ' );
+foreach($ST_CHAIR_ARRAY_1st as $tmptmp)   {
+        //__debug_print('SELECT100 '.$tmptmp['st_info']['name'].'_'.$tmptmp['pt_name'] );
+
+}
+        //__debug_print('SELECT00000 ' );
+foreach($ST_CHAIR_ARRAY_2nd as $tmptmp)   {
+        //__debug_print('SELECT200 '.$tmptmp['st_info']['name'].'_'.$tmptmp['pt_name'] );
+
+}
+        //__debug_print('SELECT00000 ' );
+foreach($ST_CHAIR_ARRAY_etc as $tmptmp)   {
+        //__debug_print('SELECT200 '.$tmptmp['st_info']['name'].'_'.$tmptmp['pt_name'] );
+
+}
+
+
 		}else{
 			$price = array();
 			foreach ($ST_CHAIR_ARRAY as $key => $row)
