@@ -79,7 +79,7 @@
 		.'+ '.genMinusScoreQuery( "IF(st_inlay_1_proc = 'inlay_setting', 1, 0) + IF(st_inlay_2_proc = 'inlay_setting', 1, 0)", $d['khusd_st_consv']['require']['st']['st_inlay'], $d['khusd_st_consv']['minus']['st']['st_inlay'])
 		//.'+ '.genMinusScoreQuery( "IF(st_endo_2 = '', 0, 1)", $d['khusd_st_consv']['require']['st']['st_endo'], $d['khusd_st_consv']['minus']['st']['st_endo'])
 		.'+ '.genMinusScoreQuery( "IF(st_endo_1 = 'cf', 1, 0)", $d['khusd_st_consv']['require']['st']['st_endo'], $d['khusd_st_consv']['minus']['st']['st_endo'])
-		.'+ '.genMinusScoreQuery( "IF(st_endo_2 = 'cf', 1, 0)", $d['khusd_st_consv']['require']['st']['st_endo'], $d['khusd_st_consv']['minus']['st']['st_endo'])
+		////.'+ '.genMinusScoreQuery( "IF(st_endo_2 = 'cf', 1, 0)", $d['khusd_st_consv']['require']['st']['st_endo'], $d['khusd_st_consv']['minus']['st']['st_endo'])
 		.' AS st_minus_score'
 		.' FROM '
 			.'(SELECT uid,'.$_data_st_op_num.' AS st_op FROM '.$table[$m.'score'].') opt, '

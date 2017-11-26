@@ -119,7 +119,8 @@ $d['khusd_st_cnslt_room_manager']['tx_plan']['endo'] = array(
 	'ce'		=> array(	'id' => 'ce', 		'name' => 'CE'	),
 	'cd'		=> array( 	'id' => 'cd',		'name' => 'CD'	),
 	'cf'		=> array(	'id' => 'cf', 		'name' => 'CF'	), 
-	'core'		=> array(	'id' => 'core', 	'name' => 'Resin Core' )
+	'core'		=> array(	'id' => 'core', 	'name' => 'Resin Core' ),
+	'nvb'		=> array(	'id' => 'nvb', 		'name' => 'NonVitalBleaching' )
 );
 
 $d['khusd_st_cnslt_room_manager']['tx_plan']['pedia'] = array(

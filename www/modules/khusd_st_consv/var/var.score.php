@@ -95,7 +95,7 @@ $d['khusd_st_consv']['penalty']['follow'] = array(
 );
 
 $d['khusd_st_consv']['require']['st'] = array(
-	'st_op'				=> 12,
+	'st_op'				=> 10,
 	'st_endo'			=> 1,
 	'st_inlay'			=> 2,
 	'st_am'				=> 2
@@ -104,8 +104,8 @@ $d['khusd_st_consv']['require']['st'] = array(
 $d['khusd_st_consv']['minus']['st'] = array(
 	'st_endo'			=> 10,
 	'st_op'				=> 2,
-	'st_inlay'			=> 5,
-	'st_am'				=> 0
+	'st_inlay'			=> 0,
+	'st_am'				=> 2
 );
 
 $d['khusd_st_consv']['minus']['obser'] = array(

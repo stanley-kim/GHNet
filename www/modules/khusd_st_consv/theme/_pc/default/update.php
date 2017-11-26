@@ -321,7 +321,7 @@
 		</tr>
 		
 		<tr>
-		<td class="head">Bleaching</td>
+		<td class="head">NonVitalBleaching</td>
 		<td class="input"><input type="number" name="st_op_bleaching" maxlength="5" class="input num" value="<?php echo $SCORE['st_op_bleaching']?>">회</td>
 		</tr>
 		<tr>
