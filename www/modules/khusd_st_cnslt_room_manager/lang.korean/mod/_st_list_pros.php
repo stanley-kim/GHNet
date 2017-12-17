@@ -59,12 +59,16 @@
 		.', sc.st_case_1_friendly'
 
 		.', sc.st_case_2_pt_name'
+		.', sc.st_case_2_pt_id'
+		.', sc.st_case_2_dental_formula'
 		.', sc.st_case_2_last_tx_date'
 		.', sc.st_case_2_last_tx'
 		.', sc.st_case_2_last_inst'
 		.', sc.st_case_2_friendly'
 
 		.', sc.st_case_3_pt_name'
+		.', sc.st_case_3_pt_id'
+		.', sc.st_case_3_dental_formula'
 		.', sc.st_case_3_last_tx_date'
 		.', sc.st_case_3_last_tx'
 		.', sc.st_case_3_last_inst'
