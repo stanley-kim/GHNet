@@ -66,10 +66,15 @@
 			.', '.$PERIO_SCORE_ARRAY['st_max']
 			.', '.$_data_st_score_sum
 		.')';
+	///$_data_total_score = 
+	///	'('.$_data_ob_score.')'
+	///	.' + '.$_data_st_score
+	///	.' + sc.fix'
+	///	;
 	$_data_total_score = 
-		'('.$_data_ob_score.')'
-		.' + '.$_data_st_score
-		.' + sc.fix'
+		$_data_ob_score_sum
+		.' + '.$_data_st_score_sum
+		.' + '.$PERIO_SCORE_ARRAY['fix']
 		;
 		
 	

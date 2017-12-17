@@ -15,6 +15,16 @@
 	
 	include_once $g['path_module'].'khusd_st_manager/function/member.php';
 	include_once $g['path_module'].'khusd_st_manager/function/debug.php';	// 필수 인클루드 파일
+
+        if(is_array($d['khusd_st_perio']['score']['ratio'][$s_sid]))
+        {
+                $PERIO_SCORE_ARRAY = $d['khusd_st_perio']['score']['ratio'][$s_sid];
+        }
+        else
+        {
+                $PERIO_SCORE_ARRAY = $d['khusd_st_perio']['score']['ratio'];
+        }
+
 	
 	
 	$_data_pre_st = 'IF( sc.charting >= 3 AND sc.iot >= 2 AND sc.sc >= 10, 1, 0)';
@@ -41,12 +51,26 @@
 		.'+ sc.follow_point'
 		.'- sc.abandon'
 		;
+        $_data_ob_score_sum =
+                '('
+                .$_data_ob_score_original
+                .') * '.$PERIO_SCORE_ARRAY['obser_ratio'];
 
 	$_data_st_score_original = 
 			'sc.stsc * '.$d['khusd_st_perio']['score']['stsc']
 			.'+ sc.stpc * '.$d['khusd_st_perio']['score']['stpc']
 			.'+ sc.stcu * '.$d['khusd_st_perio']['score']['stcu']
 			;
+        $_data_st_score_sum =
+                '('
+                .$_data_st_score_original
+                .') * '.$PERIO_SCORE_ARRAY['st_ratio'];
+
+        $_data_total_score =
+                $_data_ob_score_sum
+                .' + '.$_data_st_score_sum
+                .' + '.$PERIO_SCORE_ARRAY['fix']
+                ;
 
 
 	//////FOLLOW//////
@@ -79,7 +103,7 @@
 		.', '.$_data_st_score_original.' AS st_score_original'
 		//.', '.$_data_ob_score.' AS ob_score'
 		//.', '.$_data_st_score.' AS st_score'
-		//.', '.$_data_total_score.' AS total_score'
+		.', '.$_data_total_score.' AS total_score'
 		.', '.$_data_pre_st.' AS pre_st'
 		.', '.$_data_abandon_surgery_score. ' AS abandon_surgery'
 		.', '.$_data_follow;
