@@ -328,7 +328,7 @@
 		<td class="input"><input type="number" name="st_op_others" maxlength="5" class="input num" value="<?php echo $SCORE['st_op_others']?>">회</td>
 		</tr>
 		<tr>
-		<td class="head">Endo - 1st case</td>
+		<td class="head">Endo - 1st case<br>(점수입력 PE:2, WL:4,<br>CE:6, MC:8, CF: 10) </td>
 		<td class="input">
 			<select name="st_endo_1">
 				<option value=""<?php if($SCORE['st_endo_1'] == ''):?> selected<?php endif?>>------------</option>

@@ -113,7 +113,7 @@
 		<td></td>
 		<td class="avg">평균</th>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_op_chair_assigned'])?></td>
-		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_endo_2nd_point'])?></td>
+		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_endo_1st_point'])?></td>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_op_bleaching'])?></td>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_op_tooth_colored_cervical'])?></td>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_op_tooth_colored_simple'])?></td>
@@ -151,7 +151,7 @@
 		<?php if($SCORE['st_endo_1'] != ''){ echo 'O';}else { echo 'X';} ?>
 		/<?php if($SCORE['st_endo_2'] != ''){ echo 'O';}else { echo 'X';} ?>
 	</td>
-	<td class="category3"><?php echo $SCORE['st_endo_2nd_point']?></td>
+	<td class="category3"><?php echo $SCORE['st_endo_1st_point']?></td>
 	<td class="category3"><?php echo $SCORE['st_op_bleaching']?></td>
 	<td class="category1"><?php echo $SCORE['st_op_tooth_colored_cervical']?></td>
 	<td class="category1"><?php echo $SCORE['st_op_tooth_colored_simple']?></td>
@@ -192,7 +192,7 @@
 		<?php if($SCORE['st_endo_1'] != ''){ echo 'O';}else { echo 'X';} ?>
 		/<?php if($SCORE['st_endo_2'] != ''){ echo 'O';}else { echo 'X';} ?>
 	</td>
-		<td class="category3"><?php echo $SCORE['st_endo_2nd_point']?></td>
+		<td class="category3"><?php echo $SCORE['st_endo_1st_point']?></td>
 		<td class="category3"><?php echo $SCORE['st_op_bleaching']?></td>
 		<td class="category1"><?php echo $SCORE['st_op_tooth_colored_cervical']?></td>
 		<td class="category1"><?php echo $SCORE['st_op_tooth_colored_simple']?></td>
