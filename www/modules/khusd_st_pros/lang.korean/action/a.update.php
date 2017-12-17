@@ -80,6 +80,8 @@ $st_case_1_friendly			= isset($GLOBALS['st_case_1_friendly']) ? 'y' : 'n';
 
 $st_case_2					= trim($st_case_2);
 $st_case_2_pt_name			= trim($st_case_2_pt_name);
+$st_case_2_pt_id			= trim($st_case_2_pt_id);
+$st_case_2_dental_formula			= trim($st_case_2_dental_formula);
 $st_case_2_last_tx_date		= ($st_case_2_last_tx_date ? date("Ymd", strtotime($st_case_2_last_tx_date)) : '');
 $st_case_2_last_tx			= trim($st_case_2_last_tx);
 $st_case_2_last_inst		= trim($st_case_2_last_inst);
@@ -93,6 +95,17 @@ $st_case_3_last_tx_date		= ($st_case_3_last_tx_date ? date("Ymd", strtotime($st_
 $st_case_3_last_tx			= trim($st_case_3_last_tx);
 $st_case_3_last_inst		= trim($st_case_3_last_inst);
 $st_case_3_friendly			= isset($GLOBALS['st_case_3_friendly']) ? 'y' : 'n';
+
+if ( $st_case_1_dental_formula != '' && !is_int ( strpos( $st_case_1_dental_formula , '#'  ) )     )
+{
+	getLink('', '', 'ST Case 1치식에 #이 포함되어 있어야 합니다.('.$st_case_1_dental_formula.')', '');
+
+}
+if ( $st_case_2_dental_formula != '' && !is_int ( strpos( $st_case_2_dental_formula , '#'  ) )     )
+{
+	getLink('', '', 'ST Case 2치식에 #이 포함되어 있어야 합니다.('.$st_case_2_dental_formula.')', '');
+
+}
 
 $st_score = $d['khusd_st_pros']['st_stage_score'][$st_case_1]
 	+ $d['khusd_st_pros']['st_stage_score'][$st_case_2]
@@ -120,9 +133,9 @@ $QKEY = "s_uid, st_id, "
 
 	//."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly,"
 	."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly, st_case_1_pt_id, st_case_1_dental_formula,"
-	."st_case_2, st_case_3_pt_name, st_case_2_last_tx_date, st_case_2_last_tx, st_case_2_last_inst, st_case_2_friendly,"
+	."st_case_2, st_case_2_pt_name, st_case_2_last_tx_date, st_case_2_last_tx, st_case_2_last_inst, st_case_2_friendly, st_case_2_pt_id, st_case_2_dental_formula,"
 	//."st_case_3, st_case_2_pt_name, st_case_3_last_tx_date, st_case_3_last_tx, st_case_3_last_inst, st_case_3_friendly,"
-	."st_case_3, st_case_2_pt_name, st_case_3_last_tx_date, st_case_3_last_tx, st_case_3_last_inst, st_case_3_friendly, st_case_3_pt_id, st_case_3_dental_formula,"
+	."st_case_3, st_case_3_pt_name, st_case_3_last_tx_date, st_case_3_last_tx, st_case_3_last_inst, st_case_3_friendly, st_case_3_pt_id, st_case_3_dental_formula,"
 	."st_score,"
 	
 	."date_update";
@@ -143,9 +156,9 @@ $QVAL = "'$s_uid', '$st_id', "
 
 	//."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly',"
 	."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly', '$st_case_1_pt_id', '$st_case_1_dental_formula',"
-	."'$st_case_2', '$st_case_3_pt_name', '$st_case_2_last_tx_date', '$st_case_2_last_tx', '$st_case_2_last_inst', '$st_case_2_friendly',"
-	//."'$st_case_3', '$st_case_2_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly',"
-	."'$st_case_3', '$st_case_2_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly', '$st_case_3_pt_id', '$st_case_3_dental_formula',"
+	."'$st_case_2', '$st_case_2_pt_name', '$st_case_2_last_tx_date', '$st_case_2_last_tx', '$st_case_2_last_inst', '$st_case_2_friendly', '$st_case_2_pt_id', '$st_case_2_dental_formula', "
+	//."'$st_case_3', '$st_case_2_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly',
+	."'$st_case_3', '$st_case_3_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly', '$st_case_3_pt_id', '$st_case_3_dental_formula',"
 	."'$st_score',"
 
 	."'$date_update'";
