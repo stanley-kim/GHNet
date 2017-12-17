@@ -69,7 +69,7 @@
 
 		$_where_add = $where. $_order_add;
 
-		$CANDI_ROWS_ADDITIONAL = getDbSelect($_table, $_where_add, $_data);
+		/////$CANDI_ROWS_ADDITIONAL = getDbSelect($_table, $_where_add, $_data);
 
 		//echo "SELECT $_data FROM $_table WHERE $_where_add";
 	}else if($st_type == 'consv'){
