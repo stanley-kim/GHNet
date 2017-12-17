@@ -407,7 +407,7 @@ elseif($mode == 'verification' && $MANAGER) {
         $_data_partial_denture = 'pros_sc.partial_denture_complete + pros_sc.partial_denture_ongoing';
         $_data_complete_denture = 'pros_sc.complete_denture_complete + pros_sc.complete_denture_ongoing';
 
-
+	$_data_pedia_prof_fix = 'pedia_sc.prof_fix_am + pedia_sc.prof_fix_pm' ;
 
         //$_perio_join = 'SELECT MAX(date_update) date_update,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id";
         $_perio_join = 'SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_perio_score '." WHERE s_uid = '".$s_uid."' AND is_goal = 'n' GROUP BY st_id ";
@@ -418,9 +418,8 @@ elseif($mode == 'verification' && $MANAGER) {
         $_medi_join = 'SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_medi_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
         $_consv_join ='SELECT MAX(uid) uid,st_id FROM '.'rb_khusd_st_consv_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
         $_pros_join = 'SELECT MAX(uid) uid,st_id FROM '. 'rb_khusd_st_pros_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
-
-
-
+        $_pedia_join = 'SELECT MAX(uid) uid,st_id FROM '. 'rb_khusd_st_pedia_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
+        $_ortho_join = 'SELECT MAX(uid) uid,st_id FROM '. 'rb_khusd_st_ortho_score'.' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
 
         $_table = 'rb_khusd_st_perio_score perio_sc,'.'rb_khusd_st_oms_score oms_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_perio_join.') perio_sc_j, ('.$_oms_join.') oms_sc_j ' ;
         $_where =
@@ -506,14 +505,40 @@ elseif($mode == 'verification' && $MANAGER) {
         $_orderby = $order_mode;
         $SCORE_ROWS5 = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
 
+        $order_by = 'pedia_sc.st_id';
+        $_table = 'rb_khusd_st_pedia_score pedia_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_pedia_join.') pedia_sc_j ';
+        $_where =
+                "mbrdata.tmpcode!='tester' AND ".
+                "pedia_sc.s_uid = '".$s_uid."'"
+                ." AND pedia_sc.uid = pedia_sc_j.uid AND pedia_sc.st_id = pedia_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = pedia_sc.st_id";
+        $_data = '  pedia_sc.s_uid AS pedia_s_uid'
+                .', pedia_sc.ga AS pedia_ga'
+                .', ('.$_data_pedia_prof_fix.') AS pedia_prof_fix';
+        $_sort = $order_by;
+        $_orderby = $order_mode;
+        $SCORE_ROWS6 = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
 
-        __debug_print("db_query_go_detect. - " . mysql_error());
+        $order_by = 'ortho_sc.st_id';
+        $_table = 'rb_khusd_st_ortho_score ortho_sc,'.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_ortho_join.') ortho_sc_j ';
+        $_where =
+                "mbrdata.tmpcode!='tester' AND ".
+                "ortho_sc.s_uid = '".$s_uid."'"
+                ." AND ortho_sc.uid = ortho_sc_j.uid AND ortho_sc.st_id = ortho_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = ortho_sc.st_id";
+        $_data = '  ortho_sc.s_uid AS ortho_s_uid'
+                .', ortho_sc.follow_new_cnt AS ortho_follow_new_cnt';
+        $_sort = $order_by;
+        $_orderby = $order_mode;
+        $SCORE_ROWS7 = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
+        
+	__debug_print("db_query_go_detect7. - " . mysql_error());
         while( $_ROW  = db_fetch_array($SCORE_ROWS) ) {
                $_ROW2 = db_fetch_array($SCORE_ROWS2);
                $_ROW3 = db_fetch_array($SCORE_ROWS3);
                $_ROW4 = db_fetch_array($SCORE_ROWS4);
                $_ROW5 = db_fetch_array($SCORE_ROWS5);
-                $_ROW10 = $_ROW + $_ROW2 + $_ROW3+ $_ROW4+ $_ROW5;
+               $_ROW6 = db_fetch_array($SCORE_ROWS6);
+               $_ROW7 = db_fetch_array($SCORE_ROWS7);
+      	       $_ROW10 = $_ROW + $_ROW2 + $_ROW3+ $_ROW4+ $_ROW5 + $_ROW6 + $_ROW7 ;
 
                 $SCORE_ARRAY[$_ROW['st_id']] = $_ROW10;
         }
@@ -675,6 +700,11 @@ elseif($mode == 'verification' && $MANAGER) {
 		}	
 		if( $apply_limits[$tmp_apply_info] >0 && $apply_limits[$tmp_apply_info] == $opened )   {
  __debug_print("db_query_go for_opened+++ search detect2 main.php. - " .$tmp_apply_info.'_'. $apply_limits[$tmp_apply_info] .'=='.$opened  ); 
+			$MandatoryTime[$tmp_apply_info] = true;
+		}
+		//else if( $apply_limits[$tmp_apply_info] >0 && $opened == 2 )   {
+		else if( $apply_limits[$tmp_apply_info] >0 && $opened <= 3 )   {
+ __debug_print("db_query_go for_opened+++ search detect3 main.php. - " .$tmp_apply_info.'_'. $apply_limits[$tmp_apply_info] .'=='.$opened  ); 
 			$MandatoryTime[$tmp_apply_info] = true;
 		}
 		if ( count($open_items) > 0 )  {
