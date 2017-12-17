@@ -221,6 +221,8 @@
 					<option value="1600">16:00</option>
 					<option value="1630">16:30</option>
 					<option value="1700">17:00</option>
+				<?php elseif($st_timetype == 'nt'):?>
+					<option value="1730" selected>17:30</option>
 				<?php endif?>
 				</select>
 				&nbsp;~&nbsp;
@@ -241,6 +243,8 @@
 					<option value="1630">16:30</option>
 					<option value="1700">17:00</option>
 					<option value="1730" selected>17:30</option>
+				<?php elseif($st_timetype == 'nt'):?>
+					<option value="2000" selected >20:00</option>
 				<?php endif?>
 				</select>
 			</td>
