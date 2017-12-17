@@ -144,8 +144,8 @@
 	$apply_regular_2nd_end_time = '1420';
 	$apply_regular_3rd_end_time = '1430';
 	$apply_regular_4th_end_time = '1440';
-	$apply_regular_4th_end_time = '1445';
-	$apply_regular_5th_end_time = '1710';
+	//$apply_regular_4th_end_time = '1445';
+	$apply_regular_5th_end_time = '1450';
 	$apply_last_order = 5;	
 
 	// to detect appliance day
@@ -275,12 +275,12 @@
 	//to restore saved rules
 	$perio_surgery_on        = str_split( $RULE['perio_surgery_on']  ) ;
 	$perio_surgery_selection = str_split( $RULE['perio_surgery_selection']  ) ;
-	$perio_surgery_standard  = str_split( $RULE['perio_surgery_standard']  ) ;
+	$perio_surgery_standard  = str_split( $RULE['perio_surgery_standard'],2   ) ;
 	$perio_surgery_num_apply = str_split( $RULE['perio_surgery_num_apply']  ) ;
 
 	$perio_chiot_on        = str_split( $RULE['perio_chiot_on']  ) ;
 	$perio_chiot_selection = str_split( $RULE['perio_chiot_selection']  ) ;
-	$perio_chiot_standard  = str_split( $RULE['perio_chiot_standard']  ) ;
+	$perio_chiot_standard  = str_split( $RULE['perio_chiot_standard'],2  ) ;
 	$perio_chiot_num_apply = str_split( $RULE['perio_chiot_num_apply']  ) ;
 
 	$oms_on        = str_split( $RULE['oms_on']  ) ;

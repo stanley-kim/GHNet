@@ -45,10 +45,15 @@ $temp_radio_on = '';
 $apply_last_order = 5;
 
 for($i=0; $i< $apply_last_order  ; $i++) {
-	if(  isset( $_POST[ 'input_perio_surgery_standard' ][$i]  ) &&  is_int(intval($_POST[ 'input_perio_surgery_standard' ][$i]))  )
-	        $temp_standard = $temp_standard.strval( intval($_POST[ 'input_perio_surgery_standard' ][$i]) );
+	if(  isset( $_POST[ 'input_perio_surgery_standard' ][$i]  ) &&  is_int(intval($_POST[ 'input_perio_surgery_standard' ][$i]))  )     {
+		$_standard_str =  strval( intval($_POST[ 'input_perio_surgery_standard' ][$i]) );
+		if( strlen( $_standard_str ) == 1 ) 
+	        	$temp_standard = $temp_standard.'0'.strval( intval($_POST[ 'input_perio_surgery_standard' ][$i]) );
+		else 
+	        	$temp_standard = $temp_standard.strval( intval($_POST[ 'input_perio_surgery_standard' ][$i]) );
+	}
 	else 
-	        $temp_standard = $temp_standard.strval('0'); 
+	        $temp_standard = $temp_standard.strval('00'); 
 	if( isset( $_POST[ 'input_perio_surgery_num_apply' ][$i] ) && is_int(intval($_POST[ 'input_perio_surgery_num_apply' ][$i])) )
 		$temp_num_apply = $temp_num_apply.strval( intval($_POST[ 'input_perio_surgery_num_apply' ][$i]) );
 	else
@@ -60,8 +65,13 @@ for($i=0; $i< $apply_last_order  ; $i++) {
 //getLink('', '', '미 업데이트 구성원에게 업데이트 독촉 알림을 전달하였습니다.'.$temp. 'qwer' , '');
 }
 for($i=0; $i< $apply_last_order  ; $i++) {
-	if(  isset( $_POST[ 'input_perio_chiot_standard' ][$i] ) &&  is_int(intval($_POST[ 'input_perio_chiot_standard' ][$i])) )
-	        $temp_chiot_standard  = $temp_chiot_standard.strval(  intval( $_POST[ 'input_perio_chiot_standard' ][$i])   );
+	if(  isset( $_POST[ 'input_perio_chiot_standard' ][$i] ) &&  is_int(intval($_POST[ 'input_perio_chiot_standard' ][$i])) )      {
+		$_standard_str =  strval( intval($_POST[ 'input_perio_chiot_standard' ][$i]) );
+		if( strlen( $_standard_str ) == 1 )
+	        	$temp_chiot_standard  = $temp_chiot_standard.'0'.strval(  intval( $_POST[ 'input_perio_chiot_standard' ][$i])   );
+		else
+	        	$temp_chiot_standard  = $temp_chiot_standard.strval(  intval( $_POST[ 'input_perio_chiot_standard' ][$i])   );
+	}
 	else
 	        $temp_chiot_standard  = $temp_chiot_standard.strval('0');
 	if( isset( $_POST[ 'input_perio_chiot_num_apply' ][$i] ) && is_int(intval($_POST[ 'input_perio_chiot_num_apply' ][$i])) )
