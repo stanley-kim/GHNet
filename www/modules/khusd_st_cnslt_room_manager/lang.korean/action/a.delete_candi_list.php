@@ -39,7 +39,7 @@ $st_timetype	= trim($st_timetype);
 
 $apply_uid		= intval($apply_uid);
 
-if($st_timetype != 'am' && $st_timetype != 'pm')
+if($st_timetype != 'am' && $st_timetype != 'pm' && $st_timetype != 'nt'  )
 {
 	getLink('', '', '시간구분 값이 잘못되었습니다.', '');
 }

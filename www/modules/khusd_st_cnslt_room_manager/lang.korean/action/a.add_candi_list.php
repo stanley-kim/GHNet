@@ -48,7 +48,7 @@ if(!$department || $department == '' || !$d['khusd_st_manager']['department'][$d
 	getLink('', '', '과 정보가 잘못 입력되었습니다.', '');
 }
 
-if($st_timetype != 'am' && $st_timetype != 'pm')
+if($st_timetype != 'am' && $st_timetype != 'pm' && $st_timetype != 'nt'  )
 {
 	getLink('', '', '시간구분 값이 잘못되었습니다.', '');
 }
@@ -145,6 +145,7 @@ else
 	}
 	
 	getDbInsert($table[$m.'candi'],$QKEY,$QVAL);
+
 }
 
 getLink('reload', 'top.', '대기열에 추가되었습니다.', '');
