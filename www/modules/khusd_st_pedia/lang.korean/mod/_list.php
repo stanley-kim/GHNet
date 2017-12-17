@@ -41,12 +41,12 @@
 		.' + charting_obser * '. $d['khusd_st_pedia']['score']['charting_obser']
 		.' + sedation_rp * '. $d['khusd_st_pedia']['score']['sedation_rp']
 		.' + clinical_rp * '. $d['khusd_st_pedia']['score']['clinical_rp'];
-	
+	//without st_assit	
 	$_data_st_only_score = 'st_point'
 		.' + st_add_a * '. $d['khusd_st_pedia']['score']['st_add_a']
 		.' + st_add_b * '. $d['khusd_st_pedia']['score']['st_add_b']
 		.' + st_add_c * '. $d['khusd_st_pedia']['score']['st_add_c'];
-		
+	//with st_assist
 	$_data_st_score = 'st_point'
 		.' + st_add_a * '. $d['khusd_st_pedia']['score']['st_add_a']
 		.' + st_add_b * '. $d['khusd_st_pedia']['score']['st_add_b']
@@ -61,7 +61,8 @@
 	
 	$_data_st_real_score = 'ROUND(('.$_data_st_score.' + '.$_data_obser_to_st_score.') / '.$d['khusd_st_pedia']['score']['st_ratio'].', 1)';
 	
-	$_data_total_score = $_data_obser_real_score .' + '. $_data_st_real_score .' + fix';
+	//$_data_total_score = $_data_obser_real_score .' + '. $_data_st_real_score .' + fix';
+	$_data_total_score = $_data_obser_score .' + '. $_data_st_score  ;
 	
 	$_data_obser_plus_st_score = '('.$_data_obser_score.') * 0.5 + '.$_data_st_score;
 	

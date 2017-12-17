@@ -85,7 +85,7 @@
 		</tr>
 		<tr>
 		<td class="head">Observation</td>
-		<td class="input"><input type="number" name="obser" maxlength="5" class="input num" value="<?php echo $SCORE['obser']?>">회</td>
+		<td class="input"><input type="number" name="obser"  maxlength="5"   class="input num"   value="<?php echo $SCORE['obser']?>">점</td>
 		</tr>
 		<tr>
 		<td class="head">G/A</td>

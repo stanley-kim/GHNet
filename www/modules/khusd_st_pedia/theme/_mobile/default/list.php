@@ -19,6 +19,7 @@
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
+	<col width="50"> 
 <!--	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
@@ -45,9 +46,10 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_obser', $om)?>">Charting Obser</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'obser_score', $om)?>">Obser 점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_pt', $om)?>">ST 환자수</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_point', $om)?>">ST 술식 점수</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_only_score', $om)?>">ST 술식 점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_assist', $om)?>">ST assist(회)</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_score', $om)?>">ST 점수</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_score', $om)?>">Obser+ST점수</a></th>
 <!--	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'obser_real_score', $om)?>">Obser 점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_real_score', $om)?>">ST 점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'fix', $om)?>">FIX 점수</a></th>
@@ -71,6 +73,7 @@
 	<th scope="col" class="split">ST 술식점수</th>
 	<th scope="col" class="split">ST assist(회)</th>
 	<th scope="col" class="split">ST 점수</th>
+	<th scope="col" class="split">Obser+ST점수</th>
 <!--	<th scope="col" class="split">Obser 점수</th>
 	<th scope="col" class="split">ST 점수</th>
 	<th scope="col" class="split">FIX 점수</th>
@@ -96,9 +99,10 @@
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_obser'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['obser_score'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_pt'])?></td>
-	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_point'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_only_score'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_assist'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_score'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_score'])?></td>
 <!--	<td class="avg"><?php echo sprintf("%1.1f",$AVG['obser_real_score'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_real_score'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['fix'])?></td>
@@ -125,9 +129,10 @@
 	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	<td><?php echo $SCORE['st_pt']?></td>
-	<td><?php echo $SCORE['st_point']?></td>
+	<td><?php echo $SCORE['st_only_score']?></td>
 	<td><?php echo $SCORE['st_assist']?></td>
 	<td class="category4"><?php echo $SCORE['st_score']?></td>
+	<td class="category1"><?php echo sprintf("%1.0f",$SCORE['total_score'])?></td>
 
 <!--	<td class="category1"><?php echo $SCORE['obser_real_score']?></td>
 	<td class="category1"><?php echo $SCORE['st_real_score']?></td>
@@ -154,9 +159,10 @@
 	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	<td><?php echo $SCORE['st_pt']?></td>
-	<td><?php echo $SCORE['st_point']?></td>
+	<td><?php echo $SCORE['st_only_score']?></td>
 	<td><?php echo $SCORE['st_assist']?></td>
 	<td class="category4"><?php echo $SCORE['st_score']?></td>
+	<td class="category1"><?php echo sprintf("%1.0f",$SCORE['total_score'])?></td>
 
 <!--	<td class="category1"><?php echo $SCORE['obser_real_score']?></td>
 	<td class="category1"><?php echo $SCORE['st_real_score']?></td>
@@ -184,9 +190,10 @@
 	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
 	<td><?php echo $SCORE['st_pt']?></td>
-	<td><?php echo $SCORE['st_point']?></td>
+	<td><?php echo $SCORE['st_only_score']?></td>
 	<td><?php echo $SCORE['st_assist']?></td>
 	<td class="category4"><?php echo $SCORE['st_score']?></td>
+	<td class="category1"><?php echo sprintf("%1.0f",$SCORE['total_score'])?></td>
 
 <!--	<td class="category1"><?php echo $SCORE['obser_real_score']?></td>
 	<td class="category1"><?php echo $SCORE['st_real_score']?></td>

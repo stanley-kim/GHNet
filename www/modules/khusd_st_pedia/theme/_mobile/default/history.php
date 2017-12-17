@@ -15,6 +15,13 @@
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
+	<col width="50"> 
+	<col width="50"> 
+	<col width="50"> 
+	<col width="50"> 
+	<col width="50"> 
+	<col width="50"> 
+	<col width="50"> 
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -31,6 +38,13 @@
 	<th scope="col" class="split">Clinical 레폿</th>
 	<th scope="col" class="split">Charting Obser</th>
 	<th scope="col" class="split">Obser 점수</th>
+        <th scope="col" class="split">ST 환자수</th>
+        <th scope="col" class="split">ST Point</th>
+        <th scope="col" class="split">ST Add A</th>
+        <th scope="col" class="split">ST Add B</th>
+        <th scope="col" class="split">ST Add C</th>
+        <th scope="col" class="split">ST Assist</th>
+        <th scope="col" class="split">Obser+ST점수</th>
 	<th scope="col">수정일</th>
 	</tr>
 	</thead>
@@ -53,6 +67,13 @@
 	<td><?php echo $SCORE['clinical_rp']?></td>
 	<td><?php echo $SCORE['charting_obser']?></td>
 	<td class="category4"><?php echo $SCORE['obser_score']?></td>
+        <td><?php echo $SCORE['st_pt']?></td>
+        <td><?php echo $SCORE['st_point']?></td>
+        <td><?php echo $SCORE['st_add_a']?></td>
+        <td><?php echo $SCORE['st_add_b']?></td>
+        <td><?php echo $SCORE['st_add_c']?></td>
+        <td><?php echo $SCORE['st_assist']?></td>
+        <td><?php echo $SCORE['total_score']?></td>
 
 	<td><?php echo getDateFormat($SCORE['date_update'],"Y-m-d H:i")?></td>
 	</tr>

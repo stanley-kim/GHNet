@@ -26,13 +26,23 @@
 		.' + charting_obser * '. $d['khusd_st_pedia']['score']['charting_obser']
 		.' + sedation_rp * '. $d['khusd_st_pedia']['score']['sedation_rp']
 		.' + clinical_rp * '. $d['khusd_st_pedia']['score']['clinical_rp'];
-	
+
+
+	$_data_total_score = $_data_obser_score
+				.' + st_add_a *'.$d['khusd_st_pedia']['score']['st_add_a']  
+				.' + st_add_b *'.$d['khusd_st_pedia']['score']['st_add_b']  
+				.' + st_add_c *'.$d['khusd_st_pedia']['score']['st_add_c']  
+				.' + st_assist *'.$d['khusd_st_pedia']['score']['st_assist']  
+				.' + st_point' ; 
+
 	$_table = $table[$m.'score'].' sc, '.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid';
 	$_where = "s_uid = '".$s_uid."'"
 		.' AND mbrid.uid = mbrdata.memberuid'
 		.' AND mbrid.id = sc.st_id'
 		." AND sc.st_id = '".$st_id."'";
-	$_data = 'sc.*, '.$_data_obser_score.' AS obser_score';
+	$_data = 'sc.*, '
+		.$_data_obser_score.' AS obser_score'
+		.', '.$_data_total_score.' AS total_score';
 	$_sort = $order_by;
 	$_orderby = $order_mode;
 	
