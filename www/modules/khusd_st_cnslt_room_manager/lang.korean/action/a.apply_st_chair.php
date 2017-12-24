@@ -178,6 +178,27 @@ if($st_type == 'perio')
 		$st_start_time = $d['khusd_st_cnslt_room_manager']['tx_plan']['perio'][$tx_plan]['time'][$st_timetype]['start'];
 		$st_end_time = $d['khusd_st_cnslt_room_manager']['tx_plan']['perio'][$tx_plan]['time'][$st_timetype]['end'];
 	}
+
+       $_table =
+                $table['khusd_st_perio'.'score'].' sc';
+        $_where =
+                "sc.st_id = '".$st_id."'";
+        $_data ='sc.stsc';
+        $order_by =  'sc.stsc';
+        $order_mode = 'ASC';
+        $_sort = $order_by;
+        $_orderby = $order_mode;
+
+        $ST_CHAIR_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
+
+        $_count=0;
+        while( $_ROW = db_fetch_array($ST_CHAIR_ROWS) )   {
+                $_count=$_count+1;
+        }
+        if( $_count == 0)
+                getLink('', '','ST 신청하기 전에 치주과->정보수정->확인을 클릭하고 와주세요.', '');
+
+
 }
 elseif($st_type == 'pedia')
 {
