@@ -53,8 +53,8 @@
 			.', '.$_data_ob_score_sum
 		.')';
 	$_data_st_score_original = 
-			'sc.stsc * '.$d['khusd_st_perio']['score']['stsc']
-			.'+ sc.stpc * '.$d['khusd_st_perio']['score']['stpc']
+			'sc.stspt_complete * '.$d['khusd_st_perio']['score']['stspt_complete']
+			.'+ sc.stspt_incomplete * '.$d['khusd_st_perio']['score']['stspt_incomplete']
 			.'+ sc.stcu * '.$d['khusd_st_perio']['score']['stcu']
 			;
 	$_data_st_score_sum = 

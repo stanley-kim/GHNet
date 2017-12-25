@@ -2,6 +2,8 @@
 
 	<?php getWidget('khusd/semester_selector',array())?>
 	
+        <?php $SEMESTER_INFO = getCurrentSemesterInfo()  ?>
+	
 	<table summary="치주과 점수표 입니다.">
 	<caption>치주과 점수표</caption> 
 	<colgroup> 
@@ -30,15 +32,19 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<col width="40"> 
 	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40">
-	<col width="40"> 
-	<col width="40"> 
+        <?php endif?>
+
+
+
+
+
+
+
+
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -48,8 +54,13 @@
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'st_id', $om, $order == 'st_id')?>">학번</a></th>
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'name', $om, $order == 'name')?>">이름</a></th>
 <!--	<th scope="col" colspan=7 class="split">[Follow]</th>-->
-	<th scope="col" colspan=13 class="split">[Observation]</th>
-	<th scope="col" colspan=5 class="split">[ST Case]</th>
+	<th scope="col" colspan=12 class="split">[Observation]</th>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+	<th scope="col" colspan=8 class="split">[ST Case]</th>
+        <?php else :?>
+	<th scope="col" colspan=6 class="split">[ST Case]</th>
+        <?php endif?>
+
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'animal_exp', $om, $order == 'animal_exp')?>">동물<br>실험</a></th>
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'fix', $om, $order == 'fix')?>">Fix</a></th>
 	<th scope="col" rowspan=3 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'cp', $om, $order == 'cp')?>">CP</a></th>
@@ -60,8 +71,12 @@
 	<th scope="col" rowspan=3 class="split">학번</th>
 	<th scope="col" rowspan=3 class="split">이름</th>
 <!--	<th scope="col" colspan=7 class="split">[Follow]</th>-->
-	<th scope="col" colspan=14 class="split">[Observation]</th>
-	<th scope="col" colspan=5 class="split">[ST Case]</th>
+	<th scope="col" colspan=12 class="split">[Observation]</th>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+	<th scope="col" colspan=8 class="split">[ST Case]</th>
+        <?php else :?>
+	<th scope="col" colspan=6 class="split">[ST Case]</th>
+        <?php endif?>
 	<th scope="col" rowspan=3 class="split">Fix</th>
 	<th scope="col" rowspan=3 class="split">CP</th>
 	<th scope="col" rowspan=3 class="split">Total</th>
@@ -86,10 +101,19 @@
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'others', $om, $order == 'others')?>">others</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'tbi', $om, $order == 'tbi')?>">TBI</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'ob_score_original', $om, $order == 'ob_score_original')?>">Obser 점수</a></th>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'pre_st', $om, $order == 'pre_st')?>">Pre ST</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'stpresc', $om, $order == 'stpresc')?>">Pre SC</a></th>
-	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'stsc', $om, $order == 'stsc')?>">SC</a></th>
-	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'stpc', $om, $order == 'stpc')?>">SPT</a></th>
+
+        <?php endif?>
+
+	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'stsc', $om, $order == 'stsc')?>">SC</a></th>		<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'stpc', $om, $order == 'stpc')?>">SPT</a></th>
+
+	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'stspt_complete', $om, $order == 'stspt_complete')?>">SPT완료</a></th>		
+	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'stspt_incomplete', $om, $order == 'stspt_incomplete')?>">SPT미완료</a></th>
+
+
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'stcu', $om, $order == 'stcu')?>">CU</a></th>
 	<th scope="col" rowspan=2 class="split"><a href="<?php echo getSortingLink2($g['khusd_st_perio_list'], 'st_score_original', $om, $order == 'st_score_original')?>">ST 점수</a></th>
 	<?php else:?>
@@ -109,10 +133,16 @@
 	<th scope="col" rowspan=2 class="split">others</th>
 	<th scope="col" rowspan=2 class="split">TBI</th>
 	<th scope="col" rowspan=2 class="split">Obser 점수</th>
+
+        <?php if($SEMESTER_INFO['sid'] == 2):?>        
 	<th scope="col" rowspan=2 class="split">Pre ST</th>
 	<th scope="col" rowspan=2 class="split">Pre SC</th>
+        <?php endif?>
+
 	<th scope="col" rowspan=2 class="split">SC</th>
 	<th scope="col" rowspan=2 class="split">SPT</th>
+	<th scope="col" rowspan=2 class="split">SPT완료</th>
+	<th scope="col" rowspan=2 class="split">SPT미완료</th>
 	<th scope="col" rowspan=2 class="split">CU</th>
 	<th scope="col" rowspan=2 class="split">ST 점수</th>
 	<?php endif?>
@@ -161,10 +191,16 @@
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['others'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['tbi'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['ob_score_original'])?></td>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 		<td class="avg"><?php echo sprintf("%1d",$AVG['pre_st'])?>명</td>
 		<td class="avg"><?php echo sprintf("%1d",$AVG['stpresc'])?>명</td>
+        <?php endif?>
+
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['stsc'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['stpc'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['stspt_complete'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['stspt_incomplete'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['stcu'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['st_score_original'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['animal_exp'])?></td>
@@ -201,10 +237,16 @@
 	<td><?php echo $SCORE['others']?></td>
 	<td><?php echo $SCORE['tbi']?></td>
 	<td class="category4"><?php echo $SCORE['ob_score_original']?></td>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 	<td class="category5"><?php echo ($SCORE['pre_st'] == 1 ? '완' : '')?></td>
 	<td><?php echo ($SCORE['stpresc'] == 1 ? '완' : '') ?></td>
+        <?php endif?>
+
 	<td><?php echo $SCORE['stsc']?></td>
 	<td><?php echo $SCORE['stpc']?></td>
+	<td><?php echo $SCORE['stspt_complete']?></td>
+	<td><?php echo $SCORE['stspt_incomplete']?></td>
 	<td><?php echo $SCORE['stcu']?></td>
 	<td class="category4"><?php echo $SCORE['st_score_original']?></td>
 	<td class="category3"><?php echo $SCORE['animal_exp']?></td>
@@ -240,10 +282,16 @@
 	<td><?php echo $SCORE['others']?></td>
 	<td><?php echo $SCORE['tbi']?></td>
 	<td class="category4"><?php echo $SCORE['ob_score_original']?></td>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 	<td class="category5"><?php echo ($SCORE['pre_st'] == 1 ? '완' : '')?></td>
 	<td><?php echo ($SCORE['stpresc'] == 1 ? '완' : '')  ?></td>
+        <?php endif?>
+
 	<td><?php echo $SCORE['stsc']?></td>
 	<td><?php echo $SCORE['stpc']?></td>
+	<td><?php echo $SCORE['stspt_complete']?></td>
+	<td><?php echo $SCORE['stspt_incomplete']?></td>
 	<td><?php echo $SCORE['stcu']?></td>
 	<td class="category4"><?php echo $SCORE['st_score_original']?></td>
 	<td class="category3"><?php echo $SCORE['animal_exp']?></td>
@@ -280,16 +328,22 @@
 	<td><?php echo $SCORE['others']?></td>
 	<td><?php echo $SCORE['tbi']?></td>
 	<td class="category4"><?php echo $SCORE['ob_score_original']?></td>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 	<td class="category5"><?php echo ($SCORE['pre_st'] == 1 ? '완' : '')?></td>
 	<td><?php echo ($SCORE['stpresc'] == 1 ? '완' : '')  ?></td>
+        <?php endif?>
+
 	<td><?php echo $SCORE['stsc']?></td>
 	<td><?php echo $SCORE['stpc']?></td>
+	<td><?php echo $SCORE['stspt_complete']?></td>
+	<td><?php echo $SCORE['stspt_incomplete']?></td>
 	<td><?php echo $SCORE['stcu']?></td>
 	<td class="category4"><?php echo $SCORE['st_score_original']?></td>
-	<td class="category3"><?php echo $SCORE['animal_exp']?></td>
-	<td class="category3"><?php echo sprintf("%1.2f", $SCORE['fix'])?></td>
-	<td class="category3"><?php echo sprintf("%1.2f", $SCORE['cp'])?></td>
-	<td class="category5"><?php echo sprintf("%1.2f", $SCORE['total_score'])?></td>
+	<td><?php echo $SCORE['animal_exp']?></td>
+	<td><?php echo sprintf("%1.2f", $SCORE['fix'])?></td>
+	<td><?php echo sprintf("%1.2f", $SCORE['cp'])?></td>
+	<td class="category4"><?php echo sprintf("%1.2f", $SCORE['total_score'])?></td>
 
 	<td><?php echo getDateFormat($SCORE['date_update'],"Y-m-d H:i")?></td>
 	</tr>

@@ -15,7 +15,8 @@
 	<?php if($n_page):?>
 		<input type="hidden" name="n_page" value="<?php echo $n_page?>" />
 	<?php endif?>
-	
+
+        <?php $SEMESTER_INFO = getCurrentSemesterInfo()  ?>
 	<div id="follow_list" style="display:none;">
 		<table>
 		<caption>치주과 팔로우 리스트</caption>
@@ -162,9 +163,16 @@
 			<td class="title" colspan=2>ST Case</td>
 		</tr>
                 <tr>
+                <td class="head">지난학기 SC 완료갯수</td>
+                <td><input type="number" name="st_prevsc_complete" maxlength="5" class="input" value="<?php echo $SCORE['stprevsc_complete']?>">회</td>
+                </tr>
+                <?php if($SEMESTER_INFO['sid'] == 2):?>
+                <tr>
                 <td class="head">Pre-Scaling (PreSC)</td>
                 <td><input type="checkbox" name="st_presc" value="st_presc" <?php echo $SCORE['stpresc']==0?'':checked?> ></td>
                 </tr>
+                <?php endif?>
+
 		<tr>
 		<td class="head">Scaling (SC)</td>
 		<td><input type="number" name="st_sc" maxlength="5" class="input" value="<?php echo $SCORE['stsc']?>">회</td>
@@ -173,6 +181,15 @@
 		<td class="head">SPT</td>
 		<td><input type="number" name="st_pc" maxlength="5" class="input" value="<?php echo $SCORE['stpc']?>">회</td>
 		</tr>
+                <tr>
+                <td class="head">Charting&Scaling<br>(SPT완료)</td>
+                <td><input type="number" name="st_spt_complete" maxlength="5" class="input" value="<?php echo $SCORE['stspt_complete']?>">회</td>
+                </tr>
+                <tr>
+                <td class="head">Charting&Plaque control<br>(SPT미완료)</td>
+                <td><input type="number" name="st_spt_incomplete" maxlength="5" class="input" value="<?php echo $SCORE['stspt_incomplete']?>">회</td>
+                </tr>
+
 		<tr>
 		<td class="head">Curettage (CU)</td>
 		<td><input type="number" name="st_cu" maxlength="5" class="input" value="<?php echo $SCORE['stcu']?>">회</td>

@@ -57,8 +57,8 @@
                 .') * '.$PERIO_SCORE_ARRAY['obser_ratio'];
 
 	$_data_st_score_original = 
-			'sc.stsc * '.$d['khusd_st_perio']['score']['stsc']
-			.'+ sc.stpc * '.$d['khusd_st_perio']['score']['stpc']
+			'sc.stspt_complete * '.$d['khusd_st_perio']['score']['stspt_complete']
+			.'+ sc.stspt_incomplete * '.$d['khusd_st_perio']['score']['stspt_incomplete']
 			.'+ sc.stcu * '.$d['khusd_st_perio']['score']['stcu']
 			;
         $_data_st_score_sum =
@@ -167,6 +167,8 @@
 		.', SUM(stpresc) AS stpresc'
 		.', AVG(stsc) AS stsc'
 		.', AVG(stpc) AS stpc'
+		.', AVG(stspt_complete) AS stspt_complete'
+		.', AVG(stspt_incomplete) AS stspt_incomplete'
 		.', AVG(stcu) AS stcu'
 		.', AVG(fw_t.follow_A) AS follow_A'
 		.', AVG(fw_t.follow_B) AS follow_B'

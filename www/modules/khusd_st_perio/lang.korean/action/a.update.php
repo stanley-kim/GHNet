@@ -51,6 +51,11 @@ if( $_POST['st_presc'] ) $st_presc = 1;
 else  $st_presc = 0;
 $st_sc			= intval($st_sc);
 $st_pc			= intval($st_pc);
+
+$st_prevsc_complete	= intval($st_prevsc_complete);
+$st_spt_complete	= intval($st_spt_complete);
+$st_spt_incomplete	= intval($st_spt_incomplete);
+
 $st_cu			= intval($st_cu);
 $st_cu_selected		= intval($st_cu_selected);
 $st_cu_todo			= intval($st_cu_todo);
@@ -71,9 +76,9 @@ if($is_goal == 'n')
 {
 	// 입력한 데이터로 query 생성
 	$QKEY = "s_uid, st_id, follow_point, iot, charting, surgery, surgery2, imp_1st, imp_1st2, imp_2nd, imp_2nd2, abandon, sc, sc2, others, tbi, stsc, stpc, stcu, stcu_selected, stcu_todo, is_goal, fix, cp, date_update, perio_report, imp1_report, imp2_report, animal_exp";
-	$QKEY = "s_uid, st_id, follow_point, iot, charting, surgery, surgery2, imp_1st, imp_1st2, imp_2nd, imp_2nd2, abandon, sc, sc2, others, tbi, stpresc, stsc, stpc, stcu, stcu_selected, stcu_todo, is_goal, fix, cp, date_update, perio_report, imp1_report, imp2_report, animal_exp";
+	$QKEY = "s_uid, st_id, follow_point, iot, charting, surgery, surgery2, imp_1st, imp_1st2, imp_2nd, imp_2nd2, abandon, sc, sc2, others, tbi, stpresc, stsc, stpc, stprevsc_complete, stspt_complete, stspt_incomplete, stcu, stcu_selected, stcu_todo, is_goal, fix, cp, date_update, perio_report, imp1_report, imp2_report, animal_exp";
 	$QVAL = "'$s_uid', '$st_id', '$follow_point', '$iot', '$charting', '$perio_surgery', '$perio_surgery2', '$imp_1st', '$imp_1st2', '$imp_2nd', '$imp_2nd2', '$abandon', '$scaling', '$scaling2', '$others', '$tbi', '$st_sc', '$st_pc', '$st_cu', '$stcu_selected', '$stcu_todo', '$is_goal', '$fix', '$cp', '$date_update', '$perio_report','$imp1_report','$imp2_report', '$animal_exp'";
-	$QVAL = "'$s_uid', '$st_id', '$follow_point', '$iot', '$charting', '$perio_surgery', '$perio_surgery2', '$imp_1st', '$imp_1st2', '$imp_2nd', '$imp_2nd2', '$abandon', '$scaling', '$scaling2', '$others', '$tbi', '$st_presc', '$st_sc', '$st_pc', '$st_cu', '$stcu_selected', '$stcu_todo', '$is_goal', '$fix', '$cp', '$date_update', '$perio_report','$imp1_report','$imp2_report', '$animal_exp'";
+	$QVAL = "'$s_uid', '$st_id', '$follow_point', '$iot', '$charting', '$perio_surgery', '$perio_surgery2', '$imp_1st', '$imp_1st2', '$imp_2nd', '$imp_2nd2', '$abandon', '$scaling', '$scaling2', '$others', '$tbi', '$st_presc', '$st_sc', '$st_pc', '$st_prevsc_complete', '$st_spt_complete', '$st_spt_incomplete', '$st_cu', '$stcu_selected', '$stcu_todo', '$is_goal', '$fix', '$cp', '$date_update', '$perio_report','$imp1_report','$imp2_report', '$animal_exp'";
 		
 	getDbInsert($table[$m.'score'],$QKEY,$QVAL);
 }

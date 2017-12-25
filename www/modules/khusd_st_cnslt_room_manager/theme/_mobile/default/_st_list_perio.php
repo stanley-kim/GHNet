@@ -1,4 +1,7 @@
 <div id="perio_list" class="khusd_st calendar list perio">
+
+        <?php $SEMESTER_INFO = getCurrentSemesterInfo()  ?>
+
 	<table summary="치주과 ST 신청표 입니다.">
 	<caption>
 	<?php echo getDateFormat($st_date,'Y-m-d (D)')?>
@@ -23,7 +26,10 @@
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<col width="50">
+        <?php endif?>
+
 	<?php if($MANAGER):?>
 	<col width="50"> 
 	<?php endif?>
@@ -50,7 +56,10 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'perio_accepted_chair', $om, $order == 'perio_accepted_chair')?>">금주체어배정(치주)</th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'perio_chair', $om, $order == 'perio_chair')?>">금주체어신청(치주)</th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'total_chair', $om, $order == 'total_chair')?>">금주체어신청(총)</th>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'pre_st', $om, $order == 'pre_st')?>">Pre-ST 완료</a></th>
+        <?php endif?>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'date_reg', $om, $order == 'date_reg')?>">신청시간</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'date_cancel', $om, $order == 'date_cancel')?>">취소시간</a></th>
 	</tr>
@@ -71,7 +80,11 @@
 	<th scope="col" class="split">금주체어배정(치주)</th>
 	<th scope="col" class="split">금주체어신청(치주)</th>
 	<th scope="col" class="split">금주체어신청(총)</th>
+
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<th scope="col" class="split">Pre-ST 완료</th>
+        <?php endif?>
+
 	<th scope="col" class="split">신청시간</th>
 	<th scope="col" class="split">취소시간</th>
 	</tr>
@@ -159,7 +172,11 @@
 	<td><?php echo $ST_CHAIR['perio_accepted_chair']?></td>
 	<td><?php echo $ST_CHAIR['perio_chair']?></td>
 	<td><?php echo $ST_CHAIR['total_chair']?></td>
+
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<td><?php echo $ST_CHAIR['pre_st'] == 1 ? '완' : ''?></td>
+        <?php endif?>
+
 	<td><?php echo getDateFormat($ST_CHAIR['date_reg'],'Y-m-d H:i:s')?></td>
 	<td><?php echo getDateFormat($ST_CHAIR['date_cancel'],'Y-m-d H:i:s')?></td>
 	</tr>
