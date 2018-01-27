@@ -2,6 +2,8 @@
 
 <h2>보철과 정보 수정</h2>
 
+	<?php $SEMESTER_INFO = getCurrentSemesterInfo()  ?>
+
 	<form name="updateScore" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>" onsubmit="return updateCheck(this);">
 	<input type="hidden" name="r" value="<?php echo $r?>" />
 	<input type="hidden" name="a" value="update" />
@@ -17,9 +19,14 @@
 	<caption>보철과 점수표</caption>
 	<colgroup>
 		<col width=150>
-		<col>
-		<col>
-		<col>
+		<col width=100>
+		<col width=100>
+		<col width=100>
+		<col width=100>
+<!--
+		<col width=100>
+		<col width=100>
+-->
 	</colgroup>
 	<thead>
 		<tr>
@@ -27,59 +34,135 @@
 		<th scope="col"></th>
 		<th scope="col"></th>
 		<th scope="col"></th>
+		<th scope="col"></th>
+<!--
+		<th scope="col"></th>
+		<th scope="col"></th>
+-->
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td class="title" colspan=4>Observation(Follow Up)</td>
+			<td class="title" colspan=7>Observation(Follow Up)</td>
+		</tr>
+		<tr>
+		<td class="head"></td>
+		<td colspan=2>선생님</td>
+		<td colspan=2 class="category2">교수님</td>
+<!--
+		<td rowspan=2 colspan=1>(지난학기 완료<br> 선생님)</td>
+		<td rowspan=2 colspan=1 class="category2">(지난학기 완료<br> 교수님)</td>
+-->
+		</tr>
+		<tr>
+		<td class="head"></td>
+		<td>진행</td>
+		<td>완료</td>
+		<td class="category2">진행</td>
+		<td class="category2">완료</td>
 		</tr>
 		<tr>
 		<td class="head">Post Core</td>
-		<td>진행중<input type="number" name="post_core_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_ongoing']?>">회,</td>
-		<td>완료<input type="number" name="post_core_complete" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_complete']?>">회,</td>
-		<td>(지난학기 완료 : <input type="number" name="post_core_prev" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_prev']?>">회)</td>
+		<td><input type="number" name="post_core_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_ongoing']?>">회,</td>
+		<td ><input type="number" name="post_core_complete" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_complete']?>">회,</td>
+		<td class="category2"><input type="number" name="post_core_ongoing_prof" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_ongoing_prof']?>">회,</td>
+		<td class="category2"><input type="number" name="post_core_complete_prof" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_complete_prof']?>">회,</td>
+<!--
+		<td> <input type="number" name="post_core_prev" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_prev']?>">회</td>
+		<td class="category2"> <input type="number" name="post_core_prev_prof" maxlength="5" class="input num" value="<?php echo $SCORE['post_core_prev_prof']?>">회</td>
+-->
 		</tr>
 		<tr>
 		<td class="head">Implant Cr&Br</td>
-		<td>진행중<input type="number" name="imp_cr_br_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_ongoing']?>">회,</td>
-		<td>완료<input type="number" name="imp_cr_br_complete" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_complete']?>">회,</td>
-		<td>(지난학기 완료 : <input type="number" name="imp_cr_br_prev" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_prev']?>">회)</td>
+		<td><input type="number" name="imp_cr_br_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_ongoing']?>">회,</td>
+		<td ><input type="number" name="imp_cr_br_complete" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_complete']?>">회,</td>
+		<td class="category2"><input type="number" name="imp_cr_br_ongoing_prof" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_ongoing_prof']?>">회,</td>
+		<td class="category2"><input type="number" name="imp_cr_br_complete_prof" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_complete_prof']?>">회,</td>
+<!--
+		<td><input type="number" name="imp_cr_br_prev" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_prev']?>">회)</td>
+		<td class="category2"><input type="number" name="imp_cr_br_prev_prof" maxlength="5" class="input num" value="<?php echo $SCORE['imp_cr_br_prev_prof']?>">회)</td>
+-->
 		</tr>
 		<tr>
 		<td class="head">Single Cr/Laminate</td>
-		<td>진행중<input type="number" name="single_cr_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_ongoing']?>">회,</td>
-		<td>완료<input type="number" name="single_cr_complete" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_complete']?>">회,</td>
-		<td>(지난학기 완료 : <input type="number" name="single_cr_prev" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_prev']?>">회)</td>
+		<td><input type="number" name="single_cr_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_ongoing']?>">회,</td>
+		<td ><input type="number" name="single_cr_complete" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_complete']?>">회,</td>
+		<td class="category2"><input type="number" name="single_cr_ongoing_prof" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_ongoing_prof']?>">회,</td>
+		<td class="category2"><input type="number" name="single_cr_complete_prof" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_complete_prof']?>">회,</td>
+<!--
+		<td><input type="number" name="single_cr_prev" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_prev']?>">회</td>
+		<td class="category2"> <input type="number" name="single_cr_prev_prof" maxlength="5" class="input num" value="<?php echo $SCORE['single_cr_prev_prof']?>">회</td>
+-->
 		</tr>
 		<tr>
 		<td class="head">Bridge (3unit 이상)</td>
-		<td>진행중<input type="number" name="br_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['br_ongoing']?>">회,</td>
-		<td>완료<input type="number" name="br_complete" maxlength="5" class="input num" value="<?php echo $SCORE['br_complete']?>">회,</td>
-		<td>(지난학기 완료 : <input type="number" name="br_prev" maxlength="5" class="input num" value="<?php echo $SCORE['br_prev']?>">회)</td>
+		<td><input type="number" name="br_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['br_ongoing']?>">회,</td>
+		<td ><input type="number" name="br_complete" maxlength="5" class="input num" value="<?php echo $SCORE['br_complete']?>">회,</td>
+		<td class="category2"><input type="number" name="br_ongoing_prof" maxlength="5" class="input num" value="<?php echo $SCORE['br_ongoing_prof']?>">회,</td>
+		<td class="category2"><input type="number" name="br_complete_prof" maxlength="5" class="input num" value="<?php echo $SCORE['br_complete_prof']?>">회,</td>
+<!--
+		<td><input type="number" name="br_prev" maxlength="5" class="input num" value="<?php echo $SCORE['br_prev']?>">회</td>
+		<td class="category2"><input type="number" name="br_prev_prof" maxlength="5" class="input num" value="<?php echo $SCORE['br_prev_prof']?>">회</td>
+-->
 		</tr>
 		<tr>
 		<td class="head">Partial Denture</td>
-		<td>진행중<input type="number" name="partial_denture_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_ongoing']?>">회,</td>
-		<td>완료<input type="number" name="partial_denture_complete" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_complete']?>">회,</td>
-		<td>(지난학기 완료 : <input type="number" name="partial_denture_prev" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_prev']?>">회)</td>
+		<td><input type="number" name="partial_denture_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_ongoing']?>">회,</td>
+		<td><input type="number" name="partial_denture_complete" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_complete']?>">회,</td>
+		<td class="category2"><input type="number" name="partial_denture_ongoing_prof" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_ongoing_prof']?>">회,</td>
+		<td class="category2"><input type="number" name="partial_denture_complete_prof" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_complete_prof']?>">회,</td>
+<!--
+		<td> <input type="number" name="partial_denture_prev" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_prev']?>">회</td>
+		<td class="category2"> <input type="number" name="partial_denture_prev_prof" maxlength="5" class="input num" value="<?php echo $SCORE['partial_denture_prev_prof']?>">회</td>
+-->
 		</tr>
 		<tr>
 		<td class="head">Complete Denture</td>
-		<td>진행중<input type="number" name="complete_denture_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_ongoing']?>">회,</td>
-		<td>완료<input type="number" name="complete_denture_complete" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_complete']?>">회,</td>
-		<td>(지난학기 완료 : <input type="number" name="complete_denture_prev" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_prev']?>">회)</td>
+		<td><input type="number" name="complete_denture_ongoing" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_ongoing']?>">회,</td>
+		<td><input type="number" name="complete_denture_complete" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_complete']?>">회,</td>
+		<td class="category2"><input type="number" name="complete_denture_ongoing_prof" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_ongoing_prof']?>">회,</td>
+		<td class="category2"><input type="number" name="complete_denture_complete_prof" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_complete_prof']?>">회,</td>
+<!--
+		<td> <input type="number" name="complete_denture_prev" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_prev']?>">회</td>
+		<td class="category2"> <input type="number" name="complete_denture_prev_prof" maxlength="5" class="input num" value="<?php echo $SCORE['complete_denture_prev_prof']?>">회</td>
+-->
+		</tr>
+
+		<tr>
+<!--		<td colspan=7>
+<span class="btn02"><a href="#" onclick="changeFollowStatus2('<?php echo $MY_FOLLOW["uid"];?>', 'f'  );">Load Follow Data</a></span> -->
+
+		</td>
 		</tr>
 		<tr>
 			<td class="title" colspan=4>Observation(단순 Obs)</td>
 		</tr>
+                <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 		<tr>
 		<td rowspan="1" class="head">3학년 2학기</td>
 		<td>1cycle<input type="number" name="simple_obser_3_8" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_8']?>">회</td>
 		<td>2cycle<input type="number" name="simple_obser_3_10" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_10']?>">회</td>
 		<td>3cycle<input type="number" name="simple_obser_3_12" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_12']?>">회</td>
 		</tr>
+                <?php endif?>
+
+                <tr>
+                <td rowspan="2" class="head">4학년 1학기</td>
+                <td>1cycle<input type="number" name="simple_obser_4_2" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_2']?>">회</td>
+                <td>2cycle<input type="number" name="simple_obser_4_4" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_4']?>">회</td>
+                <td>3cycle<input type="number" name="simple_obser_4_6" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_6']?>">회</td>
+                </tr>
+                <tr>
+                <td>4cycle<input type="number" name="simple_obser_4_8" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_8']?>">회</td>
+                <td></td>
+                <td></td>
+                </tr>
+
 		<td>
 		<td>
+                <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 		<tr>
 			<td class="title" colspan=4>Pre ST Case</td>
 		</tr>
@@ -91,6 +174,7 @@
 <!--		<td>취소<input type="number" name="second_cr_cancel" maxlength="5" class="input num" value="<?php echo $SCORE['second_cr_cancel']?>">회,</td>-->
 		<td>(지난학기 완료 : <input type="number" name="second_cr_prev" maxlength="5" class="input num" value="<?php echo $SCORE['second_cr_prev']?>">회)</td>
 		</tr>
+        <?php endif?>
 
 		<td>
 		<td>

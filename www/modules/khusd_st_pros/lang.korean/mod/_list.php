@@ -1,4 +1,7 @@
 <?php
+
+        $SEMESTER_INFO = getCurrentSemesterInfo();
+
 	$SCORE_ARRAY = array();
 
 	// 정렬 순서에 대한 옵션 처리
@@ -34,7 +37,11 @@
 		AND mbrid.id = sc.st_id 
 	order by sc.follow DESC
 	*/
+        if($SEMESTER_INFO['sid'] == 2)
+
         $_data_total_simple_obser = 'sc.simple_obser_3_8 + sc.simple_obser_3_10 + sc.simple_obser_3_12' ;
+       else
+        $_data_total_simple_obser = 'sc.simple_obser_4_2 + sc.simple_obser_4_4 + sc.simple_obser_4_6 + sc.simple_obser_4_8' ;
 	
 	$_data_total_score = 
 		'sc.post_core_complete * '.$d['khusd_st_pros']['score']['post_core']
@@ -143,6 +150,10 @@
 			.', AVG(simple_obser_3_8) AS simple_obser_3_8'
 			.', AVG(simple_obser_3_10) AS simple_obser_3_10'
 			.', AVG(simple_obser_3_12) AS simple_obser_3_12'
+			.', AVG(simple_obser_4_2) AS simple_obser_4_2'
+			.', AVG(simple_obser_4_4) AS simple_obser_4_4'
+			.', AVG(simple_obser_4_6) AS simple_obser_4_6'
+			.', AVG(simple_obser_4_8) AS simple_obser_4_8'
 
 			.', AVG('.$_data_second_cr.') AS second_cr'
 			.', AVG('.$_data_post_core.') AS post_core'

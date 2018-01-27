@@ -37,6 +37,13 @@ $partial_denture_ongoing 	= intval($partial_denture_ongoing);
 $complete_denture_ongoing 	= intval($complete_denture_ongoing);
 $others_ongoing 			= intval($others_ongoing);
 
+$post_core_ongoing_prof 			= intval($post_core_ongoing_prof);
+$imp_cr_br_ongoing_prof 			= intval($imp_cr_br_ongoing_prof);
+$single_cr_ongoing_prof	 		= intval($single_cr_ongoing_prof);
+$br_ongoing_prof 				= intval($br_ongoing_prof);
+$partial_denture_ongoing_prof 	= intval($partial_denture_ongoing_prof);
+$complete_denture_ongoing_prof 	= intval($complete_denture_ongoing_prof);
+
 $second_cr_complete			= intval($second_cr_complete);
 $post_core_complete 		= intval($post_core_complete);
 $imp_cr_br_complete 		= intval($imp_cr_br_complete);
@@ -45,6 +52,13 @@ $br_complete 				= intval($br_complete);
 $partial_denture_complete 	= intval($partial_denture_complete);
 $complete_denture_complete 	= intval($complete_denture_complete);
 $others_complete 			= intval($others_complete);
+
+$post_core_complete_prof 		= intval($post_core_complete_prof);
+$imp_cr_br_complete_prof 		= intval($imp_cr_br_complete_prof);
+$single_cr_complete_prof	 		= intval($single_cr_complete_prof);
+$br_complete_prof 				= intval($br_complete_prof);
+$partial_denture_complete_prof 	= intval($partial_denture_complete_prof);
+$complete_denture_complete_prof 	= intval($complete_denture_complete_prof);
 
 $second_cr_cancel			= intval($second_cr_cancel);
 $post_core_cancel 			= intval($post_core_cancel);
@@ -64,12 +78,23 @@ $partial_denture_prev 	= intval($partial_denture_prev);
 $complete_denture_prev 	= intval($complete_denture_prev);
 $others_prev 				= intval($others_prev);
 
+$post_core_prev_prof 			= intval($post_core_prev_prof);
+$imp_cr_br_prev_prof 			= intval($imp_cr_br_prev_prof);
+$single_cr_prev_prof	 		= intval($single_cr_prev_prof);
+$br_prev_prof 					= intval($br_prev_prof);
+$partial_denture_prev_prof 	= intval($partial_denture_prev_prof);
+$complete_denture_prev_prof 	= intval($complete_denture_prev_prof);
+
 $simeple_obser_3_7 = intval($simple_obser_3_7);
 $simeple_obser_3_8 = intval($simple_obser_3_8);
 $simeple_obser_3_9 = intval($simple_obser_3_9);
 $simeple_obser_3_10 = intval($simple_obser_3_10);
 $simeple_obser_3_11 = intval($simple_obser_3_11);
 $simeple_obser_3_12 = intval($simple_obser_3_12);
+$simeple_obser_4_2 = intval($simple_obser_4_2);
+$simeple_obser_4_4 = intval($simple_obser_4_4);
+$simeple_obser_4_6 = intval($simple_obser_4_6);
+$simeple_obser_4_8 = intval($simple_obser_4_8);
 
 $st_case_1					= trim($st_case_1);
 $st_case_1_pt_name			= trim($st_case_1_pt_name);
@@ -119,17 +144,24 @@ $date_update = $date['totime'];
 $QKEY = "s_uid, st_id, "
 	."second_cr_ongoing, post_core_ongoing, imp_cr_br_ongoing, single_cr_ongoing,"
 	."br_ongoing, partial_denture_ongoing, complete_denture_ongoing, others_ongoing,"
+	."post_core_ongoing_prof, imp_cr_br_ongoing_prof, single_cr_ongoing_prof,"
+	."br_ongoing_prof, partial_denture_ongoing_prof, complete_denture_ongoing_prof,"
 	
 	."second_cr_complete, post_core_complete, imp_cr_br_complete, single_cr_complete,"
 	."br_complete, partial_denture_complete, complete_denture_complete, others_complete,"
+	."post_core_complete_prof, imp_cr_br_complete_prof, single_cr_complete_prof,"
+	."br_complete_prof, partial_denture_complete_prof, complete_denture_complete_prof,"
 	
 	."second_cr_cancel, post_core_cancel, imp_cr_br_cancel, single_cr_cancel,"
 	."br_cancel, partial_denture_cancel, complete_denture_cancel, others_cancel,"
 	
 	."second_cr_prev, post_core_prev, imp_cr_br_prev, single_cr_prev,"
 	."br_prev, partial_denture_prev, complete_denture_prev, others_prev,"
+	."post_core_prev_prof, imp_cr_br_prev_prof, single_cr_prev_prof,"
+	."br_prev_prof, partial_denture_prev_prof, complete_denture_prev_prof,"
 	."simple_obser_3_7, simple_obser_3_8, simple_obser_3_9,"
 	."simple_obser_3_10, simple_obser_3_11, simple_obser_3_12,"
+	."simple_obser_4_2, simple_obser_4_4, simple_obser_4_6, simple_obser_4_8,"
 
 	//."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly,"
 	."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly, st_case_1_pt_id, st_case_1_dental_formula,"
@@ -142,22 +174,28 @@ $QKEY = "s_uid, st_id, "
 $QVAL = "'$s_uid', '$st_id', "
 	."'$second_cr_ongoing', '$post_core_ongoing', '$imp_cr_br_ongoing', '$single_cr_ongoing',"
 	."'$br_ongoing', '$partial_denture_ongoing', '$complete_denture_ongoing', '$others_ongoing',"
+	."'$post_core_ongoing_prof', '$imp_cr_br_ongoing_prof', '$single_cr_ongoing_prof',"
+	."'$br_ongoing_prof', '$partial_denture_ongoing_prof', '$complete_denture_ongoing_prof',"
 	
 	."'$second_cr_complete', '$post_core_complete', '$imp_cr_br_complete', '$single_cr_complete',"
 	."'$br_complete', '$partial_denture_complete', '$complete_denture_complete', '$others_complete',"
+	."'$post_core_complete_prof', '$imp_cr_br_complete_prof', '$single_cr_complete_prof',"
+	."'$br_complete_prof', '$partial_denture_complete_prof', '$complete_denture_complete_prof',"
 	
 	."'$second_cr_cancel', '$post_core_cancel', '$imp_cr_br_cancel', '$single_cr_cancel',"
 	."'$br_cancel', '$partial_denture_cancel', '$complete_denture_cancel', '$others_cancel',"
 	
 	."'$second_cr_prev', '$post_core_prev', '$imp_cr_br_prev', '$single_cr_prev',"
 	."'$br_prev', '$partial_denture_prev', '$complete_denture_prev', '$others_prev',"
+	."'$post_core_prev_prof', '$imp_cr_br_prev_prof', '$single_cr_prev_prof',"
+	."'$br_prev_prof', '$partial_denture_prev_prof', '$complete_denture_prev_prof',"
 	."'$simple_obser_3_7', '$simple_obser_3_8', '$simple_obser_3_9',"
 	."'$simple_obser_3_10', '$simple_obser_3_11', '$simple_obser_3_12',"
+	."'$simple_obser_4_2', '$simple_obser_4_4', '$simple_obser_4_6', '$simple_obser_4_8',"
 
 	//."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly',"
 	."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly', '$st_case_1_pt_id', '$st_case_1_dental_formula',"
 	."'$st_case_2', '$st_case_2_pt_name', '$st_case_2_last_tx_date', '$st_case_2_last_tx', '$st_case_2_last_inst', '$st_case_2_friendly', '$st_case_2_pt_id', '$st_case_2_dental_formula', "
-	//."'$st_case_3', '$st_case_2_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly',
 	."'$st_case_3', '$st_case_3_pt_name', '$st_case_3_last_tx_date', '$st_case_3_last_tx', '$st_case_3_last_inst', '$st_case_3_friendly', '$st_case_3_pt_id', '$st_case_3_dental_formula',"
 	."'$st_score',"
 

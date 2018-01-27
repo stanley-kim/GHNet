@@ -388,24 +388,28 @@ elseif($mode == 'verification' && $MANAGER) {
 		return false;
 	}
 
+	$SEMESTER_INFO = getCurrentSemesterInfo();
+
         $SCORE_ARRAY = array();
 
         $order_by = $order ? $order : 'perio_sc.st_id';
         $order_mode = 'ASC';
 
-        $s_uid = '2';
+        //$s_uid = '2';
+	$s_uid = $SEMESTER_INFO['sid'];
         $_data_perio_ch_iot = 'perio_sc.iot + perio_sc.charting';
         $_data_perio_total_surgery = 'perio_sc.surgery+perio_sc.imp_1st+perio_sc.imp_2nd+perio_sc.surgery2+perio_sc.imp_1st2+perio_sc.imp_2nd2';
         $_data_radio_decoding_filming = 'radio_sc.obser_decoding + radio_sc.obser_filming';
         $_data_medi_prof_fix = 'medi_sc.fix_am + medi_sc.fix_pm';
         $_data_medi_splint = 'medi_sc.splint_impression + 0.5*medi_sc.splint_polishing';
 
-        $_data_post_core = 'pros_sc.post_core_complete + pros_sc.post_core_ongoing';
-        $_data_imp_cr_br = 'pros_sc.imp_cr_br_complete + pros_sc.imp_cr_br_ongoing';
-        $_data_single_cr = 'pros_sc.single_cr_complete + pros_sc.single_cr_ongoing';
-        $_data_br = 'pros_sc.br_complete + pros_sc.br_ongoing';
-        $_data_partial_denture = 'pros_sc.partial_denture_complete + pros_sc.partial_denture_ongoing';
-        $_data_complete_denture = 'pros_sc.complete_denture_complete + pros_sc.complete_denture_ongoing';
+        $_data_post_core = 'pros_sc.post_core_complete + pros_sc.post_core_ongoing + pros_sc.post_core_complete_prof + pros_sc.post_core_ongoing_prof';
+        $_data_imp_cr_br = 'pros_sc.imp_cr_br_complete_prof + pros_sc.imp_cr_br_ongoing_prof + pros_sc.imp_cr_br_complete + pros_sc.imp_cr_br_ongoing';
+        $_data_single_cr = 'pros_sc.single_cr_complete_prof + pros_sc.single_cr_ongoing_prof + pros_sc.single_cr_complete + pros_sc.single_cr_ongoing';
+        $_data_br = 'pros_sc.br_complete + pros_sc.br_ongoing + pros_sc.br_complete_prof + pros_sc.br_ongoing_prof';
+        $_data_partial_denture = 'pros_sc.partial_denture_complete + pros_sc.partial_denture_ongoing + pros_sc.partial_denture_complete_prof + pros_sc.partial_denture_ongoing_prof ';
+        $_data_complete_denture = 'pros_sc.complete_denture_complete + pros_sc.complete_denture_ongoing + pros_sc.complete_denture_complete_prof + pros_sc.complete_denture_ongoing_prof ';
+
 
 	$_data_pedia_prof_fix = 'pedia_sc.prof_fix_am + pedia_sc.prof_fix_pm' ;
 

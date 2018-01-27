@@ -37,6 +37,10 @@
 		$SCORE['simple_obser_3_10'] = 0;
 		$SCORE['simple_obser_3_11'] = 0;
 		$SCORE['simple_obser_3_12'] = 0;
+		$SCORE['simple_obser_4_2'] = 0;
+		$SCORE['simple_obser_4_4'] = 0;
+		$SCORE['simple_obser_4_6'] = 0;
+		$SCORE['simple_obser_4_8'] = 0;
 	}
 	
 	

@@ -81,99 +81,113 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
 
 	
 	<table summary="보철과 점수표 입니다.">
-	<caption>보철과 점수표</caption> 
+	<caption>보철과 팔로우 진행 완료 조사</caption> 
 	<colgroup> 
 	<col width="35">
 	<col width="125"> 
-	<col width="120"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
+	<col width="120">
+        <?php $idx = 0?>
+        <?php while($idx < 54):?>
+	<col width="10"> 
+        <?php $idx += 1?>
+        <?php endwhile?>
+
 	</colgroup> 
 	<thead>
 	<tr>
-	<th rowspan="2" scope="col" class="split">No</th>
-	<th rowspan="2" scope="col" class="split">학번</th>
-	<th rowspan="2" scope="col" class="split">이름</th>
-	<th colspan="4" scope="col" class="split category2">2년차 Cr</th>
-	<th colspan="4" scope="col" class="split">Post Core</th>
-	<th colspan="4" scope="col" class="split category2">Impl. Cr&Br</th>
-	<th colspan="4" scope="col" class="split">Single Cr</th>
-	<th colspan="4" scope="col" class="split category2">Br.</th>
-	<th colspan="4" scope="col" class="split">RPD</th>
-	<th colspan="4" scope="col" class="split category2">CD</th>
-	<th colspan="4" scope="col" class="split">others</th>
+	<th rowspan="3" scope="col" class="split">No</th>
+	<th rowspan="3" scope="col" class="split">학번</th>
+	<th rowspan="3" scope="col" class="split">이름</th>
+	<th colspan="9" scope="col" class="split">Post</th>
+	<th colspan="9" scope="col" class="split category2">임플란트</th>
+	<th colspan="9" scope="col" class="split">크라운</th>
+	<th colspan="9" scope="col" class="split category2">브릿지</th>
+	<th colspan="9" scope="col" class="split">RPD</th>
+	<th colspan="9" scope="col" class="split category2">CD</th>
 	</tr>
 	<tr>
-	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
-	<th scope="col" class="split">진행+완</th>
+
+	<th colspan="3" scope="col" class="split">선생님</th>
+	<th colspan="3" scope="col" class="split">교수님</th>
+	<th colspan="3" scope="col" class="split">전체</th>
+	<th colspan="3" scope="col" class="split">선생님</th>
+	<th colspan="3" scope="col" class="split">교수님</th>
+	<th colspan="3" scope="col" class="split">전체</th>
+	<th colspan="3" scope="col" class="split">선생님</th>
+	<th colspan="3" scope="col" class="split">교수님</th>
+	<th colspan="3" scope="col" class="split">전체</th>
+	<th colspan="3" scope="col" class="split">선생님</th>
+	<th colspan="3" scope="col" class="split">교수님</th>
+	<th colspan="3" scope="col" class="split">전체</th>
+	<th colspan="3" scope="col" class="split">선생님</th>
+	<th colspan="3" scope="col" class="split">교수님</th>
+	<th colspan="3" scope="col" class="split">전체</th>
+	<th colspan="3" scope="col" class="split">선생님</th>
+	<th colspan="3" scope="col" class="split">교수님</th>
+	<th colspan="3" scope="col" class="split">전체</th>
+	</tr>
+	<tr>
 
 	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
-	<th scope="col" class="split">진행+완</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">진행+완료</th>
 
 	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
-	<th scope="col" class="split">진행+완</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">진행+완료</th>
 
 	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
-	<th scope="col" class="split">진행+완</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">진행+완료</th>
 
 	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
-	<th scope="col" class="split">진행+완</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">진행+완료</th>
 
 	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
-	<th scope="col" class="split">진행+완</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">진행+완료</th>
 
 	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
-	<th scope="col" class="split">진행+완</th>
-
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
 	<th scope="col" class="split">진행</th>
-	<th scope="col" class="split">완</th>
-	<th scope="col" class="split">취소</th>
-	<th scope="col" class="split">진행+완</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">합</th>
+	<th scope="col" class="split">진행</th>
+	<th scope="col" class="split">완료</th>
+	<th scope="col" class="split">진행+완료</th>
+
 	</tr>
 	</thead>
 	<tbody>
@@ -187,45 +201,67 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
 	<td class="hand category1"><a href="<?php echo getSortingLink($c, $SCORE['st_id'], $om)?>"><?php echo $SCORE['st_id']?></a></td>
 	<td class="hand category1"><a href="<?php echo getSortingLink($c, $SCORE['st_id'], $om)?>"><?php echo $SCORE['st_info']['name']?></a></td>
 
-	<td class="category1"><?php echo $SCORE['second_cr_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['second_cr_complete']?></td>
-	<td><?php echo $SCORE['second_cr_cancel']?></td>
-	<td class="category2"><?php echo $SCORE['second_cr']?></td>
 	
 	<td class="category1"><?php echo $SCORE['post_core_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['post_core_complete']?></td>
-	<td><?php echo $SCORE['post_core_cancel']?></td>
-	<td class="category2"><?php echo $SCORE['post_core']?></td>
+	<td class="category1"><?php echo $SCORE['post_core_complete']?></td>
+	<td class="category1"><?php echo $SCORE['post_core_total_resident']?></td>
+	<td class="category2"><?php echo $SCORE['post_core_ongoing_prof']?></td>
+	<td class="category2"><?php echo $SCORE['post_core_complete_prof']?></td>
+	<td class="category2"><?php echo $SCORE['post_core_total_prof']?></td>
+	<td ><?php echo $SCORE['post_core_total_ongoing']?></td>
+	<td ><?php echo $SCORE['post_core_total_complete']?></td>
+	<td ><?php echo $SCORE['post_core']?></td>
 	
 	<td class="category1"><?php echo $SCORE['imp_cr_br_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['imp_cr_br_complete']?></td>
-	<td><?php echo $SCORE['imp_cr_br_cancel']?></td>
-	<td class="category2"><?php echo $SCORE['imp_cr_br']?></td>
+	<td class="category1"><?php echo $SCORE['imp_cr_br_complete']?></td>
+	<td class="category1"><?php echo $SCORE['imp_cr_br_total_resident']?></td>
+	<td class="category2"><?php echo $SCORE['imp_cr_br_ongoing_prof']?></td>
+	<td class="category2"><?php echo $SCORE['imp_cr_br_complete_prof']?></td>
+	<td class="category2"><?php echo $SCORE['imp_cr_br_total_prof']?></td>
+	<td ><?php echo $SCORE['imp_cr_br_total_ongoing']?></td>
+	<td ><?php echo $SCORE['imp_cr_br_total_complete']?></td>
+	<td ><?php echo $SCORE['imp_cr_br']?></td>
 	
 	<td class="category1"><?php echo $SCORE['single_cr_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['single_cr_complete']?></td>
-	<td><?php echo $SCORE['single_cr_cancel']?></td>
-	<td class="category2"><?php echo $SCORE['single_cr']?></td>
+	<td class="category1"><?php echo $SCORE['single_cr_complete']?></td>
+	<td class="category1"><?php echo $SCORE['single_cr_total_resident']?></td>
+	<td class="category2"><?php echo $SCORE['single_cr_ongoing_prof']?></td>
+	<td class="category2"><?php echo $SCORE['single_cr_complete_prof']?></td>
+	<td class="category2"><?php echo $SCORE['single_cr_total_prof']?></td>
+	<td ><?php echo $SCORE['single_cr_total_ongoing']?></td>
+	<td ><?php echo $SCORE['single_cr_total_complete']?></td>
+	<td ><?php echo $SCORE['single_cr']?></td>
 	
 	<td class="category1"><?php echo $SCORE['br_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['br_complete']?></td>
-	<td><?php echo $SCORE['br_cancel']?></td>
-	<td class="category2"><?php echo $SCORE['br']?></td>
+	<td class="category1"><?php echo $SCORE['br_complete']?></td>
+	<td class="category1"><?php echo $SCORE['br_total_resident']?></td>
+	<td class="category2"><?php echo $SCORE['br_ongoing_prof']?></td>
+	<td class="category2"><?php echo $SCORE['br_complete_prof']?></td>
+	<td class="category2"><?php echo $SCORE['br_total_prof']?></td>
+	<td ><?php echo $SCORE['br_total_ongoing']?></td>
+	<td ><?php echo $SCORE['br_total_complete']?></td>
+	<td ><?php echo $SCORE['br']?></td>
 	
 	<td class="category1"><?php echo $SCORE['partial_denture_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['partial_denture_complete']?></td>
-	<td><?php echo $SCORE['partial_denture_cancel']?></td>
-	<td class="category2"><?php echo $SCORE['partial_denture']?></td>
+	<td class="category1"><?php echo $SCORE['partial_denture_complete']?></td>
+	<td class="category1"><?php echo $SCORE['partial_denture_total_resident']?></td>
+	<td class="category2"><?php echo $SCORE['partial_denture_ongoing_prof']?></td>
+	<td class="category2"><?php echo $SCORE['partial_denture_complete_prof']?></td>
+	<td class="category2"><?php echo $SCORE['partial_denture_total_prof']?></td>
+	<td ><?php echo $SCORE['partial_denture_total_ongoing']?></td>
+	<td ><?php echo $SCORE['partial_denture_total_complete']?></td>
+	<td ><?php echo $SCORE['partial_denture']?></td>
 	
 	<td class="category1"><?php echo $SCORE['complete_denture_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['complete_denture_complete']?></td>
-	<td><?php echo $SCORE['complete_denture_cancel']?></td>
-	<td class="category2"><?php echo $SCORE['complete_denture']?></td>
+	<td class="category1"><?php echo $SCORE['complete_denture_complete']?></td>
+	<td class="category1"><?php echo $SCORE['complete_denture_total_resident']?></td>
+	<td class="category2"><?php echo $SCORE['complete_denture_ongoing_prof']?></td>
+	<td class="category2"><?php echo $SCORE['complete_denture_complete_prof']?></td>
+	<td class="category2"><?php echo $SCORE['complete_denture_total_prof']?></td>
+	<td ><?php echo $SCORE['complete_denture_total_ongoing']?></td>
+	<td ><?php echo $SCORE['complete_denture_total_complete']?></td>
+	<td ><?php echo $SCORE['complete_denture']?></td>
 	
-	<td class="category1"><?php echo $SCORE['others_ongoing']?></td>
-	<td class="category2"><?php echo $SCORE['others_complete']?></td>
-	<td><?php echo $SCORE['others_cancel']?></td>
-	<td class="category2"><?php echo $SCORE['others']?></td>
 	
 	</tr>
 	<?php endforeach?>

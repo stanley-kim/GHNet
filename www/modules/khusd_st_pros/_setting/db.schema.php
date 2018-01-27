@@ -30,6 +30,13 @@ CREATE TABLE `".$table[$module.'score']."` (
   `complete_denture_ongoing` int(4) NOT NULL default 0,
   `others_ongoing` int(4) NOT NULL default 0,
 
+  `post_core_ongoing_prof` int(4) NOT NULL default 0,
+  `imp_cr_br_ongoing_prof` int(4) NOT NULL default 0,
+  `single_cr_ongoing_prof` int(4) NOT NULL default 0,
+  `br_ongoing_prof` int(4) NOT NULL default 0,
+  `partial_denture_ongoing_prof` int(4) NOT NULL default 0,
+  `complete_denture_ongoing_prof` int(4) NOT NULL default 0,
+
   `second_cr_complete` int(4) NOT NULL default 0,
   `post_core_complete` int(4) NOT NULL default 0,
   `imp_cr_br_complete` int(4) NOT NULL default 0,
@@ -39,12 +46,23 @@ CREATE TABLE `".$table[$module.'score']."` (
   `complete_denture_complete` int(4) NOT NULL default 0,
   `others_complete` int(4) NOT NULL default 0,
 
+  `post_core_complete_prof` int(4) NOT NULL default 0,
+  `imp_cr_br_complete_prof` int(4) NOT NULL default 0,
+  `single_cr_complete_prof` int(4) NOT NULL default 0,
+  `br_complete_prof` int(4) NOT NULL default 0,
+  `partial_denture_complete_prof` int(4) NOT NULL default 0,
+  `complete_denture_complete_prof` int(4) NOT NULL default 0,
+
   `simple_obser_3_7` int(4) NOT NULL default 0,
   `simple_obser_3_8` int(4) NOT NULL default 0,
   `simple_obser_3_9` int(4) NOT NULL default 0,
   `simple_obser_3_10` int(4) NOT NULL default 0,
   `simple_obser_3_11` int(4) NOT NULL default 0,
   `simple_obser_3_12` int(4) NOT NULL default 0,
+  `simple_obser_4_2` int(4) NOT NULL default 0,
+  `simple_obser_4_4` int(4) NOT NULL default 0,
+  `simple_obser_4_6` int(4) NOT NULL default 0,
+  `simple_obser_4_8` int(4) NOT NULL default 0,
   
   `st_case_1`	varchar(50) NOT NULL default '',
   `st_case_1_pt_name`	varchar(20) NOT NULL default '',
@@ -87,6 +105,13 @@ CREATE TABLE `".$table[$module.'score']."` (
   `complete_denture_prev`	int(4) NOT NULL default 0,
   `others_prev`	int(4) NOT NULL default 0,
   `st_score`	int(4) NOT NULL default 0,
+
+  `post_core_prev_prof`	int(4) NOT NULL default 0,
+  `imp_cr_br_prev_prof`	int(4) NOT NULL default 0,
+  `single_cr_prev_prof`	int(4) NOT NULL default 0,
+  `br_prev_prof`	int(4) NOT NULL default 0,
+  `partial_denture_prev_prof`	int(4) NOT NULL default 0,
+  `complete_denture_prev_prof`	int(4) NOT NULL default 0,
 
   `date_update` varchar(14) NOT NULL default '',
   PRIMARY KEY  (`uid`),

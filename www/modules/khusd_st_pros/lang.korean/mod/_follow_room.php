@@ -20,12 +20,37 @@
     
     
 	$_data_second_cr = 'sc.second_cr_complete + sc.second_cr_ongoing';
-	$_data_post_core = 'sc.post_core_complete + sc.post_core_ongoing';
-	$_data_imp_cr_br = 'sc.imp_cr_br_complete + sc.imp_cr_br_ongoing';
-	$_data_single_cr = 'sc.single_cr_complete + sc.single_cr_ongoing';
-	$_data_br = 'sc.br_complete + sc.br_ongoing';
-	$_data_partial_denture = 'sc.partial_denture_complete + sc.partial_denture_ongoing';
-	$_data_complete_denture = 'sc.complete_denture_complete + sc.complete_denture_ongoing';
+	$_data_post_core_total_resident = 'sc.post_core_ongoing + sc.post_core_complete';
+	$_data_post_core_total_prof = 'sc.post_core_ongoing_prof + sc.post_core_complete_prof';
+	$_data_post_core_total_ongoing = 'sc.post_core_ongoing + sc.post_core_ongoing_prof';
+	$_data_post_core_total_complete = 'sc.post_core_complete + sc.post_core_complete_prof';
+	$_data_post_core = 'sc.post_core_complete + sc.post_core_ongoing + sc.post_core_complete_prof + sc.post_core_ongoing_prof';
+	$_data_imp_cr_br_total_resident = 'sc.imp_cr_br_complete + sc.imp_cr_br_ongoing';
+	$_data_imp_cr_br_total_prof = 'sc.imp_cr_br_complete_prof + sc.imp_cr_br_ongoing_prof';
+	$_data_imp_cr_br_total_ongoing = 'sc.imp_cr_br_ongoing_prof + sc.imp_cr_br_ongoing';
+	$_data_imp_cr_br_total_complete = 'sc.imp_cr_br_complete_prof + sc.imp_cr_br_complete';
+	$_data_imp_cr_br = 'sc.imp_cr_br_complete_prof + sc.imp_cr_br_ongoing_prof + sc.imp_cr_br_complete + sc.imp_cr_br_ongoing';
+	$_data_single_cr_total_resident = 'sc.single_cr_complete + sc.single_cr_ongoing';
+	$_data_single_cr_total_prof = 'sc.single_cr_complete_prof + sc.single_cr_ongoing_prof';
+	$_data_single_cr_total_ongoing = 'sc.single_cr_ongoing_prof + sc.single_cr_ongoing';
+	$_data_single_cr_total_complete = 'sc.single_cr_complete + sc.single_cr_complete_prof';
+	$_data_single_cr = 'sc.single_cr_complete_prof + sc.single_cr_ongoing_prof + sc.single_cr_complete + sc.single_cr_ongoing';
+        $_data_br_total_resident = 'sc.br_complete + sc.br_ongoing';
+        $_data_br_total_prof = 'sc.br_complete_prof + sc.br_ongoing_prof';
+        $_data_br_total_ongoing = 'sc.br_ongoing_prof + sc.br_ongoing';
+        $_data_br_total_complete = 'sc.br_complete + sc.br_complete_prof';
+	$_data_br = 'sc.br_complete + sc.br_ongoing + sc.br_complete_prof + sc.br_ongoing_prof';
+	$_data_partial_denture_total_resident = 'sc.partial_denture_complete + sc.partial_denture_ongoing';
+	$_data_partial_denture_total_prof = 'sc.partial_denture_complete_prof + sc.partial_denture_ongoing_prof';
+	$_data_partial_denture_total_ongoing = 'sc.partial_denture_ongoing_prof + sc.partial_denture_ongoing';
+	$_data_partial_denture_total_complete = 'sc.partial_denture_complete + sc.partial_denture_complete_prof';
+	$_data_partial_denture = 'sc.partial_denture_complete + sc.partial_denture_ongoing + sc.partial_denture_complete_prof + sc.partial_denture_ongoing_prof ';
+	$_data_complete_denture_total_resident = 'sc.complete_denture_complete + sc.complete_denture_ongoing';
+	$_data_complete_denture_total_prof = 'sc.complete_denture_complete_prof + sc.complete_denture_ongoing_prof';
+	$_data_complete_denture_total_ongoing = 'sc.complete_denture_ongoing_prof + sc.complete_denture_ongoing';
+	$_data_complete_denture_total_complete = 'sc.complete_denture_complete + sc.complete_denture_complete_prof';
+	//$_data_complete_denture = 'sc.complete_denture_complete + sc.complete_denture_ongoing ';
+	$_data_complete_denture = 'sc.complete_denture_complete + sc.complete_denture_ongoing + sc.complete_denture_complete_prof + sc.complete_denture_ongoing_prof ';
 	$_data_others = 'sc.others_complete + sc.others_ongoing';
 	
 	$_join = 'SELECT MAX(date_update) date_update,st_id FROM '.$table[$m.'score'].' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
@@ -36,11 +61,39 @@
 	$_data = 
 		'sc.*'
 		.', '.$_data_second_cr.' AS second_cr'
+		.', '.$_data_post_core_total_resident.' AS post_core_total_resident'
+		.', '.$_data_post_core_total_prof.' AS post_core_total_prof'
+		.', '.$_data_post_core_total_ongoing.' AS post_core_total_ongoing'
+		.', '.$_data_post_core_total_complete.' AS post_core_total_complete'
 		.', '.$_data_post_core.' AS post_core'
+		.', '.$_data_imp_cr_br_total_resident.' AS imp_cr_br_total_resident'
+		.', '.$_data_imp_cr_br_total_prof.' AS imp_cr_br_total_prof'
+		.', '.$_data_imp_cr_br_total_ongoing.' AS imp_cr_br_total_ongoing'
+		.', '.$_data_imp_cr_br_total_complete.' AS imp_cr_br_total_complete'
+		.', '.$_data_imp_cr_br_total_resident.' AS imp_cr_br_total_resident'
+		.', '.$_data_imp_cr_br_total_prof.' AS imp_cr_br_total_prof'
+		.', '.$_data_imp_cr_br_total_ongoing.' AS imp_cr_br_total_ongoing'
+		.', '.$_data_imp_cr_br_total_complete.' AS imp_cr_br_total_complete'
 		.', '.$_data_imp_cr_br.' AS imp_cr_br'
+		.', '.$_data_single_cr_total_resident.' AS single_cr_total_resident'
+		.', '.$_data_single_cr_total_prof.' AS single_cr_total_prof'
+		.', '.$_data_single_cr_total_ongoing.' AS single_cr_total_ongoing'
+		.', '.$_data_single_cr_total_complete.' AS single_cr_total_complete'
 		.', '.$_data_single_cr.' AS single_cr'
+                .', '.$_data_br_total_resident.' AS br_total_resident'
+                .', '.$_data_br_total_prof.'     AS br_total_prof'
+                .', '.$_data_br_total_ongoing.'  AS br_total_ongoing'
+                .', '.$_data_br_total_complete.' AS br_total_complete'
 		.', '.$_data_br.' AS br'
+		.', '.$_data_partial_denture_total_resident.' AS partial_denture_total_resident'
+		.', '.$_data_partial_denture_total_prof.' AS partial_denture_total_prof'
+		.', '.$_data_partial_denture_total_ongoing.' AS partial_denture_total_ongoing'
+		.', '.$_data_partial_denture_total_complete.' AS partial_denture_total_complete'
 		.', '.$_data_partial_denture.' AS partial_denture'
+		.', '.$_data_complete_denture_total_resident.' AS complete_denture_total_resident'
+		.', '.$_data_complete_denture_total_prof.' AS complete_denture_total_prof'
+		.', '.$_data_complete_denture_total_ongoing.' AS complete_denture_total_ongoing'
+		.', '.$_data_complete_denture_total_complete.' AS complete_denture_total_complete'
 		.', '.$_data_complete_denture.' AS complete_denture'
 		.', '.$_data_others.' AS others';
 	$_sort = 'st_id';
