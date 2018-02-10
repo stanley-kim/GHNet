@@ -43,7 +43,7 @@
 		</div>
 		<div class="sbj">
 			<?php if($APPLY_INFO['status'] == $d['khusd_st_apply_manager']['apply_info']['OPEN']):?><img style="vertical-align: top;" src="<?=$g['dir_module']?>theme/_pc/default/image/Warning.png" /><?php endif?>
-			<span class="subject"><?php echo $APPLY_INFO['subject']?></span>
+			<span class="subject"><?php echo $APPLY_INFO['subject'].' '.$APPLY_INFO['info_order'] ?></span>
 		</div>
 		<div class="info">
 			<?php echo $APPLY_INFO['name']?> <span>|</span> 

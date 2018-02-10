@@ -72,6 +72,12 @@ $APPLIED_FOR_ITEM_NUM = getDbRows($table[$m.'apply_list'],
 			." AND status = '".$d['khusd_st_apply_manager']['apply_list']['APPLY']."'"
 			." AND st_id = '".$st_id."'"
 );
+$ACCEPTED_FOR_ITEM_NUM = getDbRows($table[$m.'apply_list'],
+			"apply_info_uid = '".$apply_info_uid."'"
+			." AND apply_item_uid = '".$uid."'"
+			." AND status = '".$d['khusd_st_apply_manager']['apply_list']['ACCEPTED']."'"
+			." AND st_id = '".$st_id."'"
+);
 
 
 
@@ -101,6 +107,9 @@ if($APPLY_INFO['apply_limit'] == 0 && $APPLIED_NUM > 0){
 }
 if($APPLIED_FOR_ITEM_NUM > 0){
 		getLink('', '', '해당 아이템에 이미 신청한 내역이 있습니다.', '');
+}
+if($ACCEPTED_FOR_ITEM_NUM > 0){
+		getLink('', '', '해당 아이템에 이미 당첨된 내역이 있습니다.', '');
 }
 
 $_QKEY = 'st_id, apply_info_uid, apply_item_uid, original_apply_item_uid, timestamp, date_reg, status'

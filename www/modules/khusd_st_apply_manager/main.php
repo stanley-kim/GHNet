@@ -89,6 +89,9 @@ if($uid && $uid > 0)
 										'ail.*, mbrid.uid AS mbruid, mbrdata.name AS name');
 		if(!$APPLY_INFO['uid']) getLink($g['s'].'/', '', '존재하지 않는 신청 정보 입니다.', '');
 		
+		if($APPLY_INFO['uid']) 
+			$PRE_APPLY_INFO_ROWS = getDbArray($table[$m.'pre_apply_info_list'], " parent_apply_info_uid = '".$APPLY_INFO['uid']."'"  ,'*','uid','ASC',0,0);	
+	
 		// lang.korea/mod/_view.php 에 관련 코드 넣기
 		include_once $g['dir_module'].'lang.'.$_HS['lang'].'/mod/_view.php';
 		include_once $g['dir_module'].'lang.'.$_HS['lang'].'/mod/_item_list.php';
@@ -134,6 +137,8 @@ if($mode == 'list') {
 	$_data = 'ainfo.*, mbrdata.name AS name, mbrid.uid AS mbruid';
 	$_sort = $sort;
 	$_orderby = $orderby;
+ __debug_print("push func: Could not connect to server2. - " . mysql_error());
+
 	
 	$NUM = getDbRows($table[$m.'apply_info_list'],'1=1');
 	//$TCD = getDbArray2($_table, $_where, $_data, '', '', $recnum, $p);

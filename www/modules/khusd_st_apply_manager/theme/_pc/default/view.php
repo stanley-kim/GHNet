@@ -10,7 +10,7 @@
 				<?php echo $dept_array[$APPLY_INFO['department']]['name']?>
 				 - 
 			<?php endif?>
-			<?php echo $APPLY_INFO['subject']?></h1>
+			<?php echo $APPLY_INFO['subject'].' '.$APPLY_INFO['info_order'] ?></h1>
 		</div>
 		<div class="info">
 			<div class="xleft">
@@ -40,7 +40,34 @@
 				<?php endif?>
 				</span>
 			</div>
+
 		</div>
+		<div class="info">
+			<div class="xleft">
+<?php
+$PRE_APPLY_INFO=array();
+if( isset($PRE_APPLY_INFO_ROWS)  )
+while($ITEM = db_fetch_array($PRE_APPLY_INFO_ROWS))
+{
+	if( $ITEM['status'] == $d['khusd_st_apply_manager']['apply_info']['pre_apply_info']['status']['booked']  ||  $ITEM['status'] == $d['khusd_st_apply_manager']['apply_info']['pre_apply_info']['status']['finished'] )
+        	$PRE_APPLY_INFO[ filter_var(  $ITEM['info_order'] , FILTER_SANITIZE_NUMBER_INT)  ] = $ITEM;
+}
+?>
+			<br>
+				<span class="han">예약된 차수 </span>
+				<span class="split">|</span>
+				<?php foreach($PRE_APPLY_INFO as $ITEM) :?>
+				<span class="han"><?php echo $ITEM['info_order'].'|'.$ITEM['date_start'].'~'.$ITEM['date_end'].'|'.$ITEM['apply_limit'].'|'?> 
+				<?php echo  ( $ITEM['able_apply_accepted'] == 'y')?  '차감안됨' :  '차감됨'  ?>||
+				</span>
+				<?php endforeach ?> 
+
+
+
+		</div>
+		</div>
+
+
 		<div id="vContent" class="content"><?php echo getContents($APPLY_INFO['content'], '')?></div>
 	</div>
 	

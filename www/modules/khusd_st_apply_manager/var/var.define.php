@@ -67,6 +67,71 @@ $d['khusd_st_apply_manager']['pros']['sub_category'] = array(
 );
 
 
+$d['khusd_st_apply_manager']['apply_info']['order_list0'] = array(  
+	array( 'name' => '정규(주말)' , 'id' => 'regular' ),
+	array( 'name' => '추가(주중)' , 'id' => 'extra' )
+	);
 
+
+$d['khusd_st_apply_manager']['apply_info']['pre_apply_info']['status']['finished']  = 'f';   
+$d['khusd_st_apply_manager']['apply_info']['pre_apply_info']['status']['cancelled'] = 'c';   
+$d['khusd_st_apply_manager']['apply_info']['pre_apply_info']['status']['booked']    = 'b';   
+
+$d['khusd_st_apply_manager']['apply_info']['type0']['multi']  = 'multi';   
+$d['khusd_st_apply_manager']['apply_info']['type0']['single'] = 'single';   
+$d['khusd_st_apply_manager']['apply_info']['type1']['weekend'] = '주말';   
+$d['khusd_st_apply_manager']['apply_info']['type1']['weekday'] = '주중';   
+$d['khusd_st_apply_manager']['apply_info']['order_list'] = array(  
+	array( 'name' => '주말1차~4차(치주/외과/영상)' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말1차' , 'type3' => '주말4차' ),
+	array( 'name' => '주말1차~2차(치주/외과/영상 외)' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말1차' , 'type3' => '주말2차' ),
+	array( 'name' => '주말1차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말1차' ),
+	array( 'name' => '주말2차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말2차' ),
+	array( 'name' => '주말3차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말3차' ),
+	array( 'name' => '주말4차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말4차' ),
+	array( 'name' => '주말5차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말5차' ),
+	array( 'name' => '주말6차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말6차' ),
+
+	array( 'name' => '주중1차~4차' ,'type0' => 'multi'  ,'type1' => '주중' , 'type2' => '주중1차' , 'type3' => '주중4차'  ),
+	array( 'name' => '주중1차'     ,'type0' => 'single' ,'type1' => '주중' , 'type2' => '주중1차' ),
+	array( 'name' => '주중2차'     ,'type0' => 'single' ,'type1' => '주중' , 'type2' => '주중2차' ),
+	array( 'name' => '주중3차'     ,'type0' => 'single' ,'type1' => '주중' , 'type2' => '주중3차' ),
+	array( 'name' => '주중4차'     ,'type0' => 'single' ,'type1' => '주중' , 'type2' => '주중4차' ),
+	array( 'name' => '주중5차'     ,'type0' => 'single' ,'type1' => '주중' , 'type2' => '주중5차' ),
+	array( 'name' => '주중6차'     ,'type0' => 'single' ,'type1' => '주중' , 'type2' => '주중6차' ),
+
+	array( 'name' => '주말2차~3차' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말2차' , 'type3' => '주말3차' ),
+	array( 'name' => '주말2차~4차' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말2차' , 'type3' => '주말4차' ),
+	array( 'name' => '주말3차~4차' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말3차' , 'type3' => '주말4차' ),
+	array( 'name' => '주중2차~3차' ,'type0' => 'multi'  ,'type1' => '주중' , 'type2' => '주중2차' , 'type3' => '주중3차' ),
+	array( 'name' => '주중2차~4차' ,'type0' => 'multi'  ,'type1' => '주중' , 'type2' => '주중2차' , 'type3' => '주중4차' ),
+	array( 'name' => '주중3차~4차' ,'type0' => 'multi'  ,'type1' => '주중' , 'type2' => '주중3차' , 'type3' => '주중4차' )
+
+	);
+
+$d['khusd_st_apply_manager']['apply_info']['apply_info_list'] = array(  
+	array( 'name' => '치주수술' , 'department' => 'perio' ),
+	array( 'name' => 'ChIOT'    , 'department' => 'perio' ),
+	array( 'name' => '임플란트' , 'department' => 'oms' ),
+	array( 'name' => '판독/촬영옵져' , 'department' => 'radio' ),
+	array( 'name' => '신환 F/U' , 'department' => 'ortho' ),
+	array( 'name' => '보존수술' , 'department' => 'consv' ),
+	array( 'name' => '교픽' , 'department' => 'pedia' ),
+	array( 'name' => 'G/A' , 'department' => 'pedia' ),
+	array( 'name' => 'F/U' , 'department' => 'pros' ),
+	array( 'name' => '벌픽신청' , 'department' => 'pros' ),
+	array( 'name' => '교픽' , 'department' => 'medi' ),
+	array( 'name' => '장치제작' , 'department' => 'medi' ),
+	array( 'name' => '교내구강검진' , 'department' => 'etc' ),
+	array( 'name' => '직접입력'    , 'department' => 'perio' ),
+	array( 'name' => '직접입력'    , 'department' => 'oms' ),
+	array( 'name' => '직접입력'    , 'department' => 'radio' ),
+	array( 'name' => '직접입력'    , 'department' => 'ortho' ),
+	array( 'name' => '직접입력'    , 'department' => 'consv' ),
+	array( 'name' => '직접입력'    , 'department' => 'pedia' ),
+	array( 'name' => '직접입력'    , 'department' => 'pros' ),
+	array( 'name' => '직접입력'    , 'department' => 'medi' ),
+	array( 'name' => '직접입력' , 'department' => 'etc' )
+
+	);
 
 ?>

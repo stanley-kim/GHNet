@@ -32,6 +32,10 @@ getDbDelete($table[$m.'apply_info_list'],"uid = '".$uid."'");
 getDbDelete($table[$m.'apply_item'],"apply_info_uid = '".$uid."'");
 getDbDelete($table[$m.'apply_list'],"apply_info_uid = '".$uid."'");
 
+$_cancelled_status =  $d['khusd_st_apply_manager']['apply_info']['pre_apply_info']['status']['cancelled']  ;   //cancelled
+//change state as cancelled for same parent_apply_info_uid
+getDbUpdate($table[ 'khusd_st_apply_manager'  .'pre_apply_info_list'], "status = '".$_cancelled_status."'", "parent_apply_info_uid = '".$uid."'" );
+
 getLink(urldecode($nlist), 'parent.', '', '');
 
 ?>

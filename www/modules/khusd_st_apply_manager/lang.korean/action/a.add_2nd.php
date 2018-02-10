@@ -9,6 +9,7 @@ include_once $g['path_module'].'khusd_st_manager/var/var.php';	// 필수 인클�
 include_once $g['path_module'].'khusd_st_manager/function/permission.php';	// 필수 인클루드 파일
 include_once $g['path_module'].'khusd_st_manager/function/push.php';
 include_once $g['path_module'].'khusd_st_manager/function/debug.php';
+include_once $g['path_module'].'khusd_st_manager/function/db.php';
 
 // 로그인 & 권한 체크
 if(permcheck('st') == false)
@@ -22,6 +23,52 @@ if(false) {
 }
 
 include_once $g['dir_module'].'var/var.define.php'; // 모듈변수파일 인클루드
+
+
+
+
+
+
+function isAlreadyExist2($date_end, $department, $subject, $order, $uid )  {
+        $date_end_min = strval(intval($date_end / 1000000)).'000000';
+        $date_end_max = strval(intval($date_end / 1000000)).'235959';
+        $query = "select uid "
+        ." from rb_khusd_st_apply_manager_apply_info_list as info_list"
+        ." where info_list.department = '".$department."'"
+        ." and info_list.subject = '".$subject."'"
+        ." and info_list.info_order = '".$order."'"
+        ." and info_list.date_end >= '".$date_end_min."'"
+        ." and info_list.date_end <= '".$date_end_max."'"
+        ." order by uid";
+
+        $_count = 0;
+        global $DB_CONNECT;
+        $DUP_ROWS = db_query($query, $DB_CONNECT);
+        while( $_ROW = db_fetch_array($DUP_ROWS) ){
+                if( $uid != $_ROW['uid'] )
+                        $_count = $_count +  1;
+        }
+        if( $_count > 0 )
+                return true;
+        else
+                return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 입력값 유효성 체크
 $uid = intval($uid);
 
@@ -37,6 +84,7 @@ if($uid > 0 && $APPLY_INFO['uid'] == $uid)
 	$department = trim($department);
 	$apply_limit = (intval($apply_limit) <= 0 ? 0 : intval($apply_limit));
 	$subject = trim($subject);
+	$order = $order ? trim($order) : '주중6차';
 	$date_start = date('YmdHis',$date_start_t);
 	$date_end = date('YmdHis',$date_end_t);
 	//$apply_type = 'etc'; // todo 치주수술 등 미리 정의된 타입 추가하기
@@ -46,8 +94,53 @@ if($uid > 0 && $APPLY_INFO['uid'] == $uid)
 	$date_reg = $date['totime'];
 	$is_imp_cent = $APPLY_INFO['is_imp_cent'];
 	
-	$_QKEY = 's_uid, st_id, apply_limit, department, subject, content, date_start, date_end, apply_type, status, able_apply_accepted, is_perio_surgery, date_reg';
-	$_QVAL = "'$s_uid', '$st_id', '$apply_limit','$department', '$subject', '$content', '$date_start', '$date_end', '$apply_type', '$status', '$able_apply_accepted', '$is_perio_surgery', '$date_reg'";
+
+	$type0 = $d['khusd_st_apply_manager']['apply_info']['type0']['single'];
+	$type1 = $d['khusd_st_apply_manager']['apply_info']['type1']['weekday'];
+	$type2 = '주중6차';
+	$type3 = '주중6차';
+	foreach($d['khusd_st_apply_manager']['apply_info']['order_list'] as $_ROW)    {
+        	if( $_ROW['name'] == $order )    {
+                	$type0 = $_ROW['type0'];
+                	$type1 = $_ROW['type1'];
+                	$type2 = $_ROW['type2'];
+                	if(  $_ROW['type3'] )
+                        	$type3 = $_ROW['type3'];
+                	else
+                        	$type3 = $_ROW['type2'];
+
+        	}	
+
+
+	}	
+	//filter integer information
+        $first_start_order = filter_var($type2, FILTER_SANITIZE_NUMBER_INT);
+
+	if ( $type0 == $d['khusd_st_apply_manager']['apply_info']['type0']['single'] ) {
+		if(   trim($end_min_array[$first_start_order ]) == '' || trim($end_hour_array[$first_start_order]) == '' || trim($apply_limit_array[$first_start_order]) == '' )
+			getLink('', '', $type2.'를 입력해주세요.', '');
+
+        	$date_start_t = strtotime($start_date.' '.$start_hour_array[ $first_start_order ].':'.$start_min_array[  $first_start_order ].':00');
+        	$date_end_t = strtotime($start_date.' '.$end_hour_array[ $first_start_order ].':'.$end_min_array[ $first_start_order ].':00');
+        	$date_start = date('YmdHis',$date_start_t);
+        	$date_end = date('YmdHis',$date_end_t);
+        	$apply_limit = (intval($apply_limit_array[ $first_start_order ] ) <= 0 ? 0 : intval($apply_limit_array[ $first_start_order ] ));
+        	$able_apply_accepted = $able_apply_accepted_array[ $first_start_order ];
+	}	
+
+
+
+
+
+if(  isAlreadyExist2($date_end, $department, $subject, $order, -1 ) )  {
+                getLink('', '', $subject.' 동일한 날짜, 동일한 차수가 이미 있습니다!!', '');
+}
+
+	
+	//$_QKEY = 's_uid, st_id, apply_limit, department, subject, content, date_start, date_end, apply_type, status, able_apply_accepted, is_perio_surgery, date_reg';
+	//$_QVAL = "'$s_uid', '$st_id', '$apply_limit','$department', '$subject', '$content', '$date_start', '$date_end', '$apply_type', '$status', '$able_apply_accepted', '$is_perio_surgery', '$date_reg'";
+	$_QKEY = 's_uid, st_id, apply_limit, department, subject, content, date_start, date_end, apply_type, status, able_apply_accepted, is_perio_surgery, date_reg, info_order ';
+	$_QVAL = "'$s_uid', '$st_id', '$apply_limit','$department', '$subject', '$content', '$date_start', '$date_end', '$apply_type', '$status', '$able_apply_accepted', '$is_perio_surgery', '$date_reg', '$order'";
 	
 	getDbInsert($table[$m.'apply_info_list'],$_QKEY, $_QVAL);
 	
