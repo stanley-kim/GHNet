@@ -212,6 +212,51 @@ elseif($st_type == 'pedia')
 		$st_start_time = '1530';
 		$st_end_time = '1730';
 	}
+
+       $_table =
+                $table['khusd_st_pedia'.'score'].' sc';
+        $_where =
+                "sc.st_id = '".$st_id."'";
+        $_data ='sc.obser';
+        $order_by =  'sc.obser';
+        $order_mode = 'ASC';
+        $_sort = $order_by;
+        $_orderby = $order_mode;
+
+        $ST_CHAIR_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
+//__debug_print("push func:!@@  " . mysql_error());
+
+        $_count=0;
+        while( $_ROW = db_fetch_array($ST_CHAIR_ROWS) )   {
+                $_count=$_count+1;
+        }
+        if( $_count == 0)
+                getLink('', '','ST 신청하기 전에 소아치과->정보수정->확인을 클릭하고 와주세요.', '');
+
+
+}
+elseif($st_type == 'consv')
+{
+      $_table =
+            	$table['khusd_st_consv'.'score'].' sc';
+        $_where =
+                "sc.st_id = '".$st_id."'";
+        $_data ='sc.uid';
+        $order_by =  'sc.uid';
+        $order_mode = 'ASC';
+        $_sort = $order_by;
+        $_orderby = $order_mode;
+
+        $ST_CHAIR_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
+//__debug_print("push func:!@@  " . mysql_error());
+
+        $_count=0;
+        while( $_ROW = db_fetch_array($ST_CHAIR_ROWS) )   {
+                $_count=$_count+1;
+        }
+        if( $_count == 0)
+		getLink('', '','ST 신청하기 전에 보존과->정보수정->확인을 클릭하고 와주세요.', '');
+
 }
 elseif($st_type == 'radio')
 {
