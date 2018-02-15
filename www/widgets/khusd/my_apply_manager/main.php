@@ -400,7 +400,8 @@ if( $_new_apply_info > 0 )   {
 		<span class="dept"><?php echo $d['khusd_st_manager']['department'][$_R['department']]['name']?></span>
 		<span class="subject">
 			<a href="<?php echo $apply_info_view_link.$_R['apply_info_uid']?>">
-				<?php echo $_R['apply_info_subject']?> 의 <?php echo $_R['apply_item_content']?>
+				<?php echo $_R['apply_info_subject'].'&nbsp'.$_R['apply_info_order']?> 의 <?php echo $_R['apply_item_content']?>
+
 			</a>
 		</span>
 		<?php if($_R['status'] == $d['khusd_st_apply_manager']['apply_list']['ACCEPTED']):?>
