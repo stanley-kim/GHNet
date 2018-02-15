@@ -14,7 +14,7 @@
 	else if($om == 'd') $order_mode = DESC;
 	
 	/** 2014.1 학기에 임시용 코드 **/
-	$prev_s_uid = 2;
+	$prev_s_uid = 3;
 //	$s_uid =  $_GET["s_uid"];
 	// 한 학번에 대해 여러 개의 데이터가 존재하므로 가장 최근의 데이터만 출력해주도록 JOIN 을 이용하여 query
 	// 아래 쿼리는 다음의 커리를 참고
