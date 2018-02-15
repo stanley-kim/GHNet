@@ -85,11 +85,11 @@ while( $_ROW = db_fetch_array($MY_FOLLOW_ROWS) )
 }
 
 
-if($show_previous == "1"){
+////if($show_previous == "1"){
 	$_data = 'fw.*, pt.pt_name AS pt_name, pt.pt_id AS pt_id, pt.dr_room AS dr_room, pt.pf_name AS pf_name, pt.dr_name AS dr_name, mbrdata.name AS st_name';
 	$_table = $table[$m.'follow_pt'].' pt, '.$table[$m.'follow'].' fw, '.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid';
 	$_where = 
-		"fw.s_uid = '1'"
+		"fw.s_uid = '2'"
 		." AND pt.uid = fw.pt_uid"
 		." AND mbrid.uid = mbrdata.memberuid"
 		." AND mbrid.id = fw.st_id"
@@ -103,6 +103,6 @@ if($show_previous == "1"){
 	{
 		$MY_PREV_FOLLOW_ARRAY[$_ROW['pt_uid']] = $_ROW;
 	}
-}
+////}
 
 ?>

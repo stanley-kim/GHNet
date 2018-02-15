@@ -86,6 +86,7 @@ function check_previous(){
 				<!--	<th>담당의(수련의)</th>-->
 					<th>단계</th>
 					<th>분석/레포트</th>
+					<th>지난학기팔로우(횟수)</th>
 					<th>업데이트 날짜</th>
 					<th>관리</th>
 				</tr>
@@ -116,6 +117,13 @@ function check_previous(){
 					<td><?php echo $MY_FOLLOW['step']?>회</td>
 
 					<td><?php if($MY_FOLLOW['bool_analysis']) echo '완료'; ?>/ <?php if($MY_FOLLOW['report']) echo '완료'; ?>  </td>
+<td>
+ <?php foreach($MY_PREV_FOLLOW_ARRAY as $MY_PREV_FOLLOW):?>
+	<?php	if( $MY_PREV_FOLLOW['pt_id'] == $MY_FOLLOW['pt_id'] )
+		echo 'Y('.$MY_PREV_FOLLOW['step'].')'?>
+
+ <?php endforeach?>
+</td>
 					<td><?php echo getDateFormat($MY_FOLLOW['date_update'], 'Y-m-d H:i')?></td>
 					<td>
 						<?php if($MY_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['OLD']):?>
@@ -128,9 +136,10 @@ function check_previous(){
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['DROP']):?>
 						<span class="btn00"><a href="<?php echo $g['khusd_st_ortho_drop_follow'].$MY_FOLLOW['uid']?>">포기</a></span>
 						<?php endif?>
-						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['COMPLETE']):?>
+<!--						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['COMPLETE']):?>
 						<span class="btn01"><a href="<?php echo $g['khusd_st_ortho_complete_follow'].$MY_FOLLOW['uid']?>">완료</a></span>
 						<?php endif?>
+-->
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['FOLLOWING']):?>
 						<span class="btn02"><a href="<?php echo $g['khusd_st_ortho_go_follow'].$MY_FOLLOW['uid']?>">팔로우</a></span>
 						<?php endif?>
@@ -335,14 +344,14 @@ function check_previous(){
 			
 			<span id="pt_name"><?php echo $FOLLOW_PT['pt_name']?></span>
 			<span id="pt_id"><?php echo $FOLLOW_PT['pt_id']?></span>
-			<span id="status">
+<!--			<span id="status">
 				<?php if($FOLLOW_PT['status'] == $d['khusd_st_ortho']['FOLLOW_PT']['FOLLOWING']):?>
 				팔로 있음
 				<?php else:?>
 				팔로 없음!!!
 				<?php endif?>
 			</span>
-			
+-->			
 			<?php if($FOLLOW_ARRAY):?>
 				<table>
 				<thead>

@@ -163,8 +163,10 @@ else
 	$QVAL = "'$pt_name', '$pt_id', '$dr_room', '$pf_name', '$dr_name', '$status_pt', '$date_update'";
 	
 	getDbInsert($table[$m.'follow_pt'],$QKEY,$QVAL);
-}
+		//__debug_print("add follow_pt : pt_name : [$pt_name], pt_id : [$pt_id], st_id : [$st_id]".mysql_error() );
 
+}
+//환자가 등록되어 있지 않거나, 환자는 등록되어 있지만 팔로우내역이 없을 경우
 if(!$IS_UPDATED)
 {
 	$_table = $table[$m.'follow_pt'];

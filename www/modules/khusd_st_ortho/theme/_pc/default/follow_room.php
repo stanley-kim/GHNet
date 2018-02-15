@@ -159,10 +159,41 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
 	<td><?php echo $SCORE['room_8_0']?></td>
 	<td class="category3"><b><?php echo $SCORE['total_0']?></b></td>
 	<td class=""><b><?php echo $SCORE['giveup']?></b></td>
-	<td class="category4"><b><?php echo $SCORE['total']?></b></td>
+	<td class="category4"><b><?php echo $SCORE['total']?> </b>
+	(<?php echo $SCORE['old_pt_count']?>)
+	</td>
 	</tr>
 	<?php endforeach?>
 	<?php }?>
 	</tbody>
 	</table>
+
+	<?php $idx = 1 ?>
+	<?php foreach($TOTAL_FOLLOW_ARRAY as $_FOLLOW):?>
+	<tr>
+                                        <td><?php echo $_FOLLOW['st_id']?></td>
+                                        <td><?php echo $_FOLLOW['st_name']?></td>
+                                        <td><?php echo $_FOLLOW['pt_name']?></td>
+                                        <td><?php echo $_FOLLOW['pt_id']?></td>
+                                        <td>
+                                                <?php if($_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['NEW'] && $_FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW_STATUS']['FOLLOWING']):?>
+                                                신환 팔로 중
+                                                <?php elseif($_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['OLD'] && $_FOLLOW['status'] == $d['khusd_st_ortho']['FOLLOW_STATUS']['FOLLOWING']):?>
+                                                구환 팔로 중
+                                                <?php else:?>
+                                                팔로 중단
+                                                <?php endif?>
+                                        </td>
+                                        <td><?php echo $_FOLLOW['dr_room']?></td>
+                                        <td><?php echo $_FOLLOW['pf_name']?></td>
+                                        <td><?php echo $_FOLLOW['dr_name']?></td>
+					<td><?php if( $SCORE_PREV_ARRAY2[$_FOLLOW['st_id']][ $_FOLLOW['pt_uid']] ) 
+						echo 'Y('.$SCORE_PREV_ARRAY2[$_FOLLOW['st_id']][ $_FOLLOW['pt_uid']]['step'].')'  ?>    
+					</td>
+                                        <td><?php echo getDateFormat($_FOLLOW['date_update'], 'Y-m-d H:i')?></td>
+
+	<br>
+	</tr>	
+	<?php endforeach?>
+
 </div>

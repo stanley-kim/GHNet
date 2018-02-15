@@ -96,7 +96,8 @@ function check_previous(){
 					<th>병록번호</th>
 					<th>진료실</th>
 					<th>담당교수님</th>
-					<th>담당의(수련의)</th>
+					<th>담당수련의</th>
+					<th>지난학기팔로우</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -109,6 +110,14 @@ function check_previous(){
 					<td><?php echo $MY_FOLLOW['dr_room']?></td>
 					<td><?php echo $MY_FOLLOW['pf_name']?></td>
 					<td><?php echo $MY_FOLLOW['dr_name']?></td>
+<td>
+ <?php foreach($MY_PREV_FOLLOW_ARRAY as $MY_PREV_FOLLOW):?>
+        <?php   if( $MY_PREV_FOLLOW['pt_id'] == $MY_FOLLOW['pt_id'] )
+                echo 'Y('.$MY_PREV_FOLLOW['step'].')'?>
+
+ <?php endforeach?>
+</td>
+
 				</tr>
 				<tr>
 
@@ -135,13 +144,16 @@ function check_previous(){
                                                 <?php if($MY_FOLLOW['type']==$d['khusd_st_ortho']['FOLLOW_TYPE']['NEW']):?>
                                                 <span class="btn01"><a href="<?php echo $g['khusd_st_ortho_new2old_follow'].$MY_FOLLOW['uid']?>">신&#10140구</a></span>
                                                 <?php endif?>
-&nbsp
+</td>
+<td>
+
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['DROP']):?>
 						<span class="btn00"><a href="<?php echo $g['khusd_st_ortho_drop_follow'].$MY_FOLLOW['uid']?>">포기</a></span>
 						<?php endif?>
-						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['COMPLETE']):?>
+<!--						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['COMPLETE']):?>
 						<span class="btn01"><a href="<?php echo $g['khusd_st_ortho_complete_follow'].$MY_FOLLOW['uid']?>">완료</a></span>
 						<?php endif?>
+-->
 						<?php if($MY_FOLLOW['status'] != $d['khusd_st_ortho']['FOLLOW_STATUS']['FOLLOWING']):?>
 						<span class="btn02"><a href="<?php echo $g['khusd_st_ortho_go_follow'].$MY_FOLLOW['uid']?>">팔로우</a></span>
 						<?php endif?>
@@ -180,7 +192,7 @@ function check_previous(){
 		<div class="pt_info">
 		<span id="pt_name" style="background:none;"><b>이름:</b> <?php echo $FOLLOW_PT['pt_name']?></span>
 		<span id="pt_id" style="background:none;"><b>병록번호:</b> <?php echo $FOLLOW_PT['pt_id']?></span>
-		<span id="status">
+<!--		<span id="status">
 			<b>상태:</b> 
 			<?php if($FOLLOW_PT['status'] == $d['khusd_st_ortho']['FOLLOW_PT']['FOLLOWING']):?>
 			팔로 있음
@@ -188,6 +200,7 @@ function check_previous(){
 			팔로 없음!!!
 			<?php endif?>
 		</span>
+-->
 		</div>
 		
 			<table>
