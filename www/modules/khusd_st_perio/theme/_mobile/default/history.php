@@ -32,7 +32,6 @@
 
         <?php if($SEMESTER_INFO['sid'] == 2):?>
         <col width="40">
-        <col width="40">
         <?php endif?>
 
 	<col width="150"> 
@@ -46,7 +45,7 @@
         <?php if($SEMESTER_INFO['sid'] == 2):?>
         <th scope="col" colspan=8 class="split">[ST Case]</th>
         <?php else :?>
-	<th scope="col" colspan=6 class="split">[ST Case]</th>
+	<th scope="col" colspan=7 class="split">[ST Case]</th>
         <?php endif?>
 	<th scope="col" rowspan=2 class="split">동물<br/>실험</th>
 	<th scope="col" rowspan=2 class="split">Total</th>
@@ -69,6 +68,8 @@
         <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<th scope="col" class="split">Pre ST</th>
 	<th scope="col" class="split">Pre SC</th>
+	<?php else: ?>
+	<th scope="col" class="split">지난학기SPT완료</th>
         <?php endif?>
 	<th scope="col" class="split">SC</th>
 	<th scope="col" class="split">PC</th>
@@ -104,6 +105,8 @@
         <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<td class="category5"><?php echo ($SCORE['pre_st'] == 1 ? '완' : '')?></td>
 	<td><?php echo ($SCORE['stpresc'] == 1 ? '완' : '')?></td>
+	<?php else: ?>
+	<td><?php echo $SCORE['stprevsc_complete'] ?></td>
         <?php endif?>
 	<td><?php echo $SCORE['stsc']?></td>
 	<td><?php echo $SCORE['stpc']?></td>
