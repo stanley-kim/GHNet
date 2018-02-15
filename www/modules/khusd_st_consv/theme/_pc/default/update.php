@@ -2,6 +2,8 @@
 
 <h2>보존과 정보 수정</h2>
 
+        <?php $SEMESTER_INFO = getCurrentSemesterInfo()  ?>
+
 	<form name="updateScore" method="post" action="<?php echo $g['s']?>/" target="_action_frame_<?php echo $m?>" onsubmit="return updateCheck(this);">
 	<input type="hidden" name="r" value="<?php echo $r?>" />
 	<input type="hidden" name="a" value="update" />
@@ -29,6 +31,8 @@
 		<tr>
 			<td class="title" colspan=2 style="background-color:#eeffff;">Pre-ST Case</td>
 		</tr>
+                <?php if($SEMESTER_INFO['sid'] == 2):?>
+
 		<tr>
 		<td class="head">Operative</td>
 		<td class="input">
@@ -69,6 +73,8 @@
 			CF<input type="checkbox" name="pre_st_pre_re_cf" maxlength="5" class="checkbox" <?php if($SCORE['pre_st_pre_re_cf']):?>  checked<?php endif?>>
 		</td>
 		</tr>
+                <?php endif?>
+
 		<tr>
 		<td class="head">Inlay(4학년 1학기)</td>
 		<td class="input">
