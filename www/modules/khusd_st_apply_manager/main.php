@@ -137,7 +137,7 @@ if($mode == 'list') {
 	$_data = 'ainfo.*, mbrdata.name AS name, mbrid.uid AS mbruid';
 	$_sort = $sort;
 	$_orderby = $orderby;
- __debug_print("push func: Could not connect to server2. - " . mysql_error());
+ //__debug_print("show apply_infos:- " . mysql_error());
 
 	
 	$NUM = getDbRows($table[$m.'apply_info_list'],'1=1');
