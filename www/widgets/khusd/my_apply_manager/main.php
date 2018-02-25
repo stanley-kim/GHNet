@@ -147,15 +147,15 @@ function generateOpenApplyInfoArray( &$_OpenApplyInfo, $_check_start_time, $_APP
                 foreach( array_keys($accept_limits[$tmp_apply_info])  AS $tmp_apply_item)  {
                         if ( $accept_limits[$tmp_apply_info][$tmp_apply_item] > 0  && $accept_limits[$tmp_apply_info][$tmp_apply_item] <= $applies[$tmp_apply_info][$tmp_apply_item]  )   {
                                 $closed=$closed+1;
- __debug_print("detect closed items. - " .$tmp_apply_info.'_'.$tmp_apply_item.'_('. $accept_limits[$tmp_apply_info][$tmp_apply_item]  .'<='.$applies[$tmp_apply_info][$tmp_apply_item].')_'.$closed );
+//// __debug_print("detect closed items. - " .$tmp_apply_info.'_'.$tmp_apply_item.'_('. $accept_limits[$tmp_apply_info][$tmp_apply_item]  .'<='.$applies[$tmp_apply_info][$tmp_apply_item].')_'.$closed );
                         }
                 }
                 if( $apply_limits[$tmp_apply_info] >0 && $num_items[$tmp_apply_info] > $closed )   {
- __debug_print("detect open apply info. - " .$tmp_apply_info.'_'. $num_items[$tmp_apply_info] .'>'.$closed  );
+//// __debug_print("detect open apply info. - " .$tmp_apply_info.'_'. $num_items[$tmp_apply_info] .'>'.$closed  );
                         $_OpenApplyInfo[$tmp_apply_info] = true;
                 }
 		else  {
- __debug_print("detect closed apply info. - " .$tmp_apply_info.'_'. $num_items[$tmp_apply_info] .'<='.$closed  );
+//// __debug_print("detect closed apply info. - " .$tmp_apply_info.'_'. $num_items[$tmp_apply_info] .'<='.$closed  );
                         $_OpenApplyInfo[$tmp_apply_info] = false;
 		}
 
@@ -180,6 +180,8 @@ generateOpenApplyInfoArray( $OpenApplyInfo, $check_start_time,  $d['khusd_st_app
 	}
 //__debug_print("close_finished making." . $ITEM['uid'].'_'.$ITEM['parent_apply_info_uid'].'_'.$ITEM['apply_info_uid'].'_' .mysql_error());
 */
+db_query("begin" , $DB_CONNECT);
+__debug_print("Transaction Begin_".$my['id'].'_' .mysql_error());
 
 
 $ITEM_ARRAY = array();
@@ -218,6 +220,7 @@ while($ITEM = db_fetch_array($ITEM_ROWS))
                                 ." AND date_reg >= '".$apply_info['date_start']."'"
                                 ." ORDER BY rand DESC"
                                 .( $ITEM2['accept_limit'] == 0 ? '' : ' LIMIT '.($ITEM2['accept_limit'] - $ACCEPTED_NUM) ), $DB_CONNECT);
+__debug_print("UPDATE_IF_ACCEPTED_". $my['id'].'_apply_item_uid('.$ITEM2['uid'].'_ACCCPETED_NUM('.$ACCEPTED_NUM.'<accept_limit( '.$ITEM2['accept_limit'].'_'.mysql_error());
                         }
                 }
 
@@ -233,11 +236,11 @@ $_ail =$table['khusd_st_apply_manager'.'apply_info_list'] ;
 $_ai = $table['khusd_st_apply_manager'.'apply_item'] ;
 
 generateOpenApplyInfoArray( $OpenApplyInfo, $check_start_time,  $d['khusd_st_apply_manager']['apply_list']['APPLY'],$d['khusd_st_apply_manager']['apply_list']['ACCEPTED'],$d['khusd_st_apply_manager']['apply_info']['CLOSED'], $_al, $_ail, $_ai );
-		__debug_print("OpenApplyInfos_start ".'_' .mysql_error());
+////		__debug_print("OpenApplyInfos_start ".'_' .mysql_error());
         foreach( array_keys($OpenApplyInfo) AS $_apply_info_key)   {
 		if ($OpenApplyInfo[ $_apply_info_key ]==true) $_b = 1;
 		else  $_b = 0;
-		__debug_print("OpenApplyInfos ".$_apply_info_key.'_'.$_b.'_' .mysql_error());
+////		__debug_print("OpenApplyInfos ".$_apply_info_key.'_'.$_b.'_' .mysql_error());
 	}
 
 $_new_apply_info = 0;
@@ -368,6 +371,8 @@ if( $_new_apply_info > 0 )   {
 
 }
 
+db_query("commit" , $DB_CONNECT);
+__debug_print("Transaction Commit_".$my['id'].'_' .mysql_error());
 
 
 //////
