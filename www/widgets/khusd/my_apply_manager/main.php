@@ -180,8 +180,36 @@ generateOpenApplyInfoArray( $OpenApplyInfo, $check_start_time,  $d['khusd_st_app
 	}
 //__debug_print("close_finished making." . $ITEM['uid'].'_'.$ITEM['parent_apply_info_uid'].'_'.$ITEM['apply_info_uid'].'_' .mysql_error());
 */
-db_query("begin" , $DB_CONNECT);
-__debug_print("Transaction Begin_".$my['id'].'_' .mysql_error());
+
+//trans//db_query("begin" , $DB_CONNECT);
+//trans//__debug_print("Transaction Begin_".$my['id'].'_' .mysql_error());
+__debug_print("TRYING_LOCK_".$my['id'].'_' );
+db_query("LOCK TABLES rb_khusd_st_manager_verification_rule WRITE" , $DB_CONNECT);
+__debug_print("LOCK_".$my['id'].'_' .mysql_error());
+
+$_ROWS = getDbArray("rb_khusd_st_manager_verification_rule", "uid = 1", '*', 'uid', 'ASC',0,0);
+__debug_print("select do_key_".$my['id'].'_' .mysql_error());
+$your_key = false;
+while( $_ROW = db_fetch_array( $_ROWS) )  {
+        if( $_ROW['do_key'] == 'Y' )
+                $your_key = true;
+        else
+                $your_key = false;
+        break;
+}
+if( $your_key == true)
+{
+                getDbUpdate( "rb_khusd_st_manager_verification_rule" , "do_key='".'N'."'" , "uid='".'1'."'"   );
+                __debug_print("DbUpdate_do_key_is_now_N(your_key_is_true)_".$my['id'].'_' .mysql_error());
+}
+
+
+db_query("UNLOCK TABLES " , $DB_CONNECT);
+__debug_print("UNLOCK_".$my['id'].'_' .mysql_error());
+
+if( $your_key == true)   {
+__debug_print("your_key_is_true_into_critical_section_".$my['id'].'_' );
+
 
 
 $ITEM_ARRAY = array();
@@ -371,8 +399,17 @@ if( $_new_apply_info > 0 )   {
 
 }
 
-db_query("commit" , $DB_CONNECT);
-__debug_print("Transaction Commit_".$my['id'].'_' .mysql_error());
+
+//trans//db_query("commit" , $DB_CONNECT);
+//trans//__debug_print("Transaction Commit_".$my['id'].'_' .mysql_error());
+        $your_key = false;
+        getDbUpdate( "rb_khusd_st_manager_verification_rule" , "do_key='".'Y'."'" , "uid='".'1'."'"   );
+        __debug_print("DbUpdate_do_key_is_now_Y(your_key_is_false)_".$my['id'].'_' .mysql_error());
+} // end of if your_key is true
+else
+        __debug_print("your_key_is_false_skip_critical_section_".$my['id'].'_' );
+
+
 
 
 //////
