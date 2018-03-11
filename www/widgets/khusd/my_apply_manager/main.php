@@ -333,9 +333,31 @@ foreach ($ITEM_KEEP AS $ITEM)  //each pre_apply_infos (booked)
                 }
 
 
-                //update pre_apply_info's apply_info_uid
-                if( isset($_apply_info_uid)  )
+                //update finished pre_apply_info's apply_info_uid
+                if( isset($_apply_info_uid)  )        {
                 getDbUpdate($table['khusd_st_apply_manager' .'pre_apply_info_list'], "apply_info_uid = '".$_apply_info_uid."'", "uid = '".$ITEM['uid']."'" );
+
+
+                        //new codes start
+                        $ITEM_KEEP3 = array();
+                        $_where = " parent_apply_info_uid = '".$ITEM['parent_apply_info_uid']."'"." AND status = '".$_booked_status."'";
+                        $ITEM_ROWS3 = getDbArray($table['khusd_st_apply_manager' .'pre_apply_info_list'], $_where  ,'*','uid','ASC',0,0);
+                        //$ITEM_ROWS3 = getDbArray($table['khusd_st_apply_manager' .'pre_apply_info_list'], " parent_apply_info_uid = '".$ITEM['parent_apply_info_uid']."'"  ,'*','uid','ASC',0,0);
+                        while($ITEM3 = db_fetch_array($ITEM_ROWS3))  {   //each pre_apply_infos (same parent_apply_info_uid)
+                                $ITEM_KEEP3[] = $ITEM3;
+                                __debug_print("KEEP3_uid(" . $ITEM3['uid'].'_status('.$ITEM3['status'].'_parent_uid('.$ITEM3['parent_apply_info_uid'].'_ap_in_uid('.$ITEM3['apply_info_uid'].'_' .mysql_error());
+                        }
+                        foreach( $ITEM_KEEP3 AS $ITEM3)  {
+                                if(  $ITEM3['status'] == $_booked_status  )    {
+                			//update booked pre_apply_info's parent_apply_info_uid
+                                        getDbUpdate($table[$m.'pre_apply_info_list'], "parent_apply_info_uid = '".$_apply_info_uid."'", "uid = '".$ITEM3['uid']."'" );
+                                __debug_print("Upda3_PRES_uid(" . $ITEM3['uid'].'_status('.$ITEM3['status'].'_parent_uid('.$_apply_info_uid.'_ap_in_uid('.$ITEM3['apply_info_uid'].'_' .mysql_error());
+                                }
+                        }
+                        //new codes end
+		}
+
+
                 //transfer previous apply_items
         // 새로 추가된 신청의 uid 가져온다.
         $LASTUID = getDbCnt($table['khusd_st_apply_manager'.'apply_info_list'],'max(uid)','');
@@ -374,30 +396,6 @@ foreach ($ITEM_KEEP AS $ITEM)  //each pre_apply_infos (booked)
         }  // end of if
 } //end of while pre_apply_info
 
-if( $_new_apply_info > 0 )   {
-                //$_status = $d['khusd_st_apply_manager']['apply_info']['OPEN'];
-                $close_finished = array();
-                //make close_finished  array
-                $FINISHED_ITEM_ROWS = getDbArray($table[$m.'pre_apply_info_list'], " status = '".$_finished_status."'"  ,'*','uid','ASC',0,0);
-                while($ITEM = db_fetch_array($FINISHED_ITEM_ROWS))  //each pre_apply_infos (finished)
-                {
-                        if( $ITEM['status'] == $_finished_status  && $ITEM['date_start'] < $date['totime'] && $ITEM['date_end'] > $date['totime']   )    {
-//__debug_print("close_finished making." . $ITEM['uid'].'_'.$ITEM['parent_apply_info_uid'].'_'.$ITEM['apply_info_uid'].'_' .mysql_error());
-                                $close_finished[ $ITEM['parent_apply_info_uid'] ]  = $ITEM['apply_info_uid']   ;
-                        }
-                }
-
-                $BOOKED_ITEM_ROWS = getDbArray($table[$m.'pre_apply_info_list'], " status = '".$_booked_status."'"  ,'*','uid','ASC',0,0);
-                while($ITEM = db_fetch_array($BOOKED_ITEM_ROWS))  //each pre_apply_infos (booked)
-                {
-                        if( $ITEM['status'] == $_booked_status  && $ITEM['date_start'] > $date['totime'] && isset($close_finished[$ITEM['parent_apply_info_uid']])  )   {
-//__debug_print("close_finished test." . $ITEM['status'].'_'.mysql_error());
-                                $_next_uid = $close_finished[$ITEM['parent_apply_info_uid']];
-                                getDbUpdate($table[$m.'pre_apply_info_list'], "parent_apply_info_uid = '".$_next_uid."'", "uid = '".$ITEM['uid']."'" );
-                        }
-                }
-
-}
 
 
 //trans//db_query("commit" , $DB_CONNECT);
