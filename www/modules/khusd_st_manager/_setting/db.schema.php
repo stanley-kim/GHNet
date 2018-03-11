@@ -57,6 +57,7 @@ CREATE TABLE ".$table[$module.'verification_rule']." (
 	radio_selection			VARCHAR(5)	DEFAULT 'GGGG' NOT NULL,
 	radio_standard			VARCHAR(5)	DEFAULT '0000' NOT NULL,
 	radio_num_apply			VARCHAR(5)	DEFAULT '0000' NOT NULL,
+	do_key				VARCHAR(2)	DEFAULT 'Y' NOT NULL,
 	
 	KEY uid(uid)
 ) ENGINE=".$DB['type']." CHARSET=UTF8");                            
