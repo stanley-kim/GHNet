@@ -64,7 +64,9 @@ $g['khusd_st_'.$DEPARTMENT.'_list'] =  $g['s'].'/?r='.$r.'&m='.$m;
 $g['khusd_st_'.$DEPARTMENT.'_update'] = $g['khusd_st_'.$DEPARTMENT.'_list'].'&amp;mode=update';
 
 $g['khusd_st_'.$DEPARTMENT.'_history'] =  $g['khusd_st_'.$DEPARTMENT.'_list'].'&amp;mode=history&amp;st_id=';
+$g['khusd_st_'.$DEPARTMENT.'_history_fix'] =  $g['khusd_st_'.$DEPARTMENT.'_list'].'&amp;mode=history_fix&amp;st_id=';
 $g['pagelink'] = $g['khusd_st_'.$DEPARTMENT.'_history'].$st_id.($iframe ? '&amp;iframe='.$iframe : '');	// history mode 에서 사용되는 값
+$g['pagelink_fix'] = $g['khusd_st_'.$DEPARTMENT.'_history_fix'].$st_id.($iframe ? '&amp;iframe='.$iframe : '');	// 보존 history fix mode 에서 사용되는 값
 
 $g['khusd_st_cnslt_room_manager_cnslt_table'] = $g['s'].'/?r='.$r.'&m=khusd_st_cnslt_room_manager&amp;mode=cnslt_table&amp;ch_date=';
 
