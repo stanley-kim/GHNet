@@ -42,7 +42,7 @@ $temp_radio_standard = '';
 $temp_radio_num_apply = '';
 $temp_radio_on = '';
 
-$apply_last_order = 5;
+$apply_last_order = 7;
 
 for($i=0; $i< $apply_last_order  ; $i++) {
 	if(  isset( $_POST[ 'input_perio_surgery_standard' ][$i]  ) &&  is_int(intval($_POST[ 'input_perio_surgery_standard' ][$i]))  )     {
