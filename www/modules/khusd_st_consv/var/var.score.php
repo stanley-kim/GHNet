@@ -63,10 +63,10 @@ $d['khusd_st_consv']['score']['obser'] = array(
 );
 
 $d['khusd_st_consv']['require']['obser'] = array(
-	'indirect_prep_imp'			=> 4,
-	'indirect_setting'			=> 4,
-	'tooth_colored'				=> 20,
-	'tooth_colored_complex'		=> 8,
+	'indirect_prep_imp'			=> 6,
+	'indirect_setting'			=> 6,
+	'tooth_colored'				=> 24,
+	'tooth_colored_complex'		=> 10,
 	'endo_molar'				=> 10,
 	'endo'						=> 30,
 	'surgery'					=> 2,
@@ -95,22 +95,22 @@ $d['khusd_st_consv']['penalty']['follow'] = array(
 );
 
 $d['khusd_st_consv']['require']['st'] = array(
-	'st_op'				=> 10,
-	'st_endo'			=> 1,
+	'st_op'				=> 12,
+	'st_endo'			=> 2,
 	'st_inlay'			=> 2,
-	'st_am'				=> 2
+	'st_am'				=> 0
 );
 
 $d['khusd_st_consv']['minus']['st'] = array(
 	'st_endo'			=> 10,
 	'st_op'				=> 2,
-	'st_inlay'			=> 0,
-	'st_am'				=> 2
+	'st_inlay'			=> 5,
+	'st_am'				=> 0
 );
 
 $d['khusd_st_consv']['minus']['obser'] = array(
-	'indirect_prep_imp'			=> 0,
-	'indirect_setting'			=> 0,
+	'indirect_prep_imp'			=> 4,
+	'indirect_setting'			=> 2,
 	'tooth_colored'				=> 2,
 	'tooth_colored_complex'		=> 1,
 	'endo'						=> 2,
