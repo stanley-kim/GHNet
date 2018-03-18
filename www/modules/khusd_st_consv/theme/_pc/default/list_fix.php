@@ -24,15 +24,6 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
 	<col width="200"> 
 	</colgroup> 
 	<thead>
@@ -41,8 +32,8 @@
 		<th rowspan="6" scope="col" class="split category1">No</th>
 		<th rowspan="3" scope="col" class="split category1"><a href="<?php echo getSortingLink($c, 'st_id', $om)?>">학번,이름</a></th>
 		<th colspan="5" scope="col" class="split category2">[Endodontic Tx.]</th>
-		<th colspan="10" scope="col" class="split category3">[일반]</th>
-		<th colspan="1" scope="col" class="split category4"></th>
+		<th colspan="11" scope="col" class="split category3">[일반]</th>
+		<th rowspan="3" scope="col" class="split category4"><a href="<?php echo getSortingLink($c, 'obser_score', $om)?>">총점</a></th>
 		<th rowspan="6" scope="col" class="category5">수정일</th>
 	</tr>
 	<tr>
@@ -56,7 +47,6 @@
 		<th rowspan="2" scope="col" class="split category3"><a href="<?php echo getSortingLink($c, 'f_charting', $om)?>">Cha</a></th>
 		<th rowspan="2" scope="col" class="split category3"><a href="<?php echo getSortingLink($c, 'f_miscellaneous', $om)?>">Mis</a></th>
 		<th rowspan="2" scope="col" class="split category3"><a href="<?php echo getSortingLink($c, 'op_score', $om)?>">점수</a></th>
-		<th rowspan="2" scope="col" class="split category4"><a href="<?php echo getSortingLink($c, 'obser_score', $om)?>">총점</a></th>
 	</tr>
 	<tr>
 		<th scope="col" class="split category2">대</th>
