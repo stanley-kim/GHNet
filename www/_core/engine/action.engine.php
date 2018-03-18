@@ -6,6 +6,7 @@ foreach ($_filterSet as $_ft)
 {
 	${$_ft} = strip_tags(${$_ft});
 }
+
 
 $g['act_module0'] = $g['dir_module'].$a.'.php';
 $g['act_module1'] = $g['dir_module'].'lang.'.$_HS['lang'].'/action/'.(strpos($a,'/')?str_replace('/','/a.',$a):'a.'.$a).'.php';
