@@ -176,5 +176,24 @@
 	</tr>
 	<?php endforeach?>
 
+        <?php  if ($_start_idx == 25 ) :?>
+        <?php $__i = 0?>
+        <? while( $__i<7 )   :?>
+        <tr>
+                <td rowspan="1" class="timeline">
+                </td>
+                <?php $__j = 0?>
+                <?php   if ( $is_available_nt == false ) $_col_length = 15;
+                        else $_col_length = 20 ?>
+                <? while( $__j< $_col_length )   :?>
+                <td rowspan="1" colspan="2" class="timeline">
+                </td>
+                <? $__j = $__j + 1 ?>
+                <?php endwhile ?>
+        </tr>
+        <? $__i = $__i + 1 ?>
+        <?php endwhile ?>
+        <?php endif?>
+
 	</tbody>
 	</table>
