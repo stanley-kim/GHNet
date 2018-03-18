@@ -187,8 +187,10 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
                                         <td><?php echo $_FOLLOW['dr_room']?></td>
                                         <td><?php echo $_FOLLOW['pf_name']?></td>
                                         <td><?php echo $_FOLLOW['dr_name']?></td>
+                                        <td><?php echo $_FOLLOW['step'].'회'?></td>
 					<td><?php if( $SCORE_PREV_ARRAY2[$_FOLLOW['st_id']][ $_FOLLOW['pt_uid']] ) 
-						echo 'Y('.$SCORE_PREV_ARRAY2[$_FOLLOW['st_id']][ $_FOLLOW['pt_uid']]['step'].')'  ?>    
+						echo 'Y('.$SCORE_PREV_ARRAY2[$_FOLLOW['st_id']][ $_FOLLOW['pt_uid']]['step'].'회)';
+						else echo 'N(0회)';  ?>
 					</td>
                                         <td><?php echo getDateFormat($_FOLLOW['date_update'], 'Y-m-d H:i')?></td>
 
