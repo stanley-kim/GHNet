@@ -145,8 +145,10 @@
 	$apply_regular_3rd_end_time = '1430';
 	$apply_regular_4th_end_time = '1440';
 	//$apply_regular_4th_end_time = '1445';
-	$apply_regular_5th_end_time = '1450';
-	$apply_last_order = 5;	
+	$apply_regular_5th_end_time = '1500';
+	$apply_regular_6th_end_time = '1510';
+	$apply_regular_7th_end_time = '1520';
+	$apply_last_order = 7;	
 
 	// to detect appliance day
 	$apply_regular_1st_end_day='';
@@ -190,6 +192,14 @@
 			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
 			$latest_perio_surgery[5] = $EACH_INFO;
 		}
+		else if( $EACH_INFO['is_perio_surgery'] == 'y' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_6th_end_time)   { 
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_perio_surgery[6] = $EACH_INFO;
+		}
+		else if( $EACH_INFO['is_perio_surgery'] == 'y' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_7th_end_time)   { 
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_perio_surgery[7] = $EACH_INFO;
+		}
 		else if( $EACH_INFO['is_perio_surgery'] == 'n' &&  $EACH_INFO['department'] == 'perio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_1st_end_time)   { 
 
 			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
@@ -211,9 +221,16 @@
 			$latest_perio_chiot[4] = $EACH_INFO;
 		}
 		else if( $EACH_INFO['is_perio_surgery'] == 'n' &&  $EACH_INFO['department'] == 'perio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_5th_end_time)   { 
-
 			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
 			$latest_perio_chiot[5] = $EACH_INFO;
+		}
+		else if( $EACH_INFO['is_perio_surgery'] == 'n' &&  $EACH_INFO['department'] == 'perio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_6th_end_time)   { 
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_perio_chiot[6] = $EACH_INFO;
+		}
+		else if( $EACH_INFO['is_perio_surgery'] == 'n' &&  $EACH_INFO['department'] == 'perio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_7th_end_time)   { 
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_perio_chiot[7] = $EACH_INFO;
 		}
 		else if(  $EACH_INFO['department'] == 'oms' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_1st_end_time)   { 
 
@@ -236,9 +253,16 @@
 			$latest_oms[4] = $EACH_INFO;
 		}
 		else if(  $EACH_INFO['department'] == 'oms' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_5th_end_time)   { 
-
 			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
 			$latest_oms[5] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'oms' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_6th_end_time)   { 
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_oms[6] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'oms' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_7th_end_time)   { 
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_oms[7] = $EACH_INFO;
 		}
 		else if(  $EACH_INFO['department'] == 'radio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_1st_end_time)   { 
 
@@ -261,9 +285,16 @@
 			$latest_radio[4] = $EACH_INFO;
 		}
 		else if(  $EACH_INFO['department'] == 'radio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_5th_end_time)   { 
-
 			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
 			$latest_radio[5] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'radio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_6th_end_time)   { 
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_radio[6] = $EACH_INFO;
+		}
+		else if(  $EACH_INFO['department'] == 'radio' && getDateFormat($EACH_INFO['date_end'],'YmdHi') == $apply_regular_1st_end_day.$apply_regular_7th_end_time)   { 
+			//__debug_print("db_query_go for_detect!. - " . "YY".getDateFormat($EACH_INFO['date_end'],'Ymd') );
+			$latest_radio[7] = $EACH_INFO;
 		}
 
 	}
@@ -401,7 +432,7 @@ function format_print($_dup_check_rows, $_prefix)  {
         echo $prefix;
         echo "ID@".$dcd5['st_id'].'@'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' @'.getDateFormat($dcd5['date_item'],'Hi').'@'.getDateFormat($dcd5['date_end'],'m/d').'('.getWeek(getDateFormat($dcd5['date_end'], 'w')).')'.' @'.getDateFormat($dcd5['date_end'],'Hi').'@상태)'.$dcd5['status'];
         //echo ' rand) '.$dcd5['rand'] ;
-        echo ' @'.$dcd5['apply_item_content'].'@'.$dcd5['apply_info_subject'].' @'.$dcd5['department'].'@'.$dcd5['sub_category'];
+        echo ' @'.$dcd5['apply_item_content'].'@'.$dcd5['apply_info_subject'].' @'.$dcd5['department'].'@'.$dcd5['sub_category'].'@'.$dcd5['info_order'];
         //echo "ID]".$dcd5['st_id'].']'.getDateFormat($dcd5['date_item'],'m/d').'('.getWeek(getDateFormat($dcd5['date_item'], 'w')).')'.' ]'.getDateFormat($dcd5['date_item'],'Hi').']'.getDateFormat($dcd5['date_end'],'m/d').'('.getWeek(getDateFormat($dcd5['date_end'], 'w')).')'.' ]'.getDateFormat($dcd5['date_end'],'Hi').']상태)'.$dcd5['status'];
         //echo ' rand) '.$dcd5['rand'] ;
         //echo ' ]'.$dcd5['apply_item_content'].']'.$dcd5['apply_info_subject'].' ]'.$dcd5['department'].']'.$dcd5['sub_category'];
@@ -487,7 +518,7 @@ function isWithinRuleRange($st_id,  $department, $is_perio_surgery, $apply_info_
         $radio_num_apply = $rules['radio']['radio_num_apply'];
 
 __debug_print("db_query_go for_detect. WiRa0 - " . $st_id );
-	$apply_last_order = 5;
+	$apply_last_order = 7;
 
 	if ( $idx <0 || $idx >$apply_last_order ) return false; 
         if( $department == 'perio' && $is_perio_surgery == 'y' )    {    //perio surgery case
@@ -538,7 +569,7 @@ __debug_print("db_query_go for_detect. WiRa15 Off- " . $st_id );
 }
 
 function isMandatoryTime( $dcd5, $rules ) {
-	$apply_last_order = 5;
+	$apply_last_order = 7;
 //__debug_print("db_query_go for_detect. PS PCI - " . $dcd5['st_id'] );
 	if   (!isMandatory($dcd5, $rules) ) return false;
         if( $dcd5['department'] == 'perio' && $dcd5['is_perio_surgery'] == 'y' )    {  //perio_surgery case

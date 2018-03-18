@@ -636,6 +636,7 @@ elseif($mode == 'verification' && $MANAGER) {
                         "al.*"
                         .", IF(ail.status = '".$d['khusd_st_apply_manager']['apply_info']['CLOSED']."', 1, 0) AS is_closed"
                         .", ail.subject AS apply_info_subject"
+			.", ail.info_order AS info_order"
                         .", ail.date_start AS date_start"
                         .", ail.date_end AS date_end"
                         .", ail.date_select AS date_select"
