@@ -40,6 +40,8 @@ $d['khusd_st_apply_manager']['perio_sur']['doctor'] = array(
                 ,'dr_hwang'	=> 'Dr.황'
                 ,'dr_hyup'	=> 'Dr.협'
                 ,'dr_baek'	=> 'Dr.백'
+                ,'dr_sang'	=> 'Dr.상'
+                ,'dr_seo'	=> 'Dr.서'
                 ,'dr_'	=> 'Dr.'
                 ,'dr_'	=> 'Dr.'
 	)
