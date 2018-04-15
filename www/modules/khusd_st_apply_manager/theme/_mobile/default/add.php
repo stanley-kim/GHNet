@@ -107,7 +107,7 @@ __debug_print("type is - ".'_'.$type_name.'_'.$type0.'_'.$type1.'_'.$type2.'_'.$
                         </td>
                 </tr>
 
-<?php while( $_idx <= 6  )  :?>
+<?php while( $_idx <= 7  )  :?>
                 <td rowspan="4" class="td1"><?php echo $_idx?>차</td>
                 	<td class="td2">신청 시작
                                 <input type="number" name=start_hour_array[<?php echo $_idx?>] class="input time" value="<?php if( isset($ALL_APPLY_INFO[$_idx]) &&  strlen($ALL_APPLY_INFO[$_idx]['date_start'])>0) echo substr($ALL_APPLY_INFO[$_idx]['date_start'], 8, 2)?>" />시

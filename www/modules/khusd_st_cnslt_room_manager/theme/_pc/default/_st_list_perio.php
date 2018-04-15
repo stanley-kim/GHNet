@@ -25,7 +25,11 @@
 	<col width="50"> 
 	<col width="50"> 
 	<col width="50"> 
+	<col width="50"> 
+<!--
+	<col width="50"> 
 	<col width="50">
+-->
         <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<col width="50">
         <?php endif?>
@@ -50,6 +54,10 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'sc_chair', $om, $order == 'sc_chair')?>">어제까지 SC 체어</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'stpc', $om, $order == 'stpc')?>">직전SPT수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'stscpc', $om, $order == 'stscpc')?>">SC+SPT</a></th>
+<!--
+	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'stspt_incomplete', $om, $order == 'stspt_complete')?>">SPT미완료</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'stspt_complete', $om, $order == 'stspt_complete')?>">SPT완료</a></th>
+-->
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'stcu', $om, $order == 'stcu')?>">직전CU수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'st_score', $om, $order == 'st_score')?>">직전ST점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_perio_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'st_predict_score', $om, $order == 'st_predict_score')?>">예상ST점수</a></th>
@@ -73,6 +81,10 @@
 	<th scope="col" class="split">직전SC수</th>
 	<th scope="col" class="split">직전SPT수</th>
 	<th scope="col" class="split">SC+SPT</th>
+<!--
+	<th scope="col" class="split">SPT미완료</th>
+	<th scope="col" class="split">SPT완료</th>
+-->
 	<th scope="col" class="split">직전CU수</th>
 	<th scope="col" class="split">직전ST점수</th>
 	<th scope="col" class="split">예상ST점수</th>
@@ -166,6 +178,10 @@
 	<?php endif?>
 	<td><?php echo $ST_CHAIR['stpc']?></td>
 	<td><?php echo $ST_CHAIR['stscpc']?></td>
+<!--
+	<td><?php echo $ST_CHAIR['stspt_incomplete']?></td>
+	<td><?php echo $ST_CHAIR['stspt_complete']?></td>
+-->
 	<td><?php echo $ST_CHAIR['stcu']?></td>
 	<td><?php echo $ST_CHAIR['st_score']?></td>
 	<td><?php echo $ST_CHAIR['st_predict_score']?></td>
