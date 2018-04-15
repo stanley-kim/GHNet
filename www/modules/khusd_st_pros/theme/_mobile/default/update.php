@@ -135,7 +135,7 @@
 		</td>
 		</tr>
 		<tr>
-			<td class="title" colspan=4>Observation(단순 Obs)</td>
+			<td class="title" colspan=5>Observation(단순 Obs)</td>
 		</tr>
                 <?php if($SEMESTER_INFO['sid'] == 2):?>
 
@@ -144,20 +144,32 @@
 		<td>1cycle<input type="number" name="simple_obser_3_8" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_8']?>">회</td>
 		<td>2cycle<input type="number" name="simple_obser_3_10" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_10']?>">회</td>
 		<td>3cycle<input type="number" name="simple_obser_3_12" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_3_12']?>">회</td>
+                <td></td>
 		</tr>
-                <?php endif?>
-
+                <?php elseif( $SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type ):?>
+                <tr>
+                <td rowspan="1"   class="head">4학년 1학기</td>
+                <td>1cycle<input type="number" name="simple_obser_4_1cycle" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_1cycle']?>">회</td>
+                <td>2cycle<input type="number" name="simple_obser_4_2cycle" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_2cycle']?>">회</td>
+                <td>3cycle<input type="number" name="simple_obser_4_3cycle" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_3cycle']?>">회</td>
+                <td>4cycle<input type="number" name="simple_obser_4_4cycle" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_4cycle']?>">회</td>
+                </tr>
+                <?php elseif( $SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type ):?>
                 <tr>
                 <td rowspan="2" class="head">4학년 1학기</td>
-                <td>1cycle<input type="number" name="simple_obser_4_2" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_2']?>">회</td>
-                <td>2cycle<input type="number" name="simple_obser_4_4" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_4']?>">회</td>
-                <td>3cycle<input type="number" name="simple_obser_4_6" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_6']?>">회</td>
+                <td>1월<input type="number" name="simple_obser_4_1" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_1']?>">회</td>
+                <td>2월<input type="number" name="simple_obser_4_2" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_2']?>">회</td>
+                <td>3월<input type="number" name="simple_obser_4_3" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_3']?>">회</td>
+                <td>4월<input type="number" name="simple_obser_4_4" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_4']?>">회</td>
+
                 </tr>
                 <tr>
-                <td>4cycle<input type="number" name="simple_obser_4_8" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_8']?>">회</td>
-                <td></td>
+                <td>5월<input type="number" name="simple_obser_4_5" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_5']?>">회</td>
+                <td>6월<input type="number" name="simple_obser_4_6" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_6']?>">회</td>
+                <td>7월<input type="number" name="simple_obser_4_7" maxlength="5" class="input num" value="<?php echo $SCORE['simple_obser_4_7']?>">회</td>
                 <td></td>
                 </tr>
+                <?php endif?>
 
 		<td>
 		<td>

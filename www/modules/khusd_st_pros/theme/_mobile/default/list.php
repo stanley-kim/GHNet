@@ -40,13 +40,29 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-	<col width="40"> 
-<?php if($SEMESTER_INFO['sid'] != 2):?>
+
+<?php if($SEMESTER_INFO['sid'] == 2):?>
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+<?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type) : ?>
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+<?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type) : ?>
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
         <col width="40">
 <?php endif?>
+
 
 	<col width="150"> 
 	</colgroup> 
@@ -68,12 +84,15 @@
 	<th colspan="4" scope="col" class="split">Br.</th>
 	<th colspan="4" scope="col" class="split">RPD</th>
 	<th colspan="4" scope="col" class="split">CD</th>
-<?php if($SEMESTER_INFO['sid'] == 2):?>
 
-	<th colspan="4" scope="col" class="split">단순 Obs</th>
-<? else:?>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+        <th colspan="4" scope="col" class="split">단순 Obs</th>
+        <?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type) : ?>
         <th colspan="5" scope="col" class="split">단순 Obs</th>
-<?php endif ?>
+        <?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type) : ?>
+        <th colspan="8" scope="col" class="split">단순 Obs</th>
+        <?php endif?>
+
 
 	<th colspan="2" scope="col" class="split">총점</th>
 	<th rowspan="2" scope="col">수정일</th>
@@ -117,15 +136,22 @@
 <?php if($SEMESTER_INFO['sid'] == 2):?>
 
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_8', $om)?>">1cycle</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_10', $om)?>">2cycle</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_12', $om)?>">3cycle</a></th>
-<?php else:?>
-        <th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_2', $om)?>">1cycle</a></th>
-        <th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_4', $om)?>">2cycle</a></th>
-        <th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_6', $om)?>">3cycle</a></th>
-        <th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_8', $om)?>">3cycle</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_9', $om)?>">2cycle</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_3_10', $om)?>">3cycle</a></th>
+<?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type) : ?>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_1cycle', $om)?>">1cycle</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_2cycle', $om)?>">2cycle</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_3cycle', $om)?>">3cycle</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_4cycle', $om)?>">3cycle</a></th>
+<?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type) : ?>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_1', $om)?>">1월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_2', $om)?>">2월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_3', $om)?>">3월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_4', $om)?>">4월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_5', $om)?>">5월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_6', $om)?>">6월</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'simple_obser_4_7', $om)?>">7월</a></th>
 <?php endif?>
-
 
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'total_simple_obser', $om)?>">합</a></th>
 
@@ -167,11 +193,23 @@
 	<th scope="col" class="split">지난학기</th>
 	<th scope="col" class="split">진행+완료</th>
 
+<?php if($SEMESTER_INFO['sid'] == 2):?>
 	<th scope="col" class="split">1cycle</th>
 	<th scope="col" class="split">2cycle</th>
 	<th scope="col" class="split">3cycle</th>
-<?php if($SEMESTER_INFO['sid'] != 2):?>
+<?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type) : ?>
+	<th scope="col" class="split">1cycle</th>
+	<th scope="col" class="split">2cycle</th>
+	<th scope="col" class="split">3cycle</th>
         <th scope="col" class="split">4cycle</th>
+<?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type) : ?>
+	<th scope="col" class="split">1월</th>
+	<th scope="col" class="split">2월</th>
+	<th scope="col" class="split">3월</th>
+        <th scope="col" class="split">4월</th>
+        <th scope="col" class="split">5월</th>
+        <th scope="col" class="split">6월</th>
+        <th scope="col" class="split">7월</th>
 <?php endif?>
 
 	<th scope="col" class="split">합</th>
@@ -221,19 +259,25 @@
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['complete_denture_complete'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['complete_denture_prev'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['complete_denture'])?></td>
-        <?php if($SEMESTER_INFO['sid'] == 2):?>
 
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_8'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_10'])?></td>
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_3_12'])?></td>
-        <?php else: ?>
-                <td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_2'])?></td>
-                <td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_4'])?></td>
-                <td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_6'])?></td>
-                <td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_8'])?></td>
-
+	 <?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type) : ?>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_1cycle'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_2cycle'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_3cycle'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_4cycle'])?></td>
+	<?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type) : ?>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_1'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_2'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_3'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_4'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_5'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_6'])?></td>
+		<td class="avg"><?php echo sprintf("%1.1f",$AVG['simple_obser_4_7'])?></td>
         <?php endif?>
-
 
 		<td class="avg"><?php echo sprintf("%1.1f",$AVG['total_simple_obser'])?></td>
 
@@ -284,16 +328,25 @@
 	<td class="category2"><?php echo $SCORE['complete_denture_complete']?></td>
 	<td><?php echo $SCORE['complete_denture_prev']?></td>
 	<td class="category2"><?php echo $SCORE['complete_denture']?></td>
+
+
         <?php if($SEMESTER_INFO['sid'] == 2):?>
-	
-	<td class="category2"><?php echo $SCORE['simple_obser_3_8']?></td>
-	<td><?php echo $SCORE['simple_obser_3_10']?></td>
-	<td class="category2"><?php echo $SCORE['simple_obser_3_12']?></td>
-        <?php else: ?>
-        <td class="category2"><?php echo $SCORE['simple_obser_4_2']?></td>
-        <td><?php echo $SCORE['simple_obser_4_4']?></td>
-        <td class="category2"><?php echo $SCORE['simple_obser_4_6']?></td>
-        <td class="category2"><?php echo $SCORE['simple_obser_4_8']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_3_8']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_3_10']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_3_12']?></td>
+         <?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type) : ?>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_1cycle']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_2cycle']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_3cycle']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_4cycle']?></td>
+        <?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type) : ?>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_1']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_2']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_3']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_4']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_5']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_6']?></td>
+		<td class="category1"><?php echo $SCORE['simple_obser_4_7']?></td>
         <?php endif?>
 
 
@@ -349,18 +402,28 @@
 	<td><?php echo $SCORE['complete_denture_prev']?></td>
 	<td class="category2"><?php echo $SCORE['complete_denture']?></td>
 
-        <?php if($SEMESTER_INFO['sid'] == 2):?>
-	
-	<td class="category2"><?php echo $SCORE['simple_obser_3_8']?></td>
-	<td><?php echo $SCORE['simple_obser_3_10']?></td>
-	<td class="category2"><?php echo $SCORE['simple_obser_3_12']?></td>
-        <?php else: ?>
-        <td class="category2"><?php echo $SCORE['simple_obser_4_2']?></td>
-        <td><?php echo $SCORE['simple_obser_4_4']?></td>
-        <td class="category2"><?php echo $SCORE['simple_obser_4_6']?></td>
-        <td class="category2"><?php echo $SCORE['simple_obser_4_8']?></td>
 
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
+                <td class="category1"><?php echo $SCORE['simple_obser_3_8']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_3_10']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_3_12']?></td>
+         <?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type) : ?>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_1cycle']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_2cycle']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_3cycle']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_4cycle']?></td>
+        <?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type) : ?>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_1']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_2']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_3']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_4']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_5']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_6']?></td>
+                <td class="category1"><?php echo $SCORE['simple_obser_4_7']?></td>
         <?php endif?>
+
+
+
 
 
 	<td class="category2"><?php echo $SCORE['total_simple_obser']?></td>

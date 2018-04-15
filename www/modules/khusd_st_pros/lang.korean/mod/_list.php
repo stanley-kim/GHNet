@@ -37,11 +37,22 @@
 		AND mbrid.id = sc.st_id 
 	order by sc.follow DESC
 	*/
-        if($SEMESTER_INFO['sid'] == 2)
 
+        $month_type = 1;
+        $cycle_type = 2;
+        $simple_obser_type = $month_type;
+        //$simple_obser_type = $cycle_type;
+
+        if($SEMESTER_INFO['sid'] == 2)
+        // 쿼리는 list 모드일 때의 쿼리 참고.. .이 변수들을 합치면 좋겠음....
         $_data_total_simple_obser = 'sc.simple_obser_3_8 + sc.simple_obser_3_10 + sc.simple_obser_3_12' ;
-       else
-        $_data_total_simple_obser = 'sc.simple_obser_4_2 + sc.simple_obser_4_4 + sc.simple_obser_4_6 + sc.simple_obser_4_8' ;
+        elseif($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type)
+        $_data_total_simple_obser = 'sc.simple_obser_4_1cycle + sc.simple_obser_4_2cycle + sc.simple_obser_4_3cycle + sc.simple_obser_4_4cycle' ;
+        elseif($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type)
+        $_data_total_simple_obser = 'sc.simple_obser_4_1 + sc.simple_obser_4_2 + sc.simple_obser_4_3 + sc.simple_obser_4_4 + sc.simple_obser_4_5 +  sc.simple_obser_4_6 + sc.simple_obser_4_7' ;
+        else  $_data_total_simple_obser = 'sc.simple_obser_3_8 + sc.simple_obser_3_10 + sc.simple_obser_3_12' ;
+
+
 	
 	$_data_total_score = 
 		'sc.post_core_complete * '.$d['khusd_st_pros']['score']['post_core']
@@ -150,10 +161,17 @@
 			.', AVG(simple_obser_3_8) AS simple_obser_3_8'
 			.', AVG(simple_obser_3_10) AS simple_obser_3_10'
 			.', AVG(simple_obser_3_12) AS simple_obser_3_12'
+			.', AVG(simple_obser_4_1cycle) AS simple_obser_4_1cycle'
+			.', AVG(simple_obser_4_2cycle) AS simple_obser_4_2cycle'
+			.', AVG(simple_obser_4_3cycle) AS simple_obser_4_3cycle'
+			.', AVG(simple_obser_4_4cycle) AS simple_obser_4_4cycle'
+			.', AVG(simple_obser_4_1) AS simple_obser_4_1'
 			.', AVG(simple_obser_4_2) AS simple_obser_4_2'
+			.', AVG(simple_obser_4_3) AS simple_obser_4_3'
 			.', AVG(simple_obser_4_4) AS simple_obser_4_4'
+			.', AVG(simple_obser_4_5) AS simple_obser_4_5'
 			.', AVG(simple_obser_4_6) AS simple_obser_4_6'
-			.', AVG(simple_obser_4_8) AS simple_obser_4_8'
+			.', AVG(simple_obser_4_7) AS simple_obser_4_7'
 
 			.', AVG('.$_data_second_cr.') AS second_cr'
 			.', AVG('.$_data_post_core.') AS post_core'

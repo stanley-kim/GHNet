@@ -42,6 +42,10 @@
 		$SCORE['simple_obser_4_6'] = 0;
 		$SCORE['simple_obser_4_8'] = 0;
 	}
-	
+
+        $month_type = 1;
+        $cycle_type = 2;
+        $simple_obser_type = $month_type;
+        //$simple_obser_type = $cycle_type;
 	
 ?>

@@ -91,10 +91,19 @@ $simeple_obser_3_9 = intval($simple_obser_3_9);
 $simeple_obser_3_10 = intval($simple_obser_3_10);
 $simeple_obser_3_11 = intval($simple_obser_3_11);
 $simeple_obser_3_12 = intval($simple_obser_3_12);
+$simeple_obser_4_1 = intval($simple_obser_4_1);
 $simeple_obser_4_2 = intval($simple_obser_4_2);
+$simeple_obser_4_3 = intval($simple_obser_4_3);
 $simeple_obser_4_4 = intval($simple_obser_4_4);
+$simeple_obser_4_5 = intval($simple_obser_4_5);
 $simeple_obser_4_6 = intval($simple_obser_4_6);
+$simeple_obser_4_7 = intval($simple_obser_4_7);
 $simeple_obser_4_8 = intval($simple_obser_4_8);
+
+$simeple_obser_4_1cycle = intval($simple_obser_4_1cycle);
+$simeple_obser_4_2cycle = intval($simple_obser_4_2cycle);
+$simeple_obser_4_3cycle = intval($simple_obser_4_3cycle);
+$simeple_obser_4_4cycle = intval($simple_obser_4_4cycle);
 
 $st_case_1					= trim($st_case_1);
 $st_case_1_pt_name			= trim($st_case_1_pt_name);
@@ -161,7 +170,9 @@ $QKEY = "s_uid, st_id, "
 	."br_prev_prof, partial_denture_prev_prof, complete_denture_prev_prof,"
 	."simple_obser_3_7, simple_obser_3_8, simple_obser_3_9,"
 	."simple_obser_3_10, simple_obser_3_11, simple_obser_3_12,"
+	."simple_obser_4_1, simple_obser_4_3, simple_obser_4_5, simple_obser_4_7,"
 	."simple_obser_4_2, simple_obser_4_4, simple_obser_4_6, simple_obser_4_8,"
+	."simple_obser_4_1cycle, simple_obser_4_2cycle, simple_obser_4_3cycle, simple_obser_4_4cycle,"
 
 	//."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly,"
 	."st_case_1, st_case_1_pt_name, st_case_1_last_tx_date, st_case_1_last_tx, st_case_1_last_inst, st_case_1_friendly, st_case_1_pt_id, st_case_1_dental_formula,"
@@ -191,7 +202,9 @@ $QVAL = "'$s_uid', '$st_id', "
 	."'$br_prev_prof', '$partial_denture_prev_prof', '$complete_denture_prev_prof',"
 	."'$simple_obser_3_7', '$simple_obser_3_8', '$simple_obser_3_9',"
 	."'$simple_obser_3_10', '$simple_obser_3_11', '$simple_obser_3_12',"
+	."'$simple_obser_4_1', '$simple_obser_4_3', '$simple_obser_4_5', '$simple_obser_4_7',"
 	."'$simple_obser_4_2', '$simple_obser_4_4', '$simple_obser_4_6', '$simple_obser_4_8',"
+	."'$simple_obser_4_1cycle', '$simple_obser_4_2cycle', '$simple_obser_4_3cycle', '$simple_obser_4_4cycle',"
 
 	//."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly',"
 	."'$st_case_1', '$st_case_1_pt_name', '$st_case_1_last_tx_date', '$st_case_1_last_tx', '$st_case_1_last_inst', '$st_case_1_friendly', '$st_case_1_pt_id', '$st_case_1_dental_formula',"

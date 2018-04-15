@@ -17,14 +17,22 @@
 		getLink('', '', '타인에 대한 조회에 대한 권한이 없습니다.'.$st_id, '');
 	}
 
+        $month_type = 1;
+        $cycle_type = 2;
+        $simple_obser_type = $month_type;
+        //$simple_obser_type = $cycle_type;
+
 	$order_by = 'date_update';
 	$order_mode = 'DESC';
 	$recnum = $recnum && $recnum < 200 ? $recnum : $d['khusd_st_manager']['history_recnum'];
 	if($SEMESTER_INFO['sid'] == 2)
 	// 쿼리는 list 모드일 때의 쿼리 참고.. .이 변수들을 합치면 좋겠음....
 	$_data_total_simple_obser = 'sc.simple_obser_3_8 + sc.simple_obser_3_10 + sc.simple_obser_3_12' ; 		
-	else 
-	$_data_total_simple_obser = 'sc.simple_obser_4_2 + sc.simple_obser_4_4 + sc.simple_obser_4_6 + sc.simple_obser_4_8' ; 		
+	elseif($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type)
+	$_data_total_simple_obser = 'sc.simple_obser_4_1cycle + sc.simple_obser_4_2cycle + sc.simple_obser_4_3cycle + sc.simple_obser_4_4cycle' ; 		
+	elseif($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $month_type)
+	$_data_total_simple_obser = 'sc.simple_obser_4_1 + sc.simple_obser_4_2 + sc.simple_obser_4_3 + sc.simple_obser_4_4 + sc.simple_obser_4_5 +  sc.simple_obser_4_6 + sc.simple_obser_4_7' ;
+	else  $_data_total_simple_obser = 'sc.simple_obser_3_8 + sc.simple_obser_3_10 + sc.simple_obser_3_12' ; 		
 
 	 		
 	$_data_total_score = 
