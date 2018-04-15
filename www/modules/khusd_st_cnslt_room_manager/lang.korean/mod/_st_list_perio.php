@@ -52,17 +52,17 @@
 	*/
 	$_data_pre_st = 'IF( sc.charting >= 3 AND sc.iot >= 2 AND sc.sc >= 10, 1, 0)';
 	$_data_st_score = 
-		'sc.stsc * '.$d['khusd_st_perio']['score']['stsc']
-		.' + sc.stpc * '.$d['khusd_st_perio']['score']['stpc']
+		'sc.stspt_complete * '.$d['khusd_st_perio']['score']['stspt_complete']
+		.' + sc.stspt_incomplete * '.$d['khusd_st_perio']['score']['stspt_incomplete']
 		.' + sc.stcu * '.$d['khusd_st_perio']['score']['stcu'];
 
 	// 기존점수 + 금주 배정받은 체어 점수
 	$_data_st_predict_score = 
-		'sc.stsc * '.$d['khusd_st_perio']['score']['stsc']
-		.' + sc.stpc * '.$d['khusd_st_perio']['score']['stpc']
+		'sc.stspt_complete * '.$d['khusd_st_perio']['score']['stspt_complete']
+		.' + sc.stspt_incomplete * '.$d['khusd_st_perio']['score']['stspt_incomplete']
 		.' + sc.stcu * '.$d['khusd_st_perio']['score']['stcu']
-		.' + perio_accepted_sc_chair * '.$d['khusd_st_perio']['score']['stsc']
-		.' + perio_accepted_spt_chair * '.$d['khusd_st_perio']['score']['stpc']
+		.' + perio_accepted_sc_chair * '.$d['khusd_st_perio']['score']['stspt_incomplete']
+		.' + perio_accepted_spt_chair * '.$d['khusd_st_perio']['score']['stspt_complete']
 		.' + perio_accepted_cu_chair * '.$d['khusd_st_perio']['score']['stcu']
 		;
 	
@@ -136,6 +136,8 @@
 		.', sc.stpc'
 		.', (sc.stpc+sc.stsc) as stscpc'
 		.', sc.stcu'
+		.', sc.stspt_complete'
+		.', sc.stspt_incomplete'
 		.', perio_j.perio_chair AS perio_chair'
 		.', perio_j.perio_accepted_chair AS perio_accepted_chair'
 		.', total_j.total_chair AS total_chair'

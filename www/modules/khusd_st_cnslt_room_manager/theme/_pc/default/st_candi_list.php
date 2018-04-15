@@ -27,7 +27,7 @@
 			<th>환자명</th>
 			<?php if ($st_type == 'perio'):?>
 			<th>SC</th>
-			<th>PC</th>
+			<th>SPT완료</th>
 			<th>CU</th>
 			<th>ST 점수</th>
 			<?php endif?>
@@ -66,7 +66,7 @@
 				<?php echo $_ROW['stsc']?>
 			</td>
 			<td>
-				<?php echo $_ROW['stpc']?>
+				<?php echo $_ROW['stspt_complete']?>
 			</td>
 			<td>
 				<?php echo $_ROW['stcu']?>
