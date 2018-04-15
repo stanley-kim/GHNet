@@ -65,6 +65,7 @@
 		
 	$_data_st_plus_score = 
 		'st_op_score'
+		.' + st_endo_1st_point'
 		.' + st_endo_2nd_point'
 		.' + st_inlay_score'
 		.' + st_op_bleaching * '.$_score['st_op_bleaching']
@@ -78,7 +79,7 @@
 		.'+ '.genMinusScoreQuery( 'st_am', $d['khusd_st_consv']['require']['st']['st_am'], $d['khusd_st_consv']['minus']['st']['st_am'])
 		.'+ '.genMinusScoreQuery( "IF(st_inlay_1_proc = 'inlay_setting', 1, 0) + IF(st_inlay_2_proc = 'inlay_setting', 1, 0)", $d['khusd_st_consv']['require']['st']['st_inlay'], $d['khusd_st_consv']['minus']['st']['st_inlay'])
 		//.'+ '.genMinusScoreQuery( "IF(st_endo_2 = '', 0, 1)", $d['khusd_st_consv']['require']['st']['st_endo'], $d['khusd_st_consv']['minus']['st']['st_endo'])
-		.'+ '.genMinusScoreQuery( "IF(st_endo_1 = 'cf', 1, 0)", $d['khusd_st_consv']['require']['st']['st_endo'], $d['khusd_st_consv']['minus']['st']['st_endo'])
+		/////.'+ '.genMinusScoreQuery( "IF(st_endo_1 = 'cf', 1, 0)", $d['khusd_st_consv']['require']['st']['st_endo'], $d['khusd_st_consv']['minus']['st']['st_endo'])
 		////.'+ '.genMinusScoreQuery( "IF(st_endo_2 = 'cf', 1, 0)", $d['khusd_st_consv']['require']['st']['st_endo'], $d['khusd_st_consv']['minus']['st']['st_endo'])
 		.' AS st_minus_score'
 		.' FROM '
@@ -167,6 +168,7 @@
 	// 평균 구하기
 	$_data = 
 		'AVG(st_endo_2nd_point) AS st_endo_2nd_point'
+		.', AVG(st_endo_1st_point) AS st_endo_1st_point'
 		.', AVG(st_op_am_simple) AS st_op_am_simple'
 		.', AVG(st_op_am_complex) AS st_op_am_complex'
 		.', AVG(st_op_tooth_colored_cervical) AS st_op_tooth_colored_cervical'

@@ -27,6 +27,7 @@
 	<col width="40">
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
 <!--	<col width="40"> 
 	<col width="40"> 
 	<col width="40">
@@ -39,7 +40,7 @@
 	<?php if($MANAGER):?>
 		<th rowspan="2" scope="col" class="split">No</th>
 		<th rowspan="2" scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_id', $om)?>">학번,이름</a></th>
-		<th colspan="15" scope="col" class="split">[ST OP & Endo Tx.]</th>
+		<th colspan="16" scope="col" class="split">[ST OP & Endo Tx.]</th>
 <!--		<th colspan="2" scope="col" class="split">[Fol]</th>-->
 <!--		<th colspan="2" scope="col" class="split">[Obs]</th>-->
 		<th colspan="3" scope="col" class="split">[Total]</th>
@@ -48,7 +49,8 @@
 	<tr>
 <!--		<th scope="col" class="split"><a href="<?php echo getSortingLink($c, '', $om)?>">OP 체어 당첨 횟수</a></th> -->
 		<th scope="col" class="split">ENDO<br />1/2</th>
-		<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_endo_1nd_point', $om)?>">Endo점수(2nd case)</a></th>
+		<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_endo_1st_point', $om)?>">Endo점수(1st case)</a></th>
+		<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_endo_2nd_point', $om)?>">Endo점수(2nd case)</a></th>
 		<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_op_bleaching', $om)?>">Blch</a></th>
 		<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_op_tooth_colored_cervical', $om)?>">CA</a></th>
 		<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'st_op_tooth_colored_simple', $om)?>">RF(S)</a></th>
@@ -74,15 +76,15 @@
 	<?php else:?>
 		<th rowspan="2" scope="col" class="split">No</th>
 		<th rowspan="2" scope="col" class="split">학번,이름</th>
-		<th colspan="18" scope="col" class="split">[ST OP & Endo Tx.]</th>
-		<th colspan="2" scope="col" class="split">[Obs]</th>
-		<th scope="col" class="split">[Total]</th>
+		<th colspan="16" scope="col" class="split">[ST OP & Endo Tx.]</th>
+		<th colspan="3" scope="col" class="split">[Total]</th>
 		<th rowspan="2" scope="col" class="">수정일</th>
 	</tr>
 	<tr>
 <!--		<th scope="col" class="split">OP 체어 당첨 횟수</th>-->
 		<th scope="col" class="split">ENDO<br />1/2</th>
 		<th scope="col" class="split">Endo점수(1st case)</th>
+		<th scope="col" class="split">Endo점수(2nd case)</th>
 		<th scope="col" class="split">Blch</th>
 		<th scope="col" class="split">CA</th>
 		<th scope="col" class="split">RF(S)</th>
@@ -114,6 +116,7 @@
 		<td class="avg">평균</th>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_op_chair_assigned'])?></td>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_endo_1st_point'])?></td>
+		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_endo_2nd_point'])?></td>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_op_bleaching'])?></td>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_op_tooth_colored_cervical'])?></td>
 		<td class="avg"><?php echo sprintf("%01.2f",$AVG['st_op_tooth_colored_simple'])?></td>
@@ -152,6 +155,7 @@
 		/<?php if($SCORE['st_endo_2'] != ''){ echo 'O';}else { echo 'X';} ?>
 	</td>
 	<td class="category3"><?php echo $SCORE['st_endo_1st_point']?></td>
+	<td class="category3"><?php echo $SCORE['st_endo_2nd_point']?></td>
 	<td class="category3"><?php echo $SCORE['st_op_bleaching']?></td>
 	<td class="category1"><?php echo $SCORE['st_op_tooth_colored_cervical']?></td>
 	<td class="category1"><?php echo $SCORE['st_op_tooth_colored_simple']?></td>
@@ -193,6 +197,7 @@
 		/<?php if($SCORE['st_endo_2'] != ''){ echo 'O';}else { echo 'X';} ?>
 	</td>
 		<td class="category3"><?php echo $SCORE['st_endo_1st_point']?></td>
+		<td class="category3"><?php echo $SCORE['st_endo_2nd_point']?></td>
 		<td class="category3"><?php echo $SCORE['st_op_bleaching']?></td>
 		<td class="category1"><?php echo $SCORE['st_op_tooth_colored_cervical']?></td>
 		<td class="category1"><?php echo $SCORE['st_op_tooth_colored_simple']?></td>
