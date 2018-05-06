@@ -22,6 +22,10 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
+	<col width="40"> 
+	<col width="40"> 
+	<col width="40"> 
 <!--	<col width="40">--> 
 	<col width="40"> 
 	<col width="40"> 
@@ -59,6 +63,10 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_tmd_3cycle_check', $om)?>">T첵3</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_tmd_3cycle_follow1st', $om)?>">T1팔로3</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_tmd_3cycle_follow2nd', $om)?>">T2팔로3</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_tmd_4cycle_charting', $om)?>">T차팅4</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_tmd_4cycle_check', $om)?>">T첵4</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_tmd_4cycle_follow1st', $om)?>">T1팔로4</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_tmd_4cycle_follow2nd', $om)?>">T2팔로4</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_soft_charting', $om)?>">연차팅</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_soft_check', $om)?>">연첵</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink($c, 'charting_soft_follow1st', $om)?>">연1팔로</a></th>
@@ -94,6 +102,10 @@
 	<th scope="col" class="split">T첵3</th>
 	<th scope="col" class="split">T1팔로3</th>
 	<th scope="col" class="split">T2팔로3</th>
+	<th scope="col" class="split">T차팅4</th>
+	<th scope="col" class="split">T첵4</th>
+	<th scope="col" class="split">T1팔로4</th>
+	<th scope="col" class="split">T2팔로4</th>
 	<th scope="col" class="split">연차팅</th>
 	<th scope="col" class="split">연첵</th>
 	<th scope="col" class="split">연1팔로</th>
@@ -134,6 +146,10 @@
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_tmd_3cycle_check'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_tmd_3cycle_follow1st'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_tmd_3cycle_follow2nd'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_tmd_4cycle_charting'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_tmd_4cycle_check'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_tmd_4cycle_follow1st'])?></td>
+	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_tmd_4cycle_follow2nd'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_soft_charting'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_soft_check'])?></td>
 	<td class="avg"><?php echo sprintf("%1.1f",$AVG['charting_soft_follow1st'])?></td>
@@ -175,6 +191,10 @@
 	<td class="category4"><?php echo $SCORE['charting_tmd_3cycle_check']?></td>
 	<td class="category4"><?php echo $SCORE['charting_tmd_3cycle_follow1st']?></td>
 	<td class="category4"><?php echo $SCORE['charting_tmd_3cycle_follow2nd']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_4cycle_charting']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_4cycle_check']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_4cycle_follow1st']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_4cycle_follow2nd']?></td>
 	<td class="category4"><?php echo $SCORE['charting_soft_charting']?></td>
 	<td class="category4"><?php echo $SCORE['charting_soft_check']?></td>
 	<td class="category4"><?php echo $SCORE['charting_soft_follow1st']?></td>
@@ -217,6 +237,10 @@
 	<td class="category4"><?php echo $SCORE['charting_tmd_3cycle_check']?></td>
 	<td class="category4"><?php echo $SCORE['charting_tmd_3cycle_follow1st']?></td>
 	<td class="category4"><?php echo $SCORE['charting_tmd_3cycle_follow2nd']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_4cycle_charting']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_4cycle_check']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_4cycle_follow1st']?></td>
+	<td class="category4"><?php echo $SCORE['charting_tmd_4cycle_follow2nd']?></td>
 	<td class="category4"><?php echo $SCORE['charting_soft_charting']?></td>
 	<td class="category4"><?php echo $SCORE['charting_soft_check']?></td>
 	<td class="category4"><?php echo $SCORE['charting_soft_follow1st']?></td>

@@ -1,5 +1,7 @@
 <div id="medi_history" class="khusd_st list medi">
 
+        <?php $SEMESTER_INFO = getCurrentSemesterInfo()  ?>
+
 	<table summary="구강내과 점수표 기록입니다.">
 	<caption>구강내과 점수표 기록</caption> 
 	<colgroup> 
@@ -31,10 +33,15 @@
 	<th scope="col" class="split">No</th>
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">이름</th>
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<th scope="col" class="split">Pre Ch</th>
+        <?php endif?>
 	<th scope="col" class="split">TMD Ch1</th>
 	<th scope="col" class="split">TMD Ch2</th>
 	<th scope="col" class="split">TMD Ch3</th>
+        <?php if($SEMESTER_INFO['sid'] == 3):?>
+        <th scope="col" class="split">TMD Ch4</th>
+        <?php endif?>
 	<th scope="col" class="split">연Ch</th>
 	<th scope="col" class="split">단순 Obser</th>
 <!--	<th scope="col" class="split">장치 Obser</th>-->
@@ -62,12 +69,17 @@
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_id']?></td>
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_info']['name']?></td>
 
+        <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<td><?php echo $SCORE['charting_obser']?></td>
+        <?php endif?>
 <!--	<td class="category4"><?php echo $SCORE['charting']?></td>-->
 
         <td class="category4"><?php echo $SCORE['charting_tmd_1cycle_charting']?>/<?php echo $SCORE['charting_tmd_1cycle_check']?>/<?php echo $SCORE['charting_tmd_1cycle_follow1st']?>/<?php echo $SCORE['charting_tmd_1cycle_follow2nd']?></td>
         <td class="category4"><?php echo $SCORE['charting_tmd_2cycle_charting']?>/<?php echo $SCORE['charting_tmd_2cycle_check']?>/<?php echo $SCORE['charting_tmd_2cycle_follow1st']?>/<?php echo $SCORE['charting_tmd_2cycle_follow2nd']?></td>
         <td class="category4"><?php echo $SCORE['charting_tmd_3cycle_charting']?>/<?php echo $SCORE['charting_tmd_3cycle_check']?>/<?php echo $SCORE['charting_tmd_3cycle_follow1st']?>/<?php echo $SCORE['charting_tmd_3cycle_follow2nd']?></td>
+        <?php if($SEMESTER_INFO['sid'] == 3):?>
+        <td class="category4"><?php echo $SCORE['charting_tmd_4cycle_charting']?>/<?php echo $SCORE['charting_tmd_4cycle_check']?>/<?php echo $SCORE['charting_tmd_4cycle_follow1st']?>/<?php echo $SCORE['charting_tmd_4cycle_follow2nd']?></td>
+        <?php endif?>
         <td class="category4"><?php echo $SCORE['charting_soft_charting']?>/<?php echo $SCORE['charting_soft_check']?>/<?php echo $SCORE['charting_soft_follow1st']?>/<?php echo $SCORE['charting_soft_follow2nd']?></td>
 
 

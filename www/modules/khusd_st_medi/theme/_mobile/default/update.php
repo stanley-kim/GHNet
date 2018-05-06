@@ -13,6 +13,8 @@
 		<input type="hidden" name="n_page" value="<?php echo $n_page?>" />
 	<?php endif?>
 
+        <?php $SEMESTER_INFO = getCurrentSemesterInfo()  ?>
+
 	<table summary="구강내과 점수표 입니다.">
 	<caption>구강내과 점수표</caption>
 	<colgroup>
@@ -65,6 +67,17 @@
                 <td class="input"><input type="number" name="charting_tmd_3cycle_follow1st" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_3cycle_follow1st']?>">명</td>
                 <td class="input"><input type="number" name="charting_tmd_3cycle_follow2nd" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_3cycle_follow2nd']?>">명</td>
                 </tr>
+
+                <?php if($SEMESTER_INFO['sid'] == 3):?>
+                <tr>
+                <td class="head">TMD 차팅 4Cycle</td>
+                <td class="input"><input type="number" name="charting_tmd_4cycle_charting" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_4cycle_charting']?>">명</td>
+                <td class="input"><input type="number" name="charting_tmd_4cycle_check" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_4cycle_check']?>">명</td>
+                <td class="input"><input type="number" name="charting_tmd_4cycle_follow1st" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_4cycle_follow1st']?>">명</td>
+                <td class="input"><input type="number" name="charting_tmd_4cycle_follow2nd" maxlength="5" class="input num" value="<?php echo $SCORE['charting_tmd_4cycle_follow2nd']?>">명</td>
+                </tr>
+                <?php endif?>
+
                 <tr>
                 <td class="head">연조직 차팅</td>
                 <td class="input"><input type="number" name="charting_soft_charting" maxlength="5" class="input num" value="<?php echo $SCORE['charting_soft_charting']?>">명</td>
