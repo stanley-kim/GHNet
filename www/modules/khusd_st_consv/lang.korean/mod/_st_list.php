@@ -72,6 +72,11 @@
 		.' + st_op_others * '.$_score['st_op_others']
 		;
 		
+	$_data_st_op_prev_cur_score = 
+		'st_op_score'
+		.' - st_op_prev_score'  
+		;
+
 	$_table_st_minus_score = 
 		'SELECT mmst.uid,'
 		.'st_op,st_am,'
@@ -142,6 +147,7 @@
 		.', ('.$_data_st_op_num.') AS st_op_num'
 		.', ('.$_data_st_inlay_prep.') AS st_inlay_prep'
 		.', ('.$_data_st_inlay_setting.') AS st_inlay_setting'
+		.', ('.$_data_st_op_prev_cur_score.') AS st_op_prev_cur_score'
 		.', ('.$_data_st_plus_score.') AS st_plus_score';
 	$_sort = $order_by;
 	$_orderby = $order_mode;
@@ -169,6 +175,7 @@
 	$_data = 
 		'AVG(st_endo_2nd_point) AS st_endo_2nd_point'
 		.', AVG(st_endo_1st_point) AS st_endo_1st_point'
+		.', AVG(st_op_prev_score) AS st_op_prev_score'
 		.', AVG(st_op_am_simple) AS st_op_am_simple'
 		.', AVG(st_op_am_complex) AS st_op_am_complex'
 		.', AVG(st_op_tooth_colored_cervical) AS st_op_tooth_colored_cervical'
@@ -182,6 +189,7 @@
 		.', AVG('.$_data_st_inlay_prep.') AS st_inlay_prep'
 		.', AVG('.$_data_st_inlay_setting.') AS st_inlay_setting'
 		.', AVG('.$_data_st_plus_score.') AS st_plus_score'
+		.', AVG('.$_data_st_op_prev_cur_score.') AS st_op_prev_cur_score'
 		.', AVG(st_minus_score) AS st_minus_score'
 		.', AVG('.$_data_st_score.') AS st_score';
 	$AVG = getDbData($_table, $_where, $_data);

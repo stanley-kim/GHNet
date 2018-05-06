@@ -124,6 +124,8 @@ $charing	= intval($charing);
 $diastema	= intval($diastema);
 
 
+$st_op_prev_score       = intval($st_op_prev_score);
+
 $st_op_tooth_colored_cervical	= intval($st_op_tooth_colored_cervical);
 $st_op_tooth_colored_simple		= intval($st_op_tooth_colored_simple);
 $st_op_tooth_colored_complex	= intval($st_op_tooth_colored_complex);
@@ -171,6 +173,7 @@ $QKEY = "st_id, s_uid, pre_st_ant, pre_st_post, pre_st_cervical, pre_st_am,
 			endo_pre_pe, endo_pre_ce, endo_pre_cf, endo_pre_etc, 
 			endo_ant_pe, endo_ant_ce, endo_ant_cf, endo_ant_etc,
 			fol_cp, fol_ei,
+			st_op_prev_score,  
 			st_op_tooth_colored_cervical, st_op_tooth_colored_simple, 
 			st_op_tooth_colored_complex, st_op_tooth_colored_diastema, 
 			st_op_am_simple, st_op_am_complex, st_op_bleaching, st_op_others, 
@@ -212,6 +215,7 @@ $QVAL = "'$st_id', '$s_uid', '$pre_st_ant', '$pre_st_post', '$pre_st_cervical', 
 		."'$endo_pre_pe', '$endo_pre_ce', '$endo_pre_cf', '$endo_pre_etc'," 
 		."'$endo_ant_pe', '$endo_ant_ce', '$endo_ant_cf', '$endo_ant_etc',"
 		."'$fol_cp', '$fol_ei',"
+		."'$st_op_prev_score',"
 		."'$st_op_tooth_colored_cervical', '$st_op_tooth_colored_simple',"
 		."'$st_op_tooth_colored_complex', '$st_op_tooth_colored_diastema',"
 		."'$st_op_am_simple', '$st_op_am_complex',"

@@ -74,6 +74,7 @@ CREATE TABLE `".$table[$module.'score']."` (
   `fol_ei` int(4) NOT NULL default '0',
   
   
+  `st_op_prev_score`			int(4) NOT NULL default 0,
   `st_op_tooth_colored_cervical`	int(4) NOT NULL default 0,
   `st_op_tooth_colored_simple`		int(4) NOT NULL default 0,
   `st_op_tooth_colored_complex`		int(4) NOT NULL default 0,

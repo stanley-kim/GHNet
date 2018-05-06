@@ -260,6 +260,10 @@
 			<td class="title" colspan=2 style="background-color:#eeffff;">ST Case</td>
 		</tr>
 		<tr>
+		<td class="head">이전학기 이월OP 점수</td>
+		<td class="input"><input type="number" name="st_op_prev_score" maxlength="5" class="input num" value="<?php echo $SCORE['st_op_prev_score']?>">점</td>
+		</tr>
+		<tr>
 		<td class="head">OP 체어 배정 횟수</td>
 		<td class="input"><input type="number" name="st_op_chair_assigned" maxlength="5" class="input num" value="<?php echo $SCORE['st_op_chair_assigned']?>">회</td>
 		</tr>
