@@ -145,10 +145,10 @@ $d['khusd_st_cnslt_room_manager']['pros']['inst'] = array(
 	'list' 			=> array(
 			'noh'		=> array( 'id' => 'noh', 	'name' => 'Pf.노관태' ),
 			'baek'		=> array( 'id' => 'baek', 	'name' => 'Pf.백장현' ),
-			'choi'		=> array( 'id' => 'choi', 	'name' => 'Dr.최원준' ),
-			'chun'		=> array( 'id' => 'chun', 	'name' => 'Dr.천영훈' ),
-			'lee'		=> array( 'id' => 'lee', 	'name' => 'Dr.이수지' ),
-    			'lim'		=> array( 'id' => 'lim', 	'name' => 'Dr.임소은' ),
+			//'choi'		=> array( 'id' => 'choi', 	'name' => 'Dr.최원준' ),
+			//'chun'		=> array( 'id' => 'chun', 	'name' => 'Dr.천영훈' ),
+			//'lee'		=> array( 'id' => 'lee', 	'name' => 'Dr.이수지' ),
+    			//'lim'		=> array( 'id' => 'lim', 	'name' => 'Dr.임소은' ),
     			'min'		=> array( 'id' => 'min', 	'name' => 'Dr.김민지' ),
     			'seok'		=> array( 'id' => 'seok', 	'name' => 'Dr.이준석' ),
     			'young'		=> array( 'id' => 'young', 	'name' => 'Dr.최영하' ),
@@ -159,6 +159,8 @@ $d['khusd_st_cnslt_room_manager']['pros']['inst'] = array(
     			'jung'		=> array( 'id' => 'jung', 	'name' => 'Dr.정영철' ),
 
 			'inst_park'		=> array( 'id' => 'inst_park',	'name' => 'Inst.박능석' ),
+			'inst_chun'		=> array( 'id' => 'inst_chun',	'name' => 'Inst.천영훈' ),
+			'inst_kyu'		=> array( 'id' => 'inst_kyu',	'name' => 'Inst.박성규' ),
 			'inst_jeong'	=> array( 'id' => 'inst_jeong',	'name' => 'Inst.정극모' ),
 			'inst_choi'		=> array( 'id' => 'inst_choi',	'name' => 'Inst.최우진' ),
 			'inst_kwon'		=> array( 'id' => 'inst_kwon',	'name' => 'Inst.권정은' )
