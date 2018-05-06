@@ -105,7 +105,7 @@
 			." AND chair_no != 0"
 		." GROUP BY st_id";
 
-	$_join = 'SELECT MAX(date_update) date_update,st_id FROM '.$table['khusd_st_perio'.'score']." WHERE is_goal = 'n' GROUP BY st_id";
+	$_join = 'SELECT MAX(uid) uid, st_id, date_update   FROM '.$table['khusd_st_perio'.'score']." WHERE is_goal = 'n' GROUP BY st_id";
 	$_table = 
 		$table[$m.'apply'].' st'
 		.', '.$table['khusd_st_perio'.'score'].' sc'
@@ -117,7 +117,7 @@
 		//.',('.$_query_sc_chair.') sch';
 	$_where = 
 		"st.st_type = '".$st_type."'"
-		.' AND sc.date_update = sc_j.date_update'
+		.' AND sc.uid = sc_j.uid'
 		.' AND st.st_id = sc.st_id'
 		.' AND sc.st_id = sc_j.st_id'
 		." AND sc.s_uid = '".$SEMESTER_INFO['uid']."'"

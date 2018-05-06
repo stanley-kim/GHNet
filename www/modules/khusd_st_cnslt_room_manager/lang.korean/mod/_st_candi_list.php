@@ -60,7 +60,8 @@
 
 	if($st_type == 'perio'){
 		$_table .= ' LEFT JOIN (select sc.*  from '.$table['khusd_st_perio'.'score']
-		 .' sc, (SELECT MAX(date_update) date_update,st_id FROM '.$table['khusd_st_perio'.'score'].' WHERE is_goal = \'n\' GROUP BY st_id) sc_j where sc.st_id = sc_j.st_id and sc.date_update = sc_j.date_update) sc ON apply.st_id=sc.st_id';		
+		 .' sc, (SELECT MAX(uid) uid,date_update,st_id FROM '.$table['khusd_st_perio'.'score'].' WHERE is_goal = \'n\' GROUP BY st_id) sc_j where sc.st_id = sc_j.st_id and sc.uid = sc_j.uid) sc ON apply.st_id=sc.st_id';		
+		 //.' sc, (SELECT MAX(date_update) date_update,st_id FROM '.$table['khusd_st_perio'.'score'].' WHERE is_goal = \'n\' GROUP BY st_id) sc_j where sc.st_id = sc_j.st_id and sc.date_update = sc_j.date_update) sc ON apply.st_id=sc.st_id';		
 		$_data .= ", sc.stpc, sc.stsc, sc.stcu, (sc.stpc+sc.stsc) scpc, sc.stspt_complete, sc.stspt_incomplete, (13*sc.stspt_incomplete + 18*sc.stspt_complete + 10*sc.stcu) st_score ";
 		
 		$_order = " AND apply.date_reg >= $start_date and apply.date_reg <= $end_date ORDER BY st_score, sc.stsc ASC";
@@ -80,6 +81,7 @@
 		.' + sc.st_op_tooth_colored_diastema'
 		.' + sc.st_op_am_simple'
 		.' + sc.st_op_am_complex';
+
 
 		$_table .= ' LEFT JOIN (select sc.*  from '.$table['khusd_st_consv'.'score']
 		 .' sc, (SELECT MAX(date_update) date_update,st_id FROM '.$table['khusd_st_consv'.'score'].' GROUP BY st_id) sc_j where sc.st_id = sc_j.st_id and sc.date_update = sc_j.date_update) sc ON apply.st_id=sc.st_id';		
