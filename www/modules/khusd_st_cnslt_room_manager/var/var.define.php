@@ -92,6 +92,7 @@ $d['khusd_st_cnslt_room_manager']['tx_plan']['consv'] = array(
 	'af'		=> array(	'id' => 'af', 		'name' => 'AF'	),
 	'ca'		=> array(	'id' => 'ca', 		'name' => 'CA'	),
 	'diastema'		=> array(	'id' => 'diastema', 		'name' => 'Diastema'	),
+	'rf_as'		=> array(	'id' => 'rf_as', 		'name' => 'RF A/S'	),
 
 	'inlay_select_rf'		=> array(	'id' => 'inlay_select_rf', 		'name' => 'Inlay Select & RF'	),
 	'inlay_select_af'		=> array(	'id' => 'inlay_select_af', 		'name' => 'Inlay Select & AF'	),
@@ -100,7 +101,8 @@ $d['khusd_st_cnslt_room_manager']['tx_plan']['consv'] = array(
 
 	'inlay_select'		=> array(	'id' => 'inlay_select', 		'name' => 'Inlay Select'	),
 	'inlay_prep'		=> array(	'id' => 'inlay_prep', 			'name' => 'Inlay Prep'	),
-	'inlay_set'			=> array(	'id' => 'inlay_set', 			'name' => 'Inlay Set'	)
+	'inlay_set'			=> array(	'id' => 'inlay_set', 			'name' => 'Inlay Set'	),
+	'inlay_as'		=> array(	'id' => 'inlay_as', 		'name' => 'Inlay A/S'	)
 );
 
 $d['khusd_st_cnslt_room_manager']['tx_plan']['pros'] = array(
