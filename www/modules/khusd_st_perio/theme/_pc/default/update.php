@@ -162,7 +162,7 @@
 			<td class="title" colspan=2>ST Case</td>
 		</tr>
 		<tr>
-		<td class="head">지난학기 SC 완료갯수</td>
+		<td class="head">지난학기 이월SC 갯수</td>
 		<td><input type="number" name="st_prevsc_complete" maxlength="5" class="input" value="<?php echo $SCORE['stprevsc_complete']?>">회</td>
 		</tr>
         	<?php if($SEMESTER_INFO['sid'] == 2):?>

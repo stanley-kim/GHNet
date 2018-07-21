@@ -3,7 +3,7 @@
         <?php $SEMESTER_INFO = getCurrentSemesterInfo()  ?>
 
 	<table summary="치주과 점수표 기록입니다.">
-	<caption>치주과 점수표 기록</caption> 
+	<caption>치주과 점수표 기록<br>Total=(obser점수*<?php echo $d['khusd_st_perio']['score']['ratio']['3']['obser_ratio_string']?>)+(st점수*<?php echo $d['khusd_st_perio']['score']['ratio']['3']['st_ratio_string']?>)+12 </caption> 
 	<colgroup> 
 	<col width="35">
 	<col width="125"> 
@@ -29,11 +29,12 @@
 	<col width="40"> 
 	<col width="40"> 
 	<col width="40"> 
+	<col width="40"> 
 
         <?php if($SEMESTER_INFO['sid'] == 2):?>
         <col width="40">
         <?php endif?>
-
+	
 	<col width="150"> 
 	</colgroup> 
 	<thead>
@@ -41,19 +42,17 @@
 	<th scope="col" rowspan=2 class="split">No</th>
 	<th scope="col" rowspan=2 class="split">학번</th>
 	<th scope="col" rowspan=2 class="split">이름</th>
-	<th scope="col" colspan=13 class="split">[Observation]</th>
+	<th scope="col" colspan=11 class="split">[Observation]</th>
         <?php if($SEMESTER_INFO['sid'] == 2):?>
-        <th scope="col" colspan=8 class="split">[ST Case]</th>
+	<th scope="col" colspan=8 class="split">[ST Case]</th>
         <?php else :?>
-	<th scope="col" colspan=7 class="split">[ST Case]</th>
+	<th scope="col" colspan=9 class="split">[ST Case]</th>
         <?php endif?>
-	<th scope="col" rowspan=2 class="split">동물<br/>실험</th>
 	<th scope="col" rowspan=2 class="split">Total</th>
+	<th scope="col" rowspan=2 class="split">이월ST반영<br>Total</th>
 	<th scope="col" rowspan=2>수정일</th>
 	</tr>
 	<tr>
-	<th scope="col" class="split">F/U</th>
-	<th scope="col" class="split">F/U 점수</th>
 	<th scope="col" class="split">IOT</th>
 	<th scope="col" class="split">Ch</th>
 	<th scope="col" class="split">Ch+IOT</th>
@@ -68,15 +67,17 @@
         <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<th scope="col" class="split">Pre ST</th>
 	<th scope="col" class="split">Pre SC</th>
-	<?php else: ?>
-	<th scope="col" class="split">지난학기SPT완료</th>
+	<?php else:?>
+	<th scope="col" class="split">지난학기이월SC</th>
         <?php endif?>
 	<th scope="col" class="split">SC</th>
 	<th scope="col" class="split">PC</th>
-        <th scope="col" class="split">SPT완료</th>
-        <th scope="col" class="split">SPT미완료</th>
+	<th scope="col" class="split">SPT완료</th>
+	<th scope="col" class="split">이월반영SPT완료</th>
+	<th scope="col" class="split">SPT미완료</th>
 	<th scope="col" class="split">CU</th>
 	<th scope="col" class="split">ST점수</th>
+	<th scope="col" class="split">이월반영ST점수</th>
 	</tr>
 	</thead>
 	<tbody>
@@ -89,8 +90,6 @@
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_id']?></td>
 	<td class="hand" onclick="getMemberLayer2('<?php echo $SCORE['st_info']['memberuid']?>',event);"><?php echo $SCORE['st_info']['name']?></td>
 	
-	<td><?php echo $SCORE['follow']?></td>
-	<td><?php echo $SCORE['follow_point']?></td>
 	<td class="category1"><?php echo $SCORE['iot']?></td>
 	<td class="category1"><?php echo $SCORE['charting']?></td>
 	<td class="category1"><?php echo $SCORE['ch_iot']?></td>
@@ -105,17 +104,19 @@
         <?php if($SEMESTER_INFO['sid'] == 2):?>
 	<td class="category5"><?php echo ($SCORE['pre_st'] == 1 ? '완' : '')?></td>
 	<td><?php echo ($SCORE['stpresc'] == 1 ? '완' : '')?></td>
-	<?php else: ?>
+	<?php else:?>
 	<td><?php echo $SCORE['stprevsc_complete'] ?></td>
         <?php endif?>
 	<td><?php echo $SCORE['stsc']?></td>
 	<td><?php echo $SCORE['stpc']?></td>
-        <td><?php echo $SCORE['stspt_complete']?></td>
-        <td><?php echo $SCORE['stspt_incomplete']?></td>
+	<td><?php echo $SCORE['stspt_complete']?></td>
+	<td><?php echo $SCORE['stspt_complete']-$SCORE['stprevsc_complete'] ?></td>
+	<td><?php echo $SCORE['stspt_incomplete']?></td>
 	<td><?php echo $SCORE['stcu']?></td>
 	<td class="category4"><?php echo $SCORE['st_score_original']?></td>
-	<td><?php echo $SCORE['animal_exp']?></td>
+	<td><?php echo $SCORE['st_and_prev_score_original']?></td>
 	<td class="category4"><?php echo sprintf("%1.4f", $SCORE['total_score'])?></td>
+	<td ><?php echo sprintf("%1.4f", $SCORE['total_and_prev_score'])?></td>
 
 	<td><?php echo getDateFormat($SCORE['date_update'],"Y-m-d H:i")?></td>
 	</tr>

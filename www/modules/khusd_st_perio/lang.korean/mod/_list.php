@@ -61,14 +61,31 @@
 			.'+ sc.stspt_incomplete * '.$d['khusd_st_perio']['score']['stspt_incomplete']
 			.'+ sc.stcu * '.$d['khusd_st_perio']['score']['stcu']
 			;
+        $_data_st_and_prev_score_original =
+                        $_data_st_score_original
+                        .'- sc.stprevsc_complete * '.$d['khusd_st_perio']['score']['stspt_complete']
+                        ;
+
+
         $_data_st_score_sum =
                 '('
                 .$_data_st_score_original
                 .') * '.$PERIO_SCORE_ARRAY['st_ratio'];
+        $_data_st_and_prev_score_sum =
+                '('
+                .$_data_st_and_prev_score_original
+                .') * '.$PERIO_SCORE_ARRAY['st_ratio'];
+
+
 
         $_data_total_score =
                 $_data_ob_score_sum
                 .' + '.$_data_st_score_sum
+                .' + '.$PERIO_SCORE_ARRAY['fix']
+                ;
+        $_data_total_and_prev_score =
+                $_data_ob_score_sum
+                .' + '.$_data_st_and_prev_score_sum
                 .' + '.$PERIO_SCORE_ARRAY['fix']
                 ;
 
@@ -101,9 +118,11 @@
 		.', ('.$_data_surgery_diff_stsc.') AS surgery_diff_stsc'
 		.', '.$_data_ob_score_original.' AS ob_score_original'
 		.', '.$_data_st_score_original.' AS st_score_original'
+		.', '.$_data_st_and_prev_score_original.' AS st_and_prev_score_original'
 		//.', '.$_data_ob_score.' AS ob_score'
 		//.', '.$_data_st_score.' AS st_score'
 		.', '.$_data_total_score.' AS total_score'
+		.', '.$_data_total_and_prev_score.' AS total_and_prev_score'
 		.', '.$_data_pre_st.' AS pre_st'
 		.', '.$_data_abandon_surgery_score. ' AS abandon_surgery'
 		.', '.$_data_follow;
@@ -138,7 +157,9 @@
 		.', ('.$_data_surgery_diff_stsc.') AS surgery_diff_stsc'
 		.', '.$_data_ob_score_original.' AS ob_score_original'
 		.', '.$_data_st_score_original.' AS st_score_original'
+		.', '.$_data_st_and_prev_score_original.' AS st_and_prev_score_original'
 		.', '.$_data_total_score.' AS total_score'
+		.', '.$_data_total_and_prev_score.' AS total_and_prev_score'
 		.', '.$_data_pre_st.' AS pre_st';
 	$_where =
 		"sc.s_uid = '".$s_uid."'"

@@ -25,9 +25,11 @@ $d['khusd_st_perio']['score'] = array(
 );
 
 
-$d['khusd_st_perio']['score']['ratio']['3']['obser_ratio'] = 0.38 * 70.0 / 507.0 ;
-$d['khusd_st_perio']['score']['ratio']['3']['obser_100_ratio'] = 70.0 / 479.0; //mo use
-$d['khusd_st_perio']['score']['ratio']['3']['st_ratio'] = 0.5 * 70.0 / 138.0 ;
+$d['khusd_st_perio']['score']['ratio']['3']['obser_ratio'] = 0.38 * 70.0 / 512.0 ;
+$d['khusd_st_perio']['score']['ratio']['3']['obser_ratio_string'] = '0.38*70/512' ;
+$d['khusd_st_perio']['score']['ratio']['3']['obser_100_ratio'] = 70.0 / 479.0; //no use
+$d['khusd_st_perio']['score']['ratio']['3']['st_ratio'] = 0.5 * 70.0 / 168.0 ;
+$d['khusd_st_perio']['score']['ratio']['3']['st_ratio_string'] = '0.5*70/168' ;
 $d['khusd_st_perio']['score']['ratio']['3']['st_100_ratio'] = 70.0 / 108.0; //no use
 
 // 치주과랑 반올림 방식이 달라서.. 100점만점으로 옵저/st 점수를 구한 후 다시 38% 50% 반영해야하므로
@@ -43,7 +45,7 @@ $d['khusd_st_perio']['score']['ratio']['3']['st_max'] = 100;
 
 
 $d['khusd_st_perio']['score']['ratio']['2']['obser_ratio'] = 28.0 / 429.0 ;
-$d['khusd_st_perio']['score']['ratio']['2']['obser_100_ratio'] = 70.0 / 479.0; //mo use
+$d['khusd_st_perio']['score']['ratio']['2']['obser_100_ratio'] = 70.0 / 479.0; //no use
 $d['khusd_st_perio']['score']['ratio']['2']['st_ratio'] = 28.0 / 108.0 ;
 $d['khusd_st_perio']['score']['ratio']['2']['st_100_ratio'] = 70.0 / 108.0; //no use
 
