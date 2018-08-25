@@ -112,6 +112,7 @@ $d['khusd_st_cnslt_room_manager']['tx_plan']['pros'] = array(
 	'final_prep'			=> array(	'id' => 'final_prep', 			'name' => 'Final Prep.'	),
 	'temp_setting'			=> array(	'id' => 'temp_setting', 		'name' => 'Temporary Setting'	),
 	'final_setting'			=> array(	'id' => 'final_setting', 		'name' => 'Final Setting'	),
+	'check'			=> array(	'id' => 'check', 		'name' => 'Check'	),
 	'matal_adap'			=> array(	'id' => 'matal_adap', 			'name' => 'Metal Adap.'	),
 	'post_core'				=> array(	'id' => 'post_core', 			'name' => 'Post, Core'	), 
 	'temp_cr_repair'		=> array(	'id' => 'temp_cr_repair', 		'name' => 'Temp. Cr. Repair' )
