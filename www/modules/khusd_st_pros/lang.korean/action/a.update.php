@@ -130,15 +130,14 @@ $st_case_3_last_tx			= trim($st_case_3_last_tx);
 $st_case_3_last_inst		= trim($st_case_3_last_inst);
 $st_case_3_friendly			= isset($GLOBALS['st_case_3_friendly']) ? 'y' : 'n';
 
-if ( $st_case_1_dental_formula != '' && !is_int ( strpos( $st_case_1_dental_formula , '#'  ) )     )
-{
-	getLink('', '', 'ST Case 1치식에 #이 포함되어 있어야 합니다.('.$st_case_1_dental_formula.')', '');
-
-}
-if ( $st_case_2_dental_formula != '' && !is_int ( strpos( $st_case_2_dental_formula , '#'  ) )     )
-{
-	getLink('', '', 'ST Case 2치식에 #이 포함되어 있어야 합니다.('.$st_case_2_dental_formula.')', '');
-
+$st_case_dental_formulas = array(); 
+$st_case_dental_formulas[1] = $st_case_1_dental_formula;
+$st_case_dental_formulas[2] = $st_case_2_dental_formula;
+$st_case_dental_formulas[3] = $st_case_3_dental_formula;
+for($i=1; $i<=3 ; $i++)  {
+	if ( $st_case_dental_formulas[$i] != '' && !is_int ( strpos( $st_case_dental_formulas[$i] , '#'  ) )     )   {
+		getLink('', '', 'ST Case '.$i.'치식에 #이 포함되어 있어야 합니다.('.$st_case_dental_formulas[$i].')', '');
+	}	
 }
 
 $st_score = $d['khusd_st_pros']['st_stage_score'][$st_case_1]
