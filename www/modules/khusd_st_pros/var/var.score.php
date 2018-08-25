@@ -25,7 +25,8 @@ $d['khusd_st_pros']['st_stage'] = array(
 	'final_prep'		=> 'Final Prep.',
 	'metal_adap'		=> 'Metal Adaptation',
 	'initial_setting'	=> 'Initial Setting',
-	'final_setting'		=> 'Final Setting'
+	'final_setting'		=> 'Final Setting',
+	'check'			=> 'Check'
 );
 
 $d['khusd_st_pros']['st_stage_score'] = array(
@@ -36,7 +37,8 @@ $d['khusd_st_pros']['st_stage_score'] = array(
 	'final_prep'		=> 3,
 	'metal_adap'		=> 3,
 	'initial_setting'	=> 4,
-	'final_setting'		=> 5
+	'final_setting'		=> 5,
+	'check'			=> 6
 );
 
 ?>
