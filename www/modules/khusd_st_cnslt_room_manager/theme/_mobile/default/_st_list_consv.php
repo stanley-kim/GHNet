@@ -42,17 +42,17 @@
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'st_id', $om, $order == 'st_id')?>">학번</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'st_id', $om, $order == 'st_id')?>">학생명</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'pt_name', $om, $order == 'pt_name')?>">환자명</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'taking', $om, $order == 'taking')?>">ST Taking</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'pre_op', $om, $order == 'pre_op')?>">직전OP수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'consv_op', $om, $order == 'consv_op')?>">예상OP수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'total_op', $om, $order == 'total_op')?>">총OP수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'pre_op_score', $om, $order == 'pre_op_score')?>">직전OP점수</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'prev_cur_op_score', $om, $order == 'prev_cur_op_score')?>">이월반영OP점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'st_op_chair_assigned', $om, $order == 'st_op_chair_assigned')?>">체어 배정수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'apply_op_num', $om, $order == 'apply_op_num')?>">OP 신청수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'pre_st', $om, $order == 'pre_st')?>">Pre-ST 완료</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'st_inlay_prep', $om, $order == 'st_inlay_prep')?>">Inlay Prep</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'st_inlay_setting', $om, $order == 'st_inlay_setting')?>">Inlay Setting</a></th>
-	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'taking_pt', $om, $order == 'taking_pt')?>">Taking환자수</a></th>
+	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'prev_cur_op_inlay_score', $om, $order == 'prev_cur_op_inlay_score')?>">OP+Inlay점수</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'date_reg', $om, $order == 'date_reg')?>">신청시간</a></th>
 	<th scope="col" class="split"><a href="<?php echo getSortingLink2($g['khusd_st_cnslt_room_manager_st_consv_list'].$st_date.'&amp;st_timetype='.$st_timetype, 'date_cancel', $om, $order == 'date_cancel')?>">취소시간</a></th>
 	</tr>
@@ -66,17 +66,17 @@
 	<th scope="col" class="split">학번</th>
 	<th scope="col" class="split">학생명</th>
 	<th scope="col" class="split">환자명</th>
-	<th scope="col" class="split">ST Taking</th>
 	<th scope="col" class="split">직전OP수</th>
 	<th scope="col" class="split">예상OP수</th>
 	<th scope="col" class="split">총OP수</th>
 	<th scope="col" class="split">직전OP점수</th>
+	<th scope="col" class="split">이월반영OP점수</th>
 	<th scope="col" class="split">체어 배정수</th>
 	<th scope="col" class="split">OP 신청수</th>
 	<th scope="col" class="split">Pre-ST 완료</th>
 	<th scope="col" class="split">Inlay Prep</th>
 	<th scope="col" class="split">Inlay Set</th>
-	<th scope="col" class="split">Taking환자수</th>
+	<th scope="col" class="split">OP+Inlay점수</th>
 	<th scope="col" class="split">신청시간</th>
 	<th scope="col" class="split">취소시간</th>
 	</tr>
@@ -154,17 +154,17 @@
 	<td><?php echo $ST_CHAIR['st_id']?></td>
 	<td><?php echo $ST_CHAIR['st_info']['name']?></td>
 	<td><?php echo $ST_CHAIR['pt_name']?></td>
-	<td><?php echo $ST_CHAIR['taking']?></td>
 	<td><?php echo $ST_CHAIR['pre_op']?></td>
 	<td><?php echo $ST_CHAIR['consv_op']?></td>
 	<td><?php echo $ST_CHAIR['total_op']?></td>
 	<td><?php echo $ST_CHAIR['pre_op_score']?></td>
+	<td><?php echo $ST_CHAIR['prev_cur_op_score']?></td>
 	<td><?php echo $ST_CHAIR['st_op_chair_assigned']?></td>
 	<td><?php echo $ST_CHAIR['apply_op_num']?></td>
 	<td><?php echo $ST_CHAIR['pre_st'] == 1 ? '완' : ''?></td>
 	<td><?php echo $ST_CHAIR['st_inlay_prep']?></td>
 	<td><?php echo $ST_CHAIR['st_inlay_setting']?></td>
-	<td><?php echo $ST_CHAIR['taking_pt']?></td>	
+	<td><?php echo $ST_CHAIR['prev_cur_op_inlay_score']?></td>
 	<td><?php echo getDateFormat($ST_CHAIR['date_reg'],'Y-m-d H:i:s')?></td>
 	<td><?php echo getDateFormat($ST_CHAIR['date_cancel'],'Y-m-d H:i:s')?></td>
 	</tr>

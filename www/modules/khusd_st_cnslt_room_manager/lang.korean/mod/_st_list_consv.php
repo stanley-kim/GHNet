@@ -71,6 +71,21 @@
 			.", 0"
 		.")"
 		;
+
+                $_data_st_inlay_score =
+                "IF("
+                        ."sc.st_inlay_1_proc = 'inlay_setting'"
+                        .",".$d['khusd_st_consv']['score']['st']['st_inlay'] .""
+                        .", 0"
+                .")"
+                ." + "
+                ."IF("
+                        ."sc.st_inlay_2_proc = 'inlay_setting'"
+                        .",".$d['khusd_st_consv']['score']['st']['st_inlay'] .""
+                        .", 0"
+                .")"
+                ;
+
 		
 	$_data_pre_op_score = 
 		'sc.st_op_tooth_colored_cervical * ' .$d['khusd_st_consv']['score']['st']['st_op_simple']
@@ -81,6 +96,15 @@
 		.' + sc.st_op_am_simple * ' .$d['khusd_st_consv']['score']['st']['st_op_simple']
 		.' + sc.st_op_am_complex * ' .$d['khusd_st_consv']['score']['st']['st_op_complex']
 		;
+
+        $_data_st_op_prev_cur_score =
+                $_data_pre_op_score 
+                .' - sc.st_op_prev_score';
+
+        $_data_st_op_prev_cur_inlay_score =
+                //$_data_st_op_prev_cur_score 
+                $_data_pre_op_score 
+                .' + '.$_data_st_inlay_score;
 
 	$_data_total_op = 
 		'sc.st_op_tooth_colored_cervical'
@@ -141,6 +165,8 @@
 		.', ('.$_data_st_inlay_setting.') AS st_inlay_setting'
 		.', '.$_data_pre_op.' AS pre_op'
 		.', '.$_data_pre_op_score.' AS pre_op_score'
+		.', '.$_data_st_op_prev_cur_score.' AS prev_cur_op_score'
+		.', '.$_data_st_op_prev_cur_inlay_score.' AS prev_cur_op_inlay_score'
 		.', '.$_data_total_op.' AS total_op';
 	$_sort = $order_by;
 	$_orderby = $order_mode;

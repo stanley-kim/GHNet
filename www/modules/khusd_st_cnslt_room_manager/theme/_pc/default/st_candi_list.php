@@ -6,7 +6,15 @@
 		<col width="70">
 		<col width="100">
 		<col width="70">
-		<?php if ($st_type == 'perio' || $st_type == 'consv'):?>
+		<?php if ($st_type == 'perio' ):?>
+		<col width="70">
+		<col width="70">
+		<col width="70">
+		<col width="70">
+		<?php endif?>
+		<?php if ($st_type == 'consv'):?>
+		<col width="70">
+		<col width="70">
 		<col width="70">
 		<col width="70">
 		<col width="70">
@@ -32,7 +40,9 @@
 			<th>ST 점수</th>
 			<?php endif?>
 			<?php if ($st_type == 'consv'):?>
-			<th>직전 OP수</th>
+			<th>OP+Inlay점수</th>
+			<th>OP점수</th>
+			<th>inlay점수</th>
 			<?php endif?>
 			<?php if ($st_type == 'pros'):?>
 			<th>1st 크라운</th>
@@ -77,7 +87,13 @@
 			<?php endif?>
 			<?php if ($st_type == 'consv'):?>
 			<td>
-				<?php echo $_ROW['pre_op']?>
+				<?php echo $_ROW['prev_cur_op_inlay_score']?>
+			</td>
+			<td>
+				<?php echo $_ROW['pre_op_score']?>
+			</td>
+			<td>
+				<?php echo $_ROW['st_inlay_score']?>
 			</td>
 			<?php endif?>
 			<?php if ($st_type == 'pros'):?>
@@ -122,8 +138,14 @@
 			</td>
 			<?php endif?>
 			<?php if ($st_type == 'consv'):?>
+                        <td>
+                                <?php echo $_ROW['prev_cur_op_inlay_score']?>
+                        </td>
 			<td>
-				<?php echo $_ROW['pre_op']?>
+				<?php echo $_ROW['pre_op_score']?>
+			</td>
+			<td>
+				<?php echo $_ROW['st_inlay_score']?>
 			</td>
 			<?php endif?>
 			<?php if ($st_type == 'pros'):?>

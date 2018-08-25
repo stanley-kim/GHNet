@@ -4,6 +4,9 @@
 		$MANAGER = true;
 	}
 
+        include_once $g['path_module'].'khusd_st_consv/var/var.score.php';
+
+
 	$st_type = $st_type ? $st_type : 'perio';
 	$st_date = $st_date ? $st_date : $date['today'];
 	$st_timetype = $st_timetype ? $st_timetype : 'am';
@@ -82,13 +85,42 @@
 		.' + sc.st_op_am_simple'
 		.' + sc.st_op_am_complex';
 
+	        $_data_pre_op_score =
+                'sc.st_op_tooth_colored_cervical * ' .$d['khusd_st_consv']['score']['st']['st_op_simple']
+                .' + sc.st_op_tooth_colored_simple * ' .$d['khusd_st_consv']['score']['st']['st_op_simple']
+                .' + sc.st_op_tooth_colored_complex * ' .$d['khusd_st_consv']['score']['st']['st_op_complex']
+                .' + sc.st_op_tooth_colored_diastema * ' .$d['khusd_st_consv']['score']['st']['st_op_diastema']
+                .' + sc.st_op_am_simple * ' .$d['khusd_st_consv']['score']['st']['st_op_simple']
+                .' + sc.st_op_am_complex * ' .$d['khusd_st_consv']['score']['st']['st_op_complex'];
+
+	        $_data_st_inlay_score =
+                "IF("
+                        ."sc.st_inlay_1_proc = 'inlay_setting'"
+                        .",".$d['khusd_st_consv']['score']['st']['st_inlay'] .""
+                        .", 0"
+                .")"
+                ." + "
+                ."IF("
+                        ."sc.st_inlay_2_proc = 'inlay_setting'"
+                        .",".$d['khusd_st_consv']['score']['st']['st_inlay'] .""
+                        .", 0"
+                .")"
+                ;
+
+	        $_data_st_op_prev_cur_score =
+        	        $_data_pre_op_score;
+                	//.' - sc.st_op_prev_score';
+
+        	$_data_st_op_prev_cur_inlay_score =
+	        	$_data_st_op_prev_cur_score
+                	.' + '.$_data_st_inlay_score;
 
 		$_table .= ' LEFT JOIN (select sc.*  from '.$table['khusd_st_consv'.'score']
 		 .' sc, (SELECT MAX(date_update) date_update,st_id FROM '.$table['khusd_st_consv'.'score'].' GROUP BY st_id) sc_j where sc.st_id = sc_j.st_id and sc.date_update = sc_j.date_update) sc ON apply.st_id=sc.st_id';		
-		$_data .= ", ($_data_pre_op) pre_op ";
+		$_data .= ", ($_data_pre_op) pre_op , ($_data_pre_op_score) pre_op_score , ($_data_st_inlay_score) st_inlay_score , ($_data_st_op_prev_cur_inlay_score) prev_cur_op_inlay_score ";
 
-		$_order = " AND apply.date_reg >= $start_date and apply.date_reg <= $end_date ORDER BY pre_op, apply.date_reg ASC";
-		$_order_add = " AND apply.date_reg >= $end_date ORDER BY pre_op, apply.date_reg ASC";
+		$_order = " AND apply.date_reg >= $start_date and apply.date_reg <= $end_date ORDER BY prev_cur_op_inlay_score ASC, pre_op_score ASC, st_inlay_score ASC , apply.date_reg ASC";
+		$_order_add = " AND apply.date_reg >= $end_date ORDER BY pre_op_score ASC, st_inlay_score ASC , apply.date_reg ASC";
 		$_where = $where. $_order;
 
 		$_where_add = $where. $_order_add;
