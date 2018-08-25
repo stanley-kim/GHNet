@@ -36,6 +36,7 @@ CREATE TABLE `".$table[$module.'apply_info_list']."` (
   
   `is_perio_surgery` char(1) NOT NULL default 'n',
   
+  `info_order` char(4) NOT NULL default '',
   `date_reg` varchar(14) NOT NULL default '',
   `date_select` varchar(14) NOT NULL default '',
   
