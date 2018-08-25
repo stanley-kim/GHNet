@@ -109,7 +109,7 @@ __debug_print("type is - ".'_'.$type_name.'_'.$type0.'_'.$type1.'_'.$type2.'_'.$
 			</td>
 		</tr>
 
-<?php while( $_idx <= 7  )  :?>
+<?php while( $_idx <= 9  )  :?>
 		<tr>
 			<td rowspan="4" class="td1"><?php echo $_idx?>차</td>
 			<td class="td2">신청 시작

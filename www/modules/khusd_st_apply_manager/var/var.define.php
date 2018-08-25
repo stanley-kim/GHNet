@@ -87,7 +87,7 @@ $d['khusd_st_apply_manager']['apply_info']['type1']['weekend'] = '주말';
 $d['khusd_st_apply_manager']['apply_info']['type1']['weekday'] = '주중';   
 $d['khusd_st_apply_manager']['apply_info']['order_list'] = array(  
 	array( 'name' => '주말1차~4차(치주/외과/영상판옵)' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말1차' , 'type3' => '주말4차' ),
-	//array( 'name' => '주말1차~3차' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말1차' , 'type3' => '주말3차' ),
+	array( 'name' => '주말1차~3차(서브인턴/익스턴십)' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말1차' , 'type3' => '주말3차' ),
 	array( 'name' => '주말1차~2차(치주/외과/영상판옵 외)' ,'type0' => 'multi'  ,'type1' => '주말' , 'type2' => '주말1차' , 'type3' => '주말2차' ),
 	array( 'name' => '주말1차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말1차' ),
 	array( 'name' => '주말2차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말2차' ),
@@ -96,6 +96,8 @@ $d['khusd_st_apply_manager']['apply_info']['order_list'] = array(
 	array( 'name' => '주말5차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말5차' ),
 	array( 'name' => '주말6차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말6차' ),
 	array( 'name' => '주말7차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말7차' ),
+	array( 'name' => '주말8차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말8차' ),
+	array( 'name' => '주말9차'     ,'type0' => 'single' ,'type1' => '주말' , 'type2' => '주말9차' ),
 
 	array( 'name' => '주중1차~4차' ,'type0' => 'multi'  ,'type1' => '주중' , 'type2' => '주중1차' , 'type3' => '주중4차'  ),
 	array( 'name' => '주중1차'     ,'type0' => 'single' ,'type1' => '주중' , 'type2' => '주중1차' ),
