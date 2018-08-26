@@ -17,7 +17,7 @@
         $show_list = true;
     }
 
-    
+	$_data_total_simple_obser = 'sc.simple_obser_4_1 + sc.simple_obser_4_2 + sc.simple_obser_4_3 + sc.simple_obser_4_4 + sc.simple_obser_4_5 +  sc.simple_obser_4_6 + sc.simple_obser_4_7' ;    
     
 	$_data_second_cr = 'sc.second_cr_complete + sc.second_cr_ongoing';
 	$_data_post_core_total_resident = 'sc.post_core_ongoing + sc.post_core_complete';
@@ -52,14 +52,22 @@
 	//$_data_complete_denture = 'sc.complete_denture_complete + sc.complete_denture_ongoing ';
 	$_data_complete_denture = 'sc.complete_denture_complete + sc.complete_denture_ongoing + sc.complete_denture_complete_prof + sc.complete_denture_ongoing_prof ';
 	$_data_others = 'sc.others_complete + sc.others_ongoing';
+	$_data_total_follow =  $_data_post_core .' + '. $_data_imp_cr_br.' + '. $_data_single_cr.' + '.   $_data_br.' + '.  $_data_partial_denture.' + '.  $_data_complete_denture   ;
+
+
 	
 	$_join = 'SELECT MAX(date_update) date_update,st_id FROM '.$table[$m.'score'].' WHERE s_uid = '.$s_uid.' GROUP BY st_id';
 	$_table = $table[$m.'score'].' sc, '.$table['s_mbrdata'].' mbrdata,'.$table['s_mbrid'].' mbrid,('.$_join.') sc_j';
 	$_where = 
 		"s_uid = '".$s_uid."'"
+		." AND mbrdata.tmpcode!='tester' "
 		.' AND sc.date_update = sc_j.date_update AND sc.st_id = sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = sc.st_id';
 	$_data = 
 		'sc.*'
+		.', '.$_data_total_simple_obser.' AS total_simple_obser'
+		.', '.'sc.st_case_1 AS pros_st_case_1'
+		.', '.'sc.st_case_2 AS pros_st_case_2'
+		.', '.'sc.st_case_3 AS pros_st_case_3'
 		.', '.$_data_second_cr.' AS second_cr'
 		.', '.$_data_post_core_total_resident.' AS post_core_total_resident'
 		.', '.$_data_post_core_total_prof.' AS post_core_total_prof'
@@ -95,6 +103,7 @@
 		.', '.$_data_complete_denture_total_ongoing.' AS complete_denture_total_ongoing'
 		.', '.$_data_complete_denture_total_complete.' AS complete_denture_total_complete'
 		.', '.$_data_complete_denture.' AS complete_denture'
+		.', '.$_data_total_follow.' AS total_follow'
 		.', '.$_data_others.' AS others';
 	$_sort = 'st_id';
 	$order_mode = ASC;

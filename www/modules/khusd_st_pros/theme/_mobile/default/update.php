@@ -42,6 +42,7 @@
 		</tr>
 	</thead>
 	<tbody>
+                <?php if( $SEMESTER_INFO['sid'] == 2  ||  $SEMESTER_INFO['sid'] == 3 ):?>
 		<tr>
 			<td class="title" colspan=7>Observation(Follow Up)</td>
 		</tr>
@@ -134,9 +135,12 @@
 
 		</td>
 		</tr>
+                <?php endif?>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3  ):?>
 		<tr>
 			<td class="title" colspan=5>Observation(단순 Obs)</td>
 		</tr>
+               <?php endif?>
                 <?php if($SEMESTER_INFO['sid'] == 2):?>
 
 		<tr>

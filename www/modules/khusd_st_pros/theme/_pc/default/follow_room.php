@@ -81,7 +81,7 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
 
 	
 	<table summary="보철과 점수표 입니다.">
-	<caption>보철과 팔로우 진행 완료 조사</caption> 
+	<caption>47기 보철과 팔로우 선생님, 교수님 상황 조사</caption> 
 	<colgroup> 
 	<col width="35">
 	<col width="125"> 
@@ -91,8 +91,14 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
 	<col width="10"> 
         <?php $idx += 1?>
         <?php endwhile?>
+	<col width="10"> 
+	<col width="20"> 
+	<col width="20"> 
+	<col width="20"> 
+	<col width="15"> 
 
 	</colgroup> 
+	<br>
 	<thead>
 	<tr>
 	<th rowspan="3" scope="col" class="split">No</th>
@@ -104,6 +110,9 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
 	<th colspan="9" scope="col" class="split category2">브릿지</th>
 	<th colspan="9" scope="col" class="split">RPD</th>
 	<th colspan="9" scope="col" class="split category2">CD</th>
+	<th rowspan="3" scope="col" class="split">총팔로우갯수</th>
+	<th colspan="3" scope="col" class="split">ST</th>
+	<th rowspan="3" scope="col" class="split">총옵져갯수</th>
 	</tr>
 	<tr>
 
@@ -125,6 +134,9 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
 	<th colspan="3" scope="col" class="split">선생님</th>
 	<th colspan="3" scope="col" class="split">교수님</th>
 	<th colspan="3" scope="col" class="split">전체</th>
+	<th rowspan="2" scope="col" class="split">1</th>
+	<th rowspan="2" scope="col" class="split">2</th>
+	<th rowspan="2" scope="col" class="split">3</th>
 	</tr>
 	<tr>
 
@@ -261,6 +273,11 @@ table caption{font-size:14px; font-weight:bold; margin:20px 0 20px 0;}
 	<td ><?php echo $SCORE['complete_denture_total_ongoing']?></td>
 	<td ><?php echo $SCORE['complete_denture_total_complete']?></td>
 	<td ><?php echo $SCORE['complete_denture']?></td>
+	<td class="category1"><?php echo $SCORE['total_follow']?></td>
+	<td class="category1"><?php if($SCORE['pros_st_case_1'] != "") echo $SCORE['pros_st_case_1']; else echo "X"?></td>
+	<td class="category2"><?php if($SCORE['pros_st_case_2'] != "") echo $SCORE['pros_st_case_2']; else echo "X"?></td>
+	<td ><?php if($SCORE['pros_st_case_3'] != "") echo $SCORE['pros_st_case_3']; else echo "X"?></td>
+	<td class="category1"><?php echo $SCORE['total_simple_obser']?></td>
 	
 	
 	</tr>

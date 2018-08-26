@@ -14,11 +14,17 @@
 	<col width="40"> 
 	<col width="40"> 
 -->
+                <?php if( $SEMESTER_INFO['sid'] == 2  ||  $SEMESTER_INFO['sid'] == 3 ):?>
 	<?php $idx = 0?>
 	<?php while($idx < 54):?>
 	<col width="40"> 
 	<?php $idx += 1?>
 	<?php endwhile?>
+                <?php endif?>
+        <col width="40">
+        <col width="40">
+        <col width="40">
+        <col width="40">
 
 <?php if($SEMESTER_INFO['sid'] == 2):?>
         <col width="40">
@@ -58,12 +64,19 @@
 <!--
 	<th colspan="3" scope="col" class="split">2년차 Cr</th>
 -->
+                <?php if( $SEMESTER_INFO['sid'] == 2  ||  $SEMESTER_INFO['sid'] == 3 ):?>
 	<th colspan="9" scope="col" class="split">Post Core</th>
 	<th colspan="9" scope="col" class="split">Impl. Cr&Br</th>
 	<th colspan="9" scope="col" class="split">Single Cr</th>
 	<th colspan="9" scope="col" class="split">Br.</th>
 	<th colspan="9" scope="col" class="split">RPD</th>
 	<th colspan="9" scope="col" class="split">CD</th>
+	<th rowspan="3" scope="col" class="split">총팔로우</th>
+               <?php endif?>
+        <th rowspan="3" scope="col" class="split">ST1</th>
+        <th rowspan="3" scope="col" class="split">ST2</th>
+        <th rowspan="3" scope="col" class="split">ST3</th>
+
         <?php if($SEMESTER_INFO['sid'] == 2):?>
         <th colspan="4" scope="col" class="split">단순 Obs</th>
         <?php elseif ($SEMESTER_INFO['sid'] == 3 && $simple_obser_type == $cycle_type) : ?>
@@ -84,6 +97,8 @@
 	<th rowspan="2" scope="col" class="split">취소</th>
 -->
 
+                <?php if( $SEMESTER_INFO['sid'] == 2  ||  $SEMESTER_INFO['sid'] == 3 ):?>
+
 	<?php $idx = 0?>
 	<?php while($idx < 6):?>
         <th colspan="3" scope="col" class="split">선생님</th>
@@ -91,7 +106,7 @@
         <th colspan="3" scope="col" class="split">전체</th>
 	<?php $idx += 1?>
 	<?php endwhile?>
-
+                <?php endif?>
         <?php if($SEMESTER_INFO['sid'] == 2):?>
         <th rowspan="2" scope="col" class="split">1c</th>
         <th rowspan="2" scope="col" class="split">2c</th>
@@ -120,7 +135,7 @@
 	<th rowspan="2" scope="col" class="split">예상점수</a></th>
 -->
 	</tr>
-
+               <?php if( $SEMESTER_INFO['sid'] == 2  ||  $SEMESTER_INFO['sid'] == 3 ):?>
 	<tr>
 	<?php $idx = 0?>
 	<?php while($idx < 18):?>
@@ -131,7 +146,7 @@
 	<?php endwhile?>
 
 	</tr>
-
+                <?php endif?>
 	</thead>
 	<tbody>
 	
@@ -147,6 +162,7 @@
 	<td class="category2"><?php echo $SCORE['second_cr_complete']?></td>
 	<td><?php echo $SCORE['second_cr_cancel']?></td>
 -->	
+                <?php if( $SEMESTER_INFO['sid'] == 2  ||  $SEMESTER_INFO['sid'] == 3 ):?>
 	<td class="category1"><?php echo $SCORE['post_core_ongoing']?></td>
         <td class="category1"><?php echo $SCORE['post_core_complete']?></td>
         <td ><?php echo $SCORE['post_core_total_resident']?></td>
@@ -206,6 +222,13 @@
         <td ><?php echo $SCORE['complete_denture_total_ongoing']?></td>
         <td ><?php echo $SCORE['complete_denture_total_complete']?></td>
         <td ><?php echo $SCORE['complete_denture']?></td>
+        <td ><?php echo $SCORE['total_follow']?></td>
+               <?php endif?>
+
+
+        <td ><?php echo substr($SCORE['pros_st_case_1'],0,10)?></td>
+        <td ><?php echo substr($SCORE['pros_st_case_2'],0,10)?></td>
+        <td ><?php echo substr($SCORE['pros_st_case_3'],0,10)?></td>
 
         <?php if($SEMESTER_INFO['sid'] == 2):?>
         <td class="category1"><?php echo $SCORE['simple_obser_3_8']?></td>
@@ -225,8 +248,10 @@
         <td class="category1"><?php echo $SCORE['simple_obser_4_6']?></td>
         <td class="category1"><?php echo $SCORE['simple_obser_4_7']?></td>
         <?php endif?>
-        <td><?php echo $SCORE['total_simple_obser']?></td>
+               <?php if( $SEMESTER_INFO['sid'] == 2  ||  $SEMESTER_INFO['sid'] == 3 ):?>
 
+        <td><?php echo $SCORE['total_simple_obser']?></td>
+                <?php endif?>
 <!--	
 	<td class="category4"><?php echo $SCORE['total_score']?></td>
 	<td class="category4"><?php echo $SCORE['total_predict_score']?></td>

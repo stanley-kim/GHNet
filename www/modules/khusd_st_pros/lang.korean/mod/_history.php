@@ -92,6 +92,8 @@
         $_data_complete_denture_total_ongoing = 'sc.complete_denture_ongoing_prof + sc.complete_denture_ongoing';
         $_data_complete_denture_total_complete = 'sc.complete_denture_complete + sc.complete_denture_complete_prof';
         $_data_complete_denture = 'sc.complete_denture_complete + sc.complete_denture_ongoing + sc.complete_denture_complete_prof + sc.complete_denture_ongoing_prof ';
+        $_data_total_follow =  $_data_post_core .' + '. $_data_imp_cr_br.' + '. $_data_single_cr.' + '.   $_data_br.' + '.  $_data_partial_denture.' + '.  $_data_complete_denture   ;
+
 
 
 	
@@ -102,6 +104,9 @@
 		." AND sc.st_id = '".$st_id."'";
 	$_data = 'sc.*, '.$_data_total_score.' AS total_score, '.$_data_total_predict_score.' AS total_predict_score';
 	$_data = $_data
+                .', '.'sc.st_case_1 AS pros_st_case_1'
+                .', '.'sc.st_case_2 AS pros_st_case_2'
+                .', '.'sc.st_case_3 AS pros_st_case_3'
                 .', '.$_data_second_cr.' AS second_cr'
                 .', '.$_data_post_core_total_resident.' AS post_core_total_resident'
                 .', '.$_data_post_core_total_prof.' AS post_core_total_prof'
@@ -132,7 +137,8 @@
                 .', '.$_data_complete_denture_total_prof.' AS complete_denture_total_prof'
                 .', '.$_data_complete_denture_total_ongoing.' AS complete_denture_total_ongoing'
                 .', '.$_data_complete_denture_total_complete.' AS complete_denture_total_complete'
-                .', '.$_data_complete_denture.' AS complete_denture';
+                .', '.$_data_complete_denture.' AS complete_denture'
+                .', '.$_data_total_follow.' AS total_follow';
 
 	$_data = $_data.', '.$_data_total_simple_obser.' AS total_simple_obser';
 	$_sort = $order_by;
