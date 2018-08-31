@@ -170,21 +170,16 @@ if($st_start_time && $st_end_time)
 	*/
 }
 
-// 과별로 시작/종료 시간 설정
-if($st_type == 'perio')
-{
-	if(is_array($d['khusd_st_cnslt_room_manager']['tx_plan']['perio'][$tx_plan]['time']))
-	{
-		$st_start_time = $d['khusd_st_cnslt_room_manager']['tx_plan']['perio'][$tx_plan]['time'][$st_timetype]['start'];
-		$st_end_time = $d['khusd_st_cnslt_room_manager']['tx_plan']['perio'][$tx_plan]['time'][$st_timetype]['end'];
-	}
 
-       $_table =
-                $table['khusd_st_perio'.'score'].' sc';
+function scores($department, $_st_id) {
+        $_table =
+                'rb_khusd_st_'.$department.'_score'.' sc';
         $_where =
-                "sc.st_id = '".$st_id."'";
-        $_data ='sc.stsc';
-        $order_by =  'sc.stsc';
+                "sc.st_id = '".$_st_id."'";
+        //$_data ='sc.stsc';
+        $_data ='sc.uid';
+        //$order_by =  'sc.stsc';
+        $order_by =  'sc.uid';
         $order_mode = 'ASC';
         $_sort = $order_by;
         $_orderby = $order_mode;
@@ -195,7 +190,20 @@ if($st_type == 'perio')
         while( $_ROW = db_fetch_array($ST_CHAIR_ROWS) )   {
                 $_count=$_count+1;
         }
-        if( $_count == 0)
+	return $_count;
+}
+
+
+// 과별로 시작/종료 시간 설정
+if($st_type == 'perio')
+{
+	if(is_array($d['khusd_st_cnslt_room_manager']['tx_plan']['perio'][$tx_plan]['time']))
+	{
+		$st_start_time = $d['khusd_st_cnslt_room_manager']['tx_plan']['perio'][$tx_plan]['time'][$st_timetype]['start'];
+		$st_end_time = $d['khusd_st_cnslt_room_manager']['tx_plan']['perio'][$tx_plan]['time'][$st_timetype]['end'];
+	}
+
+        if( scores( $st_type , $st_id) == 0)
                 getLink('', '','ST 신청하기 전에 치주과->정보수정->확인을 클릭하고 와주세요.', '');
 
 
@@ -213,49 +221,17 @@ elseif($st_type == 'pedia')
 		$st_end_time = '1730';
 	}
 
-       $_table =
-                $table['khusd_st_pedia'.'score'].' sc';
-        $_where =
-                "sc.st_id = '".$st_id."'";
-        $_data ='sc.obser';
-        $order_by =  'sc.obser';
-        $order_mode = 'ASC';
-        $_sort = $order_by;
-        $_orderby = $order_mode;
-
-        $ST_CHAIR_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
-//__debug_print("push func:!@@  " . mysql_error());
-
-        $_count=0;
-        while( $_ROW = db_fetch_array($ST_CHAIR_ROWS) )   {
-                $_count=$_count+1;
-        }
-        if( $_count == 0)
+        if( scores( $st_type , $st_id) == 0)
                 getLink('', '','ST 신청하기 전에 소아치과->정보수정->확인을 클릭하고 와주세요.', '');
 
 
 }
 elseif($st_type == 'consv')
 {
-      $_table =
-            	$table['khusd_st_consv'.'score'].' sc';
-        $_where =
-                "sc.st_id = '".$st_id."'";
-        $_data ='sc.uid';
-        $order_by =  'sc.uid';
-        $order_mode = 'ASC';
-        $_sort = $order_by;
-        $_orderby = $order_mode;
-
-        $ST_CHAIR_ROWS = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
-//__debug_print("push func:!@@  " . mysql_error());
-
-        $_count=0;
-        while( $_ROW = db_fetch_array($ST_CHAIR_ROWS) )   {
-                $_count=$_count+1;
-        }
-        if( $_count == 0)
-		getLink('', '','ST 신청하기 전에 보존과->정보수정->확인을 클릭하고 와주세요.', '');
+        if( scores( $st_type , $st_id) == 0)
+                getLink('', '','ST 신청하기 전에 보존과->정보수정->확인을 클릭하고 와주세요.', '');
+        if( scores( 'radio' , $st_id) == 0)
+                getLink('', '','ST 신청하기 전에 영상과->정보수정->확인도 클릭하고 와주세요.', '');
 
 }
 elseif($st_type == 'radio')
@@ -315,6 +291,10 @@ elseif($st_type == 'radio')
                 $st_start_time = '1330';
                 $st_end_time = '1700';
         }
+
+        if( scores( $st_type , $st_id) == 0)
+                getLink('', '','ST 신청하기 전에 영상과->정보수정->확인을 클릭하고 와주세요.', '');
+
 }
 
 if(!$st_start_time)
