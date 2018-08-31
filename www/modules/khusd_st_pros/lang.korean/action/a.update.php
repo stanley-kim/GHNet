@@ -130,16 +130,43 @@ $st_case_3_last_tx			= trim($st_case_3_last_tx);
 $st_case_3_last_inst		= trim($st_case_3_last_inst);
 $st_case_3_friendly			= isset($GLOBALS['st_case_3_friendly']) ? 'y' : 'n';
 
+$st_case_pt_names = array();
+$st_case_pt_names[1] = $st_case_1_pt_name;
+$st_case_pt_names[2] = $st_case_2_pt_name;
+$st_case_pt_names[3] = $st_case_3_pt_name;
+
+$st_case_pt_ids = array();
+$st_case_pt_ids[1] = $st_case_1_pt_id;
+$st_case_pt_ids[2] = $st_case_2_pt_id;
+$st_case_pt_ids[3] = $st_case_3_pt_id;
+
 $st_case_dental_formulas = array(); 
 $st_case_dental_formulas[1] = $st_case_1_dental_formula;
 $st_case_dental_formulas[2] = $st_case_2_dental_formula;
 $st_case_dental_formulas[3] = $st_case_3_dental_formula;
-for($i=1; $i<=3 ; $i++)  {
-	if ( $st_case_dental_formulas[$i] != '' && !is_int ( strpos( $st_case_dental_formulas[$i] , '#'  ) )     )   {
-		getLink('', '', 'ST Case '.$i.'치식에 #이 포함되어 있어야 합니다.('.$st_case_dental_formulas[$i].')', '');
-	}	
-}
 
+for($i=1; $i<=3 ; $i++)  {
+	if ( $st_case_pt_names[$i] == '' && $st_case_pt_ids[$i] == '' && $st_case_dental_formulas[$i] == '' ) 
+		continue;
+	if ( $st_case_pt_names[$i] != '' && $st_case_pt_ids[$i] != '' && $st_case_dental_formulas[$i] != '' && is_int ( strpos( $st_case_dental_formulas[$i] , '#'  ))     ) 
+		continue;
+	if ( $st_case_pt_names[$i] == '' )   
+		getLink('', '', 'ST Case '.$i.'환자명이 있어야 합니다.('.$st_case_pt_names[$i].')', '');
+	if( $st_case_pt_ids[$i] == '' )
+		getLink('', '', 'ST Case '.$i.'병록번호가 있어야 합니다.('.$st_case_pt_ids[$i].')', '');
+	if ( $st_case_dental_formulas[$i] == ''  )   
+		getLink('', '', 'ST Case '.$i.'치식이 있어야 합니다.('.$st_case_dental_formulas[$i].')', '');
+	else if (  !is_int ( strpos( $st_case_dental_formulas[$i] , '#'  ) )     )   
+		getLink('', '', 'ST Case '.$i.'치식에 #이 포함되어 있어야 합니다.('.$st_case_dental_formulas[$i].')', '');
+	
+}
+/*
+for($i=1; $i<=3 ; $i++)  {
+//	if ( $st_case_dental_formulas[$i] != '' && !is_int ( strpos( $st_case_dental_formulas[$i] , '#'  ) )     )   {
+//		getLink('', '', 'ST Case '.$i.'치식에 #이 포함되어 있어야 합니다.('.$st_case_dental_formulas[$i].')', '');
+//	}	
+}
+*/
 $st_score = $d['khusd_st_pros']['st_stage_score'][$st_case_1]
 	+ $d['khusd_st_pros']['st_stage_score'][$st_case_2]
 	+ $d['khusd_st_pros']['st_stage_score'][$st_case_3];
