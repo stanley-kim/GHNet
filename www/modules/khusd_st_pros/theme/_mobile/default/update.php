@@ -200,6 +200,7 @@
 		<tr>
 		<td rowspan="8" class="head">ST Case 1</td>
 		<td colspan="3">
+                        사인 받은 단계:
 			<select name="st_case_1">
 				<option value=""<?php if($SCORE['st_case_1'] == ''):?> selected<?php endif?>>------------</option>
 			<?php foreach($d['khusd_st_pros']['st_stage'] as $key => $text):?>
@@ -270,6 +271,7 @@
 		<tr>
 		<td rowspan="8" class="head">ST Case 2</td>
 		<td colspan="3">
+			사인 받은 단계:
 			<select name="st_case_2">
 				<option value=""<?php if($SCORE['st_case_2'] == ''):?> selected<?php endif?>>------------</option>
 			<?php foreach($d['khusd_st_pros']['st_stage'] as $key => $text):?>
@@ -339,6 +341,7 @@
 		<tr>
 		<td rowspan="8" class="head">ST Case 3</td>
 		<td colspan="3">
+			사인 받은 단계:
 			<select name="st_case_3">
 				<option value=""<?php if($SCORE['st_case_3'] == ''):?> selected<?php endif?>>------------</option>
 			<?php foreach($d['khusd_st_pros']['st_stage'] as $key => $text):?>
