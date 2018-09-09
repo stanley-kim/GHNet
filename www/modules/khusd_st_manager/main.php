@@ -14,6 +14,7 @@ include_once $g['dir_module'].'var/var.php'; // 모듈변수파일 인클루드
 include_once $g['path_module'].'khusd_st_manager/var/var.php';	// 필수 인클루드 파일
 include_once $g['path_module'].'khusd_st_manager/function/permission.php';	// 필수 인클루드 파일
 
+
 // 관리자 권한이 있다면 변수에 표시
 //if(!permcheck('chief_of_case'))
 if(!permcheck('manager'))
@@ -354,10 +355,12 @@ elseif($mode == 'update_check' && $d['khusd_st_manager']['isperm']) {
 			}
 		}
 }
-elseif($mode == 'verification' && $MANAGER) {
+//elseif( ( $mode == 'verification' && $MANAGER)  || $mode == 'koda' ) {
+elseif(  $mode == 'verification' && $MANAGER   ) {
 
         include_once $g['path_module'].'khusd_st_apply_manager/var/var.define.php';
         include_once $g['path_module'].'khusd_st_manager/function/member.php';
+	include_once $g['path_module'].'khusd_st_consv/var/var.score.php';
 
         if($st_name && !$st_id){
                 $st_id = getSTInfoByName($st_name);
@@ -403,6 +406,21 @@ elseif($mode == 'verification' && $MANAGER) {
         $_data_medi_prof_fix = 'medi_sc.fix_am + medi_sc.fix_pm';
         $_data_medi_splint = 'medi_sc.splint_impression + 0.5*medi_sc.splint_polishing';
 
+        $consv_score_const = $d['khusd_st_consv']['score']['st'];
+
+	$_data_consv_st_op_score = 
+                 '  consv_sc.st_op_tooth_colored_cervical * '.$consv_score_const['st_op_simple']
+                .' + consv_sc.st_op_tooth_colored_simple * '.$consv_score_const['st_op_simple']
+                .' + consv_sc.st_op_tooth_colored_complex * '.$consv_score_const['st_op_complex']
+               .' + consv_sc.st_op_tooth_colored_diastema * '.$consv_score_const['st_op_diastema']
+                .' + consv_sc.st_op_am_simple * '.$consv_score_const['st_op_simple']
+                .' + consv_sc.st_op_am_complex * '.$consv_score_const['st_op_complex'];
+
+	$_data_consv_st_op_prev_cur_score = 
+		$_data_consv_st_op_score 
+                .' - consv_sc.st_op_prev_score ';
+
+
         $_data_post_core = 'pros_sc.post_core_complete + pros_sc.post_core_ongoing + pros_sc.post_core_complete_prof + pros_sc.post_core_ongoing_prof';
         $_data_imp_cr_br = 'pros_sc.imp_cr_br_complete_prof + pros_sc.imp_cr_br_ongoing_prof + pros_sc.imp_cr_br_complete + pros_sc.imp_cr_br_ongoing';
         $_data_single_cr = 'pros_sc.single_cr_complete_prof + pros_sc.single_cr_ongoing_prof + pros_sc.single_cr_complete + pros_sc.single_cr_ongoing';
@@ -434,6 +452,7 @@ elseif($mode == 'verification' && $MANAGER) {
 
         $_data = 'perio_sc.*'
                 .', oms_sc.imp_1st AS oms_imp_1st'
+                .', oms_sc.st_case AS oms_st_case'
                 .', ('.$_data_perio_ch_iot.') AS perio_ch_iot'
                 .', ('.$_data_perio_total_surgery.') AS perio_total_surgery';
 
@@ -449,6 +468,7 @@ elseif($mode == 'verification' && $MANAGER) {
                 ." AND radio_sc.uid = radio_sc_j.uid AND radio_sc.st_id = radio_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = radio_sc.st_id";
         $_data = 'radio_sc.obser_decoding AS radio_obser_decoding'
                 .', radio_sc.obser_filming AS radio_obser_filming'
+                .', radio_sc.taking AS radio_taking'
                 .', radio_sc.st_id AS radio_sc_st_id'
                 .', ('.$_data_radio_decoding_filming.') AS radio_decoding_filming';
         $_sort = $order_by;
@@ -487,7 +507,20 @@ elseif($mode == 'verification' && $MANAGER) {
                 "mbrdata.tmpcode!='tester' AND ".
                 "consv_sc.s_uid = '".$s_uid."'"
                 ." AND consv_sc.uid = consv_sc_j.uid AND consv_sc.st_id = consv_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = consv_sc.st_id";
-        $_data = 'consv_sc.surgery AS consv_surgery';
+        $_data = 'consv_sc.surgery AS consv_surgery'
+                .', consv_sc.st_op_tooth_colored_cervical  AS consv_st_op_tooth_colored_cervical '
+                .', consv_sc.st_op_tooth_colored_simple AS consv_st_op_tooth_colored_simple '
+                .', consv_sc.st_op_tooth_colored_complex  AS consv_st_op_tooth_colored_complex '
+                .', consv_sc.st_op_tooth_colored_diastema AS consv_st_op_tooth_colored_diastema '
+                .', consv_sc.st_op_prev_score AS consv_st_op_prev_score '
+                .', consv_sc.st_endo_1 AS consv_st_endo_1 '
+                .', consv_sc.st_endo_2 AS consv_st_endo_2 '
+                .', ('.$_data_consv_st_op_score.') AS consv_st_op_score '
+                .', ('.$_data_consv_st_op_prev_cur_score.') AS consv_st_op_prev_cur_score '
+                .', consv_sc.st_inlay_1_proc  AS consv_st_inlay_1_proc '
+                .', consv_sc.st_inlay_2_proc  AS consv_st_inlay_2_proc '
+                .', consv_sc.st_inlay_1_case  AS consv_st_inlay_1_case '
+                .', consv_sc.st_inlay_2_case  AS consv_st_inlay_2_case ';
         $_sort = $order_by;
         $_orderby = $order_mode;
         $SCORE_ROWS4 = getDbArray($_table, $_where, $_data, $_sort, $_orderby, 0, 0);
@@ -499,6 +532,9 @@ elseif($mode == 'verification' && $MANAGER) {
                 "pros_sc.s_uid = '".$s_uid."'"
                 ." AND pros_sc.uid = pros_sc_j.uid AND pros_sc.st_id = pros_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = pros_sc.st_id";
         $_data = '  pros_sc.s_uid AS pros_s_uid'
+                .', pros_sc.st_case_1 AS pros_st_case_1'
+                .', pros_sc.st_case_2 AS pros_st_case_2'
+                .', pros_sc.st_case_3 AS pros_st_case_3'
                 .', ('.$_data_post_core.') AS pros_post_core'
                 .', ('.$_data_imp_cr_br.') AS pros_imp_cr_br'
                 .', ('.$_data_single_cr.') AS pros_single_cr'
@@ -517,6 +553,7 @@ elseif($mode == 'verification' && $MANAGER) {
                 ." AND pedia_sc.uid = pedia_sc_j.uid AND pedia_sc.st_id = pedia_sc_j.st_id AND mbrid.uid = mbrdata.memberuid AND mbrid.id = pedia_sc.st_id";
         $_data = '  pedia_sc.s_uid AS pedia_s_uid'
                 .', pedia_sc.ga AS pedia_ga'
+                .', pedia_sc.st_point AS pedia_st_point'
                 .', ('.$_data_pedia_prof_fix.') AS pedia_prof_fix';
         $_sort = $order_by;
         $_orderby = $order_mode;
@@ -735,6 +772,67 @@ elseif($mode == 'verification' && $MANAGER) {
 		
 } //verification end
 
+elseif(  $mode == 'koda' ) {
+        include_once $g['path_module'].'khusd_st_apply_manager/var/var.define.php';
+        include_once $g['path_module'].'khusd_st_manager/function/member.php';
+	include_once $g['path_module'].'khusd_st_consv/var/var.score.php';
+ __debug_print("for_TC_Sub_Ext. - "  ); 
+//dup check start
+                $check_subject0 =  '서브인턴';
+                $check_subject1 =  '자율선택(익스턴십)';
+                $check_start_time = '20180624010000';
+                //$check_start_time = '20180623010000';
+
+                $TC_Sub_Ext = getDbArray(
+                        $table['khusd_st_apply_manager'.'apply_list'].' al'
+                        .', '.$table['khusd_st_apply_manager'.'apply_info_list'].' ail'
+                        .', '.$table['khusd_st_apply_manager'.'apply_item'].' ai',
+
+                        "("
+                                ."al.status = '".$d['khusd_st_apply_manager']['apply_list']['APPLY']."'"
+                                ." OR al.status = '".$d['khusd_st_apply_manager']['apply_list']['ACCEPTED']."'"
+                        ." )"
+                        ." AND al.apply_info_uid = ail.uid"
+                        ." AND al.apply_item_uid = ai.uid"
+                        ." AND ail.date_start >= ".$check_start_time
+			,
+                        "al.*"
+                        .", IF(ail.status = '".$d['khusd_st_apply_manager']['apply_info']['CLOSED']."', 1, 0) AS is_closed"
+                        .", ail.subject AS apply_info_subject"
+			.", ail.info_order AS info_order"
+                        .", ail.date_start AS date_start"
+                        .", ail.date_end AS date_end"
+                        .", ail.date_select AS date_select"
+                        .", ail.department AS department"
+                        .", ail.is_perio_surgery AS is_perio_surgery"
+                        .", ail.uid AS apply_info_uid"
+                        .", ail.apply_limit AS apply_limit"
+                        .", ai.accept_limit AS accept_limit"
+                        .", ai.date_item AS date_item"
+                        .", ai.sub_category AS sub_category"
+                        .", ai.content AS apply_item_content",
+
+                        'al.st_id' ,
+                        'asc' ,
+                        //'desc' ,
+                        0,
+                        0
+                );
+		$Check_Dic = array();
+        while($_R = db_fetch_array($TC_Sub_Ext))   {
+ __debug_print("db_query_go for_TCGOO_Sub_Ext. - " .$_R['st_id'].'_'.$_R['apply_info_subject']  ); 
+		$Check_Dic[ $_R['st_id' ]]['st_id'] = $_R['st_id'];
+		$temp_doc =  str_split($_R['apply_info_subject'],4);
+		$Check_Dic[ $_R['st_id' ]]['subject'] = $temp_doc[0]; 
+		$Check_Dic[ $_R['st_id' ]][  $temp_doc[0]][ $_R['info_order']][$_R['apply_item_content']]['status'] = $_R['status']; 
+		$Check_Dic[ $_R['st_id' ]][  $temp_doc[0]][ $_R['info_order']][$_R['apply_item_content']]['rand'] = $_R['rand']; 
+		$Check_Dic[ $_R['st_id' ]][  $temp_doc[0]][ $_R['info_order']][$_R['apply_item_content']]['apply_item_content'] = $_R['apply_item_content'] ; 
+		//$Check_Dic[ $_R['st_id' ]]['name'] = $_R['name']; 
+
+	}
+
+
+}
 
  
 $theme = $d['khusd_st_manager']['theme'] ? $d['khusd_st_manager']['theme'] : 'default'; //지정테마
