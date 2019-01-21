@@ -6,7 +6,7 @@
 
 
         <table summary="통합 점수표 입니다.">
-        <caption>서브인턴/익스턴십 정리</caption>
+        <caption>서브인턴/익스턴십 summary</caption>
         <colgroup>
         <col width="10">
         <col width="70">

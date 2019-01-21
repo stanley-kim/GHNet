@@ -15,6 +15,13 @@
         <col width="30">
         <col width="30">
         <col width="30">
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4  ):?>
+        <col width="30">
+                <?php endif?>
+        <col width="30">
+        <col width="30">
+        <col width="30">
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4   ):?>
         <col width="30">
         <col width="30">
         <col width="30">
@@ -28,13 +35,12 @@
         <col width="30">
         <col width="30">
         <col width="30">
+                <?php endif?>
         <col width="30">
         <col width="30">
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4   ):?>
         <col width="30">
-        <col width="30">
-        <col width="30">
-        <col width="30">
-        <col width="30">
+                <?php endif?>
         </colgroup>
         <thead>
 
@@ -43,13 +49,20 @@
         <th scope="col" rowspan=3 class="split">학번</th>
         <th scope="col" rowspan=3 class="split">이름</th>
         <th scope="col" rowspan=1 colspan=7  class="split">치주</th>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4   ):?>
         <th scope="col" rowspan=1 colspan=1  class="split">외과</th>
+                <?php endif?>
         <th scope="col" rowspan=1 colspan=3  class="split">영상</th>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4   ):?>
         <th scope="col" rowspan=1 colspan=6  class="split">내과</th>
         <th scope="col" rowspan=1 colspan=1  class="split">보존</th>
         <th scope="col" rowspan=1 colspan=6  class="split">보철</th>
+                <?php endif?>
         <th scope="col" rowspan=1 colspan=2  class="split">소치</th>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4  ):?>
         <th scope="col" rowspan=1 colspan=1  class="split">교정</th>
+                <?php endif?>
+
         </tr>
         <tr>
         <th scope="col" rowspan=2 class="split">IOT</th>
@@ -59,10 +72,13 @@
         <th scope="col" rowspan=2 class="split">Imp 1st</th>
         <th scope="col" rowspan=2 class="split">Imp 2nd</th>
         <th scope="col" rowspan=2 class="split">Total<br>surgery</th>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4  ):?>
         <th scope="col" rowspan=2 class="split">Implant</th>
+                <?php endif?>
         <th scope="col" rowspan=2 class="split">판독</th>
         <th scope="col" rowspan=2 class="split">촬영</th>
         <th scope="col" rowspan=2 class="split">판+촬</th>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4  ):?>
         <th scope="col" rowspan=2 class="split">오전픽스</th>
         <th scope="col" rowspan=2 class="split">오후픽스</th>
         <th scope="col" rowspan=2 class="split">픽스합계</th>
@@ -76,9 +92,12 @@
         <th scope="col" rowspan=2 class="split">Br</th>
         <th scope="col" rowspan=2 class="split">RPD</th>
         <th scope="col" rowspan=2 class="split">CD</th>
+                <?php endif?>
         <th scope="col" rowspan=2 class="split">ga</th>
         <th scope="col" rowspan=2 class="split">교픽</th>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4  ):?>
         <th scope="col" rowspan=2 class="split">신환수</th>
+                <?php endif?>
         </tr>
         <tr></tr>
         </thead>
@@ -98,10 +117,13 @@
         <td class="category2"><?php echo $SCORE['imp_1st']?></td>
         <td class="category2"><?php echo $SCORE['imp_2nd']?></td>
         <td class="category2"><?php echo $SCORE['perio_total_surgery']?></td>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4  ):?>
         <td class="category3"><?php echo $SCORE['oms_imp_1st']?></td>
+                <?php endif?>
         <td ><?php echo $SCORE['radio_obser_decoding']?></td>
         <td ><?php echo $SCORE['radio_obser_filming']?></td>
         <td ><?php echo $SCORE['radio_decoding_filming']?></td>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4  ):?>
         <td class="category1"><?php echo $SCORE['medi_fix_am']?></td>
         <td class="category1"><?php echo $SCORE['medi_fix_pm']?></td>
         <td class="category1"><?php echo $SCORE['medi_prof_fix']?></td>
@@ -115,9 +137,12 @@
         <td><?php echo $SCORE['pros_br']?></td>
         <td><?php echo $SCORE['pros_partial_denture']?></td>
         <td><?php echo $SCORE['pros_complete_denture']?></td>
+                <?php endif?>
         <td class="category1"><?php echo $SCORE['pedia_ga']?></td>
         <td class="category1"><?php echo $SCORE['pedia_prof_fix']?></td>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 || $SEMESTER_INFO['sid'] == 4  ):?>
         <td class="category2"><?php echo $SCORE['ortho_follow_new_cnt']?></td>
+                <?php endif?>
         </tr>
         <?php endforeach?>
         </tbody>
@@ -142,11 +167,13 @@
 	<?php
 	$apply_regular_1st_end_time = '1410';
 	$apply_regular_2nd_end_time = '1420';
+	//$apply_regular_2nd_end_time = '1710';
 	$apply_regular_3rd_end_time = '1430';
+	//$apply_regular_3rd_end_time = '1720';
 	$apply_regular_4th_end_time = '1440';
-	//$apply_regular_4th_end_time = '1445';
-	$apply_regular_5th_end_time = '1500';
-	$apply_regular_6th_end_time = '1510';
+	//$apply_regular_4th_end_time = '1730';
+	$apply_regular_5th_end_time = '1450';
+	$apply_regular_6th_end_time = '1500';
 	$apply_regular_7th_end_time = '1520';
 	$apply_last_order = 7;	
 
