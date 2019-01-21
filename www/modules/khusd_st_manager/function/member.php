@@ -119,7 +119,7 @@ function getCurrentSemesterInfo()
 		$s_uid = isset($s_uid) ? $s_uid : 1;
 	}
 	// HARD CODED
-	$s_uid = 3;
+	$s_uid = 4;
 	
 	$SEMESTER_INFO = getSemesterInfo($s_uid);
 		
