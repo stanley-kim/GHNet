@@ -28,9 +28,11 @@
 		</tr>
 	</thead>
 	<tbody>
+                <?php if($SEMESTER_INFO['sid'] == 2 || $SEMESTER_INFO['sid'] == 3 ):?>
 		<tr>
 			<td class="title" colspan=2 style="background-color:#eeffff;">Pre-ST Case</td>
 		</tr>
+                <?php endif?>
                 <?php if($SEMESTER_INFO['sid'] == 2):?>
 
 		<tr>
@@ -75,6 +77,8 @@
 		</tr>
                 <?php endif?>
 
+                <?php if($SEMESTER_INFO['sid'] == 3):?>
+
 		<tr>
 		<td class="head">Inlay(4학년 1학기)</td>
 		<td class="input">
@@ -84,6 +88,7 @@
 			Resin Inlay - setting<input type="checkbox" name="pre_st_inlay_resin_setting" class="checkbox"<?php if($SCORE['pre_st_inlay_resin_setting']):?>  checked<?php endif?>>
 		</td>
 		</tr>
+                <?php endif?>
 		<tr> <td  colspan=2> </td> </tr>
 		<tr>
 			<td class="title" colspan=2 style="background-color:#32548D; color:white;">FIX</td>
